@@ -4,6 +4,9 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  esbuild: {
+    charset: 'utf8',
+  },
   plugins: [react(), VitePWA({
     registerType: 'autoUpdate',
     manifest: {
