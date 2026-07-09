@@ -22,15 +22,19 @@ const LocaleContext = createContext<LocaleContextValue>({
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>(() => {
-    const stored = localStorage.getItem('locale');
-    if (stored === 'en-US' || stored === 'pt-BR') return stored;
+    try {
+      const stored = localStorage.getItem('locale');
+      if (stored === 'en-US' || stored === 'pt-BR') return stored;
+    } catch {
+      // localStorage indisponível — ignora
+    }
     return 'en-US';
   });
 
   const toggleLocale = useCallback(() => {
     setLocale((prev) => {
       const next = prev === 'pt-BR' ? 'en-US' : 'pt-BR';
-      localStorage.setItem('locale', next);
+      try { localStorage.setItem('locale', next); } catch { /* ignora */ }
       return next;
     });
   }, []);

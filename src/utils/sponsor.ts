@@ -7,20 +7,36 @@ const STORAGE_KEY = 'fdg_sponsor_key';
 // Exemplo: export const SPONSOR_KEYS = ['abc-123'];
 export const SPONSOR_KEYS: string[] = [];
 
-export function getSponsorKey(): string | null {
+let inMemoryKey: string | null = null;
+
+function persistKey(key: string | null): void {
+  inMemoryKey = key;
   try {
-    return localStorage.getItem(STORAGE_KEY);
+    if (key === null) {
+      localStorage.removeItem(STORAGE_KEY);
+    } else {
+      localStorage.setItem(STORAGE_KEY, key);
+    }
   } catch {
-    return null;
+    // localStorage indisponível (ex.: navegação anônima) — mantém apenas em memória
+  }
+}
+
+export function getSponsorKey(): string | null {
+  if (inMemoryKey !== null) return inMemoryKey;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored !== null) inMemoryKey = stored;
+    return stored;
+  } catch {
+    return inMemoryKey;
   }
 }
 
 export function setSponsorKey(key: string): boolean {
   const valid = SPONSOR_KEYS.includes(key.trim());
   if (valid) {
-    try {
-      localStorage.setItem(STORAGE_KEY, key.trim());
-    } catch { /* ignore */ }
+    persistKey(key.trim());
   }
   return valid;
 }
@@ -31,7 +47,5 @@ export function isSponsor(): boolean {
 }
 
 export function clearSponsorKey(): void {
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch { /* ignore */ }
+  persistKey(null);
 }
