@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import FakeDataGenerator from '../engine/generator';
-import SortableFields from './SortableFields';
 import { useLocale } from '../hooks/useLocale';
 
 const FIELDS = FakeDataGenerator.FIELDS;
@@ -19,6 +18,7 @@ export default function FieldSelector({ selectedFields, onFieldsChange }) {
   const { t } = useLocale();
   const [openCategory, setOpenCategory] = useState<string | null>('nome');
   const [search, setSearch] = useState('');
+  const [isOpen, setIsOpen] = useState(true);
 
   const labels = t.fieldSelector.fields;
   const categories = t.fieldSelector.categories;
@@ -55,65 +55,77 @@ export default function FieldSelector({ selectedFields, onFieldsChange }) {
 
   return (
     <div className="field-selector">
-      <h3>{t.fieldSelector.title}</h3>
-      <p className="hint">
-        {t.fieldSelector.selected.replace('{count}', String(selectedFields.length))}
-      </p>
+      <div className="selector-header" onClick={() => setIsOpen(!isOpen)}>
+        <span className="arrow">{isOpen ? '−' : '+'}</span>
+        <h3>{t.fieldSelector.title}</h3>
+        <span className="selected-count-badge">{selectedFields.length}</span>
+      </div>
 
-      <input
-        type="search"
-        placeholder={t.fieldSelector.search}
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="field-search"
-      />
+      {isOpen && (
+        <>
+          <p className="hint">
+            {t.fieldSelector.selected.replace('{count}', String(selectedFields.length))}
+          </p>
 
-      {filtered.map(([category, fields]) => {
-        const isOpen = isFiltering || openCategory === category;
-        const allSelected = fields.every((f) => selectedFields.includes(f));
-        const selectedInCategory = fields.filter((f) => selectedFields.includes(f)).length;
-        const categoryInfo = categories[category] || { icon: '📁', label: category };
-
-        return (
-          <div key={category} className="category-group">
-            <div className="category-header" onClick={() => setOpenCategory(isOpen ? null : category)}>
-              <span className="arrow">{isOpen ? '−' : '+'}</span>
-              <span className="category-name">
-                {categoryInfo.icon} {categoryInfo.label}
-              </span>
+          <div className="selector-toolbar">
+            <input
+              type="search"
+              placeholder={t.fieldSelector.search}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="field-search"
+            />
+            {selectedFields.length > 0 && (
               <button
-                className="btn-toggle-all"
-                onClick={(e) => { e.stopPropagation(); toggleAll(fields); }}
-                aria-label={allSelected ? t.fieldSelector.deselectAll : t.fieldSelector.selectAll}
+                className="btn-clear-all"
+                onClick={() => onFieldsChange([])}
               >
-                {allSelected ? t.fieldSelector.deselectAll : t.fieldSelector.selectAll}
+                {t.fieldSelector.clearAll}
               </button>
-              <span className="category-count">{selectedInCategory}/{fields.length}</span>
-            </div>
-            {isOpen && (
-              <div className="field-grid">
-                {fields.map((field) => (
-                  <label key={field} className="field-chip">
-                    <input
-                      type="checkbox"
-                      checked={selectedFields.includes(field)}
-                      onChange={() => toggleField(field)}
-                    />
-                    <span>{formatLabel(field)}</span>
-                  </label>
-                ))}
-              </div>
             )}
           </div>
-        );
-      })}
 
-      <SortableFields
-        fields={selectedFields}
-        formatLabel={formatLabel}
-        onReorder={(reordered) => onFieldsChange(reordered)}
-        onRemove={(field) => onFieldsChange(selectedFields.filter(f => f !== field))}
-      />
+          {filtered.map(([category, fields]) => {
+            const isCatOpen = isFiltering || openCategory === category;
+            const allSelected = fields.every((f) => selectedFields.includes(f));
+            const selectedInCategory = fields.filter((f) => selectedFields.includes(f)).length;
+            const categoryInfo = categories[category] || { icon: '📁', label: category };
+
+            return (
+              <div key={category} className="category-group">
+                <div className="category-header" onClick={() => setOpenCategory(isCatOpen ? null : category)}>
+                  <span className="arrow">{isCatOpen ? '−' : '+'}</span>
+                  <span className="category-name">
+                    {categoryInfo.icon} {categoryInfo.label}
+                  </span>
+                  <button
+                    className="btn-toggle-all"
+                    onClick={(e) => { e.stopPropagation(); toggleAll(fields); }}
+                    aria-label={allSelected ? t.fieldSelector.deselectAll : t.fieldSelector.selectAll}
+                  >
+                    {allSelected ? t.fieldSelector.deselectAll : t.fieldSelector.selectAll}
+                  </button>
+                  <span className="category-count">{selectedInCategory}/{fields.length}</span>
+                </div>
+                {isCatOpen && (
+                  <div className="field-grid">
+                    {fields.map((field) => (
+                      <label key={field} className="field-chip">
+                        <input
+                          type="checkbox"
+                          checked={selectedFields.includes(field)}
+                          onChange={() => toggleField(field)}
+                        />
+                        <span>{formatLabel(field)}</span>
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </>
+      )}
     </div>
   );
 }

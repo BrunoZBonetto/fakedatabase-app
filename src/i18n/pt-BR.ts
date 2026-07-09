@@ -23,6 +23,8 @@ const ptBR = {
     search: 'Buscar campos...',
     selectAll: 'Marcar todos',
     deselectAll: 'Desmarcar todos',
+    clearAll: 'Limpar todos os campos',
+    sortTitle: '📋 Ordenação',
     sortOrder: 'Ordem dos campos ({count}):',
     categories: {
       identificacao: { icon: '🆔', label: 'Identificação' },

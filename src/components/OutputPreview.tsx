@@ -159,20 +159,21 @@ export default function OutputPreview({ data, fields, customFields = [] }: { dat
             {op.excel}
           </button>
 
-          {format !== 'table' && (
-            <>
-              <button className="btn-copy" onClick={() => copyToClipboard(getContent())} aria-label={op.copy}>
-                {copied ? op.copied : op.copy}
-              </button>
-              <button
-                className="btn-download"
-                onClick={withSponsorModal(() => downloadFile(getContent(), getFileName(format), getMimeType()))}
-                aria-label={`${op.download} ${format.toUpperCase()}`}
-              >
-                {op.download}
-              </button>
-            </>
-          )}
+          <button
+            className="btn-copy"
+            onClick={withSponsorModal(() => copyToClipboard(format === 'table' ? csvOutput : getContent()))}
+            aria-label={op.copy}
+          >
+            {copied ? op.copied : op.copy}
+          </button>
+
+          <button
+            className="btn-download"
+            onClick={withSponsorModal(() => downloadFile(getContent(), getFileName(format), getMimeType()))}
+            aria-label={`${op.download} ${format.toUpperCase()}`}
+          >
+            {op.download}
+          </button>
         </div>
 
         {showSponsorModal && <SponsorModal onClose={() => setShowSponsorModal(false)} />}

@@ -1,10 +1,10 @@
 import { useState, useRef } from 'react';
 import FakeDataGenerator from '../engine/generator';
-import FieldSelector from './FieldSelector';
+import FieldSelector, { formatFieldLabel } from './FieldSelector';
+import SortableFields from './SortableFields';
 import OutputPreview from './OutputPreview';
 import TemplateSelector from './TemplateSelector';
 import CustomFieldsEditor from './CustomFieldsEditor';
-import SponsorBanner from './SponsorBanner';
 import AdUnit from './AdUnit';
 import { useToast } from './Toast';
 import { useTheme } from '../utils/useTheme';
@@ -119,6 +119,8 @@ export default function DataGenerator() {
     toggleTheme();
   };
 
+  const formatLabel = (field: string) => formatFieldLabel(field, t.fieldSelector.fields);
+
   const genLabel = isGenerating && progress.total > 0
     ? dg.progress.replace('{current}', String(progress.current)).replace('{total}', String(progress.total))
     : isGenerating
@@ -146,8 +148,13 @@ export default function DataGenerator() {
 
       <div className="main-layout">
         <aside className="sidebar" role="complementary" aria-label="Settings">
-          <SponsorBanner />
           <TemplateSelector onApply={setSelectedFields} />
+          <SortableFields
+            fields={selectedFields}
+            formatLabel={formatLabel}
+            onReorder={(reordered) => setSelectedFields(reordered)}
+            onRemove={(field) => setSelectedFields(selectedFields.filter(f => f !== field))}
+          />
           <FieldSelector
             selectedFields={selectedFields}
             onFieldsChange={setSelectedFields}

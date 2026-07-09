@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import { useLocale } from '../hooks/useLocale';
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, type DragEndEvent } from '@dnd-kit/core';
 import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
@@ -36,6 +36,8 @@ interface SortableFieldsProps {
 }
 
 export default function SortableFields({ fields, formatLabel, onReorder, onRemove }: SortableFieldsProps) {
+  const { t } = useLocale();
+  const [isOpen, setIsOpen] = useState(false);
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } })
   );
@@ -53,18 +55,25 @@ export default function SortableFields({ fields, formatLabel, onReorder, onRemov
 
   if (fields.length === 0) return null;
 
-  const { t } = useLocale();
-
   return (
     <div className="sortable-fields">
-      <h4>{t.fieldSelector.sortOrder.replace('{count}', String(fields.length))}</h4>
-      <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <SortableContext items={fields} strategy={verticalListSortingStrategy}>
-          {fields.map((f, i) => (
-            <SortableItem key={f} id={f} label={formatLabel(f)} index={i + 1} onRemove={onRemove} />
-          ))}
-        </SortableContext>
-      </DndContext>
+      <div className="sortable-header" onClick={() => setIsOpen(!isOpen)}>
+        <span className="arrow">{isOpen ? '−' : '+'}</span>
+        <span>{t.fieldSelector.sortTitle}</span>
+        <span className="selected-count-badge">{fields.length}</span>
+      </div>
+      {isOpen && (
+        <div className="sortable-body">
+          <p className="hint">{t.fieldSelector.sortOrder.replace('{count}', String(fields.length))}</p>
+          <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+            <SortableContext items={fields} strategy={verticalListSortingStrategy}>
+              {fields.map((f, i) => (
+                <SortableItem key={f} id={f} label={formatLabel(f)} index={i + 1} onRemove={onRemove} />
+              ))}
+            </SortableContext>
+          </DndContext>
+        </div>
+      )}
     </div>
   );
 }

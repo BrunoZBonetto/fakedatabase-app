@@ -23,6 +23,8 @@ const enUS = {
     search: 'Search fields...',
     selectAll: 'Select all',
     deselectAll: 'Deselect all',
+    clearAll: 'Clear all fields',
+    sortTitle: '📋 Field Order',
     sortOrder: 'Field order ({count}):',
     categories: {
       identificacao: { icon: '🆔', label: 'Identification' },
