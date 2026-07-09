@@ -1,15 +1,11 @@
 const STORAGE_KEY = 'fdg_sponsor_key';
 
 // ===== Chaves de sponsor =====
-// Adicione quantas quiser. Cada chave é compartilhada manualmente com um
-// sponsor após o patrocínio (via mensagem do GitHub Sponsors).
-//
-// Se uma chave vazar, remova-a da lista e crie uma nova. Avise os sponsores
-// válidos sobre a nova chave.
-//
-// Exemplo com 2 chaves:
-//   export const SPONSOR_KEYS = ['abc-123', 'xyz-789'];
-export const SPONSOR_KEYS = ['sponsor-dev-2024'];
+// Adicione manualmente as chaves aqui antes do build e compartilhe com cada
+// sponsor após o patrocínio. O array vazio = sem chaves válidas em produção
+// até que você adicione uma.
+// Exemplo: export const SPONSOR_KEYS = ['abc-123'];
+export const SPONSOR_KEYS: string[] = [];
 
 export function getSponsorKey(): string | null {
   try {
