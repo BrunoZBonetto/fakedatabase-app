@@ -1,0 +1,33 @@
+{
+  "_description": "Dicionário de dados financeiros (Brasil)",
+  "banks": [
+    { "name": "Banco do Brasil", "code": "001" },
+    { "name": "Caixa Econômica Federal", "code": "104" },
+    { "name": "Bradesco", "code": "237" },
+    { "name": "Itaú Unibanco", "code": "341" },
+    { "name": "Santander", "code": "033" },
+    { "name": "Banco Inter", "code": "077" },
+    { "name": "Nubank", "code": "260" },
+    { "name": "C6 Bank", "code": "336" },
+    { "name": "PicPay", "code": "380" },
+    { "name": "Safra", "code": "422" },
+    { "name": "BTG Pactual", "code": "208" },
+    { "name": "Original", "code": "212" },
+    { "name": "Banrisul", "code": "041" },
+    { "name": "Sicredi", "code": "748" },
+    { "name": "Sicoob", "code": "756" }
+  ],
+  "currencies": [
+    { "code": "BRL", "symbol": "R$", "name": "Real Brasileiro" },
+    { "code": "USD", "symbol": "$", "name": "Dólar Americano" },
+    { "code": "EUR", "symbol": "€", "name": "Euro" },
+    { "code": "GBP", "symbol": "£", "name": "Libra Esterlina" },
+    { "code": "ARS", "symbol": "$", "name": "Peso Argentino" }
+  ],
+  "paymentMethods": [
+    "Boleto Bancário", "Cartão de Crédito", "Cartão de Débito", "PIX",
+    "Transferência Bancária", "Débito Automático", "Carteira Digital", "Cheque"
+  ],
+  "creditCardFlags": ["Visa", "Mastercard", "American Express", "Elo", "Hipercard", "Diners Club", "Discover", "Soro cred", "Cabal", "Alelo"],
+  "statusOptions": ["Pago", "Pendente", "Atrasado", "Cancelado", "Em Processamento", "Estornado"]
+}

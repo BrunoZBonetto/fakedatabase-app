@@ -1,0 +1,27 @@
+{
+  "_description": "Dicionário de profissões e áreas de atuação",
+  "professions": [
+    "Desenvolvedor de Software", "Engenheiro de Dados", "Cientista de Dados",
+    "Analista de Sistemas", "Desenvolvedor Mobile", "DevOps Engineer",
+    "Arquiteto de Soluções", "UX/UI Designer", "Product Manager",
+    "Product Owner", "Scrum Master", "Tech Lead", "QA Engineer",
+    "Engenheiro de Machine Learning", "Analista de Segurança da Informação",
+    "DBA", "Desenvolvedor Full Stack", "Desenvolvedor Front-end",
+    "Desenvolvedor Back-end", "Engenheiro de Software", "Analista de BI",
+    "Analista de Suporte", "Gerente de Projetos", "Coordenador de TI",
+    "Médico", "Enfermeiro", "Dentista", "Farmacêutico",
+    "Advogado", "Contador", "Administrador", "Economista",
+    "Arquiteto", "Engenheiro Civil", "Engenheiro Mecânico",
+    "Professor", "Jornalista", "Publicitário", "Designer Gráfico",
+    "Chef de Cozinha", "Piloto de Avião", "Veterinário", "Psicólogo"
+  ],
+  "education": [
+    "Ensino Médio Completo", "Graduação Incompleta", "Graduação Completa",
+    "Pós-graduação Incompleta", "Pós-graduação Completa", "Mestrado Incompleto",
+    "Mestrado Completo", "Doutorado Incompleto", "Doutorado Completo",
+    "MBA Incompleto", "MBA Completo", "Curso Técnico Completo"
+  ],
+  "seniority": [
+    "Júnior", "Pleno", "Sênior", "Especialista", "Master", "Estagiário", "Trainee"
+  ]
+}

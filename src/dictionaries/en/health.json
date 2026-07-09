@@ -1,0 +1,6 @@
+{
+  "_description": "American health data dictionary",
+  "allergies": ["Dust", "Pollen", "Mold", "Pet Dander", "Peanuts", "Tree Nuts", "Milk", "Eggs", "Gluten", "Lactose", "Shellfish", "Soy", "Sulfa Drugs", "Penicillin", "Aspirin", "Ibuprofen", "Latex", "Nickel", "Bee Stings", "Poison Ivy"],
+  "diseases": ["Type 1 Diabetes", "Type 2 Diabetes", "Hypertension", "Asthma", "Allergic Rhinitis", "Bronchitis", "Migraine", "Anxiety Disorder", "Depression", "Hypothyroidism", "Hyperthyroidism", "High Cholesterol", "Obesity", "Rheumatoid Arthritis", "Osteoporosis", "GERD", "Sinusitis", "Eczema", "Psoriasis", "Celiac Disease"],
+  "medications": ["Ibuprofen", "Acetaminophen", "Amoxicillin", "Azithromycin", "Omeprazole", "Lisinopril", "Metformin", "Atorvastatin", "Levothyroxine", "Losartan", "Albuterol", "Prednisone", "Sertraline", "Fluoxetine", "Loratadine", "Cetirizine", "Diphenhydramine", "Metoprolol", "Hydrochlorothiazide", "Simvastatin"]
+}

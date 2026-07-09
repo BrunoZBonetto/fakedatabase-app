@@ -1,0 +1,8 @@
+{
+  "_description": "American company data dictionary",
+  "prefixes": ["Tech", "Info", "Data", "Web", "Net", "Soft", "Alpha", "Beta", "Sigma", "Delta", "Global", "Master", "Pro", "Super", "Mega", "Ultra", "Max", "Prime", "Smart", "Vision", "Nova", "Apex", "Core", "Elevate", "Fusion", "Helix", "Nexus", "Pinnacle", "Stratus", "Vertex"],
+  "suffixes": ["Technologies", "Solutions", "Systems", "Consulting", "Services", "Digital", "Innovations", "Corp", "Group", "Inc", "LLC", "Industries", "Software", "Cloud", "Mobile", "Analytics", "Dynamics", "Networks", "Logistics", "Partners"],
+  "sectors": ["Technology", "Healthcare", "Education", "Finance", "Retail", "Manufacturing", "Agriculture", "Construction", "Logistics", "Telecommunications", "Energy", "Food & Beverage", "Pharmaceutical", "Automotive", "Consulting", "Marketing", "E-commerce", "Entertainment", "Travel", "Real Estate"],
+  "positions": ["Analyst", "Coordinator", "Manager", "Director", "Supervisor", "Assistant", "Consultant", "Specialist", "Developer", "Designer", "Architect", "Team Lead", "Product Owner", "Scrum Master", "Tech Lead", "CTO", "CFO", "CEO", "COO", "Head"],
+  "areas": ["IT", "HR", "Finance", "Marketing", "Sales", "Operations", "Legal", "Business Development", "Logistics", "Support", "Engineering", "Quality Assurance", "Infrastructure", "Security", "Data", "Product", "Design", "Research & Development"]
+}

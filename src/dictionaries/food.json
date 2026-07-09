@@ -1,0 +1,7 @@
+{
+  "_description": "Dicionário de alimentos e bebidas",
+  "cuisineTypes": ["Brasileira", "Italiana", "Japonesa", "Chinesa", "Mexicana", "Francesa", "Árabe", "Indiana", "Tailandesa", "Peruana", "Coreana", "Espanhola", "Portuguesa", "Alemã", "Grega", "Americana", "Argentina", "Mineira", "Baiana", "Nordestina"],
+  "dietaryRestrictions": ["Nenhuma", "Vegetariano", "Vegano", "Sem Glúten", "Sem Lactose", "Low Carb", "Cetogênica", "Halal", "Kosher", "Hipocalórica", "Dieta Mediterrânea", "Dieta DASH"],
+  "meals": ["Café da Manhã", "Lanche da Manhã", "Almoço", "Lanche da Tarde", "Jantar", "Ceia"],
+  "restaurants": ["Outback Steakhouse", "Madero", "Fogo de Chão", "Casa do Pão de Queijo", "Habib's", "McDonald's", "Burger King", "Subway", "Giraffas", "Spoleto", "Viena", "Jerônimo", "Terraço Grill", "Paris 6", "La Trattoria", "Kani Sushi", "Aoyama", "Temakeria", "Matsuya", "China in Box"]
+}

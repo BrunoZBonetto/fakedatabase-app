@@ -1,0 +1,7 @@
+{
+  "_description": "American food dictionary",
+  "cuisineTypes": ["American", "Italian", "Mexican", "Chinese", "Japanese", "Indian", "Thai", "French", "Greek", "Korean", "Vietnamese", "Southern", "Cajun", "Tex-Mex", "Mediterranean", "Middle Eastern", "Caribbean", "German", "Irish", "Soul Food"],
+  "dietaryRestrictions": ["None", "Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Low Carb", "Keto", "Paleo", "Whole30", "Mediterranean Diet", "DASH Diet", "Low Sodium"],
+  "meals": ["Breakfast", "Brunch", "Lunch", "Snack", "Dinner", "Dessert", "Late Night Snack"],
+  "restaurants": ["McDonald's", "Starbucks", "Subway", "Burger King", "Wendy's", "Taco Bell", "Domino's", "Pizza Hut", "KFC", "Chipotle", "Panera Bread", "Dunkin'", "Popeyes", "Chick-fil-A", "Five Guys", "In-N-Out Burger", "Whataburger", "Olive Garden", "The Cheesecake Factory", "Applebee's", "Texas Roadhouse", "Cracker Barrel", "Denny's", "IHOP", "Waffle House"]
+}

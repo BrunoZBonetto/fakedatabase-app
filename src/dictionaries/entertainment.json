@@ -1,0 +1,5 @@
+{
+  "_description": "Dicionário de entretenimento",
+  "games": ["Minecraft", "Grand Theft Auto V", "The Legend of Zelda", "Super Mario", "Fortnite", "Call of Duty", "League of Legends", "Valorant", "Counter-Strike 2", "World of Warcraft", "The Witcher 3", "Red Dead Redemption 2", "God of War", "Elden Ring", "Cyberpunk 2077", "FIFA", "EA Sports FC", "NBA 2K", "Among Us", "Free Fire", "PUBG", "Roblox", "The Sims", "Assassin's Creed", "Final Fantasy", "Street Fighter", "Mortal Kombat", "Pokémon", "Animal Crossing", "Stardew Valley"],
+  "gameGenres": ["Ação", "Aventura", "RPG", "FPS", "Estratégia", "Simulação", "Esportes", "Corrida", "Puzzle", "Terror", "Battle Royale", "MOBA", "MMORPG", "Sandbox", "Plataforma", "Luta", "Sobrevivência"]
+}

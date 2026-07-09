@@ -1,0 +1,26 @@
+{
+  "_description": "Dicionário de nomes e sobrenomes brasileiros",
+  "firstName": {
+    "masculino": [
+      "Miguel", "Arthur", "Heitor", "Davi", "Gabriel", "Pedro", "Bernardo", "Lucas",
+      "Matheus", "Rafael", "Felipe", "Gustavo", "Bruno", "Eduardo", "Daniel", "Marcos",
+      "Thiago", "André", "Leonardo", "Caio", "Victor", "Fernando", "Ricardo", "Henrique",
+      "Samuel", "João", "Carlos", "Antônio", "Francisco", "José", "Paulo", "Alexandre",
+      "Rodrigo", "Diego", "Fabio", "Renato", "Marcelo", "Leandro", "Igor", "Vinicius"
+    ],
+    "feminino": [
+      "Helena", "Alice", "Laura", "Maria", "Sophia", "Isabella", "Manuela", "Valentina",
+      "Luiza", "Julia", "Mariana", "Beatriz", "Ana", "Clara", "Gabriela", "Rafaela",
+      "Isadora", "Lara", "Cecília", "Lívia", "Fernanda", "Camila", "Amanda", "Bianca",
+      "Carolina", "Patrícia", "Juliana", "Larissa", "Daniela", "Natália", "Letícia",
+      "Bruna", "Tatiane", "Priscila", "Vanessa", "Renata", "Andréia", "Michele", "Simone"
+    ]
+  },
+  "lastName": [
+    "Silva", "Santos", "Oliveira", "Souza", "Rodrigues", "Ferreira", "Alves", "Pereira",
+    "Lima", "Gomes", "Costa", "Ribeiro", "Martins", "Carvalho", "Almeida", "Lopes",
+    "Soares", "Fernandes", "Vieira", "Barbosa", "Rocha", "Dias", "Nascimento", "Andrade",
+    "Moreira", "Nunes", "Marques", "Machado", "Mendes", "Freitas", "Cardoso", "Ramos",
+    "Gonçalves", "Araújo", "Castro", "Barros", "Campos", "Teixeira", "Correia", "Pinto"
+  ]
+}

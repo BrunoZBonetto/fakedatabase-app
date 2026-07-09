@@ -1,0 +1,30 @@
+{
+  "_description": "American financial data dictionary",
+  "banks": [
+    { "name": "JPMorgan Chase", "code": "021000021" },
+    { "name": "Bank of America", "code": "026009593" },
+    { "name": "Wells Fargo", "code": "121000248" },
+    { "name": "Citibank", "code": "021000089" },
+    { "name": "U.S. Bank", "code": "091000022" },
+    { "name": "PNC Bank", "code": "043000096" },
+    { "name": "Capital One", "code": "051400549" },
+    { "name": "TD Bank", "code": "031101266" },
+    { "name": "Bank of New York Mellon", "code": "021000613" },
+    { "name": "Goldman Sachs", "code": "021001033" },
+    { "name": "Morgan Stanley", "code": "021000473" },
+    { "name": "HSBC USA", "code": "021001088" },
+    { "name": "Charles Schwab", "code": "121202211" },
+    { "name": "Ally Bank", "code": "124003116" },
+    { "name": "American Express", "code": "124071889" }
+  ],
+  "currencies": [
+    { "code": "USD", "symbol": "$", "name": "US Dollar" },
+    { "code": "EUR", "symbol": "€", "name": "Euro" },
+    { "code": "GBP", "symbol": "£", "name": "British Pound" },
+    { "code": "CAD", "symbol": "C$", "name": "Canadian Dollar" },
+    { "code": "MXN", "symbol": "Mex$", "name": "Mexican Peso" }
+  ],
+  "paymentMethods": ["Credit Card", "Debit Card", "ACH Transfer", "Wire Transfer", "PayPal", "Venmo", "Cash", "Check", "Apple Pay", "Google Pay", "Cryptocurrency", "Zelle"],
+  "creditCardFlags": ["Visa", "Mastercard", "American Express", "Discover", "Diners Club", "UnionPay"],
+  "statusOptions": ["Paid", "Pending", "Overdue", "Canceled", "Processing", "Refunded"]
+}

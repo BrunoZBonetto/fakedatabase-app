@@ -1,0 +1,6 @@
+{
+  "_description": "American professions dictionary",
+  "professions": ["Software Developer", "Data Engineer", "Data Scientist", "Systems Analyst", "Mobile Developer", "DevOps Engineer", "Solutions Architect", "UX/UI Designer", "Product Manager", "Product Owner", "Scrum Master", "Tech Lead", "QA Engineer", "Machine Learning Engineer", "Information Security Analyst", "Database Administrator", "Full Stack Developer", "Front-end Developer", "Back-end Developer", "Software Engineer", "BI Analyst", "IT Support Specialist", "Project Manager", "IT Coordinator", "Physician", "Registered Nurse", "Dentist", "Pharmacist", "Lawyer", "Accountant", "Business Administrator", "Economist", "Architect", "Civil Engineer", "Mechanical Engineer", "Teacher", "Journalist", "Marketing Manager", "Graphic Designer", "Chef", "Airline Pilot", "Veterinarian", "Psychologist", "Electrician", "Plumber", "Firefighter", "Police Officer", "Real Estate Agent"],
+  "education": ["High School Diploma", "Some College", "Associate Degree", "Bachelor's Degree", "Some Graduate School", "Master's Degree", "Doctorate (PhD)", "MBA", "JD (Juris Doctor)", "MD (Doctor of Medicine)", "Trade School Certificate"],
+  "seniority": ["Junior", "Mid-Level", "Senior", "Staff", "Principal", "Intern", "Entry Level", "Lead", "Fellow"]
+}

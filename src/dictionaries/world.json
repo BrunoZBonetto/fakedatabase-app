@@ -1,0 +1,341 @@
+{
+  "_description": "Dados mundiais: países, estados, cidades e códigos de área telefônicos",
+  "countries": {
+    "BR": {
+      "name": "Brasil",
+      "code": "BR",
+      "phoneCode": "55",
+      "areaCodes": ["11","12","13","14","15","16","17","18","19","21","22","24","27","28","31","32","33","34","35","37","38","41","42","43","44","45","46","47","48","49","51","53","54","55","61","62","63","64","65","66","67","68","69","71","73","74","75","77","79","81","82","83","84","85","86","87","88","89","91","92","93","94","95","96","97","98","99"],
+      "phoneFormat": "brazil",
+      "states": [
+        { "abbr": "SP", "name": "São Paulo", "areaCodes": ["11","12","13","14","15","16","17","18","19"] },
+        { "abbr": "RJ", "name": "Rio de Janeiro", "areaCodes": ["21","22","24"] },
+        { "abbr": "MG", "name": "Minas Gerais", "areaCodes": ["31","32","33","34","35","37","38"] },
+        { "abbr": "RS", "name": "Rio Grande do Sul", "areaCodes": ["51","53","54","55"] },
+        { "abbr": "PR", "name": "Paraná", "areaCodes": ["41","42","43","44","45","46"] },
+        { "abbr": "SC", "name": "Santa Catarina", "areaCodes": ["47","48","49"] },
+        { "abbr": "BA", "name": "Bahia", "areaCodes": ["71","73","74","75","77"] },
+        { "abbr": "DF", "name": "Distrito Federal", "areaCodes": ["61"] },
+        { "abbr": "GO", "name": "Goiás", "areaCodes": ["62","63","64"] },
+        { "abbr": "PE", "name": "Pernambuco", "areaCodes": ["81","87"] },
+        { "abbr": "CE", "name": "Ceará", "areaCodes": ["85","88"] },
+        { "abbr": "AM", "name": "Amazonas", "areaCodes": ["92","97"] },
+        { "abbr": "PA", "name": "Pará", "areaCodes": ["91","93","94"] },
+        { "abbr": "ES", "name": "Espírito Santo", "areaCodes": ["27","28"] }
+      ],
+      "cities": [
+        { "name": "São Paulo", "state": "SP" },
+        { "name": "Campinas", "state": "SP" },
+        { "name": "Santos", "state": "SP" },
+        { "name": "Rio de Janeiro", "state": "RJ" },
+        { "name": "Niterói", "state": "RJ" },
+        { "name": "Belo Horizonte", "state": "MG" },
+        { "name": "Uberlândia", "state": "MG" },
+        { "name": "Porto Alegre", "state": "RS" },
+        { "name": "Caxias do Sul", "state": "RS" },
+        { "name": "Curitiba", "state": "PR" },
+        { "name": "Londrina", "state": "PR" },
+        { "name": "Florianópolis", "state": "SC" },
+        { "name": "Salvador", "state": "BA" },
+        { "name": "Brasília", "state": "DF" },
+        { "name": "Goiânia", "state": "GO" },
+        { "name": "Recife", "state": "PE" },
+        { "name": "Fortaleza", "state": "CE" },
+        { "name": "Manaus", "state": "AM" },
+        { "name": "Belém", "state": "PA" },
+        { "name": "Vitória", "state": "ES" }
+      ]
+    },
+    "US": {
+      "name": "Estados Unidos",
+      "code": "US",
+      "phoneCode": "1",
+      "areaCodes": ["212","310","312","305","214","617","206","415","404","303","602","713","702","206","718","646","412","504","901","816"],
+      "phoneFormat": "north_america",
+      "states": [
+        { "abbr": "NY", "name": "New York", "areaCodes": ["212","718","646","917"] },
+        { "abbr": "CA", "name": "California", "areaCodes": ["310","415","213","323","619","408","510","818"] },
+        { "abbr": "IL", "name": "Illinois", "areaCodes": ["312","773","847"] },
+        { "abbr": "FL", "name": "Florida", "areaCodes": ["305","786","954","407","813"] },
+        { "abbr": "TX", "name": "Texas", "areaCodes": ["214","713","512","972","469","210"] },
+        { "abbr": "MA", "name": "Massachusetts", "areaCodes": ["617","857","781"] },
+        { "abbr": "WA", "name": "Washington", "areaCodes": ["206","425","253"] },
+        { "abbr": "CO", "name": "Colorado", "areaCodes": ["303","720"] },
+        { "abbr": "GA", "name": "Georgia", "areaCodes": ["404","470","678"] },
+        { "abbr": "AZ", "name": "Arizona", "areaCodes": ["602","480","623"] }
+      ],
+      "cities": [
+        { "name": "New York", "state": "NY" },
+        { "name": "Los Angeles", "state": "CA" },
+        { "name": "San Francisco", "state": "CA" },
+        { "name": "Chicago", "state": "IL" },
+        { "name": "Miami", "state": "FL" },
+        { "name": "Orlando", "state": "FL" },
+        { "name": "Dallas", "state": "TX" },
+        { "name": "Houston", "state": "TX" },
+        { "name": "Boston", "state": "MA" },
+        { "name": "Seattle", "state": "WA" },
+        { "name": "Denver", "state": "CO" },
+        { "name": "Atlanta", "state": "GA" },
+        { "name": "Phoenix", "state": "AZ" }
+      ]
+    },
+    "GB": {
+      "name": "Reino Unido",
+      "code": "GB",
+      "phoneCode": "44",
+      "areaCodes": ["20","121","161","131","141","151","161","113","114","115","117","118","191","2920","2380","2381","2382","2383","2384","2385","2386","2387","2388","2389","2390","2391","2392","2393","2394","2395","2396","2397","2398","2399"],
+      "phoneFormat": "uk",
+      "states": [
+        { "abbr": "ENG", "name": "Inglaterra", "areaCodes": ["20","121","161","131","141","151","161","113","114","115","117","118","191"] },
+        { "abbr": "SCT", "name": "Escócia", "areaCodes": ["131","141","1506","131","141","1506"] },
+        { "abbr": "WLS", "name": "País de Gales", "areaCodes": ["29","1633","1639","1654","1666","1670","1671","1672","1673","1674","1675","1676","1677","1678","1679","1680","1681","1682","1683","1684","1685","1686","1687","1688","1689","1690","1691","1692","1693","1694","1695","1696","1697","1698","1699"] },
+        { "abbr": "NIR", "name": "Irlanda do Norte", "areaCodes": ["28","2890","2891","2892","2893","2894","2895","2896","2897","2898","2899"] }
+      ],
+      "cities": [
+        { "name": "Londres", "state": "ENG" },
+        { "name": "Manchester", "state": "ENG" },
+        { "name": "Birmingham", "state": "ENG" },
+        { "name": "Liverpool", "state": "ENG" },
+        { "name": "Edimburgo", "state": "SCT" },
+        { "name": "Glasgow", "state": "SCT" },
+        { "name": "Cardiff", "state": "WLS" },
+        { "name": "Belfast", "state": "NIR" }
+      ]
+    },
+    "CA": {
+      "name": "Canadá",
+      "code": "CA",
+      "phoneCode": "1",
+      "areaCodes": ["416","514","604","780","403","905","438","778","587","250","204","306","902","613","519","418","819","450","709","867"],
+      "phoneFormat": "north_america",
+      "states": [
+        { "abbr": "ON", "name": "Ontário", "areaCodes": ["416","905","613","519","807","705"] },
+        { "abbr": "QC", "name": "Quebec", "areaCodes": ["514","438","418","819","450","579"] },
+        { "abbr": "BC", "name": "Colúmbia Britânica", "areaCodes": ["604","778","250","236"] },
+        { "abbr": "AB", "name": "Alberta", "areaCodes": ["780","587","403","825"] },
+        { "abbr": "MB", "name": "Manitoba", "areaCodes": ["204","431"] }
+      ],
+      "cities": [
+        { "name": "Toronto", "state": "ON" },
+        { "name": "Ottawa", "state": "ON" },
+        { "name": "Montreal", "state": "QC" },
+        { "name": "Quebec", "state": "QC" },
+        { "name": "Vancouver", "state": "BC" },
+        { "name": "Calgary", "state": "AB" },
+        { "name": "Edmonton", "state": "AB" },
+        { "name": "Winnipeg", "state": "MB" }
+      ]
+    },
+    "FR": {
+      "name": "França",
+      "code": "FR",
+      "phoneCode": "33",
+      "areaCodes": ["1","2","3","4","5","6","7","8","9"],
+      "phoneFormat": "europe",
+      "states": [
+        { "abbr": "IDF", "name": "Île-de-France", "areaCodes": ["1"] },
+        { "abbr": "PDL", "name": "Pays de la Loire", "areaCodes": ["2"] },
+        { "abbr": "BRE", "name": "Bretagne", "areaCodes": ["2"] },
+        { "abbr": "NAQ", "name": "Nouvelle-Aquitaine", "areaCodes": ["5"] },
+        { "abbr": "OCC", "name": "Occitanie", "areaCodes": ["4"] },
+        { "abbr": "ARA", "name": "Auvergne-Rhône-Alpes", "areaCodes": ["4"] },
+        { "abbr": "PAC", "name": "Provence-Alpes-Côte d'Azur", "areaCodes": ["4"] },
+        { "abbr": "HDF", "name": "Hauts-de-France", "areaCodes": ["3"] }
+      ],
+      "cities": [
+        { "name": "Paris", "state": "IDF" },
+        { "name": "Lyon", "state": "ARA" },
+        { "name": "Marselha", "state": "PAC" },
+        { "name": "Toulouse", "state": "OCC" },
+        { "name": "Bordeaux", "state": "NAQ" },
+        { "name": "Lille", "state": "HDF" },
+        { "name": "Nantes", "state": "PDL" },
+        { "name": "Rennes", "state": "BRE" }
+      ]
+    },
+    "DE": {
+      "name": "Alemanha",
+      "code": "DE",
+      "phoneCode": "49",
+      "areaCodes": ["30","40","89","69","211","221","511","6131","6151","621","681","711","721","751","761","771","811","821","831","841","851","861","871","881","891","901","911","921","931","941","951","961","971","981","991"],
+      "phoneFormat": "europe",
+      "states": [
+        { "abbr": "BE", "name": "Berlim", "areaCodes": ["30"] },
+        { "abbr": "BY", "name": "Baviera", "areaCodes": ["89","821","831","841","851","861","871","881","891","901","911","921","931","941","951","961","971","981","991"] },
+        { "abbr": "NW", "name": "Renânia do Norte-Vestfália", "areaCodes": ["211","221","511","521","531","541","551","561","571","581","591","201","202","203","204","205","206","207","208","209","241","2421","2431","2441","2451","2461","2471","2481","2491"] },
+        { "abbr": "HE", "name": "Hessen", "areaCodes": ["69","611","612","6131","6141","6151","6161","6171","6181","6191","6421","6431","6441","6451","6461","6471","6481","6491"] },
+        { "abbr": "BW", "name": "Baden-Württemberg", "areaCodes": ["711","721","731","741","751","761","771","781","791","7021","7031","7041","7051","7061","7071","7081","7091"] }
+      ],
+      "cities": [
+        { "name": "Berlim", "state": "BE" },
+        { "name": "Munique", "state": "BY" },
+        { "name": "Colônia", "state": "NW" },
+        { "name": "Frankfurt", "state": "HE" },
+        { "name": "Stuttgart", "state": "BW" },
+        { "name": "Düsseldorf", "state": "NW" },
+        { "name": "Hamburgo", "state": "NW" }
+      ]
+    },
+    "ES": {
+      "name": "Espanha",
+      "code": "ES",
+      "phoneCode": "34",
+      "areaCodes": ["91","93","95","96","97","98","91","92","93","94","95","96","97","98","99"],
+      "phoneFormat": "europe",
+      "states": [
+        { "abbr": "MD", "name": "Madrid", "areaCodes": ["91"] },
+        { "abbr": "CT", "name": "Catalunha", "areaCodes": ["93"] },
+        { "abbr": "AN", "name": "Andaluzia", "areaCodes": ["95"] },
+        { "abbr": "VC", "name": "Comunidade Valenciana", "areaCodes": ["96"] },
+        { "abbr": "PV", "name": "País Basco", "areaCodes": ["94"] },
+        { "abbr": "GA", "name": "Galícia", "areaCodes": ["98"] }
+      ],
+      "cities": [
+        { "name": "Madrid", "state": "MD" },
+        { "name": "Barcelona", "state": "CT" },
+        { "name": "Sevilha", "state": "AN" },
+        { "name": "Valência", "state": "VC" },
+        { "name": "Bilbao", "state": "PV" },
+        { "name": "Santiago de Compostela", "state": "GA" }
+      ]
+    },
+    "IT": {
+      "name": "Itália",
+      "code": "IT",
+      "phoneCode": "39",
+      "areaCodes": ["06","02","011","055","081","091","041","051","030","070","010","015","0171","0185","019","031","0331","0341","0342","035","0362","0363","0371","0372","0373","0374","0375","0376","0377","0378","0379","0381","0382","0383","0384","0385","0386","0387","0388","0389","039"],
+      "phoneFormat": "europe",
+      "states": [
+        { "abbr": "LAZ", "name": "Lácio", "areaCodes": ["06"] },
+        { "abbr": "LOM", "name": "Lombardia", "areaCodes": ["02","030","031","0331","0341","0342","035","0362","0363","0371","0372","0373","0374","0375","0376","0377","0378","0379","0381","0382","0383","0384","0385","0386","0387","0388","0389","039"] },
+        { "abbr": "CAM", "name": "Campânia", "areaCodes": ["081"] },
+        { "abbr": "SIC", "name": "Sicília", "areaCodes": ["091"] },
+        { "abbr": "VEN", "name": "Vêneto", "areaCodes": ["041"] },
+        { "abbr": "PIE", "name": "Piemonte", "areaCodes": ["011"] },
+        { "abbr": "EMR", "name": "Emília-Romanha", "areaCodes": ["051"] },
+        { "abbr": "TOS", "name": "Toscana", "areaCodes": ["055"] }
+      ],
+      "cities": [
+        { "name": "Roma", "state": "LAZ" },
+        { "name": "Milão", "state": "LOM" },
+        { "name": "Nápoles", "state": "CAM" },
+        { "name": "Palermo", "state": "SIC" },
+        { "name": "Veneza", "state": "VEN" },
+        { "name": "Turim", "state": "PIE" },
+        { "name": "Bolonha", "state": "EMR" },
+        { "name": "Florença", "state": "TOS" }
+      ]
+    },
+    "PT": {
+      "name": "Portugal",
+      "code": "PT",
+      "phoneCode": "351",
+      "areaCodes": ["21","22","23","24","25","26","27","28","29","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299"],
+      "phoneFormat": "europe",
+      "states": [
+        { "abbr": "LIS", "name": "Lisboa", "areaCodes": ["21"] },
+        { "abbr": "POR", "name": "Porto", "areaCodes": ["22"] },
+        { "abbr": "COI", "name": "Coimbra", "areaCodes": ["23","239"] },
+        { "abbr": "BRA", "name": "Braga", "areaCodes": ["25","253"] },
+        { "abbr": "FAR", "name": "Faro", "areaCodes": ["28","289"] },
+        { "abbr": "MAD", "name": "Funchal (Madeira)", "areaCodes": ["29","291"] }
+      ],
+      "cities": [
+        { "name": "Lisboa", "state": "LIS" },
+        { "name": "Porto", "state": "POR" },
+        { "name": "Coimbra", "state": "COI" },
+        { "name": "Braga", "state": "BRA" },
+        { "name": "Faro", "state": "FAR" },
+        { "name": "Funchal", "state": "MAD" }
+      ]
+    },
+    "AR": {
+      "name": "Argentina",
+      "code": "AR",
+      "phoneCode": "54",
+      "areaCodes": ["11","221","223","261","341","351","381","387","291","299","280","362","370","376","379","385","388","342","343","347","348","349","3511","352","353","354","355","356","357","358","359"],
+      "phoneFormat": "south_america",
+      "states": [
+        { "abbr": "BA", "name": "Buenos Aires", "areaCodes": ["11","221","223","224","225","226","227","228","229"] },
+        { "abbr": "CO", "name": "Córdoba", "areaCodes": ["351","352","353","354","355","356","357","358","359"] },
+        { "abbr": "SF", "name": "Santa Fé", "areaCodes": ["341","342","343","346","347","348","349"] },
+        { "abbr": "MZ", "name": "Mendoza", "areaCodes": ["261","262"] },
+        { "abbr": "TF", "name": "Terra do Fogo", "areaCodes": ["2901"] }
+      ],
+      "cities": [
+        { "name": "Buenos Aires", "state": "BA" },
+        { "name": "Córdoba", "state": "CO" },
+        { "name": "Rosário", "state": "SF" },
+        { "name": "Mendoza", "state": "MZ" },
+        { "name": "Ushuaia", "state": "TF" }
+      ]
+    },
+    "MX": {
+      "name": "México",
+      "code": "MX",
+      "phoneCode": "52",
+      "areaCodes": ["55","81","33","614","618","644","656","662","664","667","686","111","222","229","238","241","243","244","245","246","247","248","249","271","272","273","274","275","276","277","278","279","281","282","283","284","285","286","287","288","289","311","312","313","314","315","316","317","318","319","321","322","323","324","325","326","327","328","329"],
+      "phoneFormat": "south_america",
+      "states": [
+        { "abbr": "CMX", "name": "Cidade do México", "areaCodes": ["55"] },
+        { "abbr": "NL", "name": "Nuevo León", "areaCodes": ["81"] },
+        { "abbr": "JAL", "name": "Jalisco", "areaCodes": ["33"] },
+        { "abbr": "CHH", "name": "Chihuahua", "areaCodes": ["614","618","644","656","662","664","667","686"] }
+      ],
+      "cities": [
+        { "name": "Cidade do México", "state": "CMX" },
+        { "name": "Monterrey", "state": "NL" },
+        { "name": "Guadalajara", "state": "JAL" },
+        { "name": "Chihuahua", "state": "CHH" },
+        { "name": "Ciudad Juárez", "state": "CHH" }
+      ]
+    },
+    "JP": {
+      "name": "Japão",
+      "code": "JP",
+      "phoneCode": "81",
+      "areaCodes": ["3","6","52","11","92","75","78","82","86","96","97","98","99","42","43","44","45","46","47","48","49","50","51","53","54","55","56","57","58","59","61","62","63","64","65","66","67","68","69","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99"],
+      "phoneFormat": "japan",
+      "states": [
+        { "abbr": "TYO", "name": "Tóquio", "areaCodes": ["3"] },
+        { "abbr": "OSA", "name": "Osaka", "areaCodes": ["6"] },
+        { "abbr": "AIC", "name": "Aichi", "areaCodes": ["52"] },
+        { "abbr": "HKD", "name": "Hokkaido", "areaCodes": ["11"] },
+        { "abbr": "FUK", "name": "Fukuoka", "areaCodes": ["92"] },
+        { "abbr": "KYT", "name": "Quioto", "areaCodes": ["75"] }
+      ],
+      "cities": [
+        { "name": "Tóquio", "state": "TYO" },
+        { "name": "Osaka", "state": "OSA" },
+        { "name": "Nagoia", "state": "AIC" },
+        { "name": "Sapporo", "state": "HKD" },
+        { "name": "Fukuoka", "state": "FUK" },
+        { "name": "Quioto", "state": "KYT" }
+      ]
+    },
+    "AU": {
+      "name": "Austrália",
+      "code": "AU",
+      "phoneCode": "61",
+      "areaCodes": ["2","3","7","8","2","3","7","8"],
+      "phoneFormat": "australia",
+      "states": [
+        { "abbr": "NSW", "name": "Nova Gales do Sul", "areaCodes": ["2"] },
+        { "abbr": "VIC", "name": "Vitória", "areaCodes": ["3"] },
+        { "abbr": "QLD", "name": "Queensland", "areaCodes": ["7"] },
+        { "abbr": "WA", "name": "Austrália Ocidental", "areaCodes": ["8"] }
+      ],
+      "cities": [
+        { "name": "Sydney", "state": "NSW" },
+        { "name": "Melbourne", "state": "VIC" },
+        { "name": "Brisbane", "state": "QLD" },
+        { "name": "Perth", "state": "WA" }
+      ]
+    }
+  },
+  "streetGeneric": ["Main St", "High St", "Park Ave", "Oak St", "Elm St", "Cedar Ln", "Maple Dr", "Broadway", "Church St", "Market St"],
+  "continents": ["América do Sul", "América do Norte", "América Central", "Europa", "Ásia", "África", "Oceania", "Antártida"],
+  "languages": ["Português", "Inglês", "Espanhol", "Francês", "Alemão", "Italiano", "Japonês", "Chinês", "Coreano", "Russo", "Árabe", "Hindi", "Holandês", "Sueco", "Norueguês", "Dinamarquês", "Finlandês", "Polonês", "Grego", "Turco", "Tailandês", "Vietnamita", "Hebraico", "Swahili", "Zulu"],
+  "timezones": ["UTC-12:00", "UTC-11:00", "UTC-10:00", "UTC-09:00", "UTC-08:00", "UTC-07:00", "UTC-06:00", "UTC-05:00", "UTC-04:00", "UTC-03:00", "UTC-02:00", "UTC-01:00", "UTC+00:00", "UTC+01:00", "UTC+02:00", "UTC+03:00", "UTC+04:00", "UTC+05:00", "UTC+05:30", "UTC+06:00", "UTC+07:00", "UTC+08:00", "UTC+09:00", "UTC+10:00", "UTC+11:00", "UTC+12:00"]
+}

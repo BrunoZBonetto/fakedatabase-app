@@ -1,0 +1,71 @@
+{
+  "_description": "Dicionário de endereços brasileiros",
+  "streetPrefix": [
+    "Rua", "Avenida", "Travessa", "Alameda", "Praça", "Rodovia", "Estrada", "Beco", "Viela"
+  ],
+  "streetNames": [
+    "Brasil", "São Paulo", "Rio de Janeiro", "Bahia", "Minas Gerais", "Amazonas",
+    "das Flores", "dos Ipês", "das Palmeiras", "dos Jacarandás", "das Acácias",
+    "7 de Setembro", "15 de Novembro", "21 de Abril", "Tiradentes", "Dom Pedro",
+    "Presidente Vargas", "Getúlio Vargas", "Juscelino Kubitschek", "Santos Dumont",
+    "Marechal Deodoro", "Duque de Caxias", "Barão do Rio Branco", "Visconde de Mauá"
+  ],
+  "neighborhoods": [
+    "Centro", "Jardim América", "Vila Mariana", "Bela Vista", "Boa Vista",
+    "Santa Cecília", "Pinheiros", "Moema", "Copacabana", "Ipanema", "Leblon",
+    "Barra da Tijuca", "Savassi", "Funcionários", "Lourdes", "Independência",
+    "Petrópolis", "Cidade Baixa", "Moinhos de Vento", "Três Figueiras",
+    "São Cristóvão", "São Francisco", "Vila Nova", "Jardim Europa", "Planalto"
+  ],
+  "cities": [
+    { "name": "São Paulo", "state": "SP" },
+    { "name": "Rio de Janeiro", "state": "RJ" },
+    { "name": "Belo Horizonte", "state": "MG" },
+    { "name": "Porto Alegre", "state": "RS" },
+    { "name": "Curitiba", "state": "PR" },
+    { "name": "Brasília", "state": "DF" },
+    { "name": "Salvador", "state": "BA" },
+    { "name": "Recife", "state": "PE" },
+    { "name": "Fortaleza", "state": "CE" },
+    { "name": "Manaus", "state": "AM" },
+    { "name": "Florianópolis", "state": "SC" },
+    { "name": "Goiânia", "state": "GO" },
+    { "name": "Belém", "state": "PA" },
+    { "name": "Campinas", "state": "SP" },
+    { "name": "Caxias do Sul", "state": "RS" },
+    { "name": "Santos", "state": "SP" },
+    { "name": "Natal", "state": "RN" },
+    { "name": "Vitória", "state": "ES" },
+    { "name": "São Luís", "state": "MA" },
+    { "name": "Maceió", "state": "AL" }
+  ],
+  "states": [
+    { "name": "Acre", "abbr": "AC" },
+    { "name": "Alagoas", "abbr": "AL" },
+    { "name": "Amapá", "abbr": "AP" },
+    { "name": "Amazonas", "abbr": "AM" },
+    { "name": "Bahia", "abbr": "BA" },
+    { "name": "Ceará", "abbr": "CE" },
+    { "name": "Distrito Federal", "abbr": "DF" },
+    { "name": "Espírito Santo", "abbr": "ES" },
+    { "name": "Goiás", "abbr": "GO" },
+    { "name": "Maranhão", "abbr": "MA" },
+    { "name": "Mato Grosso", "abbr": "MT" },
+    { "name": "Mato Grosso do Sul", "abbr": "MS" },
+    { "name": "Minas Gerais", "abbr": "MG" },
+    { "name": "Pará", "abbr": "PA" },
+    { "name": "Paraíba", "abbr": "PB" },
+    { "name": "Paraná", "abbr": "PR" },
+    { "name": "Pernambuco", "abbr": "PE" },
+    { "name": "Piauí", "abbr": "PI" },
+    { "name": "Rio de Janeiro", "abbr": "RJ" },
+    { "name": "Rio Grande do Norte", "abbr": "RN" },
+    { "name": "Rio Grande do Sul", "abbr": "RS" },
+    { "name": "Rondônia", "abbr": "RO" },
+    { "name": "Roraima", "abbr": "RR" },
+    { "name": "Santa Catarina", "abbr": "SC" },
+    { "name": "São Paulo", "abbr": "SP" },
+    { "name": "Sergipe", "abbr": "SE" },
+    { "name": "Tocantins", "abbr": "TO" }
+  ]
+}

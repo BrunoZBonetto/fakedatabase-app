@@ -1,0 +1,8 @@
+{
+  "_description": "Dicionário de características pessoais",
+  "ethnicities": ["Branca", "Parda", "Preta", "Amarela", "Indígena"],
+  "nationalities": ["Brasileira", "Americana", "Argentina", "Portuguesa", "Espanhola", "Italiana", "Francesa", "Alemã", "Inglesa", "Japonesa", "Chinesa", "Mexicana", "Canadense", "Australiana", "Chilena", "Uruguaia", "Paraguaia", "Colombiana", "Peruana", "Venezuelana"],
+  "naturalness": ["São Paulo - SP", "Rio de Janeiro - RJ", "Belo Horizonte - MG", "Porto Alegre - RS", "Curitiba - PR", "Salvador - BA", "Recife - PE", "Fortaleza - CE", "Brasília - DF", "Manaus - AM", "Belém - PA", "Florianópolis - SC", "Goiânia - GO", "Campinas - SP", "São Luís - MA", "Maceió - AL", "Natal - RN", "João Pessoa - PB", "Aracaju - SE", "Cuiabá - MT"],
+  "suffixes": ["Jr.", "Filho", "Neto", "Sobrinho", "Segundo", "Terceiro"],
+  "titles": ["Sr.", "Sra.", "Srta.", "Dr.", "Dra.", "Prof.", "Profa.", "Eng.", "Arq."]
+}

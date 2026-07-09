@@ -1,0 +1,19 @@
+{
+  "_description": "Dicionário de dados de internet",
+  "emailDomains": [
+    "gmail.com", "hotmail.com", "outlook.com", "yahoo.com.br", "bol.com.br",
+    "uol.com.br", "terra.com.br", "ig.com.br", "protonmail.com", "live.com"
+  ],
+  "corporateDomains": [
+    "techcorp.com.br", "inovabrasil.com.br", "datawise.com.br", "sigmatec.com.br",
+    "nexa.com.br", "pontal.com.br", "vertice.com.br", "aurora.com.br", "axis.com.br"
+  ],
+  "usernames": [
+    "admin", "contato", "vendas", "suporte", "financeiro", "rh", "marketing",
+    "desenvolvimento", "info", "comercial", "sac", "atendimento", "orcamento"
+  ],
+  "phonePrefix": {
+    "fixo": ["11", "21", "31", "41", "51", "61", "71", "81", "91"],
+    "celular": ["119", "219", "319", "419", "519", "619", "719", "819", "919"]
+  }
+}

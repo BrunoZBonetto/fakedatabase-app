@@ -1,0 +1,6 @@
+{
+  "_description": "Dicionário de moda",
+  "clothingBrands": ["Zara", "Renner", "Riachuelo", "Marisa", "C&A", "Lojas Americanas", "Hering", "Reserva", "Farm", "Animale", "Colcci", "Tommy Hilfiger", "Levi's", "Adidas", "Nike", "Puma", "Vans", "Oakley", "Lacoste", "Polo Wear", "Brooksfield", "Calvin Klein", "Diesel", "Gucci", "Louis Vuitton"],
+  "footwearSizes": ["33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
+  "fabrics": ["Algodão", "Poliéster", "Seda", "Linho", "Lã", "Jeans", "Malha", "Tricô", "Viscose", "Náilon", "Elastano", "Couro", "Veludo", "Cetim", "Sarja", "Chiffon", "Brim", "Tactel"]
+}

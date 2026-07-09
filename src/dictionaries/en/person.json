@@ -1,0 +1,8 @@
+{
+  "_description": "American personal characteristics dictionary",
+  "ethnicities": ["White", "Black or African American", "Hispanic or Latino", "Asian", "Native American", "Pacific Islander", "Two or More Races", "Other"],
+  "nationalities": ["American", "Canadian", "Mexican", "British", "German", "French", "Italian", "Irish", "Japanese", "Chinese", "Korean", "Indian", "Brazilian", "Australian", "Russian", "Spanish", "Polish", "Swedish", "Dutch", "Argentinian"],
+  "naturalness": ["New York City - NY", "Los Angeles - CA", "Chicago - IL", "Houston - TX", "Phoenix - AZ", "Philadelphia - PA", "San Antonio - TX", "San Diego - CA", "Dallas - TX", "Austin - TX", "Miami - FL", "Denver - CO", "Boston - MA", "Seattle - WA", "Nashville - TN", "Portland - OR", "Las Vegas - NV", "Atlanta - GA", "Minneapolis - MN", "Detroit - MI"],
+  "suffixes": ["Jr.", "Sr.", "II", "III", "IV", "PhD", "MD", "Esq."],
+  "titles": ["Mr.", "Mrs.", "Ms.", "Miss", "Dr.", "Prof.", "Rev.", "Hon."]
+}

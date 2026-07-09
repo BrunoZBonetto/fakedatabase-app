@@ -1,0 +1,29 @@
+{
+  "_description": "Dicionário de dados empresariais brasileiros",
+  "prefixes": [
+    "Tech", "Info", "Data", "Web", "Net", "Soft", "Alpha", "Beta", "Sigma", "Delta",
+    "Global", "Master", "Pro", "Super", "Mega", "Ultra", "Max", "Prime", "Smart", "Vision"
+  ],
+  "suffixes": [
+    "Tecnologia", "Soluções", "Sistemas", "Consultoria", "Serviços", "Digital",
+    "Inovação", "Corp", "Group", "Ltda", "S.A.", "Brasil", "Engenharia", "Comércio",
+    "Indústria", "Logística", "Software", "Cloud", "Mobile", "Inteligência"
+  ],
+  "sectors": [
+    "Tecnologia da Informação", "Saúde", "Educação", "Finanças", "Varejo",
+    "Indústria", "Agronegócio", "Construção Civil", "Logística", "Telecomunicações",
+    "Energia", "Alimentício", "Farmacêutico", "Automotivo", "Consultoria",
+    "Marketing Digital", "E-commerce", "Entretenimento", "Turismo", "Imobiliário"
+  ],
+  "positions": [
+    "Analista", "Coordenador", "Gerente", "Diretor", "Supervisor", "Assistente",
+    "Consultor", "Especialista", "Desenvolvedor", "Designer", "Arquiteto",
+    "Líder Técnico", "Product Owner", "Scrum Master", "Tech Lead", "CTO",
+    "CFO", "CEO", "COO", "Head"
+  ],
+  "areas": [
+    "TI", "RH", "Financeiro", "Marketing", "Vendas", "Operações", "Jurídico",
+    "Comercial", "Logística", "Suporte", "Desenvolvimento", "Qualidade",
+    "Infraestrutura", "Segurança", "Dados", "Produto", "Design", "Pesquisa"
+  ]
+}

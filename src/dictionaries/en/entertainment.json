@@ -1,0 +1,5 @@
+{
+  "_description": "American entertainment dictionary",
+  "games": ["Minecraft", "Grand Theft Auto V", "The Legend of Zelda: Tears of the Kingdom", "Super Mario Bros Wonder", "Fortnite", "Call of Duty: Modern Warfare", "League of Legends", "Valorant", "Counter-Strike 2", "World of Warcraft", "The Witcher 3", "Red Dead Redemption 2", "God of War Ragnarok", "Elden Ring", "Cyberpunk 2077", "Madden NFL", "NBA 2K", "MLB The Show", "Among Us", "Roblox", "The Sims 4", "Assassin's Creed Mirage", "Final Fantasy XVI", "Street Fighter 6", "Mortal Kombat 1", "Pokemon Scarlet", "Animal Crossing", "Starfield", "Diablo IV", "Baldur's Gate 3"],
+  "gameGenres": ["Action", "Adventure", "RPG", "FPS", "Strategy", "Simulation", "Sports", "Racing", "Puzzle", "Horror", "Battle Royale", "MOBA", "MMORPG", "Sandbox", "Platformer", "Fighting", "Survival", "Open World"]
+}
