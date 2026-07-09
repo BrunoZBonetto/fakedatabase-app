@@ -56,7 +56,7 @@ export default function FieldSelector({ selectedFields, onFieldsChange }) {
   return (
     <div className="field-selector">
       <div className="selector-header" onClick={() => setIsOpen(!isOpen)}>
-        <span className="arrow">{isOpen ? '−' : '+'}</span>
+        <span className="arrow">{isOpen ? '▼' : '▶'}</span>
         <h3>{t.fieldSelector.title}</h3>
         <span className="selected-count-badge">{selectedFields.length}</span>
       </div>

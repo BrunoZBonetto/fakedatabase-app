@@ -58,7 +58,7 @@ export default function SortableFields({ fields, formatLabel, onReorder, onRemov
   return (
     <div className="sortable-fields">
       <div className="sortable-header" onClick={() => setIsOpen(!isOpen)}>
-        <span className="arrow">{isOpen ? '−' : '+'}</span>
+        <span className="arrow">{isOpen ? '▼' : '▶'}</span>
         <span>{t.fieldSelector.sortTitle}</span>
         <span className="selected-count-badge">{fields.length}</span>
       </div>
