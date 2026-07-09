@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { SPONSOR_CONFIG } from './SponsorBanner';
 import { useLocale } from '../hooks/useLocale';
 import { useAnalytics } from '../utils/analytics';
 
@@ -29,7 +28,7 @@ export default function SponsorModal({ onClose }: { onClose: () => void }) {
           <p className="modal-emoji">❤️</p>
           <p className="modal-text">{sm.text}</p>
           <a
-            href={SPONSOR_CONFIG.githubSponsors}
+            href="https://github.com/sponsors/BrunoZBonetto"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-sponsor modal-btn"

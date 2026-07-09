@@ -110,12 +110,6 @@ const ptBR = {
   sponsorBanner: {
     freeText: '❤️ Esta ferramenta é mantida com amor e dedicação.',
     buttonText: '💡 Ajude a manter esta ferramenta gratuita para todos',
-    alreadySponsor: 'Já é sponsor? Insira sua chave:',
-    placeholder: 'Insira sua chave',
-    ok: 'OK',
-    invalidKey: 'Chave inválida',
-    thanks: '🌟 Obrigado por apoiar este projeto!',
-    removeKey: 'Remover chave',
   },
   sponsorModal: {
     text: 'Contribua para manter esta ferramenta gratuita e sem anúncios',
@@ -126,7 +120,7 @@ const ptBR = {
     label: 'Publicidade',
     text: 'Espaço reservado para anúncio.',
     link: 'Seja sponsor',
-    suffix: 'e remova esta mensagem.',
+    suffix: 'e apoie este projeto.',
   },
   templateSelector: {
     title: '⚡ Templates Prontos',

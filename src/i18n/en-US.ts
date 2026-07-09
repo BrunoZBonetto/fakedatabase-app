@@ -110,12 +110,6 @@ const enUS = {
   sponsorBanner: {
     freeText: '❤️ This tool is built with love and dedication.',
     buttonText: '💡 Help keep this tool free for everyone',
-    alreadySponsor: 'Already a sponsor? Enter your key:',
-    placeholder: 'Enter your key',
-    ok: 'OK',
-    invalidKey: 'Invalid key',
-    thanks: '🌟 Thank you for supporting this project!',
-    removeKey: 'Remove key',
   },
   sponsorModal: {
     text: 'Support this project and keep it free of ads',
@@ -126,7 +120,7 @@ const enUS = {
     label: 'Advertisement',
     text: 'Space reserved for advertising.',
     link: 'Become a sponsor',
-    suffix: 'and remove this message.',
+    suffix: 'and support this project.',
   },
   templateSelector: {
     title: '⚡ Quick Templates',
