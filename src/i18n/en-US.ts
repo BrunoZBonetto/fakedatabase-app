@@ -154,7 +154,23 @@ const enUS = {
     possibleValues: 'Possible Values',
     useValues: 'Use values from list only',
     noValues: 'No custom columns yet.',
+    removeColumn: 'Remove column',
+    addValue: 'Add new value',
+    removeValue: 'Remove value',
     hint: 'The column will randomly pick one of these values for each generated row.',
+    columnTypes: {
+      INT: 'Integer (INT)',
+      BIGINT: 'Large Integer (BIGINT)',
+      VARCHAR: 'Short Text (VARCHAR)',
+      CHAR: 'Fixed Text (CHAR)',
+      TEXT: 'Long Text (TEXT)',
+      DECIMAL: 'Decimal (DECIMAL)',
+      FLOAT: 'Floating Point (FLOAT)',
+      BOOLEAN: 'Boolean (BOOLEAN)',
+      DATE: 'Date (DATE)',
+      DATETIME: 'Date Time (DATETIME)',
+      UUID: 'UUID',
+    },
   },
 };
 

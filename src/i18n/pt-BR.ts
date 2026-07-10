@@ -154,7 +154,23 @@ const ptBR = {
     possibleValues: 'Valores Possíveis',
     useValues: 'Usar apenas valores da lista',
     noValues: 'Nenhuma coluna personalizada ainda.',
+    removeColumn: 'Remover coluna',
+    addValue: 'Adicionar novo valor',
+    removeValue: 'Remover valor',
     hint: 'A coluna sorteará aleatoriamente um destes valores para cada linha gerada.',
+    columnTypes: {
+      INT: 'Inteiro (INT)',
+      BIGINT: 'Inteiro Grande (BIGINT)',
+      VARCHAR: 'Texto Curto (VARCHAR)',
+      CHAR: 'Texto Fixo (CHAR)',
+      TEXT: 'Texto Longo (TEXT)',
+      DECIMAL: 'Decimal (DECIMAL)',
+      FLOAT: 'Ponto Flutuante (FLOAT)',
+      BOOLEAN: 'Booleano (BOOLEAN)',
+      DATE: 'Data (DATE)',
+      DATETIME: 'Data e Hora (DATETIME)',
+      UUID: 'UUID',
+    },
   },
 };
 

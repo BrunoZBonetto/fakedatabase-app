@@ -118,8 +118,8 @@ export default function CustomFieldsEditor({ customFields, onCustomFieldsChange 
                     onChange={(e) => updateField(field.id, { type: e.target.value })}
                     className="custom-field-type"
                   >
-                    {Object.entries(COLUMN_TYPES).map(([key, info]) => (
-                      <option key={key} value={key}>{info.label}</option>
+                    {Object.keys(COLUMN_TYPES).map((key) => (
+                      <option key={key} value={key}>{ce.columnTypes[key]}</option>
                     ))}
                   </select>
 
@@ -138,7 +138,7 @@ export default function CustomFieldsEditor({ customFields, onCustomFieldsChange 
                   <button
                     className="btn-remove-field"
                     onClick={() => removeField(field.id)}
-                    title="Remover coluna"
+                    title={ce.removeColumn}
                   >
                     ✕
                   </button>
@@ -167,14 +167,14 @@ export default function CustomFieldsEditor({ customFields, onCustomFieldsChange 
                         <button
                           className="btn-add-value"
                           onClick={() => addValue(field)}
-                          title="Adicionar novo valor"
+                          title={ce.addValue}
                         >
                           +
                         </button>
                         <button
                           className="btn-remove-value"
                           onClick={() => removeValue(field, val.id)}
-                          title="Remover valor"
+                          title={ce.removeValue}
                         >
                           ✕
                         </button>
