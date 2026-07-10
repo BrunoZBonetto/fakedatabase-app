@@ -3,7 +3,7 @@
  */
 import * as XLSX from 'xlsx';
 
-const FIELD_TO_SQL = {
+export const FIELD_TO_SQL: Record<string, { type: string; size?: number }> = {
   id:             { type: 'INT', size: 10 },
   uuid:           { type: 'UUID' },
   cpf:            { type: 'VARCHAR', size: 14 },
@@ -61,10 +61,10 @@ const FIELD_TO_SQL = {
   sentence:       { type: 'VARCHAR', size: 512 },
 };
 
-export function toXLSX(data, fields) {
+export function toXLSX(data, fields, sheetName = 'Dados') {
   const worksheet = XLSX.utils.json_to_sheet(data, { header: fields });
   const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'Dados');
+  XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
   return XLSX.write(workbook, { type: 'array', bookType: 'xlsx' });
 }
 
@@ -124,7 +124,7 @@ export const toXML = (data, rootName = 'registros', itemName = 'registro') => {
   return '<?xml version="1.0" encoding="UTF-8"?>\n<' + rootName + '>\n' + items.join('\n') + '\n</' + rootName + '>';
 };
 
-export const toYAML = (data: Record<string, unknown>[]): string => {
+export const toYAML = (data: Record<string, unknown>[], itemName = 'registro'): string => {
   if (!data.length) return '';
   const yamlValue = (v: unknown, _indent: number): string => {
     if (v === null || v === undefined) return 'null';
@@ -137,6 +137,6 @@ export const toYAML = (data: Record<string, unknown>[]): string => {
   };
   return data.map(row => {
     const lines = Object.entries(row).map(([k, v]) => `  ${k}: ${yamlValue(v, 0)}`);
-    return '  - registro:\n' + lines.join('\n');
+    return '  - ' + itemName + ':\n' + lines.join('\n');
   }).join('\n');
 };

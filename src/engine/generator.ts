@@ -363,6 +363,12 @@ class FakeDataGenerator {
       const areaCode = stateData.areaCodes?.length ? randomPick(stateData.areaCodes) : randomPick(countryData.areaCodes);
       ctx = { countryKey, countryData, stateData, cityData, areaCode };
     }
+    const coreDateFields = ['date', 'dateUS', 'dateTime', 'year', 'month', 'weekDay', 'season', 'time', 'timestamp'];
+    const hasCoreDate = coreDateFields.some(f => fields.includes(f));
+    if (hasCoreDate) {
+      ctx._refDate = randomDate(new Date(2000, 0, 1), new Date());
+    }
+
     const record = {};
     const d = this.d;
     if (fields.includes('email') && fields.includes('company')) {
@@ -425,6 +431,13 @@ class FakeDataGenerator {
     const firstNamesAll = (): string[] => [...d.names.firstName[nameMaleKey], ...d.names.firstName[nameFemaleKey]];
     const randFN = () => ctx?._firstName ?? randomPick(firstNamesAll());
     const randLN = () => ctx?._lastName ?? randomPick(d.names.lastName);
+
+    const seasonFromMonth = (month: number): string => {
+      const idx = isEN
+        ? [3, 3, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3][month]
+        : [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 0][month];
+      return d.categories.seasons[idx];
+    };
 
     const generators = {
       id:            () => this.counter,
@@ -526,11 +539,11 @@ class FakeDataGenerator {
       status:        () => randomPick(d.finance.statusOptions),
       amount:        () => parseFloat((Math.random() * 10000).toFixed(2)),
       price:         () => parseFloat((Math.random() * 5000 + 10).toFixed(2)),
-      date:          () => fmtDate(randomDate(new Date(2000,0,1), new Date())),
-      dateTime:      () => fmtDateTime(randomDate(new Date(2020,0,1), new Date())),
+      date:          () => ctx?._refDate ? fmtDate(ctx._refDate) : fmtDate(randomDate(new Date(2000,0,1), new Date())),
+      dateTime:      () => ctx?._refDate ? fmtDateTime(ctx._refDate) : fmtDateTime(randomDate(new Date(2020,0,1), new Date())),
       birthDate:     () => fmtDate(randomDate(new Date(1950,0,1), new Date(2005,11,31))),
-      dateUS:        () => randomDate(new Date(2000,0,1), new Date()).toISOString().split('T')[0],
-      year:          () => randomInt(1990, 2026),
+      dateUS:        () => ctx?._refDate ? ctx._refDate.toISOString().split('T')[0] : randomDate(new Date(2000,0,1), new Date()).toISOString().split('T')[0],
+      year:          () => ctx?._refDate ? ctx._refDate.getFullYear() : randomInt(1990, 2026),
       age:           () => randomInt(18, 80),
       quantity:      () => randomInt(1, 100),
       percentage:    () => randomInt(0, 100),
@@ -591,9 +604,9 @@ class FakeDataGenerator {
       gender:            () => randomPick(d.categories.genders),
       vehicleType:       () => randomPick(d.categories.vehicleTypes),
       planet:            () => randomPick(d.categories.planets),
-      weekDay:           () => randomPick(d.categories.weekDays),
-      month:             () => randomPick(d.categories.months),
-      season:            () => randomPick(d.categories.seasons),
+      weekDay:           () => ctx?._refDate ? d.categories.weekDays[ctx._refDate.getDay()] : randomPick(d.categories.weekDays),
+      month:             () => ctx?._refDate ? d.categories.months[ctx._refDate.getMonth()] : randomPick(d.categories.months),
+      season:            () => ctx?._refDate ? seasonFromMonth(ctx._refDate.getMonth()) : randomPick(d.categories.seasons),
       orderStatus:       () => randomPick(d.categories.orderStatus),
       schoolSubject:     () => randomPick(d.categories.schoolSubjects),
       suffix:         () => randomPick(d.person.suffixes),
@@ -664,8 +677,8 @@ class FakeDataGenerator {
       shippingMethod: () => isEN
         ? randomPick(['USPS Priority Mail', 'UPS Ground', 'FedEx Express', 'DHL Express', 'Amazon Logistics', 'Store Pickup', 'Local Delivery'])
         : randomPick(['Correios PAC', 'Correios Sedex', 'Jadlog', 'Total Express', 'Loggi', 'Transportadora Própria', 'Motoboy', 'Retirada no Local']),
-      time:           () => `${String(randomInt(0,23)).padStart(2,'0')}:${String(randomInt(0,59)).padStart(2,'0')}`,
-      timestamp:      () => Math.floor(randomDate(new Date(2020,0,1),new Date()).getTime() / 1000),
+      time:           () => ctx?._refDate ? `${String(ctx._refDate.getHours()).padStart(2,'0')}:${String(ctx._refDate.getMinutes()).padStart(2,'0')}` : `${String(randomInt(0,23)).padStart(2,'0')}:${String(randomInt(0,59)).padStart(2,'0')}`,
+      timestamp:      () => ctx?._refDate ? Math.floor(ctx._refDate.getTime() / 1000) : Math.floor(randomDate(new Date(2020,0,1),new Date()).getTime() / 1000),
       dueDate:        () => fmtDate(randomDate(new Date(), new Date(2027,11,31))),
       paymentDate:    () => fmtDate(randomDate(new Date(2020,0,1), new Date())),
     };

@@ -1,6 +1,6 @@
 import { useState, useMemo, type ReactNode } from 'react';
 import { useToast } from './Toast';
-import { toSQL, toXML, toXLSX, toYAML } from '../utils/exporters';
+import { toSQL, toXML, toXLSX, toYAML, FIELD_TO_SQL } from '../utils/exporters';
 import { formatFieldLabel } from './FieldSelector';
 import SponsorModal from './SponsorModal';
 import { useLocale } from '../hooks/useLocale';
@@ -24,6 +24,20 @@ function escapeCSVValue(val: unknown) {
   return s;
 }
 
+function formatNumber(val: unknown, loc: string): unknown {
+  if (typeof val !== 'number' || Number.isInteger(val)) return val;
+  const str = val.toFixed(2);
+  return loc === 'pt-BR' ? str.replace('.', ',') : str;
+}
+
+function toCamelCaseKey(label: string): string {
+  const normalized = label.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const cleaned = normalized.replace(/[^a-zA-Z0-9\s]+/g, ' ');
+  const words = cleaned.trim().split(/\s+/).filter(Boolean);
+  if (!words.length) return label;
+  return words[0].toLowerCase() + words.slice(1).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('');
+}
+
 export default function OutputPreview({ data, fields, customFields = [] }: { data: Record<string, unknown>[]; fields: string[]; customFields?: any[] }) {
   const { t, locale } = useLocale();
   const analytics = useAnalytics();
@@ -45,33 +59,75 @@ export default function OutputPreview({ data, fields, customFields = [] }: { dat
   ];
 
   const totalPages = Math.ceil(data.length / PAGE_SIZE);
+
+  const localizedFields = useMemo(
+    () => fields.map(f => toCamelCaseKey(formatFieldLabel(f, fieldLabels))),
+    [fields, fieldLabels]
+  );
+
+  const localizedData = useMemo(
+    () => data.map(row => {
+      const locRow: Record<string, unknown> = {};
+      fields.forEach(f => {
+        locRow[toCamelCaseKey(formatFieldLabel(f, fieldLabels))] = formatNumber(row[f], locale);
+      });
+      return locRow;
+    }),
+    [data, fields, fieldLabels, locale]
+  );
+
+  const localizedDataRawNumbers = useMemo(
+    () => data.map(row => {
+      const locRow: Record<string, unknown> = {};
+      fields.forEach(f => {
+        locRow[toCamelCaseKey(formatFieldLabel(f, fieldLabels))] = row[f];
+      });
+      return locRow;
+    }),
+    [data, fields, fieldLabels]
+  );
+
   const pagedData = useMemo(
     () => data.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE),
     [data, page]
   );
 
-  const jsonOutput = useMemo(() => JSON.stringify(data, null, 2), [data]);
+  const jsonOutput = useMemo(() => JSON.stringify(localizedDataRawNumbers, null, 2), [localizedDataRawNumbers]);
 
   const csvOutput = useMemo(() => {
     if (!data.length || !fields.length) return '';
-    const header = fields.map(escapeCSVValue).join(',');
-    const rows = data.map((row) =>
-      fields.map((f) => escapeCSVValue(row[f])).join(',')
+    const header = localizedFields.map(escapeCSVValue).join(',');
+    const rows = localizedData.map((row) =>
+      localizedFields.map((f) => escapeCSVValue(row[f])).join(',')
     );
     return [header, ...rows].join('\n');
-  }, [data, fields]);
+  }, [localizedData, localizedFields, data, fields]);
 
   const sqlOutput = useMemo(() => {
-    const schema = {};
+    const schema: Record<string, { type: string; size?: number }> = {};
     for (const cf of customFields) {
       if (cf.name?.trim() && cf.type) {
-        schema[cf.name.trim()] = { type: cf.type, size: cf.size };
+        schema[toCamelCaseKey(formatFieldLabel(cf.name.trim(), fieldLabels))] = { type: cf.type, size: cf.size };
       }
     }
-    return toSQL(data, schema);
-  }, [data, customFields]);
-  const xmlOutput = useMemo(() => toXML(data), [data]);
-  const yamlOutput = useMemo(() => toYAML(data), [data]);
+    for (const f of fields) {
+      const label = toCamelCaseKey(formatFieldLabel(f, fieldLabels));
+      if (!schema[label] && FIELD_TO_SQL[f]) {
+        schema[label] = FIELD_TO_SQL[f];
+      }
+    }
+    const tableName = locale === 'en-US' ? 'generated_data' : 'dados_gerados';
+    return toSQL(localizedData, schema, tableName);
+  }, [localizedData, customFields, fields, fieldLabels, locale]);
+  const xmlOutput = useMemo(() => {
+    const rootName = locale === 'en-US' ? 'records' : 'registros';
+    const itemName = locale === 'en-US' ? 'record' : 'registro';
+    return toXML(localizedData, rootName, itemName);
+  }, [localizedData, locale]);
+  const yamlOutput = useMemo(() => {
+    const itemName = locale === 'en-US' ? 'record' : 'registro';
+    return toYAML(localizedData, itemName);
+  }, [localizedData, locale]);
 
   const getContent = () => {
     switch (format) {
@@ -121,7 +177,8 @@ export default function OutputPreview({ data, fields, customFields = [] }: { dat
 
   const downloadExcel = () => {
     analytics.trackDownload('xlsx');
-    const buffer = toXLSX(data, fields);
+    const sheetName = locale === 'en-US' ? 'Data' : 'Dados';
+    const buffer = toXLSX(localizedDataRawNumbers, localizedFields, sheetName);
     const blob = new Blob([buffer], { type: 'application/octet-stream' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -187,7 +244,7 @@ export default function OutputPreview({ data, fields, customFields = [] }: { dat
                 <thead>
                   <tr>
                     <th>#</th>
-                    {fields.map((f) => <th key={f}>{formatFieldLabel(f, fieldLabels)}</th>)}
+                    {localizedFields.map((label) => <th key={label}>{label}</th>)}
                   </tr>
                 </thead>
                 <tbody>
@@ -195,7 +252,7 @@ export default function OutputPreview({ data, fields, customFields = [] }: { dat
                     <tr key={page * PAGE_SIZE + i}>
                       <td className="row-index">{page * PAGE_SIZE + i + 1}</td>
                       {fields.map((f) => (
-                        <td key={f}>{String(row[f] ?? '')}</td>
+                        <td key={f}>{String(formatNumber(row[f], locale) ?? '')}</td>
                       ))}
                     </tr>
                   ))}

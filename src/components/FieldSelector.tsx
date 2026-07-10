@@ -63,10 +63,6 @@ export default function FieldSelector({ selectedFields, onFieldsChange }) {
 
       {isOpen && (
         <>
-          <p className="hint">
-            {t.fieldSelector.selected.replace('{count}', String(selectedFields.length))}
-          </p>
-
           <div className="selector-toolbar">
             <input
               type="search"
