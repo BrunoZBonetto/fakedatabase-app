@@ -2,41 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7c5cfc" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://analytics.google.com https://www.google-analytics.com https://www.google.com https://region1.google-analytics.com; font-src 'self' data: https://fonts.gstatic.com;" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" />
 
-    <!-- PRIMARY KEYWORDS -->
-    <title>Fake Database — Online Fake Data Generator for Testing & Development</title>
-    <meta name="description" content="Generate realistic fake data for software testing, prototypes, and demos. Free online fake data generator with CSV, Excel, JSON, SQL, XML & YAML export. Create mock databases with US and Brazilian data." />
-    <meta name="keywords" content="fake data generator, fake database, mock data generator, test data generator, random data generator, sample data generator, generate fake data online, dummy data generator, fake data for testing, CSV generator, mock database, realistic fake data, data generator tool" />
-
-    <!-- CANONICAL -->
+    <!-- PRIMARY SEO -->
+    <title>Fake Database — Free Online Fake Data Generator for Testing & Development</title>
+    <meta name="description" content="Generate realistic fake data for software testing, prototypes, and demos. Free online fake data generator with 120+ fields, 15 templates, and CSV, Excel, JSON, SQL, XML & YAML export. Create mock databases with US and Brazilian data — no signup required." />
+    <meta name="keywords" content="fake data generator, fake database, mock data generator, test data generator, random data generator, sample data generator, generate fake data online, dummy data generator, fake data for testing, CSV generator, mock database, realistic fake data, data generator tool, free fake data, test data CSV JSON SQL, generate mock data, fake data generator online free, CPF generator, SSN generator, fake address generator, fake name generator" />
     <link rel="canonical" href="https://fakedatabase.com/" />
 
     <!-- OPEN GRAPH / EN -->
-    <meta property="og:title" content="Fake Database — Online Fake Data Generator" />
-    <meta property="og:description" content="Generate realistic fake data for testing and development. Export to CSV, Excel, JSON, SQL, XML and YAML. Free online tool for developers and QA." />
+    <meta property="og:title" content="Fake Database — Free Online Fake Data Generator" />
+    <meta property="og:description" content="Generate realistic fake data for testing and development. 120+ fields, 15 templates, 7 export formats. Free online tool for developers and QA." />
     <meta property="og:url" content="https://fakedatabase.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Fake Database" />
+    <meta property="og:image" content="https://fakedatabase.com/icons/icon.svg" />
+    <meta property="og:image:alt" content="Fake Database — Free Online Fake Data Generator" />
 
     <!-- OPEN GRAPH / PT-BR -->
     <meta property="og:locale:alternate" content="pt_BR" />
-    <meta property="og:title:pt_BR" content="Fake Database — Gerador de Dados Fictícios Online" />
-    <meta property="og:description:pt_BR" content="Gere dados fictícios realistas para testes de software e demonstrações. Exporte em CSV, Excel, JSON, SQL, XML e YAML. Ferramenta online gratuita." />
 
     <!-- TWITTER -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Fake Database — Online Fake Data Generator" />
-    <meta name="twitter:description" content="Generate realistic fake data for testing. Export CSV, Excel, JSON, SQL, XML, YAML. Free online tool." />
+    <meta name="twitter:title" content="Fake Database — Free Online Fake Data Generator" />
+    <meta name="twitter:description" content="Generate realistic fake data for testing. 120+ fields, 15 templates, 7 export formats. Free online tool." />
+    <meta name="twitter:image" content="https://fakedatabase.com/icons/icon.svg" />
 
     <!-- HREFLANG -->
     <link rel="alternate" href="https://fakedatabase.com/" hreflang="en" />
-    <link rel="alternate" href="https://fakedatabase.com/pt" hreflang="pt" />
+    <link rel="alternate" href="https://fakedatabase.com/" hreflang="pt" />
     <link rel="alternate" href="https://fakedatabase.com/" hreflang="x-default" />
 
     <!-- Google Tag Manager & Google Analytics -->
@@ -48,42 +51,128 @@
       gtag('config', 'G-8RS8WNVK4C');
     </script>
 
-    <!-- STRUCTURED DATA (JSON-LD) -->
+    <!-- STRUCTURED DATA — WebApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Fake Database",
-      "alternateName": ["Fake Data Generator", "Mock Data Generator", "Gerador de Dados Fake"],
+      "alternateName": ["Fake Data Generator", "Mock Data Generator", "Gerador de Dados Fake", "Gerador de Dados Ficticios"],
       "url": "https://fakedatabase.com/",
       "description": "Generate realistic fake data for software testing, prototypes, and demonstrations. Supports US and Brazilian data with export to CSV, Excel, JSON, SQL, XML and YAML.",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Web",
       "browserRequirements": "Requires JavaScript",
+      "inLanguage": ["en", "pt-BR"],
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
       },
       "featureList": [
+        "120+ fake data fields across 19 categories",
+        "15 pre-built quick templates",
+        "CSV, Excel, JSON, SQL, XML and YAML export",
         "US and Brazilian fake data generation",
         "CPF/CNPJ and SSN/EIN generation",
-        "CSV export",
-        "Excel (XLSX) export",
-        "JSON export",
-        "SQL export",
-        "XML export",
-        "YAML export",
-        "Custom fields support",
-        "Correlated data (city/state/phone/zip)",
-        "100+ field types",
-        "Dark and light theme"
+        "Cross-field correlations for realistic data",
+        "Custom columns with SQL-like types",
+        "Null and error injection for testing",
+        "Up to 5,000 records per generation",
+        "Dark and light theme",
+        "Runs entirely in the browser — no data sent to servers"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Bruno Zanotti Bonetto"
+      }
+    }
+    </script>
+
+    <!-- STRUCTURED DATA — FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Fake Database?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fake Database is a free online tool that generates realistic fake data for software testing, prototypes, and demos. It supports 120+ data fields, 15 quick templates, and exports to CSV, Excel, JSON, SQL, XML, and YAML."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Fake Database free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Fake Database is 100% free. No signup, no limits, no ads. Generate up to 5,000 records per request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What export formats does Fake Database support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fake Database supports 7 export formats: CSV, Excel (XLSX), JSON, SQL (CREATE TABLE + INSERT), XML, YAML, and an interactive table view."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I generate Brazilian fake data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Fake Database supports both US and Brazilian data, including CPF/CNPJ, Brazilian addresses, phone numbers, license plates, and culturally localized names, foods, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data safe when using Fake Database?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Fake Database runs entirely in your browser. No data is sent to any server. All generation happens locally on your device."
+          }
+        }
       ]
     }
     </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="max-width:800px;margin:40px auto;padding:20px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#1a1a2e;">
+        <h1 style="font-size:2rem;">Fake Database — Free Online Fake Data Generator</h1>
+        <p style="font-size:1.1rem;">Generate realistic fake data for software testing, prototypes, and demos. Export to CSV, Excel, JSON, SQL, XML, and YAML. Create mock databases with US and Brazilian data.</p>
+        <h2 style="font-size:1.4rem;margin-top:1.5rem;">Features</h2>
+        <ul style="columns:2;-webkit-columns:2;-moz-columns:2;">
+          <li>120+ data fields across 19 categories</li>
+          <li>15 pre-built quick templates (Person, Company, Order, Employee, etc.)</li>
+          <li>7 export formats: CSV, Excel, JSON, SQL, XML, YAML, Table</li>
+          <li>US and Brazilian data with locale-aware formatting</li>
+          <li>CPF/CNPJ and SSN/EIN generation</li>
+          <li>Cross-field correlations for realistic data</li>
+          <li>Custom columns with SQL-like types (INT, VARCHAR, DATE, etc.)</li>
+          <li>Null and error injection for edge-case testing</li>
+          <li>Up to 5,000 records per generation</li>
+          <li>Dark and light theme</li>
+          <li>100% free, no signup required</li>
+          <li>Runs in your browser — no data sent to servers</li>
+        </ul>
+        <h2 style="font-size:1.4rem;margin-top:1.5rem;">Quick Templates</h2>
+        <p>Person, Company, Order, Employee, Product, Customer, Bank Account, Logistics, Patient, Student, E-commerce, SaaS User, Lead, Vehicle, Streaming/Gaming.</p>
+        <h2 style="font-size:1.4rem;margin-top:1.5rem;">Use Cases</h2>
+        <ul>
+          <li>Software testing and QA — populate test databases with realistic data</li>
+          <li>Prototyping — quickly create mock datasets for UI development</li>
+          <li>Data demos — generate sample data for presentations and pitches</li>
+          <li>Database practice — learn SQL with realistic fake data</li>
+          <li>Machine learning — create training datasets with known distributions</li>
+        </ul>
+        <p style="margin-top:1.5rem;"><strong>JavaScript is required to use this tool.</strong> Please enable JavaScript in your browser and visit <a href="https://fakedatabase.com/">fakedatabase.com</a>.</p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
