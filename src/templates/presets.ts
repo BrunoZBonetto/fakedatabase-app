@@ -15,7 +15,7 @@ export const PRESETS = {
     fields: ['id', 'fullName', 'cpf', 'email', 'phone', 'company', 'position', 'area', 'seniority', 'salary', 'education']
   },
   produto: {
-    fields: ['id', 'uuid', 'product', 'price', 'quantity', 'rating', 'status', 'sentence']
+    fields: ['id', 'uuid', 'product', 'productCategory', 'price', 'quantity', 'rating', 'status', 'sentence']
   },
   cliente: {
     fields: ['id', 'fullName', 'cpf', 'birthDate', 'email', 'phone', 'gender', 'fullAddress', 'maritalStatus', 'profession']

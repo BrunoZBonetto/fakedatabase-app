@@ -291,6 +291,610 @@ export const COLUMN_TYPES = {
   UUID:     { label: 'UUID', sizes: [36], hasSize: true },
 };
 
+// ===== Correlações entre campos =====
+
+interface BrandInfo { models: string[]; vehicleTypes: string[]; fuelTypes: string[] }
+
+const CAR_BRAND_DATA_PT: Record<string, BrandInfo> = {
+  Toyota:      { models: ['Corolla','Camry','RAV4','Hilux','Etios','Yaris'], vehicleTypes: ['Sedan','SUV','Pickup'], fuelTypes: ['Flex','Híbrido','Gasolina'] },
+  Volkswagen:  { models: ['Gol','T-Cross','Polo','Nivus','Saveiro','Taos'], vehicleTypes: ['Hatch','SUV','Pickup'], fuelTypes: ['Flex','Gasolina','Diesel'] },
+  Chevrolet:   { models: ['Onix','Tracker','Cruze','S10','Spin','Equinox'], vehicleTypes: ['Sedan','SUV','Pickup','Hatch'], fuelTypes: ['Flex','Gasolina','Diesel'] },
+  Ford:        { models: ['Ranger','Territory','Bronco Sport','Mustang','Maverick'], vehicleTypes: ['SUV','Pickup','Coupe'], fuelTypes: ['Gasolina','Diesel','Flex'] },
+  Honda:       { models: ['Civic','HR-V','CR-V','Fit','City'], vehicleTypes: ['Sedan','SUV','Hatch'], fuelTypes: ['Flex','Gasolina','Híbrido'] },
+  Hyundai:     { models: ['Creta','HB20','Tucson','Santa Fe','Azera'], vehicleTypes: ['SUV','Hatch','Sedan'], fuelTypes: ['Flex','Gasolina','Diesel'] },
+  Fiat:        { models: ['Argo','Cronos','Pulse','Strada','Mobi','Fastback'], vehicleTypes: ['Hatch','Sedan','Pickup','SUV'], fuelTypes: ['Flex','Gasolina'] },
+  Renault:     { models: ['Kwid','Sandero','Duster','Captur','Oroch'], vehicleTypes: ['Hatch','SUV','Pickup'], fuelTypes: ['Flex','Gasolina'] },
+  Nissan:      { models: ['Kicks','Versa','Frontier','Sentra','Leaf'], vehicleTypes: ['SUV','Sedan','Pickup','Hatch'], fuelTypes: ['Flex','Gasolina','Elétrico'] },
+  BMW:         { models: ['320i','X1','X3','X5','M3','530e'], vehicleTypes: ['Sedan','SUV','Coupe'], fuelTypes: ['Gasolina','Diesel','Híbrido','Elétrico'] },
+  'Mercedes-Benz': { models: ['Classe A','Classe C','Classe E','GLA','GLC','GLE'], vehicleTypes: ['Sedan','SUV','Coupe'], fuelTypes: ['Gasolina','Diesel','Híbrido','Elétrico'] },
+  Audi:        { models: ['A3','A4','Q3','Q5','Q7','e-tron'], vehicleTypes: ['Sedan','SUV','Coupe'], fuelTypes: ['Gasolina','Diesel','Elétrico','Híbrido'] },
+  Jeep:        { models: ['Compass','Renegade','Wrangler','Commander','Grand Cherokee'], vehicleTypes: ['SUV','Off-road'], fuelTypes: ['Flex','Gasolina','Diesel','Híbrido'] },
+  Peugeot:     { models: ['208','2008','3008','5008','Partner'], vehicleTypes: ['Hatch','SUV','Minivan'], fuelTypes: ['Flex','Gasolina','Diesel'] },
+  Kia:         { models: ['Sportage','Seltos','Cerato','Stonic','EV6'], vehicleTypes: ['SUV','Sedan','Hatch'], fuelTypes: ['Gasolina','Diesel','Híbrido','Elétrico'] },
+};
+
+const CAR_BRAND_DATA_EN: Record<string, BrandInfo> = {
+  Ford:         { models: ['F-150','Mustang','Explorer','Escape','Bronco','Edge'], vehicleTypes: ['Pickup','Coupe','SUV'], fuelTypes: ['Regular Gasoline','Premium Gasoline','Hybrid','Electric'] },
+  Chevrolet:    { models: ['Silverado','Equinox','Tahoe','Malibu','Camaro','Traverse'], vehicleTypes: ['Pickup','SUV','Sedan'], fuelTypes: ['Regular Gasoline','Diesel','Electric'] },
+  Toyota:       { models: ['Camry','Corolla','RAV4','Tacoma','Highlander','Tundra'], vehicleTypes: ['Sedan','SUV','Pickup'], fuelTypes: ['Regular Gasoline','Hybrid','Electric'] },
+  Honda:        { models: ['Civic','CR-V','Accord','Pilot','HR-V','Odyssey'], vehicleTypes: ['Sedan','SUV','Minivan'], fuelTypes: ['Regular Gasoline','Hybrid'] },
+  Jeep:         { models: ['Wrangler','Grand Cherokee','Cherokee','Compass','Gladiator'], vehicleTypes: ['SUV','Off-road','Pickup'], fuelTypes: ['Regular Gasoline','Hybrid','Diesel'] },
+  Ram:          { models: ['Ram 1500','Ram 2500','Ram 3500','ProMaster'], vehicleTypes: ['Pickup','Van'], fuelTypes: ['Regular Gasoline','Diesel'] },
+  GMC:          { models: ['Sierra','Yukon','Acadia','Terrain','Canyon'], vehicleTypes: ['Pickup','SUV'], fuelTypes: ['Regular Gasoline','Diesel'] },
+  Buick:        { models: ['Encore','Envision','Enclave','LaCrosse','Regal'], vehicleTypes: ['SUV','Sedan'], fuelTypes: ['Regular Gasoline'] },
+  Cadillac:     { models: ['Escalade','XT5','XT4','CT5','Lyriq'], vehicleTypes: ['SUV','Sedan'], fuelTypes: ['Premium Gasoline','Electric'] },
+  Lincoln:      { models: ['Navigator','Aviator','Corsair','Nautilus'], vehicleTypes: ['SUV','Sedan'], fuelTypes: ['Premium Gasoline'] },
+  Chrysler:     { models: ['Pacifica','300','Voyager'], vehicleTypes: ['Minivan','Sedan'], fuelTypes: ['Regular Gasoline','Hybrid'] },
+  Dodge:        { models: ['Charger','Durango','Challenger','Grand Caravan','Hornet'], vehicleTypes: ['Sedan','SUV','Coupe','Minivan'], fuelTypes: ['Regular Gasoline','Diesel'] },
+  Tesla:        { models: ['Model 3','Model Y','Model S','Model X','Cybertruck'], vehicleTypes: ['Sedan','SUV','Pickup'], fuelTypes: ['Electric'] },
+  Nissan:       { models: ['Altima','Rogue','Frontier','Pathfinder','Sentra','Murano'], vehicleTypes: ['Sedan','SUV','Pickup'], fuelTypes: ['Regular Gasoline','Hybrid','Electric'] },
+  Hyundai:      { models: ['Elantra','Tucson','Santa Fe','Palisade','Sonata','Kona'], vehicleTypes: ['Sedan','SUV'], fuelTypes: ['Regular Gasoline','Hybrid','Electric'] },
+  Subaru:       { models: ['Outback','Forester','Crosstrek','Impreza','Legacy'], vehicleTypes: ['SUV','Sedan','Hatch'], fuelTypes: ['Regular Gasoline','Hybrid'] },
+  'Mercedes-Benz': { models: ['C-Class','E-Class','S-Class','GLC','GLE','GLS'], vehicleTypes: ['Sedan','SUV','Coupe'], fuelTypes: ['Premium Gasoline','Diesel','Hybrid','Electric'] },
+  BMW:          { models: ['3 Series','5 Series','X3','X5','M4','i4'], vehicleTypes: ['Sedan','SUV','Coupe'], fuelTypes: ['Premium Gasoline','Diesel','Hybrid','Electric'] },
+  Audi:         { models: ['A4','A6','Q5','Q7','e-tron GT','Q4 e-tron'], vehicleTypes: ['Sedan','SUV','Coupe'], fuelTypes: ['Premium Gasoline','Diesel','Electric','Hybrid'] },
+};
+
+// Mapeamento produto → categoria
+const PRODUCT_CATEGORY_MAP_PT: Record<string, string> = {
+  'Notebook Pro': 'Eletrônicos', 'Mouse Wireless': 'Periféricos', 'Teclado Mecânico': 'Periféricos',
+  'Monitor 27"': 'Informática', 'Cadeira Ergonômica': 'Móveis', 'Fone Bluetooth': 'Acessórios',
+  'Câmera Digital': 'Eletrônicos', 'Smartphone X': 'Eletrônicos', 'Tablet Air': 'Eletrônicos',
+  'Impressora Laser': 'Informática', 'HD Externo 1TB': 'Informática', 'SSD NVMe 512GB': 'Informática',
+  'Webcam HD': 'Periféricos', 'Carregador USB-C': 'Acessórios', 'Roteador Wi-Fi 6': 'Informática',
+};
+const PRODUCT_CATEGORY_MAP_EN: Record<string, string> = {
+  'MacBook Pro': 'Electronics', 'Wireless Mouse': 'Peripherals', 'Mechanical Keyboard': 'Peripherals',
+  '27" Monitor': 'Computers', 'Ergonomic Chair': 'Furniture', 'Bluetooth Headphones': 'Accessories',
+  'Digital Camera': 'Electronics', 'Smartphone X': 'Electronics', 'Air Tablet': 'Electronics',
+  'Laser Printer': 'Computers', '1TB External HD': 'Computers', '512GB NVMe SSD': 'Computers',
+  'HD Webcam': 'Peripherals', 'USB-C Charger': 'Accessories', 'Wi-Fi 6 Router': 'Computers',
+};
+
+// Gênero de filme → filmes
+const MOVIE_GENRE_MAP_PT: Record<string, string[]> = {
+  'Ação': ['Matrix','Vingadores: Ultimato','Batman: O Cavaleiro das Trevas','Jurassic Park','Star Wars'],
+  'Comédia': ['Pulp Fiction','Forrest Gump'],
+  'Drama': ['O Poderoso Chefão','Titanic','Interestelar','Cidade de Deus','Parasita','Clube da Luta'],
+  'Terror': ['O Exorcista','Invocação do Mal','Corra!','Hereditário','O Iluminado'],
+  'Romance': ['Titanic','Diário de uma Paixão','Simplesmente Amor','Orgulho e Preconceito'],
+  'Ficção Científica': ['Matrix','Interestelar','Star Wars','Blade Runner 2049','Duna','Arrival'],
+  'Animação': ['Toy Story','Procurando Nemo','Frozen','Divertida Mente','Shrek'],
+  'Documentário': ['O Dilema das Redes','Nosso Planeta','Amy','13º'],
+  'Suspense': ['Clube da Luta','Seven - Os Sete Crimes Capitais','Ilha do Medo','Cisne Negro'],
+  'Aventura': ['O Senhor dos Anéis','Indiana Jones','Piratas do Caribe','Jurassic Park'],
+  'Musical': ['La La Land','Mamma Mia!','O Rei do Show','Bohemian Rhapsody'],
+};
+const MOVIE_GENRE_MAP_EN: Record<string, string[]> = {
+  'Action': ['The Matrix','The Dark Knight','Star Wars','Jurassic Park','Mad Max: Fury Road'],
+  'Comedy': ['Pulp Fiction','The Grand Budapest Hotel','Bridesmaids','Superbad'],
+  'Drama': ['The Godfather','The Shawshank Redemption','Forrest Gump','Parasite','Goodfellas'],
+  'Horror': ['The Exorcist','The Shining','Get Out','Hereditary','A Quiet Place'],
+  'Romance': ['Titanic','The Notebook','Pride & Prejudice','La La Land','Casablanca'],
+  'Science Fiction': ['The Matrix','Interstellar','Star Wars','Blade Runner 2049','Dune','Arrival'],
+  'Animation': ['Toy Story','Finding Nemo','Frozen','Inside Out','Shrek','Up'],
+  'Documentary': ['The Social Dilemma','Our Planet','Amy','13th','March of the Penguins'],
+  'Thriller': ['Fight Club','Se7en','Shutter Island','Black Swan','Gone Girl'],
+  'Adventure': ['The Lord of the Rings','Indiana Jones','Pirates of the Caribbean','Jurassic Park'],
+  'Musical': ['La La Land','Mamma Mia!','The Greatest Showman','Bohemian Rhapsody'],
+};
+
+// Gênero de jogo → jogos
+const GAME_GENRE_MAP_PT: Record<string, string[]> = {
+  'Ação': ['Grand Theft Auto V','Red Dead Redemption 2','Cyberpunk 2077'],
+  'Aventura': ['The Legend of Zelda','God of War','Assassin\'s Creed'],
+  'RPG': ['The Witcher 3','Elden Ring','Final Fantasy','Baldur\'s Gate 3'],
+  'FPS': ['Call of Duty','Counter-Strike 2','Valorant','Overwatch'],
+  'Estratégia': ['StarCraft','Age of Empires','Civilization VI'],
+  'Simulação': ['The Sims','Animal Crossing','Microsoft Flight Simulator'],
+  'Esportes': ['FIFA','NBA 2K','EA Sports FC'],
+  'Corrida': ['Forza Horizon','Gran Turismo','Need for Speed'],
+  'Battle Royale': ['Fortnite','PUBG','Free Fire'],
+  'MOBA': ['League of Legends','Dota 2'],
+  'Sandbox': ['Minecraft','Terraria','Garry\'s Mod'],
+  'Terror': ['Resident Evil','Silent Hill','Outlast'],
+};
+const GAME_GENRE_MAP_EN: Record<string, string[]> = {
+  'Action': ['Grand Theft Auto V','Red Dead Redemption 2','Cyberpunk 2077','God of War Ragnarok'],
+  'Adventure': ['The Legend of Zelda: Tears of the Kingdom','Assassin\'s Creed Mirage','Starfield'],
+  'RPG': ['The Witcher 3','Elden Ring','Final Fantasy XVI','Baldur\'s Gate 3','Diablo IV'],
+  'FPS': ['Call of Duty: Modern Warfare','Counter-Strike 2','Valorant','Overwatch'],
+  'Strategy': ['StarCraft','Age of Empires','Civilization VI','XCOM'],
+  'Simulation': ['The Sims 4','Animal Crossing','Microsoft Flight Simulator'],
+  'Sports': ['Madden NFL','NBA 2K','MLB The Show'],
+  'Racing': ['Forza Horizon','Gran Turismo','Need for Speed'],
+  'Battle Royale': ['Fortnite','PUBG'],
+  'MOBA': ['League of Legends','Dota 2'],
+  'Sandbox': ['Minecraft','Terraria'],
+  'Horror': ['Resident Evil','Silent Hill','Outlast'],
+};
+
+// Gênero musical → instrumentos
+const MUSIC_GENRE_INSTRUMENTS_PT: Record<string, string[]> = {
+  'Rock': ['Guitarra','Bateria','Baixo','Teclado'],
+  'Samba': ['Cavaquinho','Violão','Tamborim','Pandeiro','Surdo'],
+  'MPB': ['Violão','Piano','Cavaquinho','Flauta'],
+  'Sertanejo': ['Violão','Guitarra','Acordeon','Sanfona'],
+  'Pagode': ['Cavaquinho','Pandeiro','Violão','Tantan'],
+  'Forró': ['Sanfona','Zabumba','Triângulo'],
+  'Jazz': ['Saxofone','Piano','Trompete','Baixo','Bateria'],
+  'Blues': ['Guitarra','Harmônica','Piano','Baixo'],
+  'Eletrônica': ['Teclado','Sintetizador','Bateria Eletrônica'],
+  'Funk': ['Teclado','Bateria Eletrônica','Baixo'],
+  'Rap': ['Teclado','Bateria Eletrônica','Baixo'],
+  'Metal': ['Guitarra','Bateria','Baixo','Teclado'],
+  'Bossa Nova': ['Violão','Piano','Flauta','Cavaquinho'],
+  'Pop': ['Teclado','Guitarra','Violão','Bateria'],
+};
+const MUSIC_GENRE_INSTRUMENTS_EN: Record<string, string[]> = {
+  'Rock': ['Guitar','Drums','Bass','Keyboard'],
+  'Country': ['Guitar','Banjo','Fiddle','Harmonica','Mandolin'],
+  'Jazz': ['Saxophone','Piano','Trumpet','Bass','Drums','Clarinet'],
+  'Blues': ['Guitar','Harmonica','Piano','Bass'],
+  'Electronic': ['Synthesizer','Drum Machine','Keyboard'],
+  'Hip Hop': ['Turntable','Drum Machine','Keyboard','Bass'],
+  'Classical': ['Violin','Piano','Cello','Flute','Oboe','French Horn'],
+  'Metal': ['Guitar','Drums','Bass','Keyboard'],
+  'Folk': ['Acoustic Guitar','Mandolin','Banjo','Fiddle','Harmonica'],
+  'Pop': ['Keyboard','Guitar','Piano','Drums'],
+  'R&B': ['Piano','Bass','Drums','Saxophone'],
+  'Reggae': ['Guitar','Bass','Drums','Keyboard'],
+};
+
+// Profissões → setores
+const PROFESSION_SECTOR_PT: Record<string, string[]> = {
+  'Médico': ['Saúde'], 'Enfermeiro': ['Saúde'], 'Farmacêutico': ['Saúde','Farmacêutico'],
+  'Professor': ['Educação'], 'Diretor de Escola': ['Educação'],
+  'Programador': ['Tecnologia da Informação'], 'Analista de Sistemas': ['Tecnologia da Informação'],
+  'Engenheiro': ['Construção Civil','Indústria','Automotivo','Energia'],
+  'Advogado': ['Consultoria','Jurídico'],
+  'Contador': ['Finanças','Consultoria'],
+  'Consultor': ['Consultoria','Tecnologia da Informação','Marketing Digital'],
+  'Vendedor': ['Varejo','E-commerce','Comercial'],
+  'Designer': ['Marketing Digital','Tecnologia da Informação','Moda'],
+  'Motorista': ['Logística','Transporte'],
+  'Cozinheiro': ['Alimentício','Turismo'],
+  'Cientista de Dados': ['Tecnologia da Informação','Finanças','Saúde'],
+  'Gerente': ['Administrativo','Varejo','Tecnologia da Informação'],
+  'Diretor': ['Administrativo','Executivo'],
+};
+const PROFESSION_SECTOR_EN: Record<string, string[]> = {
+  'Doctor': ['Healthcare'], 'Nurse': ['Healthcare'], 'Pharmacist': ['Healthcare','Pharmaceutical'],
+  'Teacher': ['Education'], 'Principal': ['Education'],
+  'Software Developer': ['Technology'], 'Systems Analyst': ['Technology'],
+  'Engineer': ['Construction','Manufacturing','Automotive','Energy'],
+  'Lawyer': ['Consulting','Legal'],
+  'Accountant': ['Finance','Consulting'],
+  'Consultant': ['Consulting','Technology','Marketing'],
+  'Salesperson': ['Retail','E-commerce'],
+  'Designer': ['Marketing','Technology','Fashion'],
+  'Driver': ['Logistics','Transportation'],
+  'Chef': ['Food & Beverage','Travel'],
+  'Data Scientist': ['Technology','Finance','Healthcare'],
+  'Manager': ['Administrative','Retail','Technology'],
+  'Director': ['Executive','Administrative'],
+};
+
+// Doença → medicação
+const DISEASE_MEDICATION_PT: Record<string, string[]> = {
+  'Diabetes Tipo 1': ['Insulina Glargina','Insulina Regular'],
+  'Diabetes Tipo 2': ['Metformina','Glifage','Insulina Glargina'],
+  'Hipertensão Arterial': ['Losartana','Captopril','Hidroclorotiazida'],
+  'Asma': ['Salbutamol','Budesonida','Aerolin'],
+  'Rinite Alérgica': ['Loratadina','Cetirizina','Desloratadina'],
+  'Bronquite': ['Salbutamol','Amoxicilina','Prednisona'],
+  'Enxaqueca': ['Paracetamol','Ibuprofeno','Sumatriptana'],
+  'Ansiedade': ['Fluoxetina','Sertralina','Clonazepam','Diazepam'],
+  'Depressão': ['Fluoxetina','Sertralina','Paroxetina'],
+  'Hipotireoidismo': ['Levotiroxina'],
+  'Hipertireoidismo': ['Metimazol','Propiltiouracila'],
+  'Colesterol Alto': ['Sinvastatina','Atorvastatina','Rosuvastatina'],
+  'Obesidade': ['Metformina','Orlistate','Sibutramina'],
+  'Artrite Reumatoide': ['Ibuprofeno','Prednisona','Metotrexato'],
+  'Osteoporose': ['Carbonato de Cálcio','Alendronato','Vitamina D3'],
+  'Gastrite': ['Omeprazol','Pantoprazol','Ranitidina'],
+  'Refluxo Gastroesofágico': ['Omeprazol','Pantoprazol','Domperidona'],
+  'Sinusite': ['Amoxicilina','Azitromicina','Prednisona'],
+  'Dermatite Atópica': ['Cetirizina','Prednisona','Dexametasona tópica'],
+  'Psoríase': ['Metotrexato','Ciclosporina','Adalimumabe'],
+};
+const DISEASE_MEDICATION_EN: Record<string, string[]> = {
+  'Type 1 Diabetes': ['Insulin Glargine','Insulin Lispro'],
+  'Type 2 Diabetes': ['Metformin','Glipizide','Insulin Glargine'],
+  'Hypertension': ['Lisinopril','Losartan','Hydrochlorothiazide'],
+  'Asthma': ['Albuterol','Budesonide','Fluticasone'],
+  'Allergic Rhinitis': ['Loratadine','Cetirizine','Fexofenadine'],
+  'Bronchitis': ['Albuterol','Amoxicillin','Prednisone'],
+  'Migraine': ['Ibuprofen','Sumatriptan','Rizatriptan'],
+  'Anxiety Disorder': ['Sertraline','Fluoxetine','Clonazepam','Diazepam'],
+  'Depression': ['Fluoxetine','Sertraline','Paroxetine','Escitalopram'],
+  'Hypothyroidism': ['Levothyroxine'],
+  'Hyperthyroidism': ['Methimazole'],
+  'High Cholesterol': ['Atorvastatin','Simvastatin','Rosuvastatin'],
+  'Obesity': ['Metformin','Orlistat','Phentermine'],
+  'Rheumatoid Arthritis': ['Ibuprofen','Prednisone','Methotrexate'],
+  'Osteoporosis': ['Calcium Carbonate','Alendronate','Vitamin D3'],
+  'GERD': ['Omeprazole','Pantoprazole','Famotidine'],
+  'Sinusitis': ['Amoxicillin','Azithromycin','Prednisone'],
+  'Eczema': ['Cetirizine','Prednisone','Hydrocortisone cream'],
+  'Celiac Disease': ['Gluten-free diet','Vitamin D','Calcium supplement'],
+};
+
+// Culinária → restaurantes
+const CUISINE_RESTAURANT_PT: Record<string, string[]> = {
+  'Brasileira': ['Fogo de Chão','Casa do Pão de Queijo','Giraffas','Terraço Grill'],
+  'Italiana': ['La Trattoria','Spoleto','Viena','Paris 6'],
+  'Japonesa': ['Kani Sushi','Aoyama','Temakeria','Matsuya'],
+  'Mexicana': ['Taco El Pantera','Los Mexicanos','Don Diego'],
+  'Americana': ['Outback Steakhouse','Madero','McDonald\'s','Burger King','Subway'],
+  'Árabe': ['Habib\'s','Almanara','Esfiha & Cia'],
+  'Chinesa': ['China in Box','Spring Wok','Wok To Go'],
+  'Francesa': ['Paris 6','La Pergula','Chez Claude'],
+};
+const CUISINE_RESTAURANT_EN: Record<string, string[]> = {
+  'American': ['McDonald\'s','Burger King','Wendy\'s','Five Guys','In-N-Out Burger','Cracker Barrel'],
+  'Italian': ['Olive Garden','Paolo\'s','Buca di Beppo','Carmine\'s'],
+  'Mexican': ['Taco Bell','Chipotle','Qdoba','El Pollo Loco'],
+  'Chinese': ['Panda Express','P.F. Chang\'s','Manchu Wok'],
+  'Japanese': ['Benihana','Sushi Sushi','Wasabi'],
+  'Indian': ['Tandoori Flame','Curry House','Bombay Club'],
+  'Thai': ['Thai Basil','Pad Thai House','Siam Kitchen'],
+  'French': ['Le Bernardin','Bouchon','Café du Monde'],
+  'Greek': ['The Greek House','Zorba\'s','Mykonos Grill'],
+  'Southern': ['Cracker Barrel','Popeyes','Bojangles\''],
+};
+
+// Restrição alimentar → comidas compatíveis
+const DIET_FOOD_MAP_PT: Record<string, string[]> = {
+  'Vegetariano': ['Pizza','Lasanha','Risoto','Tapioca','Salada Caesar','Omelete','Nhoque'],
+  'Vegano': ['Tapioca','Salada Caesar','Sushi','Yakisoba','Acarajé','Baião de Dois'],
+  'Sem Glúten': ['Feijoada','Churrasco','Sushi','Moqueca','Tapioca','Salada Caesar'],
+  'Sem Lactose': ['Feijoada','Churrasco','Sushi','Moqueca','Tapioca','Yakisoba','Acarajé'],
+};
+const DIET_FOOD_MAP_EN: Record<string, string[]> = {
+  'Vegetarian': ['Pizza','Grilled Cheese','Mac and Cheese','French Fries','Pancakes'],
+  'Vegan': ['French Fries','Veggie Burger','Guacamole','Fruit Salad'],
+  'Gluten-Free': ['Grilled Chicken','Steak','BBQ Ribs','Tacos','Burrito Bowl'],
+  'Keto': ['Steak','BBQ Ribs','Cheese','Avocado','Bacon'],
+};
+
+// Universidade → cursos (top 3)
+const UNIVERSITY_COURSES_PT: Record<string, string[]> = {
+  'Universidade de São Paulo (USP)': ['Medicina','Direito','Engenharia Civil','Ciência da Computação','Arquitetura'],
+  'Universidade Estadual de Campinas (UNICAMP)': ['Engenharia Mecânica','Ciência da Computação','Medicina','Matemática'],
+  'Universidade Federal do Rio de Janeiro (UFRJ)': ['Direito','Engenharia de Produção','Medicina','Economia'],
+  'Universidade Federal de Minas Gerais (UFMG)': ['Medicina','Direito','Ciência da Computação','Engenharia Civil'],
+  'Pontifícia Universidade Católica de São Paulo (PUC-SP)': ['Direito','Administração de Empresas','Psicologia','Jornalismo'],
+  'Massachusetts Institute of Technology (MIT)': ['Engenharia Elétrica','Ciência da Computação','Física'],
+  'Stanford University': ['Administração de Empresas','Ciência da Computação','Medicina'],
+  'Harvard University': ['Direito','Medicina','Administração de Empresas','Economia'],
+};
+const UNIVERSITY_COURSES_EN: Record<string, string[]> = {
+  'Harvard University': ['Law','Medicine','Business Administration','Economics','Political Science'],
+  'Stanford University': ['Computer Science','Business Administration','Engineering','Psychology'],
+  'Massachusetts Institute of Technology (MIT)': ['Computer Science','Mechanical Engineering','Electrical Engineering','Physics'],
+  'Yale University': ['Law','Medicine','History','English Literature'],
+  'University of California, Berkeley': ['Computer Science','Economics','Biology','Engineering'],
+  'Carnegie Mellon University': ['Computer Science','Software Engineering','Information Systems'],
+};
+
+// Raça de cachorro → nomes comuns
+const DOG_BREED_NAMES_PT: Record<string, string[]> = {
+  'Labrador': ['Thor','Mel','Bela','Fred','Luna','Bob','Buddy','Maggie'],
+  'Golden Retriever': ['Luna','Mel','Bela','Fred','Nina','Buddy','Charlie'],
+  'Bulldog Francês': ['Chico','Toddy','Pipoca','Bolinha','Bruce','Bento'],
+  'Poodle': ['Luna','Bela','Nina','Amora','Lola','Princesa','Kiara'],
+  'Pastor Alemão': ['Thor','Rex','Bruce','Lucky','Max','Zeus','Apollo'],
+  'Shih Tzu': ['Luna','Bela','Mel','Pandora','Princesa','Lola'],
+  'Vira-lata': ['Caramelo','Costelinha','Pitoco','Paçoca','Tobias','Neguinho','Brisa','Zeca'],
+};
+const DOG_BREED_NAMES_EN: Record<string, string[]> = {
+  'Labrador Retriever': ['Buddy','Charlie','Max','Bella','Luna','Cooper','Rocky'],
+  'Golden Retriever': ['Buddy','Charlie','Max','Bella','Luna','Cooper','Duke'],
+  'German Shepherd': ['Max','Rocky','Duke','Rex','Zeus','Bear','Thor'],
+  'Bulldog': ['Winston','Gus','Tucker','Oliver','Penny','Stella'],
+  'Beagle': ['Charlie','Cooper','Jack','Lucy','Daisy','Sadie'],
+  'Poodle': ['Coco','Bella','Luna','Lucy','Daisy','Chloe'],
+  'Siberian Husky': ['Loki','Thor','Zeus','Koda','Nala','Maya'],
+  'Corgi': ['Oliver','Loki','Winston','Penny','Ruby','Zoe'],
+};
+
+// Raça de gato → nomes comuns
+const CAT_BREED_NAMES_PT: Record<string, string[]> = {
+  'Persa': ['Luna','Nina','Pandora','Bela','Amora','Kiara','Simba'],
+  'Siamês': ['Luna','Fred','Simba','Maya','Lola','Kiara'],
+  'Maine Coon': ['Simba','Thor','Fred','Luna','Nina','Bento'],
+  'Sphynx': ['Thor','Bruce','Neguinho','Simba','Luna'],
+  'Vira-lata': ['Bolinha','Pandora','Pipoca','Amora','Floquinho','Paçoca','Tina','Cocada'],
+};
+const CAT_BREED_NAMES_EN: Record<string, string[]> = {
+  'Persian': ['Luna','Bella','Chloe','Sophie','Lily','Coco','Simba'],
+  'Maine Coon': ['Leo','Oliver','Max','Luna','Stella','Thor'],
+  'Siamese': ['Luna','Milo','Leo','Zoe','Nala','Lily'],
+  'Bengal': ['Leo','Loki','Apollo','Zoe','Nala','Ruby'],
+  'Sphynx': ['Gizmo','Loki','Thor','Yoda','Arya','Stella'],
+  'Ragdoll': ['Luna','Milo','Ollie','Zoe','Lily','Sophie'],
+  'American Shorthair': ['Oliver','Leo','Charlie','Luna','Lily','Rosie'],
+};
+
+// OS → browsers
+const OS_BROWSER_MAP_PT: Record<string, string[]> = {
+  'Windows': ['Chrome','Firefox','Edge','Opera','Brave'],
+  'macOS': ['Safari','Chrome','Firefox','Opera','Brave'],
+  'Linux': ['Firefox','Chrome','Brave','Opera'],
+  'Android': ['Chrome','Firefox','Brave','Opera','Edge'],
+  'iOS': ['Safari','Chrome','Firefox','Brave'],
+  'Ubuntu': ['Firefox','Chrome','Brave','Opera'],
+  'ChromeOS': ['Chrome','Firefox'],
+};
+const OS_BROWSER_MAP_EN: Record<string, string[]> = OS_BROWSER_MAP_PT;
+
+// OS → phone brand
+const OS_PHONE_MAP_PT: Record<string, string[]> = {
+  'Android': ['Samsung','Motorola','Xiaomi','LG','Asus','Sony','Huawei','OnePlus'],
+  'iOS': ['Apple'],
+};
+const OS_PHONE_MAP_EN: Record<string, string[]> = {
+  'Android': ['Samsung','Google','Motorola','OnePlus','LG','Sony','TCL'],
+  'iOS': ['Apple'],
+};
+
+// Tipo de roupa → tamanhos sugeridos
+const CLOTHING_TYPE_SIZES_PT: Record<string, string[]> = {
+  'Camiseta': ['PP','P','M','G','GG','XG'],
+  'Calça Jeans': ['36','38','40','42','44','46'],
+  'Vestido': ['PP','P','M','G','GG'],
+  'Jaqueta': ['P','M','G','GG','XG'],
+  'Casaco': ['P','M','G','GG','XG'],
+  'Blusa': ['PP','P','M','G','GG'],
+  'Shorts': ['36','38','40','42','44','46'],
+  'Saia': ['PP','P','M','G','GG'],
+  'Terno': ['P','M','G','GG','XG'],
+  'Camisa Social': ['PP','P','M','G','GG','XG'],
+  'Sapato': ['36','37','38','39','40','41','42','43','44'],
+};
+const CLOTHING_TYPE_SIZES_EN: Record<string, string[]> = {
+  'T-Shirt': ['XS','S','M','L','XL','XXL'],
+  'Jeans': ['0','2','4','6','8','10','12','14'],
+  'Dress': ['XS','S','M','L','XL'],
+  'Jacket': ['S','M','L','XL','XXL'],
+  'Coat': ['S','M','L','XL','XXL'],
+  'Blouse': ['XS','S','M','L','XL'],
+  'Shorts': ['0','2','4','6','8','10','12'],
+  'Skirt': ['XS','S','M','L','XL'],
+  'Suit': ['S','M','L','XL','XXL'],
+  'Dress Shirt': ['XS','S','M','L','XL','XXL'],
+  'Shoes': ['5','6','7','8','9','10','11','12','13'],
+};
+
+// ===== Additional correlation data =====
+
+const CREDIT_CARD_BINS: Record<string, { prefixes: string[]; length: number }> = {
+  'Visa': { prefixes: ['4'], length: 16 },
+  'Mastercard': { prefixes: ['51','52','53','54','55'], length: 16 },
+  'American Express': { prefixes: ['34','37'], length: 15 },
+  'Discover': { prefixes: ['6011','644','645','646','647','648','649','65'], length: 16 },
+  'Diners Club': { prefixes: ['300','301','302','303','304','305','36','38'], length: 16 },
+  'Elo': { prefixes: ['636368','438935','504175','451416','636297','5067','509','6500','6501','6502'], length: 16 },
+  'Hipercard': { prefixes: ['6062','3841'], length: 16 },
+  'UnionPay': { prefixes: ['62'], length: 16 },
+};
+const CREDIT_CARD_BINS_EN: Record<string, { prefixes: string[]; length: number }> = {
+  'Visa': { prefixes: ['4'], length: 16 },
+  'Mastercard': { prefixes: ['51','52','53','54','55','2221','2222','2223','2224','2225','2226','2227','2228','2229','223','224','225','226','227','228','229','23','24','25','26','27','2720'], length: 16 },
+  'American Express': { prefixes: ['34','37'], length: 15 },
+  'Discover': { prefixes: ['6011','644','645','646','647','648','649','65'], length: 16 },
+  'Diners Club': { prefixes: ['300','301','302','303','304','305','36','38'], length: 16 },
+  'UnionPay': { prefixes: ['62'], length: 16 },
+};
+
+const COUNTRY_CURRENCY: Record<string, string[]> = {
+  'BR': ['BRL'], 'US': ['USD'], 'GB': ['GBP'], 'JP': ['JPY'],
+  'DE': ['EUR'], 'FR': ['EUR'], 'IT': ['EUR'], 'ES': ['EUR'], 'PT': ['EUR'],
+  'CA': ['CAD'], 'MX': ['MXN'], 'AR': ['ARS'], 'AU': ['AUD'],
+};
+
+const COUNTRY_NATIONALITY: Record<string, string[]> = {
+  'BR': ['Brasileira'], 'US': ['Americana'], 'GB': ['Inglesa'],
+  'JP': ['Japonesa'], 'DE': ['Alemã'], 'FR': ['Francesa'],
+  'IT': ['Italiana'], 'ES': ['Espanhola'], 'PT': ['Portuguesa'],
+  'CA': ['Canadense'], 'MX': ['Mexicana'], 'AR': ['Argentina'], 'AU': ['Australiana'],
+};
+const COUNTRY_NATIONALITY_EN: Record<string, string[]> = {
+  'BR': ['Brazilian'], 'US': ['American'], 'GB': ['British'],
+  'JP': ['Japanese'], 'DE': ['German'], 'FR': ['French'],
+  'IT': ['Italian'], 'ES': ['Spanish'], 'PT': ['Portuguese'],
+  'CA': ['Canadian'], 'MX': ['Mexican'], 'AR': ['Argentinian'], 'AU': ['Australian'],
+};
+
+const COUNTRY_LANGUAGE: Record<string, string[]> = {
+  'BR': ['Português'], 'US': ['Inglês'], 'GB': ['Inglês'],
+  'JP': ['Japonês'], 'DE': ['Alemão'], 'FR': ['Francês'],
+  'IT': ['Italiano'], 'ES': ['Espanhol'], 'PT': ['Português'],
+  'CA': ['Inglês','Francês'], 'MX': ['Espanhol'], 'AR': ['Espanhol'], 'AU': ['Inglês'],
+};
+const COUNTRY_LANGUAGE_EN: Record<string, string[]> = {
+  'BR': ['Portuguese'], 'US': ['English'], 'GB': ['English'],
+  'JP': ['Japanese'], 'DE': ['German'], 'FR': ['French'],
+  'IT': ['Italian'], 'ES': ['Spanish'], 'PT': ['Portuguese'],
+  'CA': ['English','French'], 'MX': ['Spanish'], 'AR': ['Spanish'], 'AU': ['English'],
+};
+
+const COUNTRY_TIMEZONE: Record<string, string[]> = {
+  'BR': ['America/Sao_Paulo','America/Manaus','America/Belem','America/Recife','America/Cuiaba'],
+  'US': ['America/New_York','America/Chicago','America/Denver','America/Los_Angeles'],
+  'GB': ['Europe/London'], 'JP': ['Asia/Tokyo'],
+  'DE': ['Europe/Berlin'], 'FR': ['Europe/Paris'], 'IT': ['Europe/Rome'],
+  'ES': ['Europe/Madrid'], 'PT': ['Europe/Lisbon'],
+  'CA': ['America/Toronto','America/Vancouver','America/Edmonton'],
+  'MX': ['America/Mexico_City'], 'AR': ['America/Argentina/Buenos_Aires'], 'AU': ['Australia/Sydney'],
+};
+
+const GENDER_TITLE_PT: Record<string, string[]> = {
+  'Masculino': ['Sr.','Dr.','Prof.','Eng.','Arq.'],
+  'Feminino': ['Sra.','Srta.','Dra.','Profa.','Enga.','Arqa.'],
+};
+const GENDER_TITLE_EN: Record<string, string[]> = {
+  'Male': ['Mr.','Dr.','Prof.'],
+  'Female': ['Ms.','Mrs.','Dr.','Prof.'],
+};
+
+const CATEGORY_PRICE_PT: Record<string, [number, number]> = {
+  'Eletrônicos': [500, 15000], 'Informática': [200, 8000],
+  'Móveis': [200, 5000], 'Acessórios': [20, 500], 'Periféricos': [50, 1500],
+};
+const CATEGORY_PRICE_EN: Record<string, [number, number]> = {
+  'Electronics': [500, 15000], 'Computers': [200, 8000],
+  'Furniture': [200, 5000], 'Accessories': [20, 500], 'Peripherals': [50, 1500],
+};
+
+const CATEGORY_SHIPPING_PT: Record<string, string[]> = {
+  'Eletrônicos': ['Transportadora Própria','Correios Sedex','Jadlog'],
+  'Informática': ['Transportadora Própria','Correios Sedex','Jadlog','Total Express'],
+  'Móveis': ['Transportadora Própria','Jadlog','Loggi'],
+  'Acessórios': ['Correios PAC','Correios Sedex','Motoboy','Loggi'],
+  'Periféricos': ['Correios PAC','Correios Sedex','Motoboy','Loggi'],
+};
+const CATEGORY_SHIPPING_EN: Record<string, string[]> = {
+  'Electronics': ['UPS Ground','FedEx Express','DHL Express'],
+  'Computers': ['UPS Ground','FedEx Express','DHL Express'],
+  'Furniture': ['UPS Ground','FedEx Express','Local Delivery'],
+  'Accessories': ['USPS Priority Mail','Amazon Logistics','Local Delivery'],
+  'Peripherals': ['USPS Priority Mail','Amazon Logistics','Local Delivery'],
+};
+
+const FOOTBALL_TEAM_STATE_PT: Record<string, string[]> = {
+  'Flamengo': ['RJ'], 'Vasco da Gama': ['RJ'], 'Botafogo': ['RJ'], 'Fluminense': ['RJ'],
+  'Corinthians': ['SP'], 'São Paulo': ['SP'], 'Palmeiras': ['SP'], 'Santos': ['SP'],
+  'Grêmio': ['RS'], 'Internacional': ['RS'],
+  'Atlético-MG': ['MG'], 'Cruzeiro': ['MG'],
+  'Bahia': ['BA'],
+  'Sport Recife': ['PE'],
+  'Athletico-PR': ['PR'], 'Coritiba': ['PR'],
+  'Goiás': ['GO'],
+  'Cuiabá': ['MT'],
+  'Fortaleza': ['CE'], 'Ceará': ['CE'],
+  'Real Madrid': ['MD'], 'Barcelona': ['CT'], 'Juventus': ['TO'],
+};
+const FOOTBALL_TEAM_STATE_EN: Record<string, string[]> = {
+  'Dallas Cowboys': ['TX'], 'Houston Texans': ['TX'],
+  'Kansas City Chiefs': ['MO'],
+  'San Francisco 49ers': ['CA'], 'Los Angeles Rams': ['CA'], 'Los Angeles Chargers': ['CA'],
+  'Green Bay Packers': ['WI'],
+  'New England Patriots': ['MA'],
+  'Pittsburgh Steelers': ['PA'], 'Philadelphia Eagles': ['PA'],
+  'Buffalo Bills': ['NY'], 'New York Giants': ['NY'], 'New York Jets': ['NY'],
+  'Cincinnati Bengals': ['OH'], 'Cleveland Browns': ['OH'],
+  'Baltimore Ravens': ['MD'],
+  'Miami Dolphins': ['FL'], 'Tampa Bay Buccaneers': ['FL'], 'Jacksonville Jaguars': ['FL'],
+  'Las Vegas Raiders': ['NV'],
+  'Denver Broncos': ['CO'],
+  'Seattle Seahawks': ['WA'],
+  'Chicago Bears': ['IL'],
+  'Minnesota Vikings': ['MN'],
+  'New Orleans Saints': ['LA'],
+  'Atlanta Falcons': ['GA'],
+  'Detroit Lions': ['MI'],
+  'Arizona Cardinals': ['AZ'],
+  'Tennessee Titans': ['TN'],
+  'Indianapolis Colts': ['IN'],
+};
+
+const BASKETBALL_TEAM_STATE_PT: Record<string, string[]> = {
+  'Lakers': ['CA'], 'Warriors': ['CA'],
+  'Celtics': ['MA'],
+  'Bulls': ['IL'],
+  'Heat': ['FL'],
+  'Nets': ['NY'], 'Knicks': ['NY'],
+  'Bucks': ['WI'],
+  'Suns': ['AZ'],
+  'Nuggets': ['CO'],
+  'Mavericks': ['TX'],
+  'Flamengo Basquete': ['RJ'], 'Franca': ['SP'],
+};
+const BASKETBALL_TEAM_STATE_EN: Record<string, string[]> = {
+  'Los Angeles Lakers': ['CA'], 'Golden State Warriors': ['CA'], 'Los Angeles Clippers': ['CA'],
+  'Boston Celtics': ['MA'],
+  'Chicago Bulls': ['IL'],
+  'Miami Heat': ['FL'], 'Orlando Magic': ['FL'],
+  'Brooklyn Nets': ['NY'], 'New York Knicks': ['NY'],
+  'Milwaukee Bucks': ['WI'],
+  'Phoenix Suns': ['AZ'],
+  'Denver Nuggets': ['CO'],
+  'Dallas Mavericks': ['TX'], 'Houston Rockets': ['TX'], 'San Antonio Spurs': ['TX'],
+  'Philadelphia 76ers': ['PA'],
+  'Atlanta Hawks': ['GA'],
+  'Toronto Raptors': ['ON'],
+  'Cleveland Cavaliers': ['OH'], 'Detroit Pistons': ['MI'],
+  'Indiana Pacers': ['IN'],
+  'Memphis Grizzlies': ['TN'],
+  'New Orleans Pelicans': ['LA'],
+  'Oklahoma City Thunder': ['OK'],
+  'Portland Trail Blazers': ['OR'],
+  'Utah Jazz': ['UT'],
+  'Minnesota Timberwolves': ['MN'],
+  'Charlotte Hornets': ['NC'],
+  'Washington Wizards': ['DC'],
+  'Sacramento Kings': ['CA'],
+};
+
+const ZODIAC_SIGNS_PT = ['Aquário','Peixes','Áries','Touro','Gêmeos','Câncer','Leão','Virgem','Libra','Escorpião','Sagitário','Capricórnio'];
+const ZODIAC_BOUNDARIES = [
+  { month: 0, day: 20 }, { month: 1, day: 19 }, { month: 2, day: 21 }, { month: 3, day: 20 },
+  { month: 4, day: 21 }, { month: 5, day: 21 }, { month: 6, day: 23 }, { month: 7, day: 23 },
+  { month: 8, day: 23 }, { month: 9, day: 23 }, { month: 10, day: 22 }, { month: 11, day: 22 },
+];
+
+const ZODIAC_SIGNS_EN = ['Aquarius','Pisces','Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn'];
+
+function getCardBin(flag: string, isEN: boolean): string {
+  const bins = isEN ? CREDIT_CARD_BINS_EN : CREDIT_CARD_BINS;
+  const info = bins[flag];
+  if (!info) return '4';
+  const prefix = randomPick(info.prefixes);
+  const remaining = info.length - prefix.length;
+  return prefix + Array.from({ length: remaining }, () => randomInt(0, 9)).join('');
+}
+
+function getZodiac(date: Date, isEN: boolean): string {
+  const signs = isEN ? ZODIAC_SIGNS_EN : ZODIAC_SIGNS_PT;
+  const m = date.getMonth();
+  const d = date.getDate();
+  for (let i = signs.length - 1; i >= 0; i--) {
+    if (m > ZODIAC_BOUNDARIES[i].month || (m === ZODIAC_BOUNDARIES[i].month && d >= ZODIAC_BOUNDARIES[i].day)) {
+      return signs[i];
+    }
+  }
+  return signs[signs.length - 1];
+}
+
+function randomDateInZodiac(sign: string, year: number, isEN: boolean): Date {
+  const signs = isEN ? ZODIAC_SIGNS_EN : ZODIAC_SIGNS_PT;
+  const idx = signs.indexOf(sign);
+  if (idx === -1) return new Date(year, 0, 1);
+  const start = ZODIAC_BOUNDARIES[idx];
+  const end = ZODIAC_BOUNDARIES[(idx + 1) % signs.length];
+  let endMonth = end.month;
+  let endYear = year;
+  if (end.month <= start.month && end.day <= start.day) { endYear = year + 1; }
+  const startDate = new Date(year, start.month, start.day);
+  const endDate = new Date(endYear, endMonth, end.day);
+  const diff = endDate.getTime() - startDate.getTime();
+  return new Date(startDate.getTime() + Math.random() * diff);
+}
+
+function genShippingMethod(category: string | undefined, isEN: boolean): string {
+  if (!category) return randomPick(isEN
+    ? ['USPS Priority Mail', 'UPS Ground', 'FedEx Express', 'DHL Express', 'Amazon Logistics', 'Store Pickup', 'Local Delivery']
+    : ['Correios PAC', 'Correios Sedex', 'Jadlog', 'Total Express', 'Loggi', 'Transportadora Própria', 'Motoboy', 'Retirada no Local']);
+  const map = isEN ? CATEGORY_SHIPPING_EN : CATEGORY_SHIPPING_PT;
+  const methods = map[category];
+  if (methods) return randomPick(methods);
+  return randomPick(isEN
+    ? ['USPS Priority Mail', 'UPS Ground', 'FedEx Express']
+    : ['Correios PAC', 'Correios Sedex', 'Jadlog']);
+}
+
 function genPhone(ctx: Record<string, any> | undefined, isMobile: boolean): string {
   const areaCode = ctx?.areaCode ?? '011';
   const fmt = ctx?.countryData?.phoneFormat ?? 'brazil';
@@ -371,15 +975,579 @@ class FakeDataGenerator {
 
     const record = {};
     const d = this.d;
-    if (fields.includes('email') && fields.includes('company')) {
+    const isEN = this.locale === 'en-US';
+    const nameMaleKey = isEN ? 'masculine' : 'masculino';
+    const nameFemaleKey = isEN ? 'feminine' : 'feminino';
+    if (fields.includes('company') && !ctx._companyName) {
       ctx._companyName = `${randomPick(d.company.prefixes)}${randomPick(d.company.suffixes)}`;
     }
-    if (fields.includes('email')) {
-      const fnKey = this.locale === 'en-US' ? 'masculine' : 'masculino';
-      const ffKey = this.locale === 'en-US' ? 'feminine' : 'feminino';
-      ctx._firstName = randomPick([...d.names.firstName[fnKey], ...d.names.firstName[ffKey]]);
+
+    // ===== CORRELATION ENGINE =====
+    // Pre-populate ctx with coherent cross-field values before individual generators run.
+
+    // Gender → title (must run before Gender → first name so ctx._gender is known)
+    if (fields.includes('title')) {
+      const _gender = ctx._gender ?? randomPick(d.categories.genders);
+      ctx._gender = _gender;
+      const _titleMap = isEN ? GENDER_TITLE_EN : GENDER_TITLE_PT;
+      const _titles = _titleMap[_gender];
+      if (_titles) ctx._title = randomPick(_titles);
+    }
+
+    // Gender → first name
+    const _hasGenericName = fields.includes('firstName') || fields.includes('fullName') || fields.includes('email') || fields.includes('nickname') || fields.includes('motherName');
+    const _hasMaleField = fields.includes('firstNameMale');
+    const _hasFemaleField = fields.includes('firstNameFemale');
+    if (!ctx._firstName && (_hasGenericName || _hasMaleField || _hasFemaleField)) {
+      if (_hasMaleField && !_hasFemaleField && !_hasGenericName) {
+        ctx._firstName = randomPick(d.names.firstName[nameMaleKey]);
+      } else if (_hasFemaleField && !_hasMaleField && !_hasGenericName) {
+        ctx._firstName = randomPick(d.names.firstName[nameFemaleKey]);
+      } else if (_hasMaleField && !_hasFemaleField) {
+        ctx._firstName = randomPick(d.names.firstName[nameMaleKey]);
+      } else if (_hasFemaleField && !_hasMaleField) {
+        ctx._firstName = randomPick(d.names.firstName[nameFemaleKey]);
+      } else if (ctx._gender) {
+        if (ctx._gender === (isEN ? 'Male' : 'Masculino')) {
+          ctx._firstName = randomPick(d.names.firstName[nameMaleKey]);
+        } else if (ctx._gender === (isEN ? 'Female' : 'Feminino')) {
+          ctx._firstName = randomPick(d.names.firstName[nameFemaleKey]);
+        } else {
+          ctx._firstName = randomPick([...d.names.firstName[nameMaleKey], ...d.names.firstName[nameFemaleKey]]);
+        }
+      } else {
+        ctx._firstName = randomPick([...d.names.firstName[nameMaleKey], ...d.names.firstName[nameFemaleKey]]);
+      }
+    }
+    if (!ctx._lastName && (fields.includes('lastName') || fields.includes('fullName') || fields.includes('email') || fields.includes('motherName') || fields.includes('fatherName') || fields.includes('firstName') || fields.includes('firstNameMale') || fields.includes('firstNameFemale'))) {
       ctx._lastName = randomPick(d.names.lastName);
     }
+
+    // Car brand → car model, fuel type, vehicle type
+    const _carData = isEN ? CAR_BRAND_DATA_EN : CAR_BRAND_DATA_PT;
+    if (fields.includes('carBrand')) {
+      const _brands = Object.keys(_carData);
+      ctx._carBrand = randomPick(_brands);
+      const _brandInfo = _carData[ctx._carBrand];
+      if (fields.includes('carModel')) ctx._carModel = randomPick(_brandInfo.models);
+      if (fields.includes('fuelType')) ctx._carFuelType = randomPick(_brandInfo.fuelTypes);
+      if (fields.includes('vehicleType')) ctx._carVehicleType = randomPick(_brandInfo.vehicleTypes);
+    }
+
+    // Product category ↔ product (bi-directional)
+    const _pcMap = isEN ? PRODUCT_CATEGORY_MAP_EN : PRODUCT_CATEGORY_MAP_PT;
+    if (fields.includes('productCategory') && fields.includes('product')) {
+      const _catToProds: Record<string, string[]> = {};
+      for (const [prod, cat] of Object.entries(_pcMap)) {
+        if (!_catToProds[cat]) _catToProds[cat] = [];
+        _catToProds[cat].push(prod);
+      }
+      const _cats = Object.keys(_catToProds);
+      ctx._productCategory = randomPick(_cats);
+      ctx._product = randomPick(_catToProds[ctx._productCategory]);
+    } else if (fields.includes('productCategory')) {
+      ctx._productCategory = randomPick(isEN ? PRODUCT_CATEGORIES_EN : PRODUCT_CATEGORIES_PT);
+    }
+
+    // Movie genre → movie
+    const _movieMap = isEN ? MOVIE_GENRE_MAP_EN : MOVIE_GENRE_MAP_PT;
+    if (fields.includes('movieGenre')) {
+      const _mGenres = Object.keys(_movieMap);
+      ctx._movieGenre = randomPick(_mGenres);
+      if (fields.includes('movie')) ctx._movie = randomPick(_movieMap[ctx._movieGenre]);
+    }
+
+    // Game genre → game
+    const _gameMap = isEN ? GAME_GENRE_MAP_EN : GAME_GENRE_MAP_PT;
+    if (fields.includes('gameGenre')) {
+      const _gGenres = Object.keys(_gameMap);
+      ctx._gameGenre = randomPick(_gGenres);
+      if (fields.includes('game')) ctx._game = randomPick(_gameMap[ctx._gameGenre]);
+    }
+
+    // Music genre → instrument
+    const _musicMap = isEN ? MUSIC_GENRE_INSTRUMENTS_EN : MUSIC_GENRE_INSTRUMENTS_PT;
+    if (fields.includes('musicGenre')) {
+      const _muGenres = Object.keys(_musicMap);
+      ctx._musicGenre = randomPick(_muGenres);
+      if (fields.includes('instrument')) ctx._instrument = randomPick(_musicMap[ctx._musicGenre]);
+    }
+
+    // Profession → sector
+    const _profSectorMap = isEN ? PROFESSION_SECTOR_EN : PROFESSION_SECTOR_PT;
+    if (fields.includes('profession') && fields.includes('sector')) {
+      const _profs = Object.keys(_profSectorMap);
+      ctx._profession = randomPick(_profs);
+      ctx._sector = randomPick(_profSectorMap[ctx._profession]);
+    }
+
+    // Disease → medication
+    const _diseaseMedMap = isEN ? DISEASE_MEDICATION_EN : DISEASE_MEDICATION_PT;
+    if (fields.includes('disease')) {
+      const _diseases = Object.keys(_diseaseMedMap);
+      ctx._disease = randomPick(_diseases);
+      if (fields.includes('medication')) ctx._medication = randomPick(_diseaseMedMap[ctx._disease]);
+    }
+
+    // Cuisine type → restaurant
+    const _cuisineRestMap = isEN ? CUISINE_RESTAURANT_EN : CUISINE_RESTAURANT_PT;
+    if (fields.includes('cuisineType')) {
+      const _cuisines = Object.keys(_cuisineRestMap);
+      ctx._cuisineType = randomPick(_cuisines);
+      if (fields.includes('restaurant')) ctx._restaurant = randomPick(_cuisineRestMap[ctx._cuisineType]);
+    }
+
+    // Dietary restriction → food
+    const _dietFoodMap = isEN ? DIET_FOOD_MAP_EN : DIET_FOOD_MAP_PT;
+    if (fields.includes('dietaryRestriction')) {
+      const _diets = Object.keys(_dietFoodMap);
+      ctx._dietaryRestriction = randomPick(_diets);
+      if (fields.includes('food')) ctx._food = randomPick(_dietFoodMap[ctx._dietaryRestriction]);
+    }
+
+    // University → course
+    const _uniCourseMap = isEN ? UNIVERSITY_COURSES_EN : UNIVERSITY_COURSES_PT;
+    if (fields.includes('university')) {
+      const _unis = Object.keys(_uniCourseMap);
+      ctx._university = randomPick(_unis);
+      if (fields.includes('course')) ctx._course = randomPick(_uniCourseMap[ctx._university]);
+    }
+
+    // Dog breed → pet name
+    const _dogPetMap = isEN ? DOG_BREED_NAMES_EN : DOG_BREED_NAMES_PT;
+    if (fields.includes('dogBreed') && fields.includes('petName')) {
+      const _dogBreeds = Object.keys(_dogPetMap);
+      ctx._dogBreed = randomPick(_dogBreeds);
+      ctx._petName = randomPick(_dogPetMap[ctx._dogBreed]);
+    }
+
+    // Cat breed → pet name
+    const _catPetMap = isEN ? CAT_BREED_NAMES_EN : CAT_BREED_NAMES_PT;
+    if (fields.includes('catBreed') && fields.includes('petName')) {
+      const _catBreeds = Object.keys(_catPetMap);
+      ctx._catBreed = randomPick(_catBreeds);
+      ctx._petName = randomPick(_catPetMap[ctx._catBreed]);
+    }
+
+    // OS → browser
+    const _osBrowserMap = isEN ? OS_BROWSER_MAP_EN : OS_BROWSER_MAP_PT;
+    if (fields.includes('operatingSystem')) {
+      const _oss = Object.keys(_osBrowserMap);
+      ctx._operatingSystem = randomPick(_oss);
+      if (fields.includes('browser')) ctx._browser = randomPick(_osBrowserMap[ctx._operatingSystem]);
+    }
+
+    // OS → phone brand
+    const _osPhoneMap = isEN ? OS_PHONE_MAP_EN : OS_PHONE_MAP_PT;
+    if (fields.includes('operatingSystem') && fields.includes('phoneBrand')) {
+      if (!ctx._operatingSystem) ctx._operatingSystem = randomPick(Object.keys(_osPhoneMap));
+      ctx._phoneBrand = randomPick(_osPhoneMap[ctx._operatingSystem]);
+    }
+
+    // Clothing type → clothing size
+    const _clothingSizeMap = isEN ? CLOTHING_TYPE_SIZES_EN : CLOTHING_TYPE_SIZES_PT;
+    if (fields.includes('clothingType')) {
+      const _types = Object.keys(_clothingSizeMap);
+      ctx._clothingType = randomPick(_types);
+      if (fields.includes('clothingSize')) ctx._clothingSize = randomPick(_clothingSizeMap[ctx._clothingType]);
+    }
+
+    // Seniority ↔ salary
+    if (fields.includes('salary')) {
+      if (fields.includes('seniority')) {
+        const _snr = ctx._seniority ?? randomPick(d.profession.seniority);
+        ctx._seniority = _snr;
+        if (isEN) {
+          const _salaryRanges: Record<string, [number, number]> = {
+            'Intern': [25000, 45000], 'Entry Level': [30000, 55000], 'Junior': [40000, 70000],
+            'Mid-Level': [60000, 100000], 'Senior': [95000, 160000], 'Staff': [130000, 200000],
+            'Principal': [160000, 280000], 'Lead': [110000, 175000], 'Fellow': [180000, 350000],
+          };
+          const _range = _salaryRanges[_snr] ?? [40000, 120000];
+          ctx._salary = randomInt(_range[0], _range[1]);
+        } else {
+          const _salaryRanges: Record<string, [number, number]> = {
+            'Estagiário': [800, 2000], 'Trainee': [1500, 3500],
+            'Júnior': [2500, 6000], 'Pleno': [5000, 12000],
+            'Sênior': [10000, 22000], 'Especialista': [15000, 30000], 'Master': [18000, 40000],
+          };
+          const _range = _salaryRanges[_snr] ?? [2500, 20000];
+          ctx._salary = randomInt(_range[0], _range[1]);
+        }
+      } else {
+        ctx._salary = isEN ? randomInt(35000, 150000) : randomInt(1500, 35000);
+      }
+    }
+
+    // Age ↔ seniority
+    if (fields.includes('age') && fields.includes('seniority')) {
+      if (!ctx._seniority && ctx._age) {
+        const _age = ctx._age;
+        if (isEN) {
+          if (_age < 20) ctx._seniority = 'Intern';
+          else if (_age < 24) ctx._seniority = randomPick(['Junior', 'Entry Level']);
+          else if (_age < 30) ctx._seniority = randomPick(['Junior', 'Mid-Level']);
+          else if (_age < 40) ctx._seniority = randomPick(['Mid-Level', 'Senior']);
+          else if (_age < 50) ctx._seniority = randomPick(['Senior', 'Staff', 'Lead']);
+          else ctx._seniority = randomPick(['Staff', 'Principal', 'Fellow', 'Senior']);
+        } else {
+          if (_age < 20) ctx._seniority = 'Estagiário';
+          else if (_age < 24) ctx._seniority = randomPick(['Júnior', 'Trainee']);
+          else if (_age < 30) ctx._seniority = randomPick(['Júnior', 'Pleno']);
+          else if (_age < 40) ctx._seniority = randomPick(['Pleno', 'Sênior']);
+          else if (_age < 50) ctx._seniority = randomPick(['Sênior', 'Especialista']);
+          else ctx._seniority = randomPick(['Sênior', 'Especialista', 'Master']);
+        }
+      }
+      if (!ctx._age && ctx._seniority) {
+        if (isEN) {
+          const _seniorityAgeRanges: Record<string, [number, number]> = {
+            'Intern': [16, 22], 'Entry Level': [18, 25], 'Junior': [20, 30],
+            'Mid-Level': [25, 40], 'Senior': [32, 55], 'Staff': [38, 60],
+            'Principal': [40, 65], 'Lead': [32, 55], 'Fellow': [42, 70],
+          };
+          const _range = _seniorityAgeRanges[ctx._seniority] ?? [18, 65];
+          ctx._age = randomInt(_range[0], _range[1]);
+        } else {
+          const _seniorityAgeRanges: Record<string, [number, number]> = {
+            'Estagiário': [16, 24], 'Trainee': [18, 26],
+            'Júnior': [18, 32], 'Pleno': [23, 45], 'Sênior': [30, 60],
+            'Especialista': [35, 65], 'Master': [38, 70],
+          };
+          const _range = _seniorityAgeRanges[ctx._seniority] ?? [18, 65];
+          ctx._age = randomInt(_range[0], _range[1]);
+        }
+      }
+    }
+
+    // Birth date ↔ age
+    if (fields.includes('birthDate') && fields.includes('age')) {
+      const _age = ctx._age ?? randomInt(18, 80);
+      ctx._age = _age;
+      const _bd = new Date();
+      _bd.setFullYear(_bd.getFullYear() - _age);
+      _bd.setMonth(randomInt(0, 11));
+      _bd.setDate(randomInt(1, 28));
+      ctx._birthDate = _bd;
+    }
+
+    // Quantity × price = amount
+    if (fields.includes('amount')) {
+      if (fields.includes('quantity') && fields.includes('price')) {
+        const _qty = ctx._quantity ?? randomInt(1, 100);
+        ctx._quantity = _qty;
+        const _price = ctx._price ?? parseFloat((Math.random() * 5000 + 10).toFixed(2));
+        ctx._price = _price;
+        ctx._amount = parseFloat((_qty * _price).toFixed(2));
+      } else {
+        ctx._amount = parseFloat((Math.random() * 10000).toFixed(2));
+      }
+    }
+
+    // Height ↔ weight (BMI 18.5–30)
+    if (fields.includes('height') && fields.includes('weight')) {
+      if (isEN) {
+        const _height = parseFloat((randomInt(58, 84) / 12).toFixed(2));
+        ctx._height = _height;
+        const _heightInches = _height * 12;
+        const _targetBMI = 18.5 + Math.random() * 11.5;
+        const _weightLbs = Math.round(_targetBMI * _heightInches * _heightInches / 703);
+        ctx._weight = Math.max(80, Math.min(400, _weightLbs));
+      } else {
+        const _height = parseFloat((randomInt(145, 210) / 100).toFixed(2));
+        ctx._height = _height;
+        const _targetBMI = 18.5 + Math.random() * 11.5;
+        const _weightKg = Math.round(_targetBMI * _height * _height);
+        ctx._weight = Math.max(35, Math.min(200, _weightKg));
+      }
+    }
+
+    // Age → disease (older = more likely to have conditions)
+    if (fields.includes('disease') && fields.includes('age') && !ctx._disease) {
+      const _age = ctx._age ?? randomInt(18, 80);
+      ctx._age = _age;
+      if (_age >= 60 && Math.random() < 0.7) {
+        ctx._disease = randomPick(isEN
+          ? ['Hypertension', 'High Cholesterol', 'Type 2 Diabetes', 'Hypothyroidism', 'Osteoporosis', 'Rheumatoid Arthritis', 'GERD']
+          : ['Hipertensão Arterial', 'Colesterol Alto', 'Diabetes Tipo 2', 'Hipotireoidismo', 'Osteoporose', 'Artrite Reumatoide', 'Gastrite']);
+      } else if (_age >= 40 && Math.random() < 0.5) {
+        ctx._disease = randomPick(isEN
+          ? ['Hypertension', 'Allergic Rhinitis', 'Asthma', 'Migraine', 'Anxiety Disorder', 'High Cholesterol']
+          : ['Hipertensão Arterial', 'Rinite Alérgica', 'Asma', 'Enxaqueca', 'Ansiedade', 'Colesterol Alto']);
+      }
+      if (ctx._disease && fields.includes('medication')) {
+        const _dmm = isEN ? DISEASE_MEDICATION_EN : DISEASE_MEDICATION_PT;
+        if (_dmm[ctx._disease]) ctx._medication = randomPick(_dmm[ctx._disease]);
+      }
+    }
+
+    // Ethnicity → hair/eye color (approximate demographic correlations)
+    if (fields.includes('ethnicity')) {
+      const _eth = ctx._ethnicity ?? randomPick(d.person.ethnicities);
+      ctx._ethnicity = _eth;
+      if (isEN) {
+        if (_eth === 'White' || _eth === 'Hispanic or Latino') {
+          if (fields.includes('hairColor')) ctx._hairColor = randomPick(['Black', 'Brown', 'Dark Brown', 'Light Brown', 'Blonde', 'Red', 'Gray']);
+          if (fields.includes('eyeColor')) ctx._eyeColor = randomPick(['Brown', 'Blue', 'Green', 'Hazel', 'Gray']);
+        } else if (_eth === 'Black or African American') {
+          if (fields.includes('hairColor')) ctx._hairColor = randomPick(['Black', 'Brown', 'Dark Brown']);
+          if (fields.includes('eyeColor')) ctx._eyeColor = randomPick(['Brown', 'Black', 'Hazel']);
+        } else if (_eth === 'Asian') {
+          if (fields.includes('hairColor')) ctx._hairColor = randomPick(['Black', 'Dark Brown']);
+          if (fields.includes('eyeColor')) ctx._eyeColor = randomPick(['Brown', 'Black']);
+        } else {
+          if (fields.includes('hairColor')) ctx._hairColor = randomPick(['Black', 'Brown', 'Dark Brown']);
+          if (fields.includes('eyeColor')) ctx._eyeColor = randomPick(['Brown', 'Black', 'Hazel']);
+        }
+      } else {
+        if (_eth === 'Branca' || _eth === 'Parda') {
+          if (fields.includes('hairColor')) ctx._hairColor = randomPick(['Preto', 'Castanho', 'Castanho Claro', 'Ruivo', 'Loiro', 'Grisalho']);
+          if (fields.includes('eyeColor')) ctx._eyeColor = randomPick(['Castanho', 'Azul', 'Verde', 'Mel', 'Cinza']);
+        } else {
+          if (fields.includes('hairColor')) ctx._hairColor = randomPick(['Preto', 'Castanho']);
+          if (fields.includes('eyeColor')) ctx._eyeColor = randomPick(['Castanho', 'Preto']);
+        }
+      }
+    }
+
+    // ===== Additional correlations =====
+
+    // Credit card flag → credit card number
+    if (fields.includes('creditCardFlag')) {
+      ctx._creditCardFlag = randomPick(d.finance.creditCardFlags);
+      if (fields.includes('creditCardNumber')) {
+        ctx._creditCardNumber = getCardBin(ctx._creditCardFlag, isEN);
+      }
+    }
+
+    // Country → currency
+    if (fields.includes('currency') && ctx?.countryKey) {
+      const _ccyMap = COUNTRY_CURRENCY[ctx.countryKey];
+      if (_ccyMap) ctx._currency = randomPick(_ccyMap);
+    }
+
+    // Country → nationality
+    if (fields.includes('nationality') && ctx?.countryKey) {
+      const _natMap = isEN ? COUNTRY_NATIONALITY_EN : COUNTRY_NATIONALITY;
+      const _nats = _natMap[ctx.countryKey];
+      if (_nats) ctx._nationality = randomPick(_nats);
+    }
+
+    // Country → naturalness (cidade natal)
+    if (fields.includes('naturalness') && ctx?.countryKey) {
+      if (ctx.countryKey === 'BR' || ctx.countryKey === 'US') {
+        const _natCities = d.person.naturalness;
+        ctx._naturalness = randomPick(_natCities);
+      }
+    }
+
+    // Country → language
+    if (fields.includes('language') && ctx?.countryKey) {
+      const _langMap = isEN ? COUNTRY_LANGUAGE_EN : COUNTRY_LANGUAGE;
+      const _langs = _langMap[ctx.countryKey];
+      if (_langs) ctx._language = randomPick(_langs);
+    }
+
+    // Country → timezone
+    if (fields.includes('timezone') && ctx?.countryKey) {
+      const _tzMap = COUNTRY_TIMEZONE[ctx.countryKey];
+      if (_tzMap) ctx._timezone = randomPick(_tzMap);
+    }
+
+    // Product category → price range
+    if (fields.includes('price') && ctx._productCategory) {
+      const _priceMap = isEN ? CATEGORY_PRICE_EN : CATEGORY_PRICE_PT;
+      const _range = _priceMap[ctx._productCategory];
+      if (_range) ctx._price = parseFloat((_range[0] + Math.random() * (_range[1] - _range[0])).toFixed(2));
+    }
+
+    // Age → marital status
+    if (fields.includes('maritalStatus') && ctx._age) {
+      const _maritalMap = isEN ? AGE_MARITAL_EN : AGE_MARITAL_PT;
+      let _key: string;
+      if (ctx._age < 25) _key = 'young';
+      else if (ctx._age < 55) _key = 'mid';
+      else _key = 'senior';
+      const _options = _maritalMap[_key];
+      if (_options) ctx._maritalStatus = randomPick(_options);
+    }
+
+    // Age → blood pressure
+    if (fields.includes('bloodPressure') && ctx._age) {
+      const _baseSystolic = 100 + ctx._age * 0.5;
+      const _systolic = Math.round(_baseSystolic + (Math.random() - 0.5) * 20);
+      const _diastolic = Math.round(60 + ctx._age * 0.2 + (Math.random() - 0.5) * 10);
+      ctx._bloodPressure = `${Math.min(180, Math.max(90, _systolic))}/${Math.min(100, Math.max(55, _diastolic))}`;
+    }
+
+    // Gender → height/weight
+    if (fields.includes('height') && fields.includes('weight') && !ctx._height) {
+      const _gender = ctx._gender;
+      if (isEN) {
+        const _hIn = _gender === 'Male' ? randomInt(64, 78) : randomInt(58, 70);
+        ctx._height = parseFloat((_hIn / 12).toFixed(2));
+        const _targetBMI = 18.5 + Math.random() * 11.5;
+        ctx._weight = Math.max(80, Math.min(350, Math.round(_targetBMI * _hIn * _hIn / 703)));
+      } else {
+        const _hCm = _gender === 'Masculino' ? randomInt(160, 195) : randomInt(148, 175);
+        ctx._height = parseFloat((_hCm / 100).toFixed(2));
+        const _targetBMI = 18.5 + Math.random() * 11.5;
+        ctx._weight = Math.max(40, Math.min(180, Math.round(_targetBMI * (_hCm / 100) * (_hCm / 100))));
+      }
+    }
+
+    // Discount → amount (desconto aplicado ao total)
+    if (fields.includes('discount') && fields.includes('amount') && fields.includes('quantity') && fields.includes('price')) {
+      const _qty = ctx._quantity ?? randomInt(1, 100);
+      ctx._quantity = _qty;
+      const _price = ctx._price ?? parseFloat((Math.random() * 5000 + 10).toFixed(2));
+      ctx._price = _price;
+      if (!ctx._discount) ctx._discount = randomInt(5, 50);
+      const _discount = ctx._discount;
+      ctx._amount = parseFloat((_qty * _price * (1 - _discount / 100)).toFixed(2));
+    }
+
+    // Football team → state
+    if (fields.includes('footballTeam')) {
+      const _ftMap = isEN ? FOOTBALL_TEAM_STATE_EN : FOOTBALL_TEAM_STATE_PT;
+      const _teams = Object.keys(_ftMap);
+      ctx._footballTeam = randomPick(_teams);
+      const _states = _ftMap[ctx._footballTeam];
+      if (fields.includes('state') && ctx?.cityData && _states && _states.length > 0) {
+        // Only override state if the team's state matches the country context
+        if (_states.includes(ctx.cityData.state)) {
+          ctx._state = ctx.cityData.state;
+        }
+      }
+    }
+
+    // Basketball team → state
+    if (fields.includes('basketballTeam')) {
+      const _btMap = isEN ? BASKETBALL_TEAM_STATE_EN : BASKETBALL_TEAM_STATE_PT;
+      const _teams = Object.keys(_btMap);
+      ctx._basketballTeam = randomPick(_teams);
+      const _states = _btMap[ctx._basketballTeam];
+      if (fields.includes('state') && ctx?.cityData && _states && _states.length > 0) {
+        if (_states.includes(ctx.cityData.state)) {
+          ctx._state = ctx.cityData.state;
+        }
+      }
+    }
+
+    // Birth date → zodiac sign
+    if (fields.includes('zodiacSign') && ctx._birthDate) {
+      ctx._zodiacSign = getZodiac(ctx._birthDate, isEN);
+    } else if (fields.includes('zodiacSign') && fields.includes('birthDate') && !ctx._birthDate) {
+      const _zodiac = randomPick(isEN ? ZODIAC_SIGNS_EN : ZODIAC_SIGNS_PT);
+      ctx._zodiacSign = _zodiac;
+      ctx._birthDate = randomDateInZodiac(_zodiac, randomInt(1950, 2005), isEN);
+    }
+
+    // Age → hair color (older → more gray)
+    if (fields.includes('hairColor') && ctx._age && !ctx._hairColor) {
+      if (ctx._age >= 60 && Math.random() < 0.6) {
+        ctx._hairColor = isEN ? randomPick(['Gray', 'White', 'Silver']) : randomPick(['Grisalho', 'Branco', 'Platinado']);
+      } else if (ctx._age >= 45 && Math.random() < 0.3) {
+        ctx._hairColor = isEN ? randomPick(['Gray', 'Salt and Pepper']) : randomPick(['Grisalho']);
+      }
+    }
+
+    // Height → footwear size
+    if (fields.includes('footwearSize') && ctx._height) {
+      if (isEN) {
+        const _hIn = ctx._height * 12;
+        if (_hIn < 62) ctx._footwearSize = randomPick(['5','6']);
+        else if (_hIn < 66) ctx._footwearSize = randomPick(['6','7','8']);
+        else if (_hIn < 70) ctx._footwearSize = randomPick(['8','9','10']);
+        else if (_hIn < 74) ctx._footwearSize = randomPick(['10','11','12']);
+        else ctx._footwearSize = randomPick(['12','13','14']);
+      } else {
+        const _hCm = ctx._height * 100;
+        if (_hCm < 155) ctx._footwearSize = randomPick(['33','34','35','36']);
+        else if (_hCm < 165) ctx._footwearSize = randomPick(['35','36','37','38']);
+        else if (_hCm < 175) ctx._footwearSize = randomPick(['37','38','39','40']);
+        else if (_hCm < 185) ctx._footwearSize = randomPick(['39','40','41','42','43']);
+        else ctx._footwearSize = randomPick(['42','43','44','45','46']);
+      }
+    }
+
+    // Education ↔ seniority
+    if (fields.includes('education') && ctx._seniority) {
+      if (isEN) {
+        if (['Intern','Entry Level','Junior'].includes(ctx._seniority)) {
+          ctx._education = randomPick(["Some College","Associate Degree","Bachelor's Degree"]);
+        } else if (['Mid-Level'].includes(ctx._seniority)) {
+          ctx._education = randomPick(["Bachelor's Degree","Some Graduate School","Master's Degree"]);
+        } else if (['Senior','Lead'].includes(ctx._seniority)) {
+          ctx._education = randomPick(["Bachelor's Degree","Master's Degree","MBA"]);
+        } else {
+          ctx._education = randomPick(["Master's Degree","Doctorate (PhD)",'MBA']);
+        }
+      } else {
+        if (ctx._seniority === 'Estagiário' || ctx._seniority === 'Trainee' || ctx._seniority === 'Júnior') {
+          ctx._education = randomPick(['Ensino Médio Completo','Graduação Incompleta','Curso Técnico Completo','Graduação Completa']);
+        } else if (ctx._seniority === 'Pleno') {
+          ctx._education = randomPick(['Graduação Completa','Pós-graduação Completa','MBA Completo']);
+        } else {
+          ctx._education = randomPick(['Graduação Completa','Pós-graduação Completa','Mestrado Completo','MBA Completo','Doutorado Completo']);
+        }
+      }
+    }
+
+    // Age → education
+    if (fields.includes('education') && ctx._age && !ctx._education) {
+      const _eduMap = isEN ? AGE_EDUCATION_EN : AGE_EDUCATION_PT;
+      let _key: string;
+      if (ctx._age < 24) _key = 'young';
+      else if (ctx._age < 45) _key = 'mid';
+      else _key = 'senior';
+      ctx._education = randomPick(_eduMap[_key]);
+    }
+
+    // Age → hobby
+    if (fields.includes('hobby') && ctx._age) {
+      const _hobbyMap = isEN ? AGE_HOBBY_EN : AGE_HOBBY_PT;
+      let _key: string;
+      if (ctx._age < 25) _key = 'young';
+      else if (ctx._age < 50) _key = 'mid';
+      else _key = 'senior';
+      ctx._hobby = randomPick(_hobbyMap[_key]);
+    }
+
+    // Product category → shipping method
+    if (fields.includes('shippingMethod') && ctx._productCategory) {
+      ctx._shippingMethod = genShippingMethod(ctx._productCategory, isEN);
+    }
+
+    // Education → salary (if salary not set by seniority)
+    if (fields.includes('salary') && !ctx._salary && ctx._education) {
+      if (isEN) {
+        if (ctx._education === 'High School Diploma' || ctx._education === 'Some College') {
+          ctx._salary = randomInt(25000, 50000);
+        } else if (ctx._education === 'Associate Degree') {
+          ctx._salary = randomInt(35000, 65000);
+        } else if (ctx._education === "Bachelor's Degree") {
+          ctx._salary = randomInt(45000, 90000);
+        } else if (ctx._education === "Master's Degree" || ctx._education === 'MBA') {
+          ctx._salary = randomInt(65000, 130000);
+        } else {
+          ctx._salary = randomInt(80000, 180000);
+        }
+      } else {
+        if (ctx._education === 'Ensino Médio Completo' || ctx._education === 'Curso Técnico Completo') {
+          ctx._salary = randomInt(1200, 4000);
+        } else if (ctx._education === 'Graduação Incompleta') {
+          ctx._salary = randomInt(1500, 5000);
+        } else if (ctx._education === 'Graduação Completa') {
+          ctx._salary = randomInt(3000, 10000);
+        } else if (ctx._education.includes('Pós') || ctx._education.includes('MBA') || ctx._education.includes('Mestrado')) {
+          ctx._salary = randomInt(6000, 18000);
+        } else {
+          ctx._salary = randomInt(8000, 25000);
+        }
+      }
+    }
+
     for (const field of fields) {
       record[field] = this.generateField(field, ctx);
     }
@@ -443,8 +1611,14 @@ class FakeDataGenerator {
       id:            () => this.counter,
       uuid:          () => crypto.randomUUID?.() ?? 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random()*16|0; return (c==='x'?r:(r&0x3|0x8)).toString(16); }),
       firstName:     () => randFN(),
-      firstNameMale: () => randomPick(d.names.firstName[nameMaleKey]),
-      firstNameFemale:()=> randomPick(d.names.firstName[nameFemaleKey]),
+      firstNameMale: () => {
+        if (ctx?._firstName && d.names.firstName[nameMaleKey].includes(ctx._firstName)) return ctx._firstName;
+        return randomPick(d.names.firstName[nameMaleKey]);
+      },
+      firstNameFemale:()=> {
+        if (ctx?._firstName && d.names.firstName[nameFemaleKey].includes(ctx._firstName)) return ctx._firstName;
+        return randomPick(d.names.firstName[nameFemaleKey]);
+      },
       lastName:      () => randLN(),
       fullName:      () => `${randFN()} ${randLN()}`,
       nickname:      () => randFN().toLowerCase() + randomInt(1, 999),
@@ -472,7 +1646,13 @@ class FakeDataGenerator {
       },
       phone:         () => genPhone(ctx, true),
       phoneFixo:     () => genPhone(ctx, false),
-      website:       () => `https://www.${randomPick(internet.corporateDomains)}`,
+      website:       () => {
+        if (ctx?._companyName) {
+          const domain = ctx._companyName.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+          return `https://www.${domain}.com`;
+        }
+        return `https://www.${randomPick(internet.corporateDomains)}`;
+      },
       linkedin:      () => isEN ? `linkedin.com/in/user-${this.counter}` : `linkedin.com/in/usuario-${this.counter}`,
       street:        () => {
         if (ctx?.countryKey === 'BR') {
@@ -525,27 +1705,27 @@ class FakeDataGenerator {
         return `${randomInt(1, 9999)} ${randomPick(world.streetGeneric)}, ${city}${state ? ', '+state : ''}`;
       },
       company:       () => ctx?._companyName ?? `${randomPick(d.company.prefixes)} ${randomPick(d.company.suffixes)}`,
-      sector:        () => randomPick(d.company.sectors),
+      sector:        () => ctx?._sector ?? randomPick(d.company.sectors),
       position:      () => isEN ? `${randomPick(d.company.positions)} of ${randomPick(d.company.areas)}` : `${randomPick(d.company.positions)} de ${randomPick(d.company.areas)}`,
       area:          () => randomPick(d.company.areas),
-      profession:    () => randomPick(d.profession.professions),
-      education:     () => randomPick(d.profession.education),
-      seniority:     () => randomPick(d.profession.seniority),
-      salary:        () => isEN ? randomInt(35000, 150000) : randomInt(1500, 35000),
+      profession:    () => ctx?._profession ?? randomPick(d.profession.professions),
+      education:     () => ctx?._education ?? randomPick(d.profession.education),
+      seniority:     () => ctx?._seniority ?? randomPick(d.profession.seniority),
+      salary:        () => ctx?._salary ?? (isEN ? randomInt(35000, 150000) : randomInt(1500, 35000)),
       bank:          () => randomPick(d.finance.banks).name,
       bankCode:      () => randomPick(d.finance.banks).code,
-      currency:      () => randomPick(d.finance.currencies).code,
+      currency:      () => ctx?._currency ?? randomPick(d.finance.currencies).code,
       paymentMethod: () => randomPick(d.finance.paymentMethods),
       status:        () => randomPick(d.finance.statusOptions),
-      amount:        () => parseFloat((Math.random() * 10000).toFixed(2)),
-      price:         () => parseFloat((Math.random() * 5000 + 10).toFixed(2)),
+      amount:        () => ctx?._amount ?? parseFloat((Math.random() * 10000).toFixed(2)),
+      price:         () => ctx?._price ?? parseFloat((Math.random() * 5000 + 10).toFixed(2)),
       date:          () => ctx?._refDate ? fmtDate(ctx._refDate) : fmtDate(randomDate(new Date(2000,0,1), new Date())),
       dateTime:      () => ctx?._refDate ? fmtDateTime(ctx._refDate) : fmtDateTime(randomDate(new Date(2020,0,1), new Date())),
-      birthDate:     () => fmtDate(randomDate(new Date(1950,0,1), new Date(2005,11,31))),
+      birthDate:     () => ctx?._birthDate ? fmtDate(ctx._birthDate) : fmtDate(randomDate(new Date(1950,0,1), new Date(2005,11,31))),
       dateUS:        () => ctx?._refDate ? ctx._refDate.toISOString().split('T')[0] : randomDate(new Date(2000,0,1), new Date()).toISOString().split('T')[0],
       year:          () => ctx?._refDate ? ctx._refDate.getFullYear() : randomInt(1990, 2026),
-      age:           () => randomInt(18, 80),
-      quantity:      () => randomInt(1, 100),
+      age:           () => ctx?._age ?? randomInt(18, 80),
+      quantity:      () => ctx?._quantity ?? randomInt(1, 100),
       percentage:    () => randomInt(0, 100),
       rating:        () => parseFloat((Math.random() * 5).toFixed(1)),
       boolean:       () => randomBool(),
@@ -562,47 +1742,47 @@ class FakeDataGenerator {
         const objects  = ['dados em tempo real', 'informações críticas', 'transações financeiras', 'requisições simultâneas', 'logs do sistema', 'relatórios gerenciais'];
         return `${randomPick(subjects)} ${randomPick(verbs)} ${randomPick(objects)}.`;
       },
-      product:         () => randomPick(isEN ? PRODUCT_NAMES_EN : PRODUCT_NAMES_PT),
-      productCategory: () => randomPick(isEN ? PRODUCT_CATEGORIES_EN : PRODUCT_CATEGORIES_PT),
+      product:         () => ctx?._product ?? randomPick(isEN ? PRODUCT_NAMES_EN : PRODUCT_NAMES_PT),
+      productCategory: () => ctx?._productCategory ?? randomPick(isEN ? PRODUCT_CATEGORIES_EN : PRODUCT_CATEGORIES_PT),
       sku:             () => `SKU-${randomInt(10000, 99999)}`,
       barcode:         () => Array.from({ length: 13 }, () => randomInt(0, 9)).join(''),
-      footballTeam:      () => randomPick(d.categories.footballTeams),
-      basketballTeam:    () => randomPick(d.categories.basketballTeams),
-      food:              () => randomPick(d.categories.foods),
+      footballTeam:      () => ctx?._footballTeam ?? randomPick(d.categories.footballTeams),
+      basketballTeam:    () => ctx?._basketballTeam ?? randomPick(d.categories.basketballTeams),
+      food:              () => ctx?._food ?? randomPick(d.categories.foods),
       drink:             () => randomPick(d.categories.drinks),
       fruit:             () => randomPick(d.categories.fruits),
       animal:            () => randomPick(d.categories.animals),
-      dogBreed:          () => randomPick(d.categories.dogBreeds),
-      catBreed:          () => randomPick(d.categories.catBreeds),
-      movie:             () => randomPick(d.categories.movies),
-      movieGenre:        () => randomPick(d.categories.movieGenres),
+      dogBreed:          () => ctx?._dogBreed ?? randomPick(d.categories.dogBreeds),
+      catBreed:          () => ctx?._catBreed ?? randomPick(d.categories.catBreeds),
+      movie:             () => ctx?._movie ?? randomPick(d.categories.movies),
+      movieGenre:        () => ctx?._movieGenre ?? randomPick(d.categories.movieGenres),
       bookGenre:         () => randomPick(d.categories.bookGenres),
       series:            () => randomPick(d.categories.series),
-      musicGenre:        () => randomPick(d.categories.musicGenres),
-      instrument:        () => randomPick(d.categories.instruments),
+      musicGenre:        () => ctx?._musicGenre ?? randomPick(d.categories.musicGenres),
+      instrument:        () => ctx?._instrument ?? randomPick(d.categories.instruments),
       sport:             () => randomPick(d.categories.sports),
-      hobby:             () => randomPick(d.categories.hobbies),
-      carBrand:          () => randomPick(d.categories.carBrands),
-      carModel:          () => randomPick(d.categories.carModels),
-      fuelType:          () => randomPick(d.categories.fuelTypes),
-      phoneBrand:        () => randomPick(d.categories.phoneBrands),
-      operatingSystem:   () => randomPick(d.categories.operatingSystems),
+      hobby:             () => ctx?._hobby ?? randomPick(d.categories.hobbies),
+      carBrand:          () => ctx?._carBrand ?? randomPick(d.categories.carBrands),
+      carModel:          () => ctx?._carModel ?? randomPick(d.categories.carModels),
+      fuelType:          () => ctx?._carFuelType ?? randomPick(d.categories.fuelTypes),
+      phoneBrand:        () => ctx?._phoneBrand ?? randomPick(d.categories.phoneBrands),
+      operatingSystem:   () => ctx?._operatingSystem ?? randomPick(d.categories.operatingSystems),
       programmingLanguage:()=> randomPick(d.categories.programmingLanguages),
       database:          () => randomPick(d.categories.databases),
-      browser:           () => randomPick(d.categories.browsers),
+      browser:           () => ctx?._browser ?? randomPick(d.categories.browsers),
       socialMedia:       () => randomPick(d.categories.socialMedia),
       streamingPlatform: () => randomPick(d.categories.streamingPlatforms),
-      clothingType:      () => randomPick(d.categories.clothingTypes),
-      clothingSize:      () => randomPick(d.categories.clothingSizes),
+      clothingType:      () => ctx?._clothingType ?? randomPick(d.categories.clothingTypes),
+      clothingSize:      () => ctx?._clothingSize ?? randomPick(d.categories.clothingSizes),
       color:             () => randomPick(d.categories.colors),
-      hairColor:         () => randomPick(d.categories.hairColors),
-      eyeColor:          () => randomPick(d.categories.eyeColors),
+      hairColor:         () => ctx?._hairColor ?? randomPick(d.categories.hairColors),
+      eyeColor:          () => ctx?._eyeColor ?? randomPick(d.categories.eyeColors),
       religion:          () => randomPick(d.categories.religions),
-      zodiacSign:        () => randomPick(d.categories.zodiacSigns),
-      maritalStatus:     () => randomPick(d.categories.maritalStatus),
+      zodiacSign:        () => ctx?._zodiacSign ?? randomPick(d.categories.zodiacSigns),
+      maritalStatus:     () => ctx?._maritalStatus ?? randomPick(d.categories.maritalStatus),
       bloodType:         () => randomPick(d.categories.bloodTypes),
-      gender:            () => randomPick(d.categories.genders),
-      vehicleType:       () => randomPick(d.categories.vehicleTypes),
+      gender:            () => ctx?._gender ?? randomPick(d.categories.genders),
+      vehicleType:       () => ctx?._carVehicleType ?? randomPick(d.categories.vehicleTypes),
       planet:            () => randomPick(d.categories.planets),
       weekDay:           () => ctx?._refDate ? d.categories.weekDays[ctx._refDate.getDay()] : randomPick(d.categories.weekDays),
       month:             () => ctx?._refDate ? d.categories.months[ctx._refDate.getMonth()] : randomPick(d.categories.months),
@@ -610,12 +1790,12 @@ class FakeDataGenerator {
       orderStatus:       () => randomPick(d.categories.orderStatus),
       schoolSubject:     () => randomPick(d.categories.schoolSubjects),
       suffix:         () => randomPick(d.person.suffixes),
-      title:          () => randomPick(d.person.titles),
-      motherName:     () => `${randomPick(firstNamesAll())} ${randLN()}`,
+      title:          () => ctx?._title ?? randomPick(d.person.titles),
+      motherName:     () => `${randomPick(d.names.firstName[nameFemaleKey])} ${randLN()}`,
       fatherName:     () => `${randomPick(d.names.firstName[nameMaleKey])} ${randLN()}`,
-      ethnicity:      () => randomPick(d.person.ethnicities),
-      nationality:    () => randomPick(d.person.nationalities),
-      naturalness:    () => randomPick(d.person.naturalness),
+      ethnicity:      () => ctx?._ethnicity ?? randomPick(d.person.ethnicities),
+      nationality:    () => ctx?._nationality ?? randomPick(d.person.nationalities),
+      naturalness:    () => ctx?._naturalness ?? randomPick(d.person.naturalness),
       ipAddress:      () => `${randomInt(1,223)}.${randomInt(0,255)}.${randomInt(0,255)}.${randomInt(1,254)}`,
       macAddress:     () => Array.from({length:6},()=>randomInt(0,255).toString(16).padStart(2,'0').toUpperCase()).join(':'),
       userAgent:      () => randomPick([
@@ -636,36 +1816,36 @@ class FakeDataGenerator {
       renavam:        () => String(randomInt(1000000000, 99999999999)),
       chassi:         () => Array.from({length:17},()=>'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[randomInt(0,35)]).join(''),
       carYear:        () => randomInt(2000, 2026),
-      cuisineType:    () => randomPick(d.food.cuisineTypes),
-      dietaryRestriction: () => randomPick(d.food.dietaryRestrictions),
+      cuisineType:    () => ctx?._cuisineType ?? randomPick(d.food.cuisineTypes),
+      dietaryRestriction: () => ctx?._dietaryRestriction ?? randomPick(d.food.dietaryRestrictions),
       meal:           () => randomPick(d.food.meals),
-      restaurant:     () => randomPick(d.food.restaurants),
-      height:         () => isEN ? parseFloat((randomInt(58, 84) / 12).toFixed(2)) : parseFloat((randomInt(145, 210) / 100).toFixed(2)),
-      weight:         () => isEN ? randomInt(100, 300) : randomInt(45, 150),
-      bloodPressure:  () => `${randomInt(100,140)}/${randomInt(60,90)}`,
+      restaurant:     () => ctx?._restaurant ?? randomPick(d.food.restaurants),
+      height:         () => ctx?._height ?? (isEN ? parseFloat((randomInt(58, 84) / 12).toFixed(2)) : parseFloat((randomInt(145, 210) / 100).toFixed(2))),
+      weight:         () => ctx?._weight ?? (isEN ? randomInt(100, 300) : randomInt(45, 150)),
+      bloodPressure:  () => ctx?._bloodPressure ?? `${randomInt(100,140)}/${randomInt(60,90)}`,
       heartRate:      () => randomInt(60, 100),
       allergy:        () => randomPick(d.health.allergies),
-      disease:        () => randomPick(d.health.diseases),
-      medication:     () => randomPick(d.health.medications),
-      university:     () => randomPick(d.education.universities),
-      course:         () => randomPick(d.education.courses),
+      disease:        () => ctx?._disease ?? randomPick(d.health.diseases),
+      medication:     () => ctx?._medication ?? randomPick(d.health.medications),
+      university:     () => ctx?._university ?? randomPick(d.education.universities),
+      course:         () => ctx?._course ?? randomPick(d.education.courses),
       degreeType:     () => randomPick(d.education.degreeTypes),
       grade:          () => randomPick(d.education.grades),
-      game:           () => randomPick(d.entertainment.games),
-      gameGenre:      () => randomPick(d.entertainment.gameGenres),
+      game:           () => ctx?._game ?? randomPick(d.entertainment.games),
+      gameGenre:      () => ctx?._gameGenre ?? randomPick(d.entertainment.gameGenres),
       continent:      () => randomPick(world.continents),
-      language:       () => randomPick(world.languages),
-      timezone:       () => randomPick(world.timezones),
+      language:       () => ctx?._language ?? randomPick(world.languages),
+      timezone:       () => ctx?._timezone ?? randomPick(world.timezones),
       latitude:       () => parseFloat((Math.random() * 180 - 90).toFixed(6)),
       longitude:      () => parseFloat((Math.random() * 360 - 180).toFixed(6)),
-      petName:        () => randomPick(d.animal.petNames),
+      petName:        () => ctx?._petName ?? randomPick(d.animal.petNames),
       clothingBrand:  () => randomPick(d.fashion.clothingBrands),
-      footwearSize:   () => randomPick(d.fashion.footwearSizes),
+      footwearSize:   () => ctx?._footwearSize ?? randomPick(d.fashion.footwearSizes),
       fabric:         () => randomPick(d.fashion.fabrics),
-      discount:       () => randomInt(5, 50),
+      discount:       () => ctx?._discount ?? randomInt(5, 50),
       tax:            () => parseFloat((randomInt(1, 30) + Math.random()).toFixed(2)),
-      creditCardFlag: () => randomPick(d.finance.creditCardFlags),
-      creditCardNumber: () => Array.from({length:16},()=>randomInt(0,9)).join('').replace(/(.{4})/g,'$1 ').trim(),
+      creditCardFlag: () => ctx?._creditCardFlag ?? randomPick(d.finance.creditCardFlags),
+      creditCardNumber: () => ctx?._creditCardNumber ?? Array.from({length:16},()=>randomInt(0,9)).join('').replace(/(.{4})/g,'$1 ').trim(),
       invoiceNumber:  () => isEN ? `INV-${randomInt(100000, 999999)}` : `NF-${randomInt(100000, 999999)}-${randomPick(['SP','RJ','MG','RS','PR','BA','DF'])}`,
       trackingCode:   () => {
         if (isEN) {
@@ -674,9 +1854,9 @@ class FakeDataGenerator {
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         return `BR${randomInt(100000000,999999999)}${letters[randomInt(0,25)]}${letters[randomInt(0,25)]}`;
       },
-      shippingMethod: () => isEN
+      shippingMethod: () => ctx?._shippingMethod ?? (isEN
         ? randomPick(['USPS Priority Mail', 'UPS Ground', 'FedEx Express', 'DHL Express', 'Amazon Logistics', 'Store Pickup', 'Local Delivery'])
-        : randomPick(['Correios PAC', 'Correios Sedex', 'Jadlog', 'Total Express', 'Loggi', 'Transportadora Própria', 'Motoboy', 'Retirada no Local']),
+        : randomPick(['Correios PAC', 'Correios Sedex', 'Jadlog', 'Total Express', 'Loggi', 'Transportadora Própria', 'Motoboy', 'Retirada no Local'])),
       time:           () => ctx?._refDate ? `${String(ctx._refDate.getHours()).padStart(2,'0')}:${String(ctx._refDate.getMinutes()).padStart(2,'0')}` : `${String(randomInt(0,23)).padStart(2,'0')}:${String(randomInt(0,59)).padStart(2,'0')}`,
       timestamp:      () => ctx?._refDate ? Math.floor(ctx._refDate.getTime() / 1000) : Math.floor(randomDate(new Date(2020,0,1),new Date()).getTime() / 1000),
       dueDate:        () => fmtDate(randomDate(new Date(), new Date(2027,11,31))),
