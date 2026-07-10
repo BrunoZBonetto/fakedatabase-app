@@ -23,6 +23,7 @@ export default function DataGenerator() {
   const [selectedFields, setSelectedFields] = useState([
     'id', 'fullName', 'email', 'phone', 'city', 'state', 'profession', 'company', 'salary'
   ]);
+  const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null);
   const [customFields, setCustomFields] = useState<any[]>([]);
   const [recordCount, setRecordCount] = useState(10);
   const [nullRate, setNullRate] = useState(0);
@@ -148,7 +149,10 @@ export default function DataGenerator() {
 
       <div className="main-layout">
         <aside className="sidebar" role="complementary" aria-label="Settings">
-          <TemplateSelector onApply={setSelectedFields} />
+          <TemplateSelector
+            onApply={(fields, key) => { setSelectedFields(fields); setSelectedTemplate(key); }}
+            selectedTemplate={selectedTemplate}
+          />
           <SortableFields
             fields={selectedFields}
             formatLabel={formatLabel}

@@ -354,6 +354,12 @@ body {
   background: var(--primary-bg);
   transform: translateY(-1px);
 }
+.template-card.active {
+  border-color: var(--primary);
+  background: var(--primary-bg);
+  box-shadow: 0 0 0 2px var(--primary);
+  transform: translateY(-1px);
+}
 .template-name { font-weight: 600; font-size: 0.9rem; }
 .template-desc { font-size: 0.75rem; color: var(--text-muted); }
 .template-count { font-size: 0.7rem; color: var(--primary); margin-top: 4px; }
