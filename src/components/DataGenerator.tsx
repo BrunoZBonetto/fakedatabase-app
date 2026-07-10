@@ -131,20 +131,21 @@ export default function DataGenerator() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <div className="header-top">
-          <div>
-            <h1>{t.app.title}</h1>
-            <p>{t.app.subtitle}</p>
+        <div className="header-row">
+          <div className="header-brand">
+            <span className="header-logo" aria-hidden="true">🗄️</span>
+            <h1>Fake Database</h1>
           </div>
           <div className="header-actions">
-            <button className="btn-locale" onClick={handleToggleLocale} aria-label="Toggle locale">
+            <button className="btn-icon" onClick={handleToggleLocale} aria-label="Toggle locale" title={locale === 'pt-BR' ? 'Switch to English' : 'Mudar para Português'}>
               {locale === 'pt-BR' ? '🇺🇸' : '🇧🇷'}
             </button>
-            <button className="btn-theme" onClick={handleToggleTheme} aria-label="Toggle theme">
+            <button className="btn-icon" onClick={handleToggleTheme} aria-label="Toggle theme" title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
           </div>
         </div>
+        <p className="header-tagline">{t.app.subtitle}</p>
       </header>
 
       <div className="main-layout">
