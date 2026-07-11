@@ -133,8 +133,23 @@ export default function DataGenerator() {
       <header className="app-header">
         <div className="header-row">
           <div className="header-brand">
-            <span className="header-logo" aria-hidden="true">🗄️</span>
-            <h1>Fake Database</h1>
+            <img
+              className="header-logo"
+              src={theme === 'dark' ? '/logo-fakedatabase.png' : '/logo-fakedatabase-whitebackground.png'}
+              alt="Fake Database"
+            />
+          </div>
+          <div className="header-sponsor">
+            <span className="header-sponsor-text">{t.headerSponsor.text}</span>
+            <a
+              href="https://github.com/sponsors/BrunoZBonetto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-sponsor header-sponsor-btn"
+              onClick={() => analytics.trackSponsorClick()}
+            >
+              {t.headerSponsor.button}
+            </a>
           </div>
           <div className="header-actions">
             <button className="btn-icon" onClick={handleToggleLocale} aria-label="Toggle locale" title={locale === 'pt-BR' ? 'Switch to English' : 'Mudar para Português'}>
@@ -145,7 +160,6 @@ export default function DataGenerator() {
             </button>
           </div>
         </div>
-        <p className="header-tagline">{t.app.subtitle}</p>
       </header>
 
       <div className="main-layout">

@@ -1,7 +1,11 @@
 const enUS = {
   app: {
     title: '🗄️ Fake Database',
-    subtitle: 'Generate realistic fake data for software testing, prototypes, and demos — export to CSV, Excel, JSON, SQL, XML and YAML. Create mock databases with US and Brazilian data.',
+    subtitle: 'Generate realistic fake data — export to CSV, Excel, JSON, SQL, XML and YAML. Create mock databases for tests, prototypes and demos.',
+  },
+  headerSponsor: {
+    text: 'Made with ❤️ for the community',
+    button: 'Become a sponsor',
   },
   dataGenerator: {
     records: 'Records:',

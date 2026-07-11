@@ -3,6 +3,10 @@ const ptBR = {
     title: '🗄️ Fake Database',
     subtitle: 'Gerador de dados fictícios realistas — exporte em CSV, Excel, JSON, SQL, XML e YAML. Crie bases de dados mock para testes, protótipos e demonstrações.',
   },
+  headerSponsor: {
+    text: 'Feito com ❤️ para a comunidade',
+    button: 'Fazer uma doação',
+  },
   dataGenerator: {
     records: 'Registros:',
     maxRecords: 'máx. {max}',
