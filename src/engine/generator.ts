@@ -1546,6 +1546,13 @@ class FakeDataGenerator {
       }
     }
 
+    // Bank → bankCode (correlated)
+    if (fields.includes('bank') || fields.includes('bankCode')) {
+      const _bankEntry = randomPick(d.finance.banks);
+      if (fields.includes('bank')) ctx._bank = _bankEntry.name;
+      if (fields.includes('bankCode')) ctx._bankCode = _bankEntry.code;
+    }
+
     // Country → currency
     if (fields.includes('currency') && ctx?.countryKey) {
       const _ccyMap = COUNTRY_CURRENCY[ctx.countryKey];
@@ -1976,8 +1983,8 @@ class FakeDataGenerator {
       education:     () => ctx?._education ?? randomPick(d.profession.education),
       seniority:     () => ctx?._seniority ?? randomPick(d.profession.seniority),
       salary:        () => ctx?._salary ?? (isEN ? randomInt(35000, 150000) : randomInt(1500, 35000)),
-      bank:          () => randomPick(d.finance.banks).name,
-      bankCode:      () => randomPick(d.finance.banks).code,
+      bank:          () => ctx?._bank ?? randomPick(d.finance.banks).name,
+      bankCode:      () => ctx?._bankCode ?? randomPick(d.finance.banks).code,
       currency:      () => ctx?._currency ?? randomPick(d.finance.currencies).code,
       paymentMethod: () => randomPick(d.finance.paymentMethods),
       status:        () => randomPick(d.finance.statusOptions),

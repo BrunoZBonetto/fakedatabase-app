@@ -1,6 +1,6 @@
 {
   "_description": "Dicionário de dados de saúde",
-  "allergies": ["Poeira", "Pólen", "Mofo", "Pelos de Animais", "Amendoim", "Castanhas", "Leite", "Ovo", "Glúten", "Lactose", "Frutos do Mar", "Soja", "Sulfa", "Penicilina", "Dipirona", "AAS", "Ibuprofeno", "Picada de Inseto", "Látex", "Níquel"],
+  "allergies": ["Sem alergia", "Poeira", "Pólen", "Mofo", "Pelos de Animais", "Amendoim", "Castanhas", "Leite", "Ovo", "Glúten", "Lactose", "Frutos do Mar", "Soja", "Sulfa", "Penicilina", "Dipirona", "AAS", "Ibuprofeno", "Picada de Inseto", "Látex", "Níquel"],
   "diseases": ["Diabetes Tipo 1", "Diabetes Tipo 2", "Hipertensão Arterial", "Asma", "Rinite Alérgica", "Bronquite", "Enxaqueca", "Ansiedade", "Depressão", "Hipotireoidismo", "Hipertireoidismo", "Colesterol Alto", "Obesidade", "Artrite Reumatoide", "Osteoporose", "Gastrite", "Refluxo Gastroesofágico", "Sinusite", "Dermatite Atópica", "Psoríase"],
   "medications": ["Dipirona Sódica", "Paracetamol", "Ibuprofeno", "Amoxicilina", "Azitromicina", "Omeprazol", "Losartana", "Metformina", "Insulina Glargina", "Salbutamol", "Dexametasona", "Fluoxetina", "Sertralina", "Clonazepam", "Levotiroxina", "Captopril", "Hidroclorotiazida", "Simvastatina", "Dipirona", "Cetirizina", "Loratadina", "Brometo de Ipratrópio", "Prednisona", "Diazepam"]
 }
