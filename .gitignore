@@ -28,3 +28,6 @@ dist-ssr
 # Marketing materials (private)
 marketing/
 plano/
+
+# Presentation (isolated)
+Apresentacao/

@@ -1,6 +1,6 @@
 {
   "_description": "American fashion dictionary",
-  "clothingBrands": ["Nike", "Adidas", "Levi's", "American Eagle", "Gap", "Old Navy", "H&M", "Zara", "Forever 21", "Urban Outfitters", "Ralph Lauren", "Tommy Hilfiger", "Calvin Klein", "Under Armour", "The North Face", "Patagonia", "Columbia", "Carhartt", "Lululemon", "Victoria's Secret", "Puma", "Vans", "Converse", "Timberland", "New Balance"],
+  "clothingBrands": ["Nike", "Adidas", "Levi's", "American Eagle", "Gap", "Old Navy", "H&M", "Zara", "Forever 21", "Urban Outfitters", "Ralph Lauren", "Tommy Hilfiger", "Calvin Klein", "Under Armour", "The North Face", "Patagonia", "Columbia", "Carhartt", "Lululemon", "Victoria's Secret", "Puma", "Vans", "Converse", "Timberland", "New Balance", "J.Crew", "Banana Republic", "Anthropologie", "Free People", "Reformation"],
   "footwearSizes": ["5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "13", "14", "15"],
   "fabrics": ["Cotton", "Polyester", "Silk", "Linen", "Wool", "Denim", "Knit", "Cashmere", "Nylon", "Spandex", "Leather", "Velvet", "Satin", "Twill", "Chiffon", "Canvas", "Corduroy", "Fleece", "Rayon", "Bamboo"]
 }

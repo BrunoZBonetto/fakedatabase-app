@@ -60,8 +60,8 @@ const DICT_PT: DictSet = { names: namesPt as DictSet['names'], address: addressP
 const DICT_EN: DictSet = { names: namesEn as DictSet['names'], address: addressEn as DictSet['address'], company: companyEn, finance: financeEn, profession: professionEn, categories: categoriesEn as DictSet['categories'], person: personEn, education: educationEn, health: healthEn, entertainment: entertainmentEn, food: foodEn, animal: animalEn, fashion: fashionEn };
 
 // Nomes de produto por locale
-const PRODUCT_NAMES_PT = ['Notebook Pro', 'Mouse Wireless', 'Teclado Mecânico', 'Monitor 27"', 'Cadeira Ergonômica', 'Fone Bluetooth', 'Câmera Digital', 'Smartphone X', 'Tablet Air', 'Impressora Laser', 'HD Externo 1TB', 'SSD NVMe 512GB', 'Webcam HD', 'Carregador USB-C', 'Roteador Wi-Fi 6'];
-const PRODUCT_NAMES_EN = ['MacBook Pro', 'Wireless Mouse', 'Mechanical Keyboard', '27" Monitor', 'Ergonomic Chair', 'Bluetooth Headphones', 'Digital Camera', 'Smartphone X', 'Air Tablet', 'Laser Printer', '1TB External HD', '512GB NVMe SSD', 'HD Webcam', 'USB-C Charger', 'Wi-Fi 6 Router'];
+const PRODUCT_NAMES_PT = ['Notebook Pro', 'Mouse Wireless', 'Teclado Mecânico', 'Monitor 27"', 'Cadeira Ergonômica', 'Fone Bluetooth', 'Câmera Digital', 'Smartphone X', 'Tablet Air', 'Impressora Laser', 'HD Externo 1TB', 'SSD NVMe 512GB', 'Webcam HD', 'Carregador USB-C', 'Roteador Wi-Fi 6', 'Mousepad Gamer', 'Hub USB-C', 'Power Bank 20000mAh', 'Smartwatch Pro', 'Caixa de Som Bluetooth', 'Fone ANC', 'Monitor Ultrawide 34"', 'Teclado Slim', 'Cabo HDMI 2.1', 'Suporte para Notebook'];
+const PRODUCT_NAMES_EN = ['MacBook Pro', 'Wireless Mouse', 'Mechanical Keyboard', '27" Monitor', 'Ergonomic Chair', 'Bluetooth Headphones', 'Digital Camera', 'Smartphone X', 'Air Tablet', 'Laser Printer', '1TB External HD', '512GB NVMe SSD', 'HD Webcam', 'USB-C Charger', 'Wi-Fi 6 Router', 'Gaming Mousepad', 'USB-C Hub', '20000mAh Power Bank', 'Pro Smartwatch', 'Bluetooth Speaker', 'ANC Headphones', '34" Ultrawide Monitor', 'Slim Keyboard', 'HDMI 2.1 Cable', 'Laptop Stand'];
 const PRODUCT_CATEGORIES_PT = ['Eletrônicos', 'Informática', 'Móveis', 'Acessórios', 'Periféricos'];
 const PRODUCT_CATEGORIES_EN = ['Electronics', 'Computers', 'Furniture', 'Accessories', 'Peripherals'];
 
@@ -220,6 +220,11 @@ const SEMANTIC_MAP = [
   { keywords: ['nota', 'grade', 'media'], generator: 'grade' },
 
   // ===== Jogos =====
+  { keywords: ['generoserie','seriesgenre','generoserie'], generator: 'seriesGenre' },
+  { keywords: ['generolivro','bookgenre'], generator: 'bookGenre' },
+  { keywords: ['software','ferramenta'], generator: 'software' },
+  { keywords: ['equipamento','equipment'], generator: 'equipment' },
+  { keywords: ['generostreaming','streaminggenre'], generator: 'streamingGenre' },
   { keywords: ['jogo', 'game', 'videogame'], generator: 'game' },
   { keywords: ['generodejogo', 'gamegenre', 'generojogo'], generator: 'gameGenre' },
 
@@ -342,6 +347,10 @@ const PRODUCT_CATEGORY_MAP_PT: Record<string, string> = {
   'Câmera Digital': 'Eletrônicos', 'Smartphone X': 'Eletrônicos', 'Tablet Air': 'Eletrônicos',
   'Impressora Laser': 'Informática', 'HD Externo 1TB': 'Informática', 'SSD NVMe 512GB': 'Informática',
   'Webcam HD': 'Periféricos', 'Carregador USB-C': 'Acessórios', 'Roteador Wi-Fi 6': 'Informática',
+  'Mousepad Gamer': 'Periféricos', 'Hub USB-C': 'Acessórios', 'Power Bank 20000mAh': 'Acessórios',
+  'Smartwatch Pro': 'Eletrônicos', 'Caixa de Som Bluetooth': 'Acessórios', 'Fone ANC': 'Acessórios',
+  'Monitor Ultrawide 34"': 'Informática', 'Teclado Slim': 'Periféricos', 'Cabo HDMI 2.1': 'Acessórios',
+  'Suporte para Notebook': 'Móveis',
 };
 const PRODUCT_CATEGORY_MAP_EN: Record<string, string> = {
   'MacBook Pro': 'Electronics', 'Wireless Mouse': 'Peripherals', 'Mechanical Keyboard': 'Peripherals',
@@ -349,64 +358,68 @@ const PRODUCT_CATEGORY_MAP_EN: Record<string, string> = {
   'Digital Camera': 'Electronics', 'Smartphone X': 'Electronics', 'Air Tablet': 'Electronics',
   'Laser Printer': 'Computers', '1TB External HD': 'Computers', '512GB NVMe SSD': 'Computers',
   'HD Webcam': 'Peripherals', 'USB-C Charger': 'Accessories', 'Wi-Fi 6 Router': 'Computers',
+  'Gaming Mousepad': 'Peripherals', 'USB-C Hub': 'Accessories', '20000mAh Power Bank': 'Accessories',
+  'Pro Smartwatch': 'Electronics', 'Bluetooth Speaker': 'Accessories', 'ANC Headphones': 'Accessories',
+  '34" Ultrawide Monitor': 'Computers', 'Slim Keyboard': 'Peripherals', 'HDMI 2.1 Cable': 'Accessories',
+  'Laptop Stand': 'Furniture',
 };
 
 // Gênero de filme → filmes
 const MOVIE_GENRE_MAP_PT: Record<string, string[]> = {
-  'Ação': ['Matrix','Vingadores: Ultimato','Batman: O Cavaleiro das Trevas','Jurassic Park','Star Wars'],
-  'Comédia': ['Pulp Fiction','Forrest Gump'],
-  'Drama': ['O Poderoso Chefão','Titanic','Interestelar','Cidade de Deus','Parasita','Clube da Luta'],
-  'Terror': ['O Exorcista','Invocação do Mal','Corra!','Hereditário','O Iluminado'],
-  'Romance': ['Titanic','Diário de uma Paixão','Simplesmente Amor','Orgulho e Preconceito'],
-  'Ficção Científica': ['Matrix','Interestelar','Star Wars','Blade Runner 2049','Duna','Arrival'],
-  'Animação': ['Toy Story','Procurando Nemo','Frozen','Divertida Mente','Shrek'],
-  'Documentário': ['O Dilema das Redes','Nosso Planeta','Amy','13º'],
-  'Suspense': ['Clube da Luta','Seven - Os Sete Crimes Capitais','Ilha do Medo','Cisne Negro'],
-  'Aventura': ['O Senhor dos Anéis','Indiana Jones','Piratas do Caribe','Jurassic Park'],
-  'Musical': ['La La Land','Mamma Mia!','O Rei do Show','Bohemian Rhapsody'],
+  'Ação': ['Matrix','Vingadores: Ultimato','Batman: O Cavaleiro das Trevas','Jurassic Park','Star Wars','John Wick','Mad Max: Estrada da Fúria','Gladiador'],
+  'Comédia': ['Pulp Fiction','Forrest Gump','Se Beber, Não Case','O Grande Hotel','A Cor Púrpura'],
+  'Drama': ['O Poderoso Chefão','Titanic','Interestelar','Cidade de Deus','Parasita','Clube da Luta','O Lobo de Wall Street','Cisne Negro','O Curioso Caso de Benjamin Button'],
+  'Terror': ['O Exorcista','Invocação do Mal','Corra!','Hereditário','O Iluminado','It: A Coisa','Mão Free','A Bruxa'],
+  'Romance': ['Titanic','Diário de uma Paixão','Simplesmente Amor','Orgulho e Preconceito','La La Land','Antes do Amanhecer'],
+  'Ficção Científica': ['Matrix','Interestelar','Star Wars','Blade Runner 2049','Duna','Arrival','Ex Machina','O Primeiro da Humanidade'],
+  'Animação': ['Toy Story','Procurando Nemo','Frozen','Divertida Mente','Shrek','Spider-Man: No Aranha-Verso','Coco','Como Treinar seu Dragão'],
+  'Documentário': ['O Dilema das Redes','Nosso Planeta','Amy','13º','Free Solo','A Cor da Tinta'],
+  'Suspense': ['Clube da Luta','Seven - Os Sete Crimes Capitais','Ilha do Medo','Cisne Negro','Olhos que Marcam','Zodiac'],
+  'Aventura': ['O Senhor dos Anéis','Indiana Jones','Piratas do Caribe','Jurassic Park','Jumanji','O Garçom'],
+  'Musical': ['La La Land','Mamma Mia!','O Rei do Show','Bohemian Rhapsody','Os Miseráveis','Hamilton'],
 };
 const MOVIE_GENRE_MAP_EN: Record<string, string[]> = {
-  'Action': ['The Matrix','The Dark Knight','Star Wars','Jurassic Park','Mad Max: Fury Road'],
-  'Comedy': ['Pulp Fiction','The Grand Budapest Hotel','Bridesmaids','Superbad'],
-  'Drama': ['The Godfather','The Shawshank Redemption','Forrest Gump','Parasite','Goodfellas'],
-  'Horror': ['The Exorcist','The Shining','Get Out','Hereditary','A Quiet Place'],
-  'Romance': ['Titanic','The Notebook','Pride & Prejudice','La La Land','Casablanca'],
-  'Science Fiction': ['The Matrix','Interstellar','Star Wars','Blade Runner 2049','Dune','Arrival'],
-  'Animation': ['Toy Story','Finding Nemo','Frozen','Inside Out','Shrek','Up'],
-  'Documentary': ['The Social Dilemma','Our Planet','Amy','13th','March of the Penguins'],
-  'Thriller': ['Fight Club','Se7en','Shutter Island','Black Swan','Gone Girl'],
-  'Adventure': ['The Lord of the Rings','Indiana Jones','Pirates of the Caribbean','Jurassic Park'],
-  'Musical': ['La La Land','Mamma Mia!','The Greatest Showman','Bohemian Rhapsody'],
+  'Action': ['The Matrix','The Dark Knight','Star Wars','Jurassic Park','Mad Max: Fury Road','John Wick','Gladiator','Top Gun: Maverick'],
+  'Comedy': ['Pulp Fiction','The Grand Budapest Hotel','Bridesmaids','Superbad','Step Brothers','The Nice Guys'],
+  'Drama': ['The Godfather','The Shawshank Redemption','Forrest Gump','Parasite','Goodfellas','The Wolf of Wall Street','Black Swan','The Curious Case of Benjamin Button'],
+  'Horror': ['The Exorcist','The Shining','Get Out','Hereditary','A Quiet Place','It','The Witch','Midsommar'],
+  'Romance': ['Titanic','The Notebook','Pride & Prejudice','La La Land','Casablanca','Before Sunrise','Crazy Rich Asians'],
+  'Science Fiction': ['The Matrix','Interstellar','Star Wars','Blade Runner 2049','Dune','Arrival','Ex Machina','The Martian'],
+  'Animation': ['Toy Story','Finding Nemo','Frozen','Inside Out','Shrek','Spider-Man: Into the Spider-Verse','Coco','How to Train Your Dragon'],
+  'Documentary': ['The Social Dilemma','Our Planet','Amy','13th','Free Solo','My Octopus Teacher'],
+  'Thriller': ['Fight Club','Se7en','Shutter Island','Black Swan','Gone Girl','Zodiac','Prisoners'],
+  'Adventure': ['The Lord of the Rings','Indiana Jones','Pirates of the Caribbean','Jurassic Park','Jumanji','The Revenant'],
+  'Musical': ['La La Land','Mamma Mia!','The Greatest Showman','Bohemian Rhapsody','Les Misérables','Hamilton'],
 };
 
 // Gênero de jogo → jogos
 const GAME_GENRE_MAP_PT: Record<string, string[]> = {
-  'Ação': ['Grand Theft Auto V','Red Dead Redemption 2','Cyberpunk 2077'],
-  'Aventura': ['The Legend of Zelda','God of War','Assassin\'s Creed'],
-  'RPG': ['The Witcher 3','Elden Ring','Final Fantasy','Baldur\'s Gate 3'],
-  'FPS': ['Call of Duty','Counter-Strike 2','Valorant','Overwatch'],
-  'Estratégia': ['StarCraft','Age of Empires','Civilization VI'],
-  'Simulação': ['The Sims','Animal Crossing','Microsoft Flight Simulator'],
-  'Esportes': ['FIFA','NBA 2K','EA Sports FC'],
-  'Corrida': ['Forza Horizon','Gran Turismo','Need for Speed'],
-  'Battle Royale': ['Fortnite','PUBG','Free Fire'],
-  'MOBA': ['League of Legends','Dota 2'],
-  'Sandbox': ['Minecraft','Terraria','Garry\'s Mod'],
-  'Terror': ['Resident Evil','Silent Hill','Outlast'],
+  'Ação': ['Grand Theft Auto V','Red Dead Redemption 2','Cyberpunk 2077','Sleeping Dogs','Just Cause 4'],
+  'Aventura': ['The Legend of Zelda','God of War','Assassin\'s Creed','Uncharted','Horizon Zero Dawn','Tomb Raider'],
+  'RPG': ['The Witcher 3','Elden Ring','Final Fantasy','Baldur\'s Gate 3','Dragon Age','Persona 5'],
+  'FPS': ['Call of Duty','Counter-Strike 2','Valorant','Overwatch','Halo','Doom Eternal'],
+  'Estratégia': ['StarCraft','Age of Empires','Civilization VI','Total War','XCOM'],
+  'Simulação': ['The Sims','Animal Crossing','Microsoft Flight Simulator','Euro Truck Simulator','Cities: Skylines'],
+  'Esportes': ['FIFA','NBA 2K','EA Sports FC','Rocket League','WRC'],
+  'Corrida': ['Forza Horizon','Gran Turismo','Need for Speed','Asphalt','Mario Kart'],
+  'Battle Royale': ['Fortnite','PUBG','Free Fire','Apex Legends','Warzone'],
+  'MOBA': ['League of Legends','Dota 2','Smite','Heroes of the Storm'],
+  'Sandbox': ['Minecraft','Terraria','Garry\'s Mod','Roblox','No Man\'s Sky'],
+  'Terror': ['Resident Evil','Silent Hill','Outlast','Dead Space','Amnesia'],
 };
 const GAME_GENRE_MAP_EN: Record<string, string[]> = {
-  'Action': ['Grand Theft Auto V','Red Dead Redemption 2','Cyberpunk 2077','God of War Ragnarok'],
-  'Adventure': ['The Legend of Zelda: Tears of the Kingdom','Assassin\'s Creed Mirage','Starfield'],
-  'RPG': ['The Witcher 3','Elden Ring','Final Fantasy XVI','Baldur\'s Gate 3','Diablo IV'],
-  'FPS': ['Call of Duty: Modern Warfare','Counter-Strike 2','Valorant','Overwatch'],
-  'Strategy': ['StarCraft','Age of Empires','Civilization VI','XCOM'],
-  'Simulation': ['The Sims 4','Animal Crossing','Microsoft Flight Simulator'],
-  'Sports': ['Madden NFL','NBA 2K','MLB The Show'],
-  'Racing': ['Forza Horizon','Gran Turismo','Need for Speed'],
-  'Battle Royale': ['Fortnite','PUBG'],
-  'MOBA': ['League of Legends','Dota 2'],
-  'Sandbox': ['Minecraft','Terraria'],
-  'Horror': ['Resident Evil','Silent Hill','Outlast'],
+  'Action': ['Grand Theft Auto V','Red Dead Redemption 2','Cyberpunk 2077','God of War Ragnarok','Sleeping Dogs','Just Cause 4'],
+  'Adventure': ['The Legend of Zelda: Tears of the Kingdom','Assassin\'s Creed Mirage','Starfield','Uncharted','Horizon Forbidden West'],
+  'RPG': ['The Witcher 3','Elden Ring','Final Fantasy XVI','Baldur\'s Gate 3','Diablo IV','Dragon Age','Persona 5'],
+  'FPS': ['Call of Duty: Modern Warfare','Counter-Strike 2','Valorant','Overwatch','Halo Infinite','Doom Eternal'],
+  'Strategy': ['StarCraft','Age of Empires','Civilization VI','XCOM','Total War'],
+  'Simulation': ['The Sims 4','Animal Crossing','Microsoft Flight Simulator','Euro Truck Simulator','Cities: Skylines'],
+  'Sports': ['Madden NFL','NBA 2K','MLB The Show','Rocket League','WRC'],
+  'Racing': ['Forza Horizon','Gran Turismo','Need for Speed','Asphalt','Mario Kart'],
+  'Battle Royale': ['Fortnite','PUBG','Apex Legends','Warzone'],
+  'MOBA': ['League of Legends','Dota 2','Smite','Heroes of the Storm'],
+  'Sandbox': ['Minecraft','Terraria','Roblox','No Man\'s Sky'],
+  'Horror': ['Resident Evil','Silent Hill','Outlast','Dead Space','Amnesia'],
 };
 
 // Gênero musical → instrumentos
@@ -457,6 +470,15 @@ const PROFESSION_SECTOR_PT: Record<string, string[]> = {
   'Cientista de Dados': ['Tecnologia da Informação','Finanças','Saúde'],
   'Gerente': ['Administrativo','Varejo','Tecnologia da Informação'],
   'Diretor': ['Administrativo','Executivo'],
+  'Jornalista': ['Comunicação','Marketing Digital','Mídia'],
+  'Arquiteto': ['Construção Civil','Design','Urbanismo'],
+  'Veterinário': ['Saúde','Animais','Agronegócio'],
+  'Psicólogo': ['Saúde','Educação','Recursos Humanos'],
+  'Nutricionista': ['Saúde','Alimentício','Fitness'],
+  'Piloto': ['Transporte','Aviação','Logística'],
+  'Farmacêutico Bioquímico': ['Saúde','Farmacêutico','Pesquisa'],
+  'Engenheiro de Software': ['Tecnologia da Informação'],
+  'Analista de Marketing': ['Marketing Digital','Varejo','E-commerce'],
 };
 const PROFESSION_SECTOR_EN: Record<string, string[]> = {
   'Doctor': ['Healthcare'], 'Nurse': ['Healthcare'], 'Pharmacist': ['Healthcare','Pharmaceutical'],
@@ -473,89 +495,109 @@ const PROFESSION_SECTOR_EN: Record<string, string[]> = {
   'Data Scientist': ['Technology','Finance','Healthcare'],
   'Manager': ['Administrative','Retail','Technology'],
   'Director': ['Executive','Administrative'],
+  'Journalist': ['Media','Marketing','Communications'],
+  'Architect': ['Construction','Design','Urban Planning'],
+  'Veterinarian': ['Healthcare','Animals','Agriculture'],
+  'Psychologist': ['Healthcare','Education','Human Resources'],
+  'Nutritionist': ['Healthcare','Food & Beverage','Fitness'],
+  'Pilot': ['Transportation','Aviation','Logistics'],
+  'Software Engineer': ['Technology'],
+  'Marketing Analyst': ['Marketing','Retail','E-commerce'],
 };
 
 // Doença → medicação
 const DISEASE_MEDICATION_PT: Record<string, string[]> = {
-  'Diabetes Tipo 1': ['Insulina Glargina','Insulina Regular'],
-  'Diabetes Tipo 2': ['Metformina','Glifage','Insulina Glargina'],
-  'Hipertensão Arterial': ['Losartana','Captopril','Hidroclorotiazida'],
-  'Asma': ['Salbutamol','Budesonida','Aerolin'],
-  'Rinite Alérgica': ['Loratadina','Cetirizina','Desloratadina'],
-  'Bronquite': ['Salbutamol','Amoxicilina','Prednisona'],
-  'Enxaqueca': ['Paracetamol','Ibuprofeno','Sumatriptana'],
-  'Ansiedade': ['Fluoxetina','Sertralina','Clonazepam','Diazepam'],
-  'Depressão': ['Fluoxetina','Sertralina','Paroxetina'],
-  'Hipotireoidismo': ['Levotiroxina'],
-  'Hipertireoidismo': ['Metimazol','Propiltiouracila'],
-  'Colesterol Alto': ['Sinvastatina','Atorvastatina','Rosuvastatina'],
-  'Obesidade': ['Metformina','Orlistate','Sibutramina'],
-  'Artrite Reumatoide': ['Ibuprofeno','Prednisona','Metotrexato'],
-  'Osteoporose': ['Carbonato de Cálcio','Alendronato','Vitamina D3'],
-  'Gastrite': ['Omeprazol','Pantoprazol','Ranitidina'],
-  'Refluxo Gastroesofágico': ['Omeprazol','Pantoprazol','Domperidona'],
-  'Sinusite': ['Amoxicilina','Azitromicina','Prednisona'],
-  'Dermatite Atópica': ['Cetirizina','Prednisona','Dexametasona tópica'],
-  'Psoríase': ['Metotrexato','Ciclosporina','Adalimumabe'],
+  'Diabetes Tipo 1': ['Insulina Glargina','Insulina Regular','Insulina Lispro'],
+  'Diabetes Tipo 2': ['Metformina','Glifage','Insulina Glargina','Gliclazida'],
+  'Hipertensão Arterial': ['Losartana','Captopril','Hidroclorotiazida','Anlodipino','Valsartana'],
+  'Asma': ['Salbutamol','Budesonida','Aerolin','Formoterol','Montelucaste'],
+  'Rinite Alérgica': ['Loratadina','Cetirizina','Desloratadina','Fexofenadina'],
+  'Bronquite': ['Salbutamol','Amoxicilina','Prednisona','Azitromicina'],
+  'Enxaqueca': ['Paracetamol','Ibuprofeno','Sumatriptana','Rizatriptana','Naproxeno'],
+  'Ansiedade': ['Fluoxetina','Sertralina','Clonazepam','Diazepam','Escitalopram','Buspirona'],
+  'Depressão': ['Fluoxetina','Sertralina','Paroxetina','Escitalopram','Venlafaxina','Amitriptilina'],
+  'Hipotireoidismo': ['Levotiroxina','Eutirox','Puran'],
+  'Hipertireoidismo': ['Metimazol','Propiltiouracila','Carbimazol'],
+  'Colesterol Alto': ['Sinvastatina','Atorvastatina','Rosuvastatina','Ezetimiba'],
+  'Obesidade': ['Metformina','Orlistate','Sibutramina','Liraglutida'],
+  'Artrite Reumatoide': ['Ibuprofeno','Prednisona','Metotrexato','Adalimumabe','Etanercepte'],
+  'Osteoporose': ['Carbonato de Cálcio','Alendronato','Vitamina D3','Risedronato'],
+  'Gastrite': ['Omeprazol','Pantoprazol','Ranitidina','Esomeprazol','Pirenzepina'],
+  'Refluxo Gastroesofágico': ['Omeprazol','Pantoprazol','Domperidona','Esomeprazol','Lansoprazol'],
+  'Sinusite': ['Amoxicilina','Azitromicina','Prednisona','Cefalexina'],
+  'Dermatite Atópica': ['Cetirizina','Prednisona','Dexametasona tópica','Tacrolimo','Hidrocortisona'],
+  'Psoríase': ['Metotrexato','Ciclosporina','Adalimumabe','Etanercepte','Ácido Fólico'],
+  'Insônia': ['Zolpidem','Melatonina','Diazepam','Doxepina','Rivotril'],
+  'Epilepsia': ['Carbamazepina','Valproato de Sódio','Lamotrigina','Levetiracetam','Fenitoína'],
 };
 const DISEASE_MEDICATION_EN: Record<string, string[]> = {
-  'Type 1 Diabetes': ['Insulin Glargine','Insulin Lispro'],
-  'Type 2 Diabetes': ['Metformin','Glipizide','Insulin Glargine'],
-  'Hypertension': ['Lisinopril','Losartan','Hydrochlorothiazide'],
-  'Asthma': ['Albuterol','Budesonide','Fluticasone'],
-  'Allergic Rhinitis': ['Loratadine','Cetirizine','Fexofenadine'],
-  'Bronchitis': ['Albuterol','Amoxicillin','Prednisone'],
-  'Migraine': ['Ibuprofen','Sumatriptan','Rizatriptan'],
-  'Anxiety Disorder': ['Sertraline','Fluoxetine','Clonazepam','Diazepam'],
-  'Depression': ['Fluoxetine','Sertraline','Paroxetine','Escitalopram'],
-  'Hypothyroidism': ['Levothyroxine'],
-  'Hyperthyroidism': ['Methimazole'],
-  'High Cholesterol': ['Atorvastatin','Simvastatin','Rosuvastatin'],
-  'Obesity': ['Metformin','Orlistat','Phentermine'],
-  'Rheumatoid Arthritis': ['Ibuprofen','Prednisone','Methotrexate'],
-  'Osteoporosis': ['Calcium Carbonate','Alendronate','Vitamin D3'],
-  'GERD': ['Omeprazole','Pantoprazole','Famotidine'],
-  'Sinusitis': ['Amoxicillin','Azithromycin','Prednisone'],
-  'Eczema': ['Cetirizine','Prednisone','Hydrocortisone cream'],
-  'Celiac Disease': ['Gluten-free diet','Vitamin D','Calcium supplement'],
+  'Type 1 Diabetes': ['Insulin Glargine','Insulin Lispro','Insulin Aspart'],
+  'Type 2 Diabetes': ['Metformin','Glipizide','Insulin Glargine','Glimepiride'],
+  'Hypertension': ['Lisinopril','Losartan','Hydrochlorothiazide','Amlodipine','Valsartan'],
+  'Asthma': ['Albuterol','Budesonide','Fluticasone','Montelukast','Formoterol'],
+  'Allergic Rhinitis': ['Loratadine','Cetirizine','Fexofenadine','Desloratadine'],
+  'Bronchitis': ['Albuterol','Amoxicillin','Prednisone','Azithromycin'],
+  'Migraine': ['Ibuprofen','Sumatriptan','Rizatriptan','Naproxen','Acetaminophen'],
+  'Anxiety Disorder': ['Sertraline','Fluoxetine','Clonazepam','Diazepam','Escitalopram','Buspirone'],
+  'Depression': ['Fluoxetine','Sertraline','Paroxetine','Escitalopram','Venlafaxine','Amitriptyline'],
+  'Hypothyroidism': ['Levothyroxine','Synthroid','Levoxyl'],
+  'Hyperthyroidism': ['Methimazole','Propylthiouracil','Carbimazole'],
+  'High Cholesterol': ['Atorvastatin','Simvastatin','Rosuvastatin','Ezetimibe'],
+  'Obesity': ['Metformin','Orlistat','Phentermine','Liraglutide','Semaglutide'],
+  'Rheumatoid Arthritis': ['Ibuprofen','Prednisone','Methotrexate','Adalimumab','Etanercept'],
+  'Osteoporosis': ['Calcium Carbonate','Alendronate','Vitamin D3','Risedronate'],
+  'GERD': ['Omeprazole','Pantoprazole','Famotidine','Esomeprazole','Lansoprazole'],
+  'Sinusitis': ['Amoxicillin','Azithromycin','Prednisone','Cephalexin'],
+  'Eczema': ['Cetirizine','Prednisone','Hydrocortisone cream','Tacrolimus','Eucrisa'],
+  'Celiac Disease': ['Gluten-free diet','Vitamin D','Calcium supplement','Iron supplement'],
+  'Insomnia': ['Zolpidem','Melatonin','Diazepam','Doxepin','Trazodone'],
+  'Epilepsy': ['Carbamazepine','Valproic Acid','Lamotrigine','Levetiracetam','Phenytoin'],
 };
 
 // Culinária → restaurantes
 const CUISINE_RESTAURANT_PT: Record<string, string[]> = {
-  'Brasileira': ['Fogo de Chão','Casa do Pão de Queijo','Giraffas','Terraço Grill'],
-  'Italiana': ['La Trattoria','Spoleto','Viena','Paris 6'],
-  'Japonesa': ['Kani Sushi','Aoyama','Temakeria','Matsuya'],
-  'Mexicana': ['Taco El Pantera','Los Mexicanos','Don Diego'],
-  'Americana': ['Outback Steakhouse','Madero','McDonald\'s','Burger King','Subway'],
-  'Árabe': ['Habib\'s','Almanara','Esfiha & Cia'],
-  'Chinesa': ['China in Box','Spring Wok','Wok To Go'],
-  'Francesa': ['Paris 6','La Pergula','Chez Claude'],
+  'Brasileira': ['Fogo de Chão','Casa do Pão de Queijo','Giraffas','Terraço Grill','Madero','Armazém São Paulo'],
+  'Italiana': ['La Trattoria','Spoleto','Viena','Paris 6','Coco Bambu','Fiama'],
+  'Japonesa': ['Kani Sushi','Aoyama','Temakeria','Matsuya','Kan sushi','Sushi Yassu'],
+  'Mexicana': ['Taco El Pantera','Los Mexicanos','Don Diego','El Mexican Chili','Taco Bell'],
+  'Americana': ['Outback Steakhouse','Madero','McDonald\'s','Burger King','Subway','Applebee\'s','TGI Friday\'s'],
+  'Árabe': ['Habib\'s','Almanara','Esfiha & Cia','Koni House','Sultanas'],
+  'Chinesa': ['China in Box','Spring Wok','Wok To Go','Mr. Chi','Wok & Roll'],
+  'Francesa': ['Paris 6','La Pergula','Chez Claude','Bracellli','Le Petit Jardin'],
+  'Indiana': ['Tandoori Flame','Curry House','Bombay Club','Naan & Kabab'],
+  'Tailandesa': ['Thai Basil','Pad Thai House','Siam Kitchen','BKK Street Food'],
 };
 const CUISINE_RESTAURANT_EN: Record<string, string[]> = {
-  'American': ['McDonald\'s','Burger King','Wendy\'s','Five Guys','In-N-Out Burger','Cracker Barrel'],
-  'Italian': ['Olive Garden','Paolo\'s','Buca di Beppo','Carmine\'s'],
-  'Mexican': ['Taco Bell','Chipotle','Qdoba','El Pollo Loco'],
-  'Chinese': ['Panda Express','P.F. Chang\'s','Manchu Wok'],
-  'Japanese': ['Benihana','Sushi Sushi','Wasabi'],
-  'Indian': ['Tandoori Flame','Curry House','Bombay Club'],
-  'Thai': ['Thai Basil','Pad Thai House','Siam Kitchen'],
-  'French': ['Le Bernardin','Bouchon','Café du Monde'],
-  'Greek': ['The Greek House','Zorba\'s','Mykonos Grill'],
-  'Southern': ['Cracker Barrel','Popeyes','Bojangles\''],
+  'American': ['McDonald\'s','Burger King','Wendy\'s','Five Guys','In-N-Out Burger','Cracker Barrel','Shake Shack','Chick-fil-A'],
+  'Italian': ['Olive Garden','Paolo\'s','Buca di Beppo','Carmine\'s','Maggiano\'s',' Carrabba\'s'],
+  'Mexican': ['Taco Bell','Chipotle','Qdoba','El Pollo Loco','Moe\'s','Del Taco'],
+  'Chinese': ['Panda Express','P.F. Chang\'s','Manchu Wok','Sichuan Palace','Golden Dragon'],
+  'Japanese': ['Benihana','Sushi Sushi','Wasabi','Sakura','Nobu','Ichiban'],
+  'Indian': ['Tandoori Flame','Curry House','Bombay Club','Naan & Kabab','Taj Mahal'],
+  'Thai': ['Thai Basil','Pad Thai House','Siam Kitchen','Thai Spice','Baan Thai'],
+  'French': ['Le Bernardin','Bouchon','Café du Monde','La Maison','Chez Pierre'],
+  'Greek': ['The Greek House','Zorba\'s','Mykonos Grill','Opa!','Greek Caffe'],
+  'Southern': ['Cracker Barrel','Popeyes','Bojangles\'','Waffle House','Dickey\'s'],
+  'Korean': ['Bonchon','K BBQ House','Seoul Kitchen','Kura','Arirang'],
+  'Vietnamese': ['Pho Saigon','Bún Bò Huế','Viet Garden','Saigon Sisters'],
 };
 
 // Restrição alimentar → comidas compatíveis
 const DIET_FOOD_MAP_PT: Record<string, string[]> = {
-  'Vegetariano': ['Pizza','Lasanha','Risoto','Tapioca','Salada Caesar','Omelete','Nhoque'],
-  'Vegano': ['Tapioca','Salada Caesar','Sushi','Yakisoba','Acarajé','Baião de Dois'],
-  'Sem Glúten': ['Feijoada','Churrasco','Sushi','Moqueca','Tapioca','Salada Caesar'],
-  'Sem Lactose': ['Feijoada','Churrasco','Sushi','Moqueca','Tapioca','Yakisoba','Acarajé'],
+  'Vegetariano': ['Pizza','Lasanha','Risoto','Tapioca','Salada Caesar','Omelete','Nhoque','Panqueca','Sopa','Sanduíche'],
+  'Vegano': ['Tapioca','Salada Caesar','Sushi','Yakisoba','Acarajé','Baião de Dois','Sanduíche','Fruta','Smoothie','Bowl de Açaí'],
+  'Sem Glúten': ['Feijoada','Churrasco','Sushi','Moqueca','Tapioca','Salada Caesar','Omelete','Fruta','Risoto','Sopa'],
+  'Sem Lactose': ['Feijoada','Churrasco','Sushi','Moqueca','Tapioca','Yakisoba','Acarajé','Sanduíche','Panqueca','Salada'],
+  'Low Carb': ['Churrasco','Omelete','Salada Caesar','Peixe Grelhado','Frango','Abacate','Brócolis','Ovo','Carne Seca','Filé Mignon'],
+  'Cetogênica': ['Churrasco','Omelete','Bacon','Abacate','Queijo','Frango','Peixe','Coco','Azeite','Castanhas'],
 };
 const DIET_FOOD_MAP_EN: Record<string, string[]> = {
-  'Vegetarian': ['Pizza','Grilled Cheese','Mac and Cheese','French Fries','Pancakes'],
-  'Vegan': ['French Fries','Veggie Burger','Guacamole','Fruit Salad'],
-  'Gluten-Free': ['Grilled Chicken','Steak','BBQ Ribs','Tacos','Burrito Bowl'],
-  'Keto': ['Steak','BBQ Ribs','Cheese','Avocado','Bacon'],
+  'Vegetarian': ['Pizza','Grilled Cheese','Mac and Cheese','French Fries','Pancakes','Garden Salad','Pasta','Soup','Omelette','Fruit Bowl'],
+  'Vegan': ['French Fries','Veggie Burger','Guacamole','Fruit Salad','Smoothie Bowl','Tofu Stir Fry','Hummus Wrap','Buddha Bowl','Oatmeal','Rice & Beans'],
+  'Gluten-Free': ['Grilled Chicken','Steak','BBQ Ribs','Tacos','Burrito Bowl','Salmon','Rice','Baked Potato','Corn Tortilla','Fruit'],
+  'Keto': ['Steak','BBQ Ribs','Cheese','Avocado','Bacon','Grilled Salmon','Chicken Thighs','Eggs','Nuts','Butter'],
+  'Low-Carb': ['Grilled Chicken','Steak','Salmon','Omelette','Salad','Shrimp','Turkey','Broccoli','Cauliflower','Eggs'],
+  'Paleo': ['Grilled Chicken','Sweet Potato','Salmon','Avocado','Nuts','Beef','Vegetables','Fruit','Olive Oil','Eggs'],
 };
 
 // Universidade → cursos (top 3)
@@ -568,53 +610,71 @@ const UNIVERSITY_COURSES_PT: Record<string, string[]> = {
   'Massachusetts Institute of Technology (MIT)': ['Engenharia Elétrica','Ciência da Computação','Física'],
   'Stanford University': ['Administração de Empresas','Ciência da Computação','Medicina'],
   'Harvard University': ['Direito','Medicina','Administração de Empresas','Economia'],
+  'Universidade Federal do Rio Grande do Sul (UFRGS)': ['Medicina','Engenharia','Direito','Economia','Ciência da Computação'],
+  'Universidade Federal do Paraná (UFPR)': ['Medicina','Direito','Engenharia Civil','Arquitetura'],
+  'Universidade de Brasília (UnB)': ['Direito','Medicina','Ciência da Computação','Relações Internacionais'],
+  'Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)': ['Direito','Administração','Engenharia','Informática'],
 };
 const UNIVERSITY_COURSES_EN: Record<string, string[]> = {
-  'Harvard University': ['Law','Medicine','Business Administration','Economics','Political Science'],
-  'Stanford University': ['Computer Science','Business Administration','Engineering','Psychology'],
-  'Massachusetts Institute of Technology (MIT)': ['Computer Science','Mechanical Engineering','Electrical Engineering','Physics'],
-  'Yale University': ['Law','Medicine','History','English Literature'],
-  'University of California, Berkeley': ['Computer Science','Economics','Biology','Engineering'],
-  'Carnegie Mellon University': ['Computer Science','Software Engineering','Information Systems'],
+  'Harvard University': ['Law','Medicine','Business Administration','Economics','Political Science','Computer Science'],
+  'Stanford University': ['Computer Science','Business Administration','Engineering','Psychology','Medicine'],
+  'Massachusetts Institute of Technology (MIT)': ['Computer Science','Mechanical Engineering','Electrical Engineering','Physics','Mathematics'],
+  'Yale University': ['Law','Medicine','History','English Literature','Economics'],
+  'University of California, Berkeley': ['Computer Science','Economics','Biology','Engineering','Mathematics'],
+  'Carnegie Mellon University': ['Computer Science','Software Engineering','Information Systems','Robotics'],
+  'Columbia University': ['Journalism','Law','Medicine','Business','Engineering'],
+  'University of Michigan': ['Engineering','Business','Medicine','Computer Science','Economics'],
+  'Princeton University': ['Mathematics','Physics','Economics','Computer Science','Public Policy'],
+  'University of Chicago': ['Economics','Law','Physics','Computer Science','Business'],
 };
 
 // Raça de cachorro → nomes comuns
 const DOG_BREED_NAMES_PT: Record<string, string[]> = {
-  'Labrador': ['Thor','Mel','Bela','Fred','Luna','Bob','Buddy','Maggie'],
-  'Golden Retriever': ['Luna','Mel','Bela','Fred','Nina','Buddy','Charlie'],
-  'Bulldog Francês': ['Chico','Toddy','Pipoca','Bolinha','Bruce','Bento'],
-  'Poodle': ['Luna','Bela','Nina','Amora','Lola','Princesa','Kiara'],
-  'Pastor Alemão': ['Thor','Rex','Bruce','Lucky','Max','Zeus','Apollo'],
-  'Shih Tzu': ['Luna','Bela','Mel','Pandora','Princesa','Lola'],
-  'Vira-lata': ['Caramelo','Costelinha','Pitoco','Paçoca','Tobias','Neguinho','Brisa','Zeca'],
+  'Labrador': ['Thor','Mel','Bela','Fred','Luna','Bob','Buddy','Maggie','Max','Rocky'],
+  'Golden Retriever': ['Luna','Mel','Bela','Fred','Nina','Buddy','Charlie','Duke','Rex','Coco'],
+  'Bulldog Francês': ['Chico','Toddy','Pipoca','Bolinha','Bruce','Bento','Nino','Zeus'],
+  'Poodle': ['Luna','Bela','Nina','Amora','Lola','Princesa','Kiara','Coco','Mel'],
+  'Pastor Alemão': ['Thor','Rex','Bruce','Lucky','Max','Zeus','Apollo','Rocco','Titan'],
+  'Shih Tzu': ['Luna','Bela','Mel','Pandora','Princesa','Lola','Nina','Mia'],
+  'Beagle': ['Fred','Buddy','Mel','Bob','Charlie','Duke','Luna','Bela'],
+  'Rottweiler': ['Thor','Rex','Zeus','Max','Apollo','Rocky','Bruno','Titan'],
+  'Husky Siberiano': ['Loki','Thor','Zeus','Koda','Nala','Maya','Ghost','Duke'],
+  'Dachshund': ['Mel','Bob','Chico','Pipoca','Bolinha','Toddy','Nina','Luna'],
+  'Vira-lata': ['Caramelo','Costelinha','Pitoco','Paçoca','Tobias','Neguinho','Brisa','Zeca','Xerox','Manchinha'],
 };
 const DOG_BREED_NAMES_EN: Record<string, string[]> = {
-  'Labrador Retriever': ['Buddy','Charlie','Max','Bella','Luna','Cooper','Rocky'],
-  'Golden Retriever': ['Buddy','Charlie','Max','Bella','Luna','Cooper','Duke'],
-  'German Shepherd': ['Max','Rocky','Duke','Rex','Zeus','Bear','Thor'],
-  'Bulldog': ['Winston','Gus','Tucker','Oliver','Penny','Stella'],
-  'Beagle': ['Charlie','Cooper','Jack','Lucy','Daisy','Sadie'],
-  'Poodle': ['Coco','Bella','Luna','Lucy','Daisy','Chloe'],
-  'Siberian Husky': ['Loki','Thor','Zeus','Koda','Nala','Maya'],
-  'Corgi': ['Oliver','Loki','Winston','Penny','Ruby','Zoe'],
+  'Labrador Retriever': ['Buddy','Charlie','Max','Bella','Luna','Cooper','Rocky','Daisy','Tucker','Sadie'],
+  'Golden Retriever': ['Buddy','Charlie','Max','Bella','Luna','Cooper','Duke','Daisy','Tucker','Bear'],
+  'German Shepherd': ['Max','Rocky','Duke','Rex','Zeus','Bear','Thor','Bruno','Apollo','Titan'],
+  'Bulldog': ['Winston','Gus','Tucker','Oliver','Penny','Stella','Hank','Rosie'],
+  'Beagle': ['Charlie','Cooper','Jack','Lucy','Daisy','Sadie','Tucker','Molly'],
+  'Poodle': ['Coco','Bella','Luna','Lucy','Daisy','Chloe','Max','Sophie'],
+  'Siberian Husky': ['Loki','Thor','Zeus','Koda','Nala','Maya','Ghost','Duke'],
+  'Corgi': ['Oliver','Loki','Winston','Penny','Ruby','Zoe','Daisy','Baxter'],
+  'Rottweiler': ['Max','Rocky','Rex','Zeus','Bruno','Thor','Duke','Bear'],
+  'Dachshund': ['Max','Bella','Charlie','Daisy','Coco','Luna','Oscar','Molly'],
+  'Mixed Breed': ['Buddy','Bella','Max','Daisy','Charlie','Luna','Cooper','Rocky','Tucker','Sadie'],
 };
 
 // Raça de gato → nomes comuns
 const CAT_BREED_NAMES_PT: Record<string, string[]> = {
-  'Persa': ['Luna','Nina','Pandora','Bela','Amora','Kiara','Simba'],
-  'Siamês': ['Luna','Fred','Simba','Maya','Lola','Kiara'],
-  'Maine Coon': ['Simba','Thor','Fred','Luna','Nina','Bento'],
-  'Sphynx': ['Thor','Bruce','Neguinho','Simba','Luna'],
-  'Vira-lata': ['Bolinha','Pandora','Pipoca','Amora','Floquinho','Paçoca','Tina','Cocada'],
+  'Persa': ['Luna','Nina','Pandora','Bela','Amora','Kiara','Simba','Mia','Chloe'],
+  'Siamês': ['Luna','Fred','Simba','Maya','Lola','Kiara','Nina','Thor'],
+  'Maine Coon': ['Simba','Thor','Fred','Luna','Nina','Bento','Milo','Oliver'],
+  'Sphynx': ['Thor','Bruce','Neguinho','Simba','Luna','Yoda','Gizmo','Loki'],
+  'Bengal': ['Simba','Thor','Luna','Nina','Zoe','Loki','Apollo','Mia'],
+  'Ragdoll': ['Luna','Milo','Fred','Bela','Nina','Amora','Kiara','Oliver'],
+  'Vira-lata': ['Bolinha','Pandora','Pipoca','Amora','Floquinho','Paçoca','Tina','Cocada','Manchinha','Xerox'],
 };
 const CAT_BREED_NAMES_EN: Record<string, string[]> = {
-  'Persian': ['Luna','Bella','Chloe','Sophie','Lily','Coco','Simba'],
-  'Maine Coon': ['Leo','Oliver','Max','Luna','Stella','Thor'],
-  'Siamese': ['Luna','Milo','Leo','Zoe','Nala','Lily'],
-  'Bengal': ['Leo','Loki','Apollo','Zoe','Nala','Ruby'],
-  'Sphynx': ['Gizmo','Loki','Thor','Yoda','Arya','Stella'],
-  'Ragdoll': ['Luna','Milo','Ollie','Zoe','Lily','Sophie'],
-  'American Shorthair': ['Oliver','Leo','Charlie','Luna','Lily','Rosie'],
+  'Persian': ['Luna','Bella','Chloe','Sophie','Lily','Coco','Simba','Mia','Oscar'],
+  'Maine Coon': ['Leo','Oliver','Max','Luna','Stella','Thor','Milo','Cooper'],
+  'Siamese': ['Luna','Milo','Leo','Zoe','Nala','Lily','Coco','Loki'],
+  'Bengal': ['Leo','Loki','Apollo','Zoe','Nala','Ruby','Milo','Luna'],
+  'Sphynx': ['Gizmo','Loki','Thor','Yoda','Arya','Stella','Dobby','Patches'],
+  'Ragdoll': ['Luna','Milo','Ollie','Zoe','Lily','Sophie','Bella','Charlie'],
+  'American Shorthair': ['Oliver','Leo','Charlie','Luna','Lily','Rosie','Max','Bella'],
+  'British Shorthair': ['Oliver','Charlie','Bella','Luna','Max','Sophie','Leo','Daisy'],
 };
 
 // OS → browsers
@@ -846,6 +906,172 @@ const ZODIAC_BOUNDARIES = [
 ];
 
 const ZODIAC_SIGNS_EN = ['Aquarius','Pisces','Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn'];
+
+// Age → marital status
+const AGE_MARITAL_PT: Record<string, string[]> = {
+  young: ['Solteiro(a)','Solteiro(a)','Solteiro(a)','União Estável'],
+  mid: ['Casado(a)','Casado(a)','Divorciado(a)','Solteiro(a)','União Estável'],
+  senior: ['Casado(a)','Viúvo(a)','Divorciado(a)','Casado(a)'],
+};
+const AGE_MARITAL_EN: Record<string, string[]> = {
+  young: ['Single','Single','Single','In a Relationship'],
+  mid: ['Married','Married','Divorced','Single','Domestic Partnership'],
+  senior: ['Married','Widowed','Divorced','Married'],
+};
+
+// Age → education
+const AGE_EDUCATION_PT: Record<string, string[]> = {
+  young: ['Graduação Incompleta','Graduação Completa','Curso Técnico Completo'],
+  mid: ['Graduação Completa','Pós-graduação Completa','MBA Completo','Mestrado Completo'],
+  senior: ['Graduação Completa','Pós-graduação Completa','Mestrado Completo','Doutorado Completo','MBA Completo'],
+};
+const AGE_EDUCATION_EN: Record<string, string[]> = {
+  young: ['Some College','Bachelor\'s Degree','Associate Degree'],
+  mid: ['Bachelor\'s Degree','Master\'s Degree','MBA','PhD'],
+  senior: ['Bachelor\'s Degree','Master\'s Degree','PhD','MBA','MD'],
+};
+
+// Age → hobby
+const AGE_HOBBY_PT: Record<string, string[]> = {
+  young: ['Videogame','Fotografia','Dança','Skate','Leitura','Yoga','Xadrez'],
+  mid: ['Culinária','Jardinagem','Fotografia','Pesca','Viagem','Leitura','Marcenaria'],
+  senior: ['Jardinagem','Pesca','Leitura','Colecionismo','Xadrez','Culinária','Marcenaria'],
+};
+const AGE_HOBBY_EN: Record<string, string[]> = {
+  young: ['Gaming','Photography','Dance','Skateboarding','Reading','Yoga','Chess'],
+  mid: ['Cooking','Gardening','Photography','Fishing','Travel','Reading','Woodworking'],
+  senior: ['Gardening','Fishing','Reading','Collecting','Chess','Cooking','Woodworking'],
+};
+
+// ===== NOVAS CORRELAÇÕES =====
+
+// Genre → Series
+const SERIES_GENRE_MAP_PT: Record<string, string[]> = {
+  'Drama': ['Breaking Bad','Game of Thrones','The Crown','Better Call Saul','Chernobyl','Peaky Blinders','Suits','House of Cards'],
+  'Comédia': ['Friends','The Office','Brooklyn Nine-Nine','How I Met Your Mother','The Good Place','Schitt\'s Creek','Ted Lasso'],
+  'Suspense': ['Sherlock','Dexter','Mindhunter','True Detective','The Mentalist','Lupin','You'],
+  'Ficção Científica': ['Stranger Things','Black Mirror','Westworld','The Mandalorian','Severance','Lost','Devs'],
+  'Terror': ['The Walking Dead','American Horror Story','Castle Rock','Chilling Adventures of Sabrina','Hannibal'],
+  'Ação': ['The Boys','Jack Ryan','Daredevil','The Witcher','Arcane','Reacher','Vikings'],
+  'Romance': ['Outlander','Bridgerton','The Office','Grey\'s Anatomy','Normal People','You'],
+};
+const SERIES_GENRE_MAP_EN: Record<string, string[]> = {
+  'Drama': ['Breaking Bad','Game of Thrones','The Crown','Better Call Saul','Chernobyl','Peaky Blinders','Suits','House of Cards','Yellowjackets','The Wire'],
+  'Comedy': ['Friends','The Office','Brooklyn Nine-Nine','How I Met Your Mother','The Good Place','Schitt\'s Creek','Ted Lasso','Seinfeld','The Simpsons','Curb Your Enthusiasm'],
+  'Thriller': ['Sherlock','Dexter','Mindhunter','True Detective','The Mentalist','Lupin','You','Money Heist','Narcos'],
+  'Science Fiction': ['Stranger Things','Black Mirror','Westworld','The Mandalorian','Severance','Lost','Devs','Foundation','Silo','3 Body Problem'],
+  'Horror': ['The Walking Dead','American Horror Story','Castle Rock','Chilling Adventures of Sabrina','Hannibal','The Haunting of Hill House','Midnight Mass'],
+  'Action': ['The Boys','Jack Ryan','Daredevil','The Witcher','Arcane','Reacher','Vikings','Shogun','The Last Kingdom'],
+  'Romance': ['Outlander','Bridgerton','Grey\'s Anatomy','Normal People','You','Virgin River','Heartstopper'],
+};
+
+// Genre → Books
+const BOOK_GENRE_MAP_PT: Record<string, string[]> = {
+  'Ficção': ['Dom Casmurro','O Alquimista','Capitães da Areia','Memórias Póstumas de Brás Cubas','A Hora da Estrela'],
+  'Romance': ['Orgulho e Preconceito','O Poderoso Chefão','Como Eu Era Antes de Você','Cinquenta Tons de Grey','A Culpa é das Estrelas'],
+  'Terror': ['Drácula','Frankenstein','It: A Coisa','O Iluminado','A Chamada de Cthulhu'],
+  'Fantasia': ['O Senhor dos Anéis','Harry Potter','As Crônicas de Gelo e Fogo','O Hobbit','A Bússola de Ouro'],
+  'Biografia': ['Steve Jobs','Malala','Einstein','Sapiens','A Floresta ancestral'],
+  'Suspense': ['O Código Da Vinci','Garota Exemplar','A Garota no Trem','Homicídio no Expresso do Oriente','Ela Sabia Demais'],
+  'Não-ficção': ['Sapiens','21 Lições para o Século 21','Hábitos Atômicos','O Poder do Hábito','Pensar Rápido, Pensar Devagar'],
+  'Autoajuda': ['O Poder do Hábito','Hábitos Atômicos','Mindset','Os 7 Hábitos','Inteligência Emocional'],
+};
+const BOOK_GENRE_MAP_EN: Record<string, string[]> = {
+  'Fiction': ['To Kill a Mockingbird','1984','The Great Gatsby','One Hundred Years of Solitude','The Catcher in the Rye'],
+  'Romance': ['Pride and Prejudice','The Notebook','Me Before You','Fifty Shades of Grey','The Fault in Our Stars','Outlander'],
+  'Horror': ['Dracula','Frankenstein','It','The Shining','The Haunting of Hill House','Mexican Gothic'],
+  'Fantasy': ['The Lord of the Rings','Harry Potter','A Game of Thrones','The Hobbit','The Golden Compass','Mistborn'],
+  'Biography': ['Steve Jobs','Becoming','Educated','The Diary of a Young Girl','Sapiens'],
+  'Thriller': ['The Da Vinci Code','Gone Girl','The Girl on the Train','Murder on the Orient Express','The Silent Patient'],
+  'Non-Fiction': ['Sapiens','21 Lessons for the 21st Century','Atomic Habits','Thinking Fast and Slow','The Power of Habit'],
+  'Self-Help': ['Atomic Habits','The Power of Habit','Mindset','The 7 Habits','Emotional Intelligence','Deep Work'],
+  'Science Fiction': ['Dune','The Martian','Ender\'s Game','Brave New World','Fahrenheit 451','Neuromancer'],
+};
+
+// Profession → Software
+const PROFESSION_SOFTWARE_PT: Record<string, string[]> = {
+  'Desenvolvedor de Software': ['VS Code','IntelliJ IDEA','Git','Docker','Postman'],
+  'Engenheiro de Dados': ['SQL Server','Power BI','Tableau','Airflow','dbt'],
+  'Cientista de Dados': ['Jupyter Notebook','Python','R Studio','TensorFlow','Pandas'],
+  'UX/UI Designer': ['Figma','Sketch','Adobe XD','InVision','Miro'],
+  'Product Manager': ['Jira','Confluence','Notion','Trello','Miro'],
+  'Analista de Marketing': ['Google Analytics','HubSpot','SEMrush','Google Ads','Mailchimp'],
+  'Contador': ['Sage','TOTVS','Omie','Domínio','Fortes'],
+  'Advogado': ['PJe','SAJ','Astrea','JusBrasil','Turivius'],
+  'Médico': ['Tasy','MV','Epico','Clinicore','Doctoralia'],
+  'Designer Gráfico': ['Photoshop','Illustrator','Canva','InDesign','CorelDRAW'],
+};
+const PROFESSION_SOFTWARE_EN: Record<string, string[]> = {
+  'Software Developer': ['VS Code','IntelliJ IDEA','Git','Docker','Postman','GitHub Copilot'],
+  'Data Engineer': ['SQL Server','Power BI','Tableau','Airflow','dbt','Snowflake'],
+  'Data Scientist': ['Jupyter Notebook','Python','R Studio','TensorFlow','Pandas','Scikit-learn'],
+  'UX/UI Designer': ['Figma','Sketch','Adobe XD','InVision','Miro','Zeplin'],
+  'Product Manager': ['Jira','Confluence','Notion','Trello','Miro','Asana'],
+  'Marketing Analyst': ['Google Analytics','HubSpot','SEMrush','Google Ads','Mailchimp','Hootsuite'],
+  'Accountant': ['QuickBooks','Sage','Xero','FreshBooks','Wave'],
+  'Lawyer': ['Clio','Westlaw','LexisNexis','LegalZoom','Rocket Lawyer'],
+  'Doctor': ['Epic','Cerner','Allscripts','Athenahealth','DrChrono'],
+  'Graphic Designer': ['Photoshop','Illustrator','Canva','InDesign','Figma','CorelDRAW'],
+};
+
+// Hobby → Equipment
+const HOBBY_EQUIPMENT_PT: Record<string, string[]> = {
+  'Fotografia': ['Câmera DSLR','Lente 50mm','Tripé','Cartão SD','Mochila Fotográfica'],
+  'Culinária': ['Panela de Pressão','Frigideira Antiaderente','Liquidificador','Air Fryer','Forma de Bolo'],
+  'Jardinagem': ['Pá','Regador','Tesoura de Poda','Vaso de Plantas','Adubo'],
+  'Pesca': ['Vara de Pescar','Molinete','Isca Artificial','Caixa de Pesca','Cadeira de Pesca'],
+  'Marcenaria': ['Serra','Plaina','Trena','Lixa','Parafusos'],
+  'Videogame': ['Controle','Headset','Monitor Gamer','Cadeira Gamer','Mouse Gamer'],
+  'Yoga': ['Esteira de Yoga','Blocos de Yoga','Roupa Fitness','Corda','Bolsa de Yoga'],
+  'Dança': ['Sapatos de Dança','Roupa Fitness','Espelho','Barra de Ballet','Caixa de Som'],
+  'Xadrez': ['Tabuleiro de Xadrez','Peças de Xadrez','Relógio de Xadrez','Livro de Aberturas'],
+  'Leitura': ['E-reader','Luminária','Cadeira Confortável','Marca Página','Óculos de Leitura'],
+  'Pintura': ['Tela','Tintas Acrílicas','Pincéis','Paleta','Easel'],
+  'Costura': ['Máquina de Costura','Tesoura','Fios','Medidor','Alfinetes'],
+  'Viagem': ['Mochila de Viagem','Passaporte','Adaptador de Tomada','Travesseiro de Viagem','Malinha'],
+  'Colecionismo': ['Estojos','Prateleiras','Catálogo','Luvas','Caixas Organizadoras'],
+};
+const HOBBY_EQUIPMENT_EN: Record<string, string[]> = {
+  'Photography': ['DSLR Camera','50mm Lens','Tripod','SD Card','Camera Bag'],
+  'Cooking': ['Pressure Cooker','Non-stick Pan','Blender','Air Fryer','Baking Sheet'],
+  'Gardening': ['Shovel','Watering Can','Pruning Shears','Plant Pot','Fertilizer'],
+  'Fishing': ['Fishing Rod','Reel','Lure','Tackle Box','Fishing Chair'],
+  'Woodworking': ['Saw','Plane','Tape Measure','Sandpaper','Screws'],
+  'Gaming': ['Controller','Headset','Gaming Monitor','Gaming Chair','Gaming Mouse'],
+  'Yoga': ['Yoga Mat','Yoga Blocks','Fitness Wear','Strap','Yoga Bag'],
+  'Dance': ['Dance Shoes','Fitness Wear','Mirror','Ballet Barre','Speaker'],
+  'Chess': ['Chess Board','Chess Pieces','Chess Clock','Opening Book'],
+  'Reading': ['E-reader','Desk Lamp','Comfortable Chair','Bookmark','Reading Glasses'],
+  'Painting': ['Canvas','Acrylic Paints','Brushes','Palette','Easel'],
+  'Knitting': ['Knitting Needles','Yarn','Scissors','Measuring Tape','Stitch Markers'],
+  'Travel': ['Travel Backpack','Passport','Power Adapter','Travel Pillow','Carry-on Luggage'],
+  'Collecting': ['Display Cases','Shelving','Catalog','Gloves','Storage Boxes'],
+  'Camping': ['Tent','Sleeping Bag','Camp Stove','Lantern','Backpack'],
+  'Running': ['Running Shoes','Smartwatch','Running Shorts','Water Bottle','Headphones'],
+};
+
+// Streaming → Genre
+const STREAMING_GENRE_MAP_PT: Record<string, string[]> = {
+  'Netflix': ['Drama','Suspense','Ficção Científica','Terror','Comédia','Documentário','Animação'],
+  'Amazon Prime Video': ['Drama','Ação','Ficção Científica','Comédia','Suspense','Terror'],
+  'Disney+': ['Animação','Ficção Científica','Aventura','Fantasia','Comédia','Drama'],
+  'HBO Max': ['Drama','Suspense','Ficção Científica','Terror','Comédia','Documentário'],
+  'Globoplay': ['Drama','Comédia','Romance','Suspense','Documentário','Novela'],
+  'Paramount+': ['Drama','Ação','Comédia','Suspense','Ficção Científica'],
+  'Apple TV+': ['Drama','Ficção Científica','Comédia','Suspense','Documentário'],
+  'Crunchyroll': ['Animação','Ação','Aventura','Romance','Comédia','Fantasia'],
+};
+const STREAMING_GENRE_MAP_EN: Record<string, string[]> = {
+  'Netflix': ['Drama','Thriller','Science Fiction','Horror','Comedy','Documentary','Animation','Romance'],
+  'Amazon Prime Video': ['Drama','Action','Science Fiction','Comedy','Thriller','Horror','Fantasy'],
+  'Disney+': ['Animation','Science Fiction','Adventure','Fantasy','Comedy','Drama','Musical'],
+  'HBO Max': ['Drama','Thriller','Science Fiction','Horror','Comedy','Documentary','Romance'],
+  'Paramount+': ['Drama','Action','Comedy','Thriller','Science Fiction','Horror'],
+  'Apple TV+': ['Drama','Science Fiction','Comedy','Thriller','Documentary','Romance'],
+  'Peacock': ['Drama','Comedy','Thriller','Action','Horror','Documentary'],
+  'Hulu': ['Drama','Comedy','Thriller','Horror','Science Fiction','Documentary'],
+  'Crunchyroll': ['Animation','Action','Adventure','Romance','Comedy','Fantasy'],
+};
 
 function getCardBin(flag: string, isEN: boolean): string {
   const bins = isEN ? CREDIT_CARD_BINS_EN : CREDIT_CARD_BINS;
@@ -1548,6 +1774,44 @@ class FakeDataGenerator {
       }
     }
 
+    // Genre → Series
+    if (fields.includes('series') && ctx._movieGenre) {
+      const _seriesMap = isEN ? SERIES_GENRE_MAP_EN : SERIES_GENRE_MAP_PT;
+      const _series = _seriesMap[ctx._movieGenre];
+      if (_series && _series.length > 0) ctx._series = randomPick(_series);
+    }
+
+    // Genre → Book
+    if (fields.includes('bookGenre')) {
+      const _bookMap = isEN ? BOOK_GENRE_MAP_EN : BOOK_GENRE_MAP_PT;
+      const _genres = Object.keys(_bookMap);
+      ctx._bookGenre = randomPick(_genres);
+    }
+
+    // Profession → Software
+    if (fields.includes('software') && ctx._profession) {
+      const _swMap = isEN ? PROFESSION_SOFTWARE_EN : PROFESSION_SOFTWARE_PT;
+      const _sw = _swMap[ctx._profession];
+      if (_sw && _sw.length > 0) ctx._software = randomPick(_sw);
+    }
+
+    // Hobby → Equipment
+    if (fields.includes('equipment') && ctx._hobby) {
+      const _eqMap = isEN ? HOBBY_EQUIPMENT_EN : HOBBY_EQUIPMENT_PT;
+      const _eq = _eqMap[ctx._hobby];
+      if (_eq && _eq.length > 0) ctx._equipment = randomPick(_eq);
+    }
+
+    // Streaming → Genre
+    if (fields.includes('streamingGenre') || fields.includes('streamingPlatform')) {
+      if (!ctx._streamingPlatform) ctx._streamingPlatform = randomPick(isEN ? ['Netflix','Amazon Prime Video','Disney+','HBO Max','Paramount+','Apple TV+','Peacock','Hulu','Crunchyroll'] : ['Netflix','Amazon Prime Video','Disney+','HBO Max','Globoplay','Paramount+','Apple TV+','Crunchyroll']);
+    }
+    if (fields.includes('streamingGenre') && ctx._streamingPlatform) {
+      const _sgMap = isEN ? STREAMING_GENRE_MAP_EN : STREAMING_GENRE_MAP_PT;
+      const _sg = _sgMap[ctx._streamingPlatform];
+      if (_sg && _sg.length > 0) ctx._streamingGenre = randomPick(_sg);
+    }
+
     for (const field of fields) {
       record[field] = this.generateField(field, ctx);
     }
@@ -1756,12 +2020,16 @@ class FakeDataGenerator {
       catBreed:          () => ctx?._catBreed ?? randomPick(d.categories.catBreeds),
       movie:             () => ctx?._movie ?? randomPick(d.categories.movies),
       movieGenre:        () => ctx?._movieGenre ?? randomPick(d.categories.movieGenres),
-      bookGenre:         () => randomPick(d.categories.bookGenres),
-      series:            () => randomPick(d.categories.series),
+      series:            () => ctx?._series ?? randomPick(d.categories.series),
       musicGenre:        () => ctx?._musicGenre ?? randomPick(d.categories.musicGenres),
       instrument:        () => ctx?._instrument ?? randomPick(d.categories.instruments),
       sport:             () => randomPick(d.categories.sports),
       hobby:             () => ctx?._hobby ?? randomPick(d.categories.hobbies),
+      seriesGenre:       () => ctx?._seriesGenre ?? randomPick(isEN ? Object.keys(SERIES_GENRE_MAP_EN) : Object.keys(SERIES_GENRE_MAP_PT)),
+      bookGenre:         () => ctx?._bookGenre ?? randomPick(isEN ? Object.keys(BOOK_GENRE_MAP_EN) : Object.keys(BOOK_GENRE_MAP_PT)),
+      software:          () => ctx?._software ?? randomPick(isEN ? Object.values(PROFESSION_SOFTWARE_EN).flat() : Object.values(PROFESSION_SOFTWARE_PT).flat()),
+      equipment:         () => ctx?._equipment ?? randomPick(isEN ? Object.values(HOBBY_EQUIPMENT_EN).flat() : Object.values(HOBBY_EQUIPMENT_PT).flat()),
+      streamingGenre:    () => ctx?._streamingGenre ?? randomPick(isEN ? ['Drama','Thriller','Science Fiction','Comedy','Action','Animation','Horror'] : ['Drama','Suspense','Ficção Científica','Comédia','Ação','Animação','Terror']),
       carBrand:          () => ctx?._carBrand ?? randomPick(d.categories.carBrands),
       carModel:          () => ctx?._carModel ?? randomPick(d.categories.carModels),
       fuelType:          () => ctx?._carFuelType ?? randomPick(d.categories.fuelTypes),
@@ -1771,7 +2039,7 @@ class FakeDataGenerator {
       database:          () => randomPick(d.categories.databases),
       browser:           () => ctx?._browser ?? randomPick(d.categories.browsers),
       socialMedia:       () => randomPick(d.categories.socialMedia),
-      streamingPlatform: () => randomPick(d.categories.streamingPlatforms),
+      streamingPlatform: () => ctx?._streamingPlatform ?? randomPick(d.categories.streamingPlatforms),
       clothingType:      () => ctx?._clothingType ?? randomPick(d.categories.clothingTypes),
       clothingSize:      () => ctx?._clothingSize ?? randomPick(d.categories.clothingSizes),
       color:             () => randomPick(d.categories.colors),

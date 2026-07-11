@@ -2,7 +2,8 @@
   "_description": "Dicionário de dados de internet",
   "emailDomains": [
     "gmail.com", "hotmail.com", "outlook.com", "yahoo.com.br", "bol.com.br",
-    "uol.com.br", "terra.com.br", "ig.com.br", "protonmail.com", "live.com"
+    "uol.com.br", "terra.com.br", "ig.com.br", "protonmail.com", "live.com",
+    "icloud.com", "fastmail.com", "zoho.com"
   ],
   "corporateDomains": [
     "techcorp.com.br", "inovabrasil.com.br", "datawise.com.br", "sigmatec.com.br",
