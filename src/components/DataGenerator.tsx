@@ -139,18 +139,14 @@ export default function DataGenerator() {
               alt="Fake Database"
             />
           </div>
-          <div className="header-sponsor">
-            <span className="header-sponsor-text">{t.headerSponsor.text}</span>
-            <a
-              href="https://github.com/sponsors/BrunoZBonetto"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-sponsor header-sponsor-btn"
-              onClick={() => analytics.trackSponsorClick()}
-            >
-              {t.headerSponsor.button}
-            </a>
-          </div>
+          <a
+            className="header-sponsor"
+            href="https://github.com/sponsors/BrunoZBonetto"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t.headerSponsor}
+          </a>
           <div className="header-actions">
             <button className="btn-icon" onClick={handleToggleLocale} aria-label="Toggle locale" title={locale === 'pt-BR' ? 'Switch to English' : 'Mudar para Português'}>
               {locale === 'pt-BR' ? '🇺🇸' : '🇧🇷'}

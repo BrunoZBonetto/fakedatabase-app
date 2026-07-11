@@ -3,10 +3,6 @@ const enUS = {
     title: '🗄️ Fake Database',
     subtitle: 'Generate realistic fake data — export to CSV, Excel, JSON, SQL, XML and YAML. Create mock databases for tests, prototypes and demos.',
   },
-  headerSponsor: {
-    text: 'Made with ❤️ for the community',
-    button: 'Become a sponsor',
-  },
   dataGenerator: {
     records: 'Records:',
     maxRecords: 'max {max}',
@@ -113,6 +109,7 @@ const enUS = {
     page: 'Page {page} of {total}',
     copiedToast: 'Copied to clipboard!',
   },
+  headerSponsor: '❤️ Become a sponsor',
   sponsorBanner: {
     freeText: '❤️ This tool is built with love and dedication.',
     buttonText: '💡 Help keep this tool free for everyone',
