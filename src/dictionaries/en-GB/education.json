@@ -1,0 +1,27 @@
+{
+  "_description": "British education dictionary",
+  "universities": [
+    "University of Oxford", "University of Cambridge", "Imperial College London", "University College London (UCL)",
+    "University of Edinburgh", "King's College London", "London School of Economics (LSE)", "University of Manchester",
+    "University of Bristol", "University of Glasgow", "University of Warwick", "Durham University",
+    "University of Birmingham", "University of Leeds", "University of Sheffield", "University of Nottingham",
+    "University of Southampton", "University of St Andrews", "University of Bath", "University of York",
+    "University of Exeter", "University of Lancaster", "University of Reading", "University of Surrey",
+    "Newcastle University", "Cardiff University", "Queen's University Belfast", "University of Aberdeen",
+    "University of Dundee", "Loughborough University"
+  ],
+  "courses": [
+    "Computer Science", "Medicine", "Law", "Engineering", "Business Studies", "Economics", "Psychology",
+    "Biology", "Chemistry", "Physics", "Mathematics", "English Literature", "History", "Philosophy",
+    "Architecture", "Art & Design", "Music", "Nursing", "Dentistry", "Veterinary Science",
+    "PPE (Philosophy, Politics & Economics)", "Geography", "Sociology", "Education Studies",
+    "Mechanical Engineering", "Electrical Engineering", "Civil Engineering", "Politics",
+    "International Relations", "Criminology"
+  ],
+  "degreeTypes": [
+    "GCSEs", "A-Levels", "BTEC", "HND", "Foundation Degree", "Bachelor of Arts (BA)", "Bachelor of Science (BSc)",
+    "Master of Arts (MA)", "Master of Science (MSc)", "MBA", "Doctorate (PhD)", "Professional Qualification",
+    "Postgraduate Diploma (PGDip)", "Certificate of Higher Education (CertHE)"
+  ],
+  "grades": ["A*", "A", "B", "C", "D", "E", "U", "1st", "2:1", "2:2", "3rd", "Fail"]
+}

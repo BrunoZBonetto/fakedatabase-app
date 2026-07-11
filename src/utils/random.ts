@@ -69,3 +69,26 @@ export const shuffle = <T>(arr: T[]): T[] => {
   }
   return a;
 };
+
+/** Gera um NINO válido (formato: XX999999X) */
+export function generateNINO(): string {
+  const validPrefixes = [
+    'AB','CE','EH','HB','HC','HD','HE','HF','HJ','HM','HN','HP','HR','HS','HU','HX','HY',
+    'JA','JB','JC','JD','JE','JF','JG','JH','JJ','JK','JL','JM','JN','JP','JR','JS','JT','JU','JV','JW','JX','JY','JZ',
+    'LA','LB','LC','LD','LE','LF','LG','LH','LJ','LL','LN','LP','LR','LS','LT','LU','LW','LX','LY','LZ',
+    'MA','MB','MC','MD','ME','MF','MG','MH','MJ','MK','ML','MM','MN','MO','MP','MR','MS','MT','MU','MW','MX','MY','MZ',
+    'NA','NB','NC','ND','NE','NF','NG','NH','NJ','NL','NM','NN','NP','NR','NS','NT','NU','NW','NX','NY','NZ',
+    'OA','OB','OC','OD','OE','OF','OG','OH','OI','OJ','OK','OL','OM','ON','OP','OR','OS','OT','OU','OW','OX','OY','OZ',
+    'PA','PB','PC','PD','PE','PF','PG','PH','PI','PJ','PK','PL','PM','PN','PO','PP','PR','PS','PT','PU','PW','PX','PY','PZ',
+    'RA','RB','RC','RD','RE','RF','RG','RH','RI','RJ','RK','RL','RM','RN','RO','RP','RR','RS','RT','RU','RW','RX','RY','RZ',
+    'SA','SB','SC','SD','SE','SF','SG','SH','SI','SJ','SK','SL','SM','SN','SO','SP','SR','SS','ST','SU','SW','SX','SY','SZ',
+    'TA','TB','TC','TD','TE','TF','TG','TH','TI','TJ','TK','TL','TM','TN','TO','TP','TR','TS','TT','TU','TW','TX','TY','TZ',
+    'WA','WB','WC','WD','WE','WF','WG','WH','WJ','WK','WL','WM','WN','WP','WR','WS','WT','WU','WW','WX','WY','WZ',
+    'YA','YB','YC','YD','YE','YF','YG','YH','YJ','YK','YL','YM','YN','YP','YR','YS','YT','YU','YW','YX','YY','YZ',
+  ];
+  const suffixes = ['A','B','C','D','F'];
+  const prefix = validPrefixes[randomInt(0, validPrefixes.length - 1)];
+  const digits = Array.from({ length: 6 }, () => randomInt(0, 9)).join('');
+  const suffix = suffixes[randomInt(0, suffixes.length - 1)];
+  return `${prefix}${digits}${suffix}`;
+}

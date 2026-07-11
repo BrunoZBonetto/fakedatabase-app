@@ -1,0 +1,6 @@
+{
+  "_description": "British professions dictionary",
+  "professions": ["Software Engineer", "Data Scientist", "Doctor", "Solicitor", "Barrister", "Architect", "Accountant", "Nurse", "Teacher", "Pharmacist", "Civil Engineer", "Mechanical Engineer", "Electrician", "Plumber", "Carpenter", "Chef", "Police Officer", "Firefighter", "Paramedic", "Dentist", "Veterinarian", "Psychologist", "Marketing Manager", "Project Manager", "Investment Banker", "Financial Analyst", "HR Manager", "Journalist", "Graphic Designer", "Web Developer", "IT Consultant", "Quantity Surveyor", "Town Planner", "Surveyor", "Librarian", "Optometrist", "Midwife", "Physiotherapist", "Radiographer", "Occupational Therapist", "Speech Therapist", "Social Worker", "Housing Officer", "Planning Officer", "Benefits Officer", "Registrar"],
+  "education": ["GCSEs", "A-Levels", "BTEC", "Foundation Degree", "Bachelor's Degree (BA/BSc)", "Master's Degree (MA/MSc)", "MBA", "Doctorate (PhD)", "Professional Qualification", "HND", "Apprenticeship"],
+  "seniority": ["Junior", "Mid-Level", "Senior", "Lead", "Principal", "Head of Department", "Associate", "Intern", "Graduate"]
+}

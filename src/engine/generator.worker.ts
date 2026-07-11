@@ -7,7 +7,7 @@ interface WorkerMessage {
   customFields: { name: string; type: string; size?: number | null; useCustomValues?: boolean; customValues?: { text: string }[] }[];
   nullRate?: number;
   errorRate?: number;
-  locale?: 'pt-BR' | 'en-US';
+  locale?: string;
 }
 
 self.onmessage = (e: MessageEvent<WorkerMessage>) => {

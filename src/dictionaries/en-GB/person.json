@@ -1,0 +1,8 @@
+{
+  "_description": "British personal characteristics dictionary",
+  "ethnicities": ["White British", "White Irish", "White Other", "Mixed/Multiple ethnic groups", "Asian/Asian British", "Black/African/Caribbean/Black British", "Chinese", "Other ethnic group"],
+  "nationalities": ["British", "English", "Scottish", "Welsh", "Northern Irish", "Irish", "French", "German", "Italian", "Spanish", "Polish", "Indian", "Pakistani", "Bangladeshi", "Chinese", "Nigerian", "South African", "American", "Australian", "Canadian"],
+  "naturalness": ["London", "Birmingham", "Manchester", "Leeds", "Glasgow", "Liverpool", "Bristol", "Sheffield", "Edinburgh", "Leicester", "Coventry", "Bradiff", "Cardiff", "Belfast", "Nottingham", "Newcastle", "Southampton", "Plymouth", "Brighton", "York"],
+  "suffixes": ["Jr.", "Sr.", "II", "III", "PhD", "MBE", "OBE", "CBE"],
+  "titles": ["Mr.", "Mrs.", "Ms.", "Miss", "Dr.", "Prof.", "Rev.", "Sir", "Dame", "Lord", "Lady"]
+}

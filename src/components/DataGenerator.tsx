@@ -8,14 +8,14 @@ import CustomFieldsEditor from './CustomFieldsEditor';
 import AdUnit from './AdUnit';
 import { useToast } from './Toast';
 import { useTheme } from '../utils/useTheme';
-import { useLocale } from '../hooks/useLocale';
+import { useLocale, LOCALE_OPTIONS } from '../hooks/useLocale';
 import { useAnalytics } from '../utils/analytics';
 
 const MAX_RECORDS = 5000;
 const WORKER_THRESHOLD = 1000;
 
 export default function DataGenerator() {
-  const { t, locale, toggleLocale } = useLocale();
+  const { t, locale, setLocale } = useLocale();
   const analytics = useAnalytics();
   const generatorRef = useRef(new FakeDataGenerator(0, 0, locale));
   generatorRef.current.locale = locale;
@@ -109,10 +109,9 @@ export default function DataGenerator() {
     ...customFields.filter((f) => f.name?.trim()).map((f) => f.name.trim()),
   ];
 
-  const handleToggleLocale = () => {
-    const next = locale === 'pt-BR' ? 'en-US' : 'pt-BR';
+  const handleLocaleChange = (next: string) => {
     analytics.trackLocaleToggle(next);
-    toggleLocale();
+    setLocale(next);
   };
 
   const handleToggleTheme = () => {
@@ -148,9 +147,16 @@ export default function DataGenerator() {
             {t.headerSponsor}
           </a>
           <div className="header-actions">
-            <button className="btn-icon" onClick={handleToggleLocale} aria-label="Toggle locale" title={locale === 'pt-BR' ? 'Switch to English' : 'Mudar para Português'}>
-              {locale === 'pt-BR' ? '🇺🇸' : '🇧🇷'}
-            </button>
+            <select
+              className="locale-select"
+              value={locale}
+              onChange={(e) => handleLocaleChange(e.target.value)}
+              aria-label="Select locale"
+            >
+              {LOCALE_OPTIONS.map((opt) => (
+                <option key={opt.code} value={opt.code}>{opt.flag} {opt.label}</option>
+              ))}
+            </select>
             <button className="btn-icon" onClick={handleToggleTheme} aria-label="Toggle theme" title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>

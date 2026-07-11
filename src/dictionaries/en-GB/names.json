@@ -1,0 +1,58 @@
+{
+  "_description": "British names dictionary",
+  "firstName": {
+    "masculine": [
+      "Oliver", "George", "Arthur", "Noah", "Muhammad", "Leo", "Oscar", "Harry",
+      "Freddie", "Archie", "Jack", "Charlie", "Thomas", "William", "James",
+      "Henry", "Alfie", "Ethan", "Lucas", "Alexander", "Isaac", "Joseph",
+      "Samuel", "Benjamin", "Daniel", "Jacob", "Michael", "Edward", "Elijah",
+      "Sebastian", "Theo", "Finn", "Max", "Adam", "Owen", "Lewis", "Harvey",
+      "Ruben", "Toby", "Jenson", "Callum", "Ryan", "Luke", "Nathan", "Connor",
+      "Dylan", "Jake", "Liam", "Tyler", "Jamie", "Rhys", "Kai", "Mason",
+      "Logan", "Elliot", "Leon", "Reuben", "Matthew", "Hugo", "Tommie",
+      "Finley", "Albert", "Seth", "Ibrahim", "Caleb", "Frankie", "Joel",
+      "Robert", "David", "Charlie", "Billy", "Zachary", "Louis", "Frederick",
+      "Peter", "Charles", "Edward", "Richard", "Andrew", "Philip", "Adrian",
+      "Stuart", "Grant", "Keith", "Bruce", "Gordon", "Malcolm", "Douglas",
+      "Gavin", "Martin", "Colin", "Derek", "Graham", "Trevor", "Norman",
+      "Raymond", "Terry", "Dennis", "Clive", "Roger", "Stanley", "Ernest",
+      "Barry", "Howard"
+    ],
+    "feminine": [
+      "Olivia", "Amelia", "Isla", "Ava", "Mia", "Lily", "Ivy", "Freya",
+      "Jessica", "Ella", "Sophia", "Grace", "Daisy", "Evie", "Poppy",
+      "Matilda", "Eleanor", "Phoebe", "Harper", "Rosie", "Scarlett",
+      "Emily", "Luna", "Chloe", "Layla", "Willow", "Hazel", "Iris",
+      "Eliza", "Bonnie", "Sienna", "Lola", "Darcie", "Arabella", "Aisha",
+      "Maisie", "Aurora", "Penelope", "Zara", "Leah", "Ruby", "Nancy",
+      "Megan", "Ellie", "Jasmine", "Maria", "Helena", "Stella", "Bella",
+      "Lucy", "Anna", "Sarah", "Emma", "Rebecca", "Hannah", "Charlotte",
+      "Zoe", "Natalie", "Molly", "Bethany", "Katie", "Amy", "Laura",
+      "Erin", "Alice", "Victoria", "Eva", "Clara", "Rose", "Martha",
+      "Mabel", "Edith", "Mary", "Catherine", "Margaret", "Elizabeth",
+      "Victoria", "Alice", "Diana", "Caroline", "Julie", "Sandra",
+      "Deborah", "Janet", "Sharon", "Tracey", "Karen", "Angela",
+      "Samantha", "Nicola", "Fiona", "Heather", "Gillian", "Linda",
+      "Susan", "Christine", "Jean", "Margaret", "Maureen", "Patricia",
+      "Dorothy", "Edna"
+    ]
+  },
+  "lastName": [
+    "Smith", "Jones", "Williams", "Taylor", "Brown", "Davies", "Wilson",
+    "Evans", "Thomas", "Johnson", "Roberts", "Walker", "Wright", "Robinson",
+    "Thompson", "White", "Hughes", "Edwards", "Green", "Hall", "Morris",
+    "Turner", "Moore", "Clark", "Hill", "Scott", "Mitchell", "Roberts",
+    "Morgan", "Cooper", "Bailey", "Ward", "Campbell", "Watson", "Barnes",
+    "Allen", "Bennett", "James", "Mason", "Knight", "Butler", "Russell",
+    "Cox", "Griffin", "Hayes", "Myers", "Ford", "Hamilton", "Graham",
+    "Sullivan", "Wallace", "Woods", "Cole", "West", "Jordan", "Owens",
+    "Reynolds", "Fisher", "Elliott", "Ellis", "Harrison", "Gibson",
+    "McDonald", "Marshall", "Webb", "Hunt", "Palmer", "Stewart",
+    "Price", "Baker", "Abbott", "Goodman", "Coleman", "Jenkins",
+    "Bell", "Spencer", "Harper", "Fletcher", "Knight", "Dixon",
+    "Hawkins", "Payne", "Holmes", "Webster", "Mills", "Chapman",
+    "Hunt", "Harris", "Lawson", "Reid", "Bell", "Watson", "Rose",
+    "Stevens", "Murray", "Fox", "Wallace", "Armstrong", "Bryant",
+    "Shaw", "Stone", "Fox", "Crawford"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "_description": "British food dictionary",
+  "cuisineTypes": [
+    "British", "Italian", "Chinese", "Indian", "Thai", "Japanese", "Mexican",
+    "French", "Greek", "Turkish", "Spanish", "Korean", "Vietnamese",
+    "Caribbean", "Ethiopian", "Lebanese", "Mediterranean", "American",
+    "African", "Indonesian"
+  ],
+  "dietaryRestrictions": [
+    "Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free",
+    "Keto", "Low-Carb", "Paleo", "Halal", "Kosher",
+    "Low-FODMAP", "Pescatarian"
+  ],
+  "meals": ["Breakfast", "Brunch", "Lunch", "Afternoon Tea", "Dinner", "Supper", "Snack", "Dessert"],
+  "restaurants": [
+    "Nando's", "Greggs", "Wetherspoons", "Prezzo", "Pizza Express", "Ask Italian",
+    "Zizzi", "Toby Carvery", "Harvester", "Bills", "Dishoom", "Wagamama",
+    "Leon", "Pret A Manger", "ItsU", "Franco Manca", "Honest Burgers",
+    "Byron", "Five Guys", "Nando's", "The Ivy", "Côte Brasserie",
+    "Carluccio's", "Jamie's Italian", "Giraffe"
+  ]
+}

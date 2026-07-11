@@ -1,0 +1,11 @@
+{
+  "_description": "British pet names dictionary",
+  "petNames": [
+    "Max", "Charlie", "Bella", "Luna", "Coco", "Alfie", "Poppy", "Daisy",
+    "Teddy", "Lola", "Bailey", "Dexter", "Rosie", "Milo", "Tilly", "Bear",
+    "Buster", "Ruby", "Jack", "Lily", "Oscar", "Chloe", "Harry", "Maisie",
+    "Toby", "Ziggy", "Pippa", "Winston", "Millie", "Archie", "Bella",
+    "Bonnie", "Bruce", "Lady", "Lexi", "Murphy", "Nala", "Ollie", "Penny",
+    "Rex", "Scout", "Buddy", "Ellie", "Finn", "Ginger", "Holly"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "_description": "British health data dictionary",
+  "allergies": [
+    "Peanuts", "Tree Nuts", "Shellfish", "Fish", "Milk", "Eggs", "Wheat", "Soya",
+    "Penicillin", "Aspirin", "Ibuprofen", "Bee Stings", "Wasps", "Latex",
+    "Dust Mites", "Pollen", "Pet Dander", "Mould", "Certain Metals",
+    "No known allergies", "Multiple allergies"
+  ],
+  "diseases": [
+    "Type 1 Diabetes", "Type 2 Diabetes", "Hypertension", "Asthma", "COPD",
+    "Depression", "Anxiety", "Heart Disease", "Stroke", "Cancer",
+    "Arthritis", "Chronic Fatigue Syndrome", "IBS", "Coeliac Disease",
+    "Epilepsy", "Parkinson's Disease", "Alzheimer's Disease", "Multiple Sclerosis",
+    "Psoriasis", "Eczema"
+  ],
+  "medications": [
+    "Paracetamol", "Ibuprofen", "Amoxicillin", "Metformin", "Lisinopril",
+    "Omeprazole", "Amlodipine", "Atorvastatin", "Levothyroxine", "Sertraline",
+    "Fluoxetine", "Ramipril", "Salbutamol", "Prednisolone", "Cetirizine",
+    "Co-codamol", "Naproxen", "Citalopram", "Diclofenac", "Codeine Phosphate"
+  ]
+}

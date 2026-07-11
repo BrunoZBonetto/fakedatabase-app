@@ -1,0 +1,28 @@
+{
+  "_description": "British financial data dictionary",
+  "banks": [
+    {"name": "HSBC", "code": "40-01-00"},
+    {"name": "Barclays", "code": "20-00-00"},
+    {"name": "Lloyds Bank", "code": "30-96-41"},
+    {"name": "NatWest", "code": "60-14-26"},
+    {"name": "Santander UK", "code": "09-01-26"},
+    {"name": "Halifax", "code": "11-00-00"},
+    {"name": "TSB Bank", "code": "77-27-03"},
+    {"name": "Nationwide", "code": "07-01-16"},
+    {"name": "Metro Bank", "code": "04-00-04"},
+    {"name": "Co-operative Bank", "code": "08-92-99"},
+    {"name": "Virgin Money", "code": "82-12-12"},
+    {"name": "Standard Chartered", "code": "60-91-04"},
+    {"name": "Royal Bank of Scotland", "code": "83-05-06"},
+    {"name": "Ulster Bank", "code": "95-00-29"},
+    {"name": "Danske Bank", "code": "95-02-15"}
+  ],
+  "currencies": [
+    {"code": "GBP", "symbol": "£", "name": "British Pound"},
+    {"code": "EUR", "symbol": "€", "name": "Euro"},
+    {"code": "USD", "symbol": "$", "name": "US Dollar"}
+  ],
+  "paymentMethods": ["Debit Card", "Credit Card", "Bank Transfer", "Direct Debit", "Standing Order", "BACS", "Faster Payments", "CHAPS", "PayPal", "Apple Pay", "Google Pay", "Contactless", "Cash", "Cheque"],
+  "creditCardFlags": ["Visa Debit", "Visa Credit", "Mastercard Debit", "Mastercard Credit", "American Express", "Barclaycard", "HSBC Card"],
+  "statusOptions": ["Paid", "Pending", "Overdue", "Cancelled", "Processing", "Refunded", "In Dispute"]
+}

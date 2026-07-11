@@ -96,6 +96,23 @@ body {
   background: var(--primary-bg);
   transform: translateY(-1px);
 }
+.locale-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  height: 36px;
+  padding: 0 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  transition: all 0.2s;
+  outline: none;
+}
+.locale-select:hover,
+.locale-select:focus {
+  border-color: var(--primary);
+  background: var(--primary-bg);
+}
 
 .main-layout {
   display: grid;

@@ -1,0 +1,19 @@
+{
+  "_description": "British fashion dictionary",
+  "clothingBrands": [
+    "ASOS", "Primark", "Next", "M&S", "Topshop", "River Island", "New Look",
+    "Boohoo", "PrettyLittleThing", "JD Sports", "Nike", "Adidas", "Reiss",
+    "Burberry", "Mulberry", "Ted Baker", "Superdry", "AllSaints", "Barbour",
+    "Dr. Martens", "Clarks", "Office", "Schuh", "TK Maxx", "Uniqlo",
+    "H&M", "Zara", "Monsoon", "FatFace", "John Lewis"
+  ],
+  "footwearSizes": [
+    "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5",
+    "8", "8.5", "9", "9.5", "10", "10.5", "11", "12"
+  ],
+  "fabrics": [
+    "Cotton", "Wool", "Silk", "Linen", "Denim", "Leather", "Suede",
+    "Cashmere", "Polyester", "Nylon", "Viscose", "Corduroy", "Tweed",
+    "Tartan", "Velvet", "Chiffon", "Jersey", "Fleece", "Spandex", "Canvas"
+  ]
+}

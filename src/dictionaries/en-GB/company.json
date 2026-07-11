@@ -1,0 +1,34 @@
+{
+  "_description": "British company data dictionary",
+  "prefixes": [
+    "Tech", "Digital", "Cloud", "Data", "Alpha", "Global", "Nova", "Nexus",
+    "Apex", "Prime", "Core", "Flux", "Byte", "Quantum", "Horizon",
+    "Vertex", "Synergy", "Pivot", "Surge", "Echo", "Bolt", "Zen",
+    "Pulse", "Ridge", "Crest", "Peak", "Forge", "Spark", "Drift", "Tide"
+  ],
+  "suffixes": [
+    "Ltd", "PLC", "Group", "Partners", "& Sons", "Services", "Solutions",
+    "Consulting", "Holdings", "Ventures", "International", "Enterprises",
+    "Co", "UK", "Britain", "Associates", "Traders", "Contractors",
+    "Networks", "Systems"
+  ],
+  "sectors": [
+    "Technology", "Healthcare", "Education", "Finance", "Retail",
+    "Manufacturing", "Construction", "Legal", "Media", "Energy",
+    "Transport", "Agriculture", "Hospitality", "Real Estate", "Insurance",
+    "Telecommunications", "Automotive", "Aerospace", "Pharmaceuticals",
+    "Defence"
+  ],
+  "positions": [
+    "Analyst", "Manager", "Director", "CEO", "Consultant", "Engineer",
+    "Architect", "Designer", "Executive", "Officer", "Coordinator",
+    "Specialist", "Lead", "Partner", "Head", "Supervisor", "Administrator",
+    "Technician", "Strategist", "Planner"
+  ],
+  "areas": [
+    "IT", "HR", "Finance", "Marketing", "Engineering", "Operations",
+    "Legal", "Sales", "R&D", "Procurement", "Logistics", "Quality",
+    "Customer Service", "Compliance", "Strategy", "Communications",
+    "Sustainability", "Security"
+  ]
+}
