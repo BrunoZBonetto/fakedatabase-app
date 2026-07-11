@@ -1,0 +1,19 @@
+{
+  "_description": "Japanese fashion dictionary",
+  "clothingBrands": [
+    "UNIQLO", "GU", "ZARA", "H&M", "Nike", "adidas", "Comme des Garçons",
+    "Issey Miyake", "Yohji Yamamoto", "Kenzo", "BAPE", "A Bathing Ape",
+    "BEAMS", "UNITED ARROWS", "SHIPS", "LOWRYS FARM",
+    "NATURAL BEAUTY BASIC", "CIAOPANIC", "EMODA", "SNIDEL"
+  ],
+  "footwearSizes": [
+    "22.0", "22.5", "23.0", "23.5", "24.0", "24.5", "25.0", "25.5",
+    "26.0", "26.5", "27.0", "27.5", "28.0", "28.5", "29.0", "29.5"
+  ],
+  "fabrics": [
+    "綿", "ウール", "シルク", "リネン", "デニム", "レザー", "スエード",
+    "カシミヤ", "ポリエステル", "ナイロン", "ビスコース", "コーデュロイ",
+    "ツイード", "タルタン", "ベルベット", "シフォン", "ジャージ",
+    "フリース", "スペックス", "キャンバス"
+  ]
+}

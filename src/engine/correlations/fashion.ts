@@ -26,7 +26,22 @@ const CLOTHING_TYPE_SIZES_EN: Record<string, string[]> = {
   'Shoes': ['5','6','7','8','9','10','11','12','13'],
 };
 
+const CLOTHING_TYPE_SIZES_FR: Record<string, string[]> = {
+  'T-shirt': ['XS','S','M','L','XL','XXL'],
+  'Jean': ['34','36','38','40','42','44','46'],
+  'Robe': ['XS','S','M','L','XL'],
+  'Veste': ['S','M','L','XL','XXL'],
+  'Manteau': ['S','M','L','XL','XXL'],
+  'Blouse': ['XS','S','M','L','XL'],
+  'Short': ['34','36','38','40','42','44'],
+  'Jupe': ['XS','S','M','L','XL'],
+  'Costume': ['S','M','L','XL','XXL'],
+  'Chemise': ['XS','S','M','L','XL','XXL'],
+  'Bottes': ['35','36','37','38','39','40','41','42','43','44','45','46'],
+};
+
 export function getClothingTypeSizes(locale: string): Record<string, string[]> {
   if (locale.startsWith('pt')) return CLOTHING_TYPE_SIZES_PT;
+  if (locale === 'fr-FR') return CLOTHING_TYPE_SIZES_FR;
   return CLOTHING_TYPE_SIZES_EN;
 }

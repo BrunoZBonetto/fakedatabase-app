@@ -1,0 +1,18 @@
+{
+  "_description": "Hindi (Indian) entertainment dictionary",
+  "games": [
+    "Minecraft", "Fortnite", "FIFA", "EA FC 24", "Grand Theft Auto V", "Call of Duty",
+    "Red Dead Redemption 2", "The Sims 4", "Elden Ring", "Baldur's Gate 3",
+    "Hogwarts Legacy", "Assassin's Creed", "GTA Online", "Rocket League",
+    "Among Us", "Fall Guys", "Animal Crossing", "Halo", "Civilization VI",
+    "The Legend of Zelda", "God of War", "Gran Turismo", "Forza Horizon",
+    "Football Manager", "Total War", "Doom Eternal", "Resident Evil",
+    "Horizon Forbidden West", "Spider-Man", "Starfield", "Palworld",
+    "Counter-Strike 2", "Valorant", "League of Legends"
+  ],
+  "gameGenres": [
+    "क्रिया", "साहसिक", "आरपीजी", "एफपीएस", "रणनीति", "सिमुलेशन",
+    "खेल", "दौड़", "बैटल रॉयल", "मोबा", "सैंडबॉक्स", "हॉरर",
+    "पहेली", "प्लेटफ़ॉर्मर", "लड़ाई", "गुप्त", "उत्तरजीविता", "एमएमओआरपीजी"
+  ]
+}

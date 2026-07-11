@@ -1,0 +1,11 @@
+{
+  "_description": "Irish pet names dictionary",
+  "petNames": [
+    "Rex", "Buddy", "Max", "Rocky", "Luna", "Bella", "Molly", "Coco",
+    "Daisy", "Bear", "Tucker", "Ziggy", "Paddy", "Fionn", "Cú Chulainn",
+    "Niamh", "Roisín", "Saoirse", "Oscar", "Tadgh", "Charlie",
+    "Bella", "Alfie", "Poppy", "Teddy", "Lola", "Bailey", "Dexter",
+    "Rosie", "Milo", "Tilly", "Buster", "Ruby", "Jack", "Lily",
+    "Chloe", "Harry", "Maisie", "Toby", "Pippa", "Winston", "Millie"
+  ]
+}

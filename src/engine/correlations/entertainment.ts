@@ -139,6 +139,10 @@ function isEn(locale: string): boolean {
   return locale.startsWith('en');
 }
 
+function isFr(locale: string): boolean {
+  return locale === 'fr-FR';
+}
+
 export function getMovieGenreMap(locale: string): Record<string, string[]> {
   if (isPtBr(locale)) return MOVIE_GENRE_MAP_PT;
   return MOVIE_GENRE_MAP_EN;

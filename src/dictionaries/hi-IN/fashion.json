@@ -1,0 +1,20 @@
+{
+  "_description": "Hindi (Indian) fashion dictionary",
+  "clothingBrands": [
+    "Raymond", "Allen Sley", "Peter England", "Van Heusen", "Louis Philippe",
+    "Arrow", "Park Avenue", "Mufti", "Levis", "Pepe Jeans", "W", "FabIndia",
+    "Biba", "Max Fashion", "Westside", "Zara", "H&M", "Nike", "Adidas", "Puma",
+    "Tanishq", "Manyavar", "Sabyasachi", "Manish Malhotra", "Ritu Kumar",
+    "Wills Lifestyle", "Provogue", "Blackberrys", "Monte Carlo", "FabAlley"
+  ],
+  "footwearSizes": [
+    "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5",
+    "9", "9.5", "10", "10.5", "11", "12", "13"
+  ],
+  "fabrics": [
+    "कपास", "ऊन", "रेशम", "लिनेन", "डेनिम", "चमड़ा", "सूड",
+    "कश्मीरी", "पॉलिएस्टर", "नायलॉन", "विस्कोस", "कॉर्डरॉय", "ट्वीड",
+    "टार्टन", "मखमल", "शिफ़ॉन", "जर्सी", "फ़्लीस", "स्पैंडेक्स", "कैनवास",
+    "खादी", "मलमल", "बनारसी", "चंदेरी", "तंत"
+  ]
+}

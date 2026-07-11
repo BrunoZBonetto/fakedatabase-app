@@ -1,0 +1,35 @@
+{
+  "_description": "Irish education dictionary",
+  "universities": [
+    "Trinity College Dublin", "University College Dublin (UCD)", "Dublin City University (DCU)",
+    "University College Cork (UCC)", "NUI Galway", "University of Limerick (UL)",
+    "Technological University Dublin (TU Dublin)", "Waterford Institute of Technology",
+    "Maynooth University (MU)", "Royal College of Surgeons (RCSI)",
+    "National College of Art and Design (NCAD)", "Dublin Institute of Technology",
+    "Letterkenny Institute of Technology", "Galway-Mayo Institute of Technology (GMIT)",
+    "Institute of Technology Carlow", "Cork Institute of Technology",
+    "Institute of Technology Sligo", "Limerick Institute of Technology",
+    "Dun Laoghaire Institute of Art, Design and Technology",
+    "St. Angela's College Sligo"
+  ],
+  "courses": [
+    "Computer Science", "Medicine", "Law", "Engineering", "Business Studies",
+    "Economics", "Psychology", "Biology", "Chemistry", "Physics",
+    "Mathematics", "English Literature", "History", "Philosophy",
+    "Architecture", "Art & Design", "Music", "Nursing", "Dentistry",
+    "Veterinary Science", "Geography", "Sociology", "Education Studies",
+    "Mechanical Engineering", "Electrical Engineering", "Civil Engineering",
+    "Politics", "International Relations", "Criminology", "Agriculture"
+  ],
+  "degreeTypes": [
+    "Junior Certificate", "Leaving Certificate", "Higher Certificate",
+    "Level 6", "Level 7", "Level 8", "Level 9", "Level 10",
+    "PhD", "Bachelor of Arts (BA)", "Bachelor of Science (BSc)",
+    "Master of Arts (MA)", "Master of Science (MSc)", "MBA",
+    "Postgraduate Diploma (PGDip)", "Higher Diploma"
+  ],
+  "grades": [
+    "A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "E",
+    "1st", "2:1", "2:2", "3rd", "Fail"
+  ]
+}

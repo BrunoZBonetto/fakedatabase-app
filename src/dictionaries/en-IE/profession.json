@@ -1,0 +1,28 @@
+{
+  "_description": "Irish professions dictionary",
+  "professions": [
+    "Doctor", "Nurse", "Solicitor", "Barrister", "Engineer", "Teacher",
+    "Professor", "Architect", "Pharmacist", "Journalist", "Accountant",
+    "Developer", "Designer", "Chef", "Pilot", "Electrician", "Mechanic",
+    "Farmer", "Veterinarian", "Psychologist", "Dentist", "Physiotherapist",
+    "Software Engineer", "Data Scientist", "Civil Engineer",
+    "Mechanical Engineer", "Plumber", "Carpenter", "Police Officer",
+    "Firefighter", "Paramedic", "Marketing Manager", "Project Manager",
+    "Financial Analyst", "HR Manager", "Graphic Designer", "Web Developer",
+    "IT Consultant", "Librarian", "Optometrist", "Midwife",
+    "Radiographer", "Occupational Therapist", "Speech Therapist",
+    "Social Worker", "Surveyor"
+  ],
+  "education": [
+    "Junior Cert", "Leaving Cert", "Higher Certificate", "Ordinary Degree",
+    "Honours Degree", "Higher Diploma", "Postgraduate Diploma",
+    "Master's Degree", "PhD", "Trade Certificate", "Foundation Degree",
+    "Bachelor's Degree", "MBA", "Professional Qualification",
+    "Apprenticeship"
+  ],
+  "seniority": [
+    "Intern", "Junior", "Mid-level", "Senior", "Lead", "Principal",
+    "Director", "Partner", "Associate", "Graduate",
+    "Head of Department"
+  ]
+}

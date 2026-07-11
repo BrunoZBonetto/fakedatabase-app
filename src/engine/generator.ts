@@ -40,6 +40,71 @@ import entertainmentGb from '../dictionaries/en-GB/entertainment.json';
 import foodGb from '../dictionaries/en-GB/food.json';
 import animalGb from '../dictionaries/en-GB/animal.json';
 import fashionGb from '../dictionaries/en-GB/fashion.json';
+import namesFr from '../dictionaries/fr-FR/names.json';
+import addressFr from '../dictionaries/fr-FR/address.json';
+import companyFr from '../dictionaries/fr-FR/company.json';
+import financeFr from '../dictionaries/fr-FR/finance.json';
+import professionFr from '../dictionaries/fr-FR/profession.json';
+import categoriesFr from '../dictionaries/fr-FR/categories.json';
+import personFr from '../dictionaries/fr-FR/person.json';
+import educationFr from '../dictionaries/fr-FR/education.json';
+import healthFr from '../dictionaries/fr-FR/health.json';
+import entertainmentFr from '../dictionaries/fr-FR/entertainment.json';
+import foodFr from '../dictionaries/fr-FR/food.json';
+import animalFr from '../dictionaries/fr-FR/animal.json';
+import fashionFr from '../dictionaries/fr-FR/fashion.json';
+import namesDe from '../dictionaries/de-DE/names.json';
+import addressDe from '../dictionaries/de-DE/address.json';
+import companyDe from '../dictionaries/de-DE/company.json';
+import financeDe from '../dictionaries/de-DE/finance.json';
+import professionDe from '../dictionaries/de-DE/profession.json';
+import categoriesDe from '../dictionaries/de-DE/categories.json';
+import personDe from '../dictionaries/de-DE/person.json';
+import educationDe from '../dictionaries/de-DE/education.json';
+import healthDe from '../dictionaries/de-DE/health.json';
+import entertainmentDe from '../dictionaries/de-DE/entertainment.json';
+import foodDe from '../dictionaries/de-DE/food.json';
+import animalDe from '../dictionaries/de-DE/animal.json';
+import fashionDe from '../dictionaries/de-DE/fashion.json';
+import namesIe from '../dictionaries/en-IE/names.json';
+import addressIe from '../dictionaries/en-IE/address.json';
+import companyIe from '../dictionaries/en-IE/company.json';
+import financeIe from '../dictionaries/en-IE/finance.json';
+import professionIe from '../dictionaries/en-IE/profession.json';
+import categoriesIe from '../dictionaries/en-IE/categories.json';
+import personIe from '../dictionaries/en-IE/person.json';
+import educationIe from '../dictionaries/en-IE/education.json';
+import healthIe from '../dictionaries/en-IE/health.json';
+import entertainmentIe from '../dictionaries/en-IE/entertainment.json';
+import foodIe from '../dictionaries/en-IE/food.json';
+import animalIe from '../dictionaries/en-IE/animal.json';
+import fashionIe from '../dictionaries/en-IE/fashion.json';
+import namesHi from '../dictionaries/hi-IN/names.json';
+import addressHi from '../dictionaries/hi-IN/address.json';
+import companyHi from '../dictionaries/hi-IN/company.json';
+import financeHi from '../dictionaries/hi-IN/finance.json';
+import professionHi from '../dictionaries/hi-IN/profession.json';
+import categoriesHi from '../dictionaries/hi-IN/categories.json';
+import personHi from '../dictionaries/hi-IN/person.json';
+import educationHi from '../dictionaries/hi-IN/education.json';
+import healthHi from '../dictionaries/hi-IN/health.json';
+import entertainmentHi from '../dictionaries/hi-IN/entertainment.json';
+import foodHi from '../dictionaries/hi-IN/food.json';
+import animalHi from '../dictionaries/hi-IN/animal.json';
+import fashionHi from '../dictionaries/hi-IN/fashion.json';
+import namesJa from '../dictionaries/ja-JP/names.json';
+import addressJa from '../dictionaries/ja-JP/address.json';
+import companyJa from '../dictionaries/ja-JP/company.json';
+import financeJa from '../dictionaries/ja-JP/finance.json';
+import professionJa from '../dictionaries/ja-JP/profession.json';
+import categoriesJa from '../dictionaries/ja-JP/categories.json';
+import personJa from '../dictionaries/ja-JP/person.json';
+import educationJa from '../dictionaries/ja-JP/education.json';
+import healthJa from '../dictionaries/ja-JP/health.json';
+import entertainmentJa from '../dictionaries/ja-JP/entertainment.json';
+import foodJa from '../dictionaries/ja-JP/food.json';
+import animalJa from '../dictionaries/ja-JP/animal.json';
+import fashionJa from '../dictionaries/ja-JP/fashion.json';
 import {
   getCarBrandData,
   getProductCategoryMap, getProductNames, getProductCategories,
@@ -80,7 +145,7 @@ interface DictSet {
   company: typeof companyPt;
   finance: typeof financePt;
   profession: typeof professionPt;
-  categories: typeof categoriesPt & { baseballTeams?: string[]; hobbiesSports?: string[] };
+  categories: Record<string, string[]>;
   person: typeof personPt;
   education: typeof educationPt;
   health: typeof healthPt;
@@ -93,11 +158,21 @@ interface DictSet {
 const DICT_PT: DictSet = { names: namesPt as DictSet['names'], address: addressPt as DictSet['address'], company: companyPt, finance: financePt, profession: professionPt, categories: categoriesPt as DictSet['categories'], person: personPt, education: educationPt, health: healthPt, entertainment: entertainmentPt, food: foodPt, animal: animalPt, fashion: fashionPt };
 const DICT_EN: DictSet = { names: namesEn as DictSet['names'], address: addressEn as DictSet['address'], company: companyEn, finance: financeEn, profession: professionEn, categories: categoriesEn as DictSet['categories'], person: personEn, education: educationEn, health: healthEn, entertainment: entertainmentEn, food: foodEn, animal: animalEn, fashion: fashionEn };
 const DICT_EN_GB: DictSet = { names: namesGb as DictSet['names'], address: addressGb as DictSet['address'], company: companyGb, finance: financeGb, profession: professionGb, categories: categoriesGb as DictSet['categories'], person: personGb, education: educationGb, health: healthGb, entertainment: entertainmentGb, food: foodGb, animal: animalGb, fashion: fashionGb };
+const DICT_FR: DictSet = { names: namesFr as DictSet['names'], address: addressFr as DictSet['address'], company: companyFr, finance: financeFr, profession: professionFr, categories: categoriesFr as DictSet['categories'], person: personFr, education: educationFr, health: healthFr, entertainment: entertainmentFr, food: foodFr, animal: animalFr, fashion: fashionFr };
+const DICT_DE: DictSet = { names: namesDe as DictSet['names'], address: addressDe as DictSet['address'], company: companyDe, finance: financeDe, profession: professionDe, categories: categoriesDe as DictSet['categories'], person: personDe, education: educationDe, health: healthDe, entertainment: entertainmentDe, food: foodDe, animal: animalDe, fashion: fashionDe };
+const DICT_IE: DictSet = { names: namesIe as DictSet['names'], address: addressIe as DictSet['address'], company: companyIe, finance: financeIe, profession: professionIe, categories: categoriesIe as DictSet['categories'], person: personIe, education: educationIe, health: healthIe, entertainment: entertainmentIe, food: foodIe, animal: animalIe, fashion: fashionIe };
+const DICT_HI: DictSet = { names: namesHi as DictSet['names'], address: addressHi as DictSet['address'], company: companyHi, finance: financeHi, profession: professionHi, categories: categoriesHi as DictSet['categories'], person: personHi, education: educationHi, health: healthHi, entertainment: entertainmentHi, food: foodHi, animal: animalHi, fashion: fashionHi };
+const DICT_JA: DictSet = { names: namesJa as DictSet['names'], address: addressJa as DictSet['address'], company: companyJa, finance: financeJa, profession: professionJa, categories: categoriesJa as DictSet['categories'], person: personJa, education: educationJa, health: healthJa, entertainment: entertainmentJa, food: foodJa, animal: animalJa, fashion: fashionJa };
 
 const DICT_MAP: Record<string, DictSet> = {
   'pt-BR': DICT_PT,
   'en-US': DICT_EN,
   'en-GB': DICT_EN_GB,
+  'fr-FR': DICT_FR,
+  'de-DE': DICT_DE,
+  'en-IE': DICT_IE,
+  'hi-IN': DICT_HI,
+  'ja-JP': DICT_JA,
 };
 
 // ===== Colunas Personalizadas: dicionário de inferência semântica =====
@@ -403,7 +478,7 @@ class FakeDataGenerator {
   }
 
   private resolveName(obj: Record<string, any>): string {
-    if (this.locale.startsWith('en') && obj.nameEn) return obj.nameEn;
+    if (this.locale !== 'pt-BR' && obj.nameEn) return obj.nameEn;
     return obj.name;
   }
 
@@ -423,7 +498,7 @@ class FakeDataGenerator {
     } else {
       const d = this.d;
       const keys = Object.keys(world.countries);
-      const defaultKey = this.locale.startsWith('en') ? (this.locale === 'en-GB' ? 'GB' : 'US') : this.locale === 'pt-BR' ? 'BR' : 'US';
+      const defaultKey = this.locale.startsWith('en') ? (this.locale === 'en-GB' ? 'GB' : this.locale === 'en-IE' ? 'IE' : 'US') : this.locale === 'pt-BR' ? 'BR' : this.locale === 'fr-FR' ? 'FR' : this.locale === 'de-DE' ? 'DE' : this.locale === 'hi-IN' ? 'IN' : this.locale === 'ja-JP' ? 'JP' : 'US';
       const countryKey = keys.includes(defaultKey) ? defaultKey : randomPick(keys);
       const countryData: any = world.countries[countryKey];
       const stateData: any = randomPick(countryData.states);

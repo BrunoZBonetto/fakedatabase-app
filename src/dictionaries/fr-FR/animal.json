@@ -1,0 +1,11 @@
+{
+  "_description": "Dictionnaire d'animaux français",
+  "petNames": [
+    "Milou", "Rex", "Lassie", "Félix", "Tom", "Jerry", "Coco",
+    "Tweety", "Riri", "Fifi", "Loulou", "Mirtille", "Chocolat",
+    "Noisette", "Pistache", "Truffe", "Biscuit", "Moka", "Tango",
+    "Simba", "Nala", "Loulou", "Plume", "Lune", "Étoile",
+    "Puce", "Moustache", "Boubou", "Flocourt", "Félicette",
+    "Pépin", "Gribouille", "Zigzag", "Tournesol", "Minou"
+  ]
+}

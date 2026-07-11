@@ -1,0 +1,64 @@
+{
+  "_description": "Irish address dictionary",
+  "streetPrefix": [
+    "Street", "Road", "Avenue", "Lane", "Place", "Terrace", "Crescent",
+    "Close", "Drive", "Park", "Square", "Green"
+  ],
+  "streetSuffix": [
+    "St", "Rd", "Ave", "Ln", "Pl", "Tce", "Cres", "Cl", "Dr", "Pk", "Sq", "Gr"
+  ],
+  "streetNames": [
+    "O'Connell", "Grafton", "Sackville", "Henry", "Parnell", "Dominick",
+    "Capel", "Dame", "Lord Edward", "Trinity", "Nassau", "College Green",
+    "Merrion", "Fitzwilliam", "Baggot", "Pembroke", "St. Stephen's",
+    "Camden", "Harbour", "Main", "Thomas", "Earl", "Patrick", "Sean",
+    "Oliver", "Plunkett", "Mac Curtain", "Washington", "Albert", "Victoria"
+  ],
+  "neighborhoods": [
+    "Temple Bar", "Trinity", "Docklands", "Smithfield", "Portobello",
+    "Ranelagh", "Donnybrook", "Ballsbridge", "Stoneybatter", "Phibsborough",
+    "Drumcondra", "Glasnevin", "Clontarf", "Dalkey", "Howth",
+    "Sandycove", "Blackrock", "Stillorgan", "Dún Laoghaire", "Cork City Centre",
+    "Shandon", "English Town", "Montenotte", "Turner's Cross", "Ballintemple",
+    "Salthill", "The Claddagh", "Bohermore", "Mervue", "Renmore"
+  ],
+  "cities": [
+    {"name": "Dublin", "state": "D"},
+    {"name": "Cork", "state": "CO"},
+    {"name": "Galway", "state": "G"},
+    {"name": "Limerick", "state": "L"},
+    {"name": "Waterford", "state": "W"},
+    {"name": "Drogheda", "state": "LH"},
+    {"name": "Dundalk", "state": "LK"},
+    {"name": "Sligo", "state": "SO"},
+    {"name": "Kilkenny", "state": "KK"},
+    {"name": "Wexford", "state": "WX"},
+    {"name": "Tralee", "state": "KY"},
+    {"name": "Athlone", "state": "WM"},
+    {"name": "Castlebar", "state": "MO"},
+    {"name": "Letterkenny", "state": "DL"},
+    {"name": "Ennis", "state": "CE"}
+  ],
+  "states": [
+    {"abbr": "D", "name": "Dublin"},
+    {"abbr": "CO", "name": "Cork"},
+    {"abbr": "G", "name": "Galway"},
+    {"abbr": "L", "name": "Limerick"},
+    {"abbr": "W", "name": "Waterford"},
+    {"abbr": "LH", "name": "Louth"},
+    {"abbr": "LK", "name": "Limerick"},
+    {"abbr": "SO", "name": "Sligo"},
+    {"abbr": "KK", "name": "Kilkenny"},
+    {"abbr": "WX", "name": "Wexford"},
+    {"abbr": "KY", "name": "Kerry"},
+    {"abbr": "WM", "name": "Westmeath"},
+    {"abbr": "MO", "name": "Mayo"},
+    {"abbr": "DL", "name": "Donegal"},
+    {"abbr": "CE", "name": "Clare"},
+    {"abbr": "MH", "name": "Meath"},
+    {"abbr": "KE", "name": "Kildare"},
+    {"abbr": "WW", "name": "Wicklow"},
+    {"abbr": "CN", "name": "Cavan"},
+    {"abbr": "MN", "name": "Monaghan"}
+  ]
+}

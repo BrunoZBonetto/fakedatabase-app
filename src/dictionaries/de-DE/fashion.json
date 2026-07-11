@@ -1,0 +1,17 @@
+{
+  "_description": "German fashion dictionary",
+  "clothingBrands": [
+    "Adidas", "Puma", "Bogner", "Hugo Boss", "Escada", "Jil Sander",
+    "Karl Lagerfeld", "MCM", "Aigner", "Ralph Lauren", "Nike", "Zara",
+    "H&M", "Mango", "Tommy Hilfiger", "Calvin Klein", "BOSS", "Strenesse",
+    "Closed", "Lanius"
+  ],
+  "footwearSizes": [
+    "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48"
+  ],
+  "fabrics": [
+    "Baumwolle", "Wolle", "Seide", "Leinen", "Jeans", "Leder", "Wildleder",
+    "Kaschmir", "Polyester", "Nylon", "Viskose", "Cord", "Tweed",
+    "Tartan", "Samt", "Chiffon", "Jersey", "Fleece", "Spandex", "Canvas"
+  ]
+}

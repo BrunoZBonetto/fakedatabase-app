@@ -1,0 +1,21 @@
+{
+  "_description": "Dictionnaire de mode française",
+  "clothingBrands": [
+    "Chanel", "Dior", "Louis Vuitton", "Hermès", "Saint Laurent",
+    "Balenciaga", "Celine", "Givenchy", "Kenzo", "Longchamp",
+    "Sandro", "Maje", "Zara", "H&M", "Uniqlo", "Decathlon",
+    "Lacoste", "Aigle", "Petit Bateau", "La Perla",
+    "Jacquemus", "The Kooples", "Ba&sh", "Isabel Marant",
+    "Zadig & Voltaire", "Cacharel", "Rochas", "Nina Ricci",
+    "Lanvin", "Balmain"
+  ],
+  "footwearSizes": [
+    "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"
+  ],
+  "fabrics": [
+    "Coton", "Laine", "Soie", "Lin", "Denim", "Cuir", "Daim",
+    "Cachemire", "Polyester", "Nylon", "Viscose", "Corduroy",
+    "Tweed", "Écossais", "Velours", "Chiffon", "Jersey",
+    "Polaire", "Élasthanne", "Toile"
+  ]
+}

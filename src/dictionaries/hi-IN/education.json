@@ -1,0 +1,33 @@
+{
+  "_description": "Hindi (Indian) education dictionary",
+  "universities": [
+    "IIT Bombay", "IIT Delhi", "IIT Madras", "IIT Kanpur", "IIT Kharagpur",
+    "BITS Pilani", "IIM Ahmedabad", "IIM Bangalore", "AIIMS Delhi", "JNU Delhi",
+    "DU Delhi", "Anna University", "NIT Trichy", "VIT Vellore", "SRM University",
+    "IIM Calcutta", "IIT Roorkee", "IIT Guwahati", "IIT Hyderabad", "NIT Warangal",
+    " Jadavpur University", "University of Mumbai", "University of Delhi",
+    "Banaras Hindu University", "Aligarh Muslim University", "Pune University",
+    "Osmania University", "Andhra University", "Madras University", "Punjab University"
+  ],
+  "courses": [
+    "कंप्यूटर विज्ञान", "चिकित्सा", "कानून", "इंजीनियरिंग", "व्यापार अध्ययन",
+    "अर्थशास्त्र", "मनोविज्ञान", "जीव विज्ञान", "रसायन विज्ञान", "भौतिक विज्ञान",
+    "गणित", "अंग्रेज़ी साहित्य", "इतिहास", "दर्शन", "वास्तुकला",
+    "कला और डिज़ाइन", "संगीत", "नर्सिंग", "दंत चिकित्सा", "पशु चिकित्सा",
+    "भूगोल", "समाजशास्त्र", "शिक्षा अध्ययन", "मैकेनिकल इंजीनियरिंग",
+    "इलेक्ट्रिकल इंजीनियरिंग", "सिविल इंजीनियरिंग", "राजनीति विज्ञान",
+    "अंतर्राष्ट्रीय संबंध", "अपराध विज्ञान", "कृषि विज्ञान"
+  ],
+  "degreeTypes": [
+    "हाई स्कूल", "इंटरमीडिएट", "स्नातक (बी.ए/बी.एससी/बी.कॉम)",
+    "स्नातकोत्तर (एम.ए/एम.एससी)", "एमबीए", "डॉक्टरेट (पीएचडी)",
+    "व्यावसायिक योग्यता", "स्नातकोत्तर डिप्लोमा (पीजीडिप)", "बी.टेक",
+    "एम.टेक", "एम.सी.ए", "बी.एड", "एल.एल.बी", "एम.एल.एल.बी",
+    "डी.फार्मा", "बी.फार्मा", "पॉलिटेक्निक डिप्लोमा"
+  ],
+  "grades": [
+    "ओ (उत्कृष्ट)", "ए+ (अति उत्तम)", "ए (उत्तम)", "बी+ (बहुत अच्छा)", "बी (अच्छा)",
+    "सी+ (संतोषजनक)", "सी (औसत)", "डी (न्यूनतम उत्तीर्ण)", "एफ (अनुत्तीर्ण)",
+    "प्रथम श्रेणी", "द्वितीय श्रेणी", "तृतीय श्रेणी", "अनुत्तीर्ण"
+  ]
+}

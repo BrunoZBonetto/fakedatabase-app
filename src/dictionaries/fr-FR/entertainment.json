@@ -1,0 +1,20 @@
+{
+  "_description": "Dictionnaire de divertissement français",
+  "games": [
+    "Minecraft", "Fortnite", "FIFA", "EA FC 24", "Grand Theft Auto V",
+    "Call of Duty", "Red Dead Redemption 2", "The Sims 4", "Elden Ring",
+    "Baldur's Gate 3", "Hogwarts Legacy", "Assassin's Creed",
+    "GTA Online", "Rocket League", "Among Us", "Fall Guys",
+    "Animal Crossing", "Civilization VI", "The Legend of Zelda",
+    "God of War", "Gran Turismo", "Forza Horizon",
+    "Football Manager", "Total War", "Doom Eternal", "Resident Evil",
+    "Spider-Man", "Starfield", "Palworld", "Counter-Strike 2",
+    "Valorant", "League of Legends", "League of Legends",
+    "Rayman", "Beyond: Two Souls", "Heavy Rain", "Detroit: Become Human"
+  ],
+  "gameGenres": [
+    "Action", "Aventure", "RPG", "FPS", "Stratégie", "Simulation",
+    "Sport", "Course", "Battle Royale", "MOBA", "Sandbox", "Horreur",
+    "Puzzle", "Plateforme", "Combat", "Furtif", "Survie", "MMORPG"
+  ]
+}

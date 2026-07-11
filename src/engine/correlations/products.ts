@@ -34,6 +34,22 @@ const PRODUCT_CATEGORY_MAP_EN: Record<string, string> = {
   'Laptop Stand': 'Furniture',
 };
 
+const PRODUCT_NAMES_FR = ['MacBook Pro', 'Souris sans fil', 'Clavier mécanique', 'Écran 27"', 'Chaise ergonomique', 'Casque Bluetooth', 'Appareil photo numérique', 'Smartphone X', 'Tablette Air', 'Imprimante laser', 'Disque dur externe 1 To', 'SSD NVMe 512 Go', 'Webcam HD', 'Chargeur USB-C', 'Routeur Wi-Fi 6', 'Tapis de souris gaming', 'Hub USB-C', 'Batterie externe 20000 mAh', 'Montre connectée Pro', 'Enceinte Bluetooth', 'Casque ANC', 'Écran ultrawide 34"', 'Clavier fin', 'Câble HDMI 2.1', 'Support pour ordinateur'];
+
+const PRODUCT_CATEGORIES_FR = ['Électronique', 'Informatique', 'Mobilier', 'Accessoires', 'Périphériques'];
+
+const PRODUCT_CATEGORY_MAP_FR: Record<string, string> = {
+  'MacBook Pro': 'Électronique', 'Souris sans fil': 'Périphériques', 'Clavier mécanique': 'Périphériques',
+  'Écran 27"': 'Informatique', 'Chaise ergonomique': 'Mobilier', 'Casque Bluetooth': 'Accessoires',
+  'Appareil photo numérique': 'Électronique', 'Smartphone X': 'Électronique', 'Tablette Air': 'Électronique',
+  'Imprimante laser': 'Informatique', 'Disque dur externe 1 To': 'Informatique', 'SSD NVMe 512 Go': 'Informatique',
+  'Webcam HD': 'Périphériques', 'Chargeur USB-C': 'Accessoires', 'Routeur Wi-Fi 6': 'Informatique',
+  'Tapis de souris gaming': 'Périphériques', 'Hub USB-C': 'Accessoires', 'Batterie externe 20000 mAh': 'Accessoires',
+  'Montre connectée Pro': 'Électronique', 'Enceinte Bluetooth': 'Accessoires', 'Casque ANC': 'Accessoires',
+  'Écran ultrawide 34"': 'Informatique', 'Clavier fin': 'Périphériques', 'Câble HDMI 2.1': 'Accessoires',
+  'Support pour ordinateur': 'Mobilier',
+};
+
 const PRODUCT_CATEGORY_MAP_GB: Record<string, string> = PRODUCT_CATEGORY_MAP_EN;
 
 export function getProductNames(locale: string): string[] {
@@ -42,6 +58,8 @@ export function getProductNames(locale: string): string[] {
       return PRODUCT_NAMES_PT;
     case 'en-GB':
       return PRODUCT_NAMES_GB;
+    case 'fr-FR':
+      return PRODUCT_NAMES_FR;
     case 'en':
     default:
       return PRODUCT_NAMES_EN;
@@ -54,6 +72,8 @@ export function getProductCategories(locale: string): string[] {
       return PRODUCT_CATEGORIES_PT;
     case 'en-GB':
       return PRODUCT_CATEGORIES_GB;
+    case 'fr-FR':
+      return PRODUCT_CATEGORIES_FR;
     case 'en':
     default:
       return PRODUCT_CATEGORIES_EN;
@@ -66,6 +86,8 @@ export function getProductCategoryMap(locale: string): Record<string, string> {
       return PRODUCT_CATEGORY_MAP_PT;
     case 'en-GB':
       return PRODUCT_CATEGORY_MAP_GB;
+    case 'fr-FR':
+      return PRODUCT_CATEGORY_MAP_FR;
     case 'en':
     default:
       return PRODUCT_CATEGORY_MAP_EN;

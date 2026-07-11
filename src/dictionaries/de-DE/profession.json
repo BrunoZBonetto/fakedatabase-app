@@ -1,0 +1,17 @@
+{
+  "_description": "German professions dictionary",
+  "professions": [
+    "Arzt", "Krankenpfleger", "Krankenschwester", "Anwalt", "Rechtsanwältin",
+    "Ingenieur", "Lehrer", "Professor", "Architekt", "Apotheker", "Journalist",
+    "Verkäufer", "Entwickler", "Designer", "Koch", "Pilot", "Elektriker",
+    "Mechaniker", "Buchhalter", "Notar", "Psychologe", "Zahnarzt"
+  ],
+  "education": [
+    "Hauptschulabschluss", "Realschulabschluss", "Abitur",
+    "Fachhochschulreife", "Bachelor", "Master", "Promotion",
+    "Habilitation", "Gesellenbrief", "Meisterbrief"
+  ],
+  "seniority": [
+    "Praktikant", "Junior", "Fachmann", "Senior", "Experte", "Leiter", "Partner"
+  ]
+}

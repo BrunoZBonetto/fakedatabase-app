@@ -1,0 +1,24 @@
+{
+  "_description": "Irish health data dictionary",
+  "allergies": [
+    "Pollen", "Dust Mites", "Animal Dander", "Peanuts", "Milk", "Eggs",
+    "Wheat", "Shellfish", "Penicillin", "Latex", "Insect Stings",
+    "Mushrooms", "Soy", "Hazelnuts", "Sesame",
+    "No known allergies", "Multiple allergies"
+  ],
+  "diseases": [
+    "High Blood Pressure", "Diabetes", "Asthma", "Arthritis", "Allergies",
+    "Migraine", "Insomnia", "Anxiety", "Depression", "Cholesterol",
+    "Acid Reflux", "Eczema", "Psoriasis", "COPD", "Heart Disease",
+    "Stroke", "Cancer", "Chronic Fatigue Syndrome", "IBS",
+    "Coeliac Disease", "Epilepsy"
+  ],
+  "medications": [
+    "Paracetamol", "Ibuprofen", "Aspirin", "Nurofen", "Panadol",
+    "Calpol", "Rennie", "Gaviscon", "Lemsip", "Sudafed",
+    "Prozac", "Sertraline", "Amoxicillin", "Metformin", "Lisinopril",
+    "Omeprazole", "Amlodipine", "Atorvastatin", "Levothyroxine",
+    "Fluoxetine", "Ramipril", "Salbutamol", "Prednisolone", "Cetirizine",
+    "Co-codamol", "Naproxen", "Citalopram", "Diclofenac"
+  ]
+}

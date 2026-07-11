@@ -1,0 +1,24 @@
+{
+  "_description": "Irish food dictionary",
+  "cuisineTypes": [
+    "Irish", "Italian", "Chinese", "Indian", "Thai", "Japanese", "Mexican",
+    "French", "Greek", "Turkish", "Spanish", "Korean", "Vietnamese",
+    "Caribbean", "Ethiopian", "Lebanese", "Mediterranean", "American",
+    "African", "Indonesian"
+  ],
+  "dietaryRestrictions": [
+    "Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free",
+    "Keto", "Low-Carb", "Paleo", "Halal", "Kosher",
+    "Low-FODMAP", "Pescatarian"
+  ],
+  "meals": ["Breakfast", "Brunch", "Lunch", "Dinner", "Tea", "Supper", "Snack", "Dessert"],
+  "restaurants": [
+    "Nando's", "Eddie Rocket's", "Apache Pizza", "Beshoff's",
+    "Leo Burdock's", "The Winding Stair", "Chapter One", "Guinness Storehouse",
+    "Fishy Fishy", "Market Lane", "Greenes Restaurant", "The Black Pig",
+    "Ard Bia at Nimmos", "Dela Restaurant", "Aniar", "Loam",
+    "The Ivy", "Wagamama", "Pret A Manger", "Boojum",
+    "Supermac's", "Eddie Rocket's", "The Pizza Slice", "Bunsen",
+    "Box Burger", "Flip by Fish", "Fish and Chick", "The Old Spot"
+  ]
+}

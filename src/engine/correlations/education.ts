@@ -26,6 +26,19 @@ const UNIVERSITY_COURSES_EN: Record<string, string[]> = {
   'University of Chicago': ['Economics','Law','Physics','Computer Science','Business'],
 };
 
+const UNIVERSITY_COURSES_FR: Record<string, string[]> = {
+  'Sorbonne': ['Lettres','Histoire','Philosophie','Droit','Économie','Sciences'],
+  'Polytechnique': ['Mathématiques','Physique','Informatique','Génie civil','Électronique'],
+  'HEC': ['Finance','Marketing','Management','Stratégie','Entrepreneuriat'],
+  'ESSEC': ['Finance','Marketing','Management','Supply Chain','Entrepreneuriat'],
+  'CentraleSupélec': ['Génie mécanique','Génie électrique','Informatique','Mathématiques'],
+  'ENS': ['Lettres','Sciences','Philosophie','Mathématiques','Physique'],
+  'Sciences Po': ['Science politique','Droit','Économie','Histoire','Sociologie'],
+  'Dauphine': ['Mathématiques','Économie','Informatique','Droit','Gestion'],
+  'Panthéon-Sorbonne': ['Droit','Histoire','Économie','Lettres','Sociologie'],
+  'Lyon 1': ['Médecine','Sciences','Pharmacie','Odontologie','Mathématiques'],
+};
+
 const UNIVERSITY_COURSES_GB: Record<string, string[]> = {
   'University of Oxford': ['Law','Medicine','English Literature','Mathematics','Physics','Philosophy Politics and Economics'],
   'University of Cambridge': ['Natural Sciences','Engineering','Mathematics','Computer Science','Law','Medicine'],
@@ -45,6 +58,8 @@ export function getUniversityCoursesMap(locale: string): Record<string, string[]
       return UNIVERSITY_COURSES_PT;
     case 'en-GB':
       return UNIVERSITY_COURSES_GB;
+    case 'fr-FR':
+      return UNIVERSITY_COURSES_FR;
     case 'en-US':
     default:
       return UNIVERSITY_COURSES_EN;

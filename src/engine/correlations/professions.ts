@@ -83,11 +83,52 @@ const PROFESSION_SOFTWARE_EN: Record<string, string[]> = {
   'Graphic Designer': ['Photoshop', 'Illustrator', 'Canva', 'InDesign', 'Figma', 'CorelDRAW'],
 };
 
+const PROFESSION_SECTOR_FR: Record<string, string[]> = {
+  'Médecin': ['Santé'],
+  'Infirmier': ['Santé'],
+  'Infirmière': ['Santé'],
+  'Pharmacien': ['Santé', 'Pharmaceutique'],
+  'Professeur': ['Éducation'],
+  'Développeur': ['Technologie'],
+  'Ingénieur': ['Construction', 'Industrie', 'Automobile', 'Énergie'],
+  'Avocat': ['Consulting', 'Juridique'],
+  'Comptable': ['Finance', 'Consulting'],
+  'Consultant': ['Consulting', 'Technologie', 'Marketing'],
+  'Commercial': ['Commerce', 'E-commerce'],
+  'Designer': ['Marketing', 'Technologie', 'Mode'],
+  'Chef cuisinier': ['Alimentaire', 'Tourisme'],
+  'Cientiste de données': ['Technologie', 'Finance', 'Santé'],
+  'Manager': ['Administratif', 'Commerce', 'Technologie'],
+  'Directeur': ['Exécutif', 'Administratif'],
+  'Journaliste': ['Média', 'Marketing', 'Communication'],
+  'Architecte': ['Construction', 'Design', 'Urbanisme'],
+  'Vétérinaire': ['Santé', 'Animaux', 'Agriculture'],
+  'Psychologue': ['Santé', 'Éducation', 'Ressources Humaines'],
+  'Pilote': ['Transport', 'Aviation', 'Logistique'],
+  'Développeur de logiciels': ['Technologie'],
+  'Analyste Marketing': ['Marketing', 'Commerce', 'E-commerce'],
+};
+
+const PROFESSION_SOFTWARE_FR: Record<string, string[]> = {
+  'Développeur': ['VS Code', 'IntelliJ IDEA', 'Git', 'Docker', 'Postman', 'GitHub Copilot'],
+  'Développeuse': ['VS Code', 'IntelliJ IDEA', 'Git', 'Docker', 'Postman', 'GitHub Copilot'],
+  'Ingénieur': ['AutoCAD', 'SolidWorks', 'MATLAB', 'Git', 'Docker'],
+  'Ingénieure': ['AutoCAD', 'SolidWorks', 'MATLAB', 'Git', 'Docker'],
+  'Designer': ['Figma', 'Sketch', 'Adobe XD', 'InVision', 'Miro', 'Zeplin'],
+  'Consultant': ['Jira', 'Confluence', 'Notion', 'Trello', 'Miro', 'Asana'],
+  'Analyste': ['Google Analytics', 'HubSpot', 'SEMrush', 'Google Ads', 'Mailchimp'],
+  'Comptable': ['Sage', 'Cegid', 'EBP', 'QuickBooks', 'Wave'],
+  'Avocat': ['Doxia', 'LexBase', 'Legalstart', 'Droit-Réponse'],
+  'Médecin': ['Doctolib', 'MédecinLibre', 'Keldoc', 'MondoDoc'],
+  'Journaliste': ['WordPress', 'Canva', 'Hootsuite', 'Google Analytics'],
+};
+
 const SECTOR_MAPS: Record<string, Record<string, string[]>> = {
   'pt': PROFESSION_SECTOR_PT,
   'pt-BR': PROFESSION_SECTOR_PT,
   'en': PROFESSION_SECTOR_EN,
   'en-GB': PROFESSION_SECTOR_EN,
+  'fr-FR': PROFESSION_SECTOR_FR,
 };
 
 const SOFTWARE_MAPS: Record<string, Record<string, string[]>> = {
@@ -95,6 +136,7 @@ const SOFTWARE_MAPS: Record<string, Record<string, string[]>> = {
   'pt-BR': PROFESSION_SOFTWARE_PT,
   'en': PROFESSION_SOFTWARE_EN,
   'en-GB': PROFESSION_SOFTWARE_EN,
+  'fr-FR': PROFESSION_SOFTWARE_FR,
 };
 
 export function getProfessionSectorMap(locale: string): Record<string, string[]> {

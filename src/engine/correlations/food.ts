@@ -44,12 +44,36 @@ const DIET_FOOD_MAP_EN: Record<string, string[]> = {
   'Paleo': ['Grilled Chicken','Sweet Potato','Salmon','Avocado','Nuts','Beef','Vegetables','Fruit','Olive Oil','Eggs'],
 };
 
+const CUISINE_RESTAURANT_FR: Record<string, string[]> = {
+  'Française': ['Le Comptoir du Panthéon','Chez Janou','Bouillon Chartier','Bofinger','Le Petit Cler','La Robe et le Palais'],
+  'Italienne': ['Luca','Casa di Papa','Pizzeria di Napoli','Trattoria Milano','La Bella Napoli'],
+  'Chinoise': ['Panda Paris','Rue de la Soie','Le Dragon d\'Or','Pagode Royale'],
+  'Japonaise': ['Kyo Ya','Sushi Waka','Nobu Paris','Le Japon'],
+  'Indienne': ['Taj Mahal','Bombay Palace','Le Spice','Naan & Kabab'],
+  'Thaïlandaise': ['Thai Basil','Pad Thai House','Siam Kitchen','Le Siam'],
+  'Marocaine': ['Le Marrakech','Maison du Maroc','Chez Youssef','Tajine Royal'],
+  'Libanaise': ['Al Dar','Le Phénicien','Beirut','Le Cedre'],
+  'Américaine': ['Hard Rock Cafe','Planet Hollywood','McDonald\'s','Five Guys'],
+  'Espagnole': ['La Barraca','Tapas Barcelona','El Cid','La Sangria'],
+};
+
+const DIET_FOOD_MAP_FR: Record<string, string[]> = {
+  'Végétarien': ['Pizza','Gratin','Risotto','Tartine','Salade Caesar','Omelette','Quiche','Soupe','Sandwich','Pâtes'],
+  'Végan': ['Tartine','Salade Caesar','Sushi','Ratatouille','Salade de fruits','Smoothie bowl','Houmous','Buddha bowl','Porridge','Riz aux légumes'],
+  'Sans gluten': ['Grillé','Steak','Barbecue','Tacos','Bowl','Saumon','Riz','Pomme de terre','Tortilla de maïs','Fruit'],
+  'Sans lactose': ['Grillé','Steak','Sushi','Ratatouille','Tartine','Sandwich','Omelette','Salade','Porridge','Soupe'],
+  'Céto': ['Steak','Barbecue','Fromage','Avocat','Bacon','Saumon grillé','Cuisses de poulet','Œufs','Noix','Beurre'],
+  'Paléo': ['Poulet grillé','Patate douce','Saumon','Avocat','Noix','Bœuf','Légumes','Fruit','Huile d\'olive','Œufs'],
+};
+
 export function getCuisineRestaurantMap(locale: string): Record<string, string[]> {
   if (locale.startsWith('pt')) return CUISINE_RESTAURANT_PT;
+  if (locale === 'fr-FR') return CUISINE_RESTAURANT_FR;
   return CUISINE_RESTAURANT_EN;
 }
 
 export function getDietFoodMap(locale: string): Record<string, string[]> {
   if (locale.startsWith('pt')) return DIET_FOOD_MAP_PT;
+  if (locale === 'fr-FR') return DIET_FOOD_MAP_FR;
   return DIET_FOOD_MAP_EN;
 }

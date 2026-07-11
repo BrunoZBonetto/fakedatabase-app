@@ -47,9 +47,29 @@ const DISEASE_MEDICATION_EN: Record<string, string[]> = {
   'Epilepsy': ['Carbamazepine','Valproic Acid','Lamotrigine','Levetiracetam','Phenytoin'],
 };
 
+const DISEASE_MEDICATION_FR: Record<string, string[]> = {
+  'Diabète': ['Metformine','Daonil','Insuline Glargine','Gliclazide','Siofor'],
+  'Hypertension': ['Lorsartan','Captopril','Hydrochlorothiazide','Amlodipine','Valsartan'],
+  'Asthme': ['Salbutamol','Budesonide','Fluticasone','Montélukast','Formotérol'],
+  'Rinite allergique': ['Loratadine','Cétirizine','Desloratadine','Fexofénadine'],
+  'Migraine': ['Ibuprofène','Paracétamol','Sumatriptan','Rizatriptan','Naproxène'],
+  'Anxiété': ['Sertraline','Fluoxétine','Clonazépam','Diazépam','Escitalopram'],
+  'Dépression': ['Fluoxétine','Sertraline','Paroxétine','Escitalopram','Venlafaxine'],
+  'Hypothyroïdie': ['Levothyrox','Euthyrox','Lévothyroxine'],
+  'Hypercholestérolémie': ['Atorvastatine','Simvastatine','Rosuvastatine','Ézétimibe'],
+  'Arthrose': ['Ibuprofène','Paracétamol','Doliprane','Voltarène','Cortisone'],
+  'Reflux gastrique': ['Omeprazole','Pantoprazole','Gaviscon','Esomeprazole','Lansoprazole'],
+  'Eczéma': ['Cétirizine','Hydrocortisone','Tacrolimus','Diprosone'],
+  'Insomnie': ['Zolpidem','Melatonine','Diazépam','Théralax'],
+  'Épilepsie': ['Carbamazépine','Valproate de sodium','Lamotrigine','Levétiracétam'],
+};
+
 export function getDiseaseMedicationMap(locale: string): Record<string, string[]> {
   if (locale === 'pt-BR') {
     return DISEASE_MEDICATION_PT;
+  }
+  if (locale === 'fr-FR') {
+    return DISEASE_MEDICATION_FR;
   }
   return DISEASE_MEDICATION_EN;
 }

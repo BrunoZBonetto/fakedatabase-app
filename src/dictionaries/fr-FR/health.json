@@ -1,0 +1,26 @@
+{
+  "_description": "Dictionnaire de santé français",
+  "allergies": [
+    "Pollen", "Acariens", "Poils d'animaux", "Arachides", "Lait",
+    "Œufs", "Blé", "Fruits de mer", "Pénicilline", "Latex",
+    "Piqûres d'insectes", "Champignons", "Soja", "Noisettes",
+    "Sésame", "Céleri", "Moutarde", "Lupin", "Sulfites",
+    "Aucune allergie connue", "Allergies multiples"
+  ],
+  "diseases": [
+    "Hypertension", "Diabète", "Asthme", "Arthrite", "Allergie",
+    "Migraine", "Insomnie", "Anxiété", "Dépression",
+    "Cholestérol", "Reflux gastrique", "Eczéma", "Psoriasis",
+    "Maladie de Crohn", "Syndrome de l'intestin irritable",
+    "Épilepsie", "Maladie de Parkinson", "Alzheimer",
+    "Sclérose en plaques", "Cancer", "AVC", "Infarctus",
+    "Bronchite chronique", "Pneumonie", "Anémie"
+  ],
+  "medications": [
+    "Doliprane", "Advair", "Lipitor", "Metformine", "Levothyrox",
+    "Amoxicilline", "Ibuprofène", "Paracétamol", "Kardegic",
+    "Générique", "Spasfon", "Smecta", "Imodium", "Gaviscon",
+    "Augmentin", "Kardégic", "Tahor", "Crestor", "Métabic",
+    "Diamicron", "Lamaline", "Efferalgan", "Nurofen", "Gelule"
+  ]
+}

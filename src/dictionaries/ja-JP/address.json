@@ -1,0 +1,51 @@
+{
+  "_description": "Japanese address dictionary",
+  "streetPrefix": [
+    "通り", "筋", "町", "坂", "橋", "道", "横丁", "路地", "小路", "広小路"
+  ],
+  "streetSuffix": [
+    "通り", "筋", "町", "坂", "橋", "道", "横丁", "路地", "小路", "広小路"
+  ],
+  "streetNames": [
+    "中央", "銀座", "日本橋", "靖国", "神田", "秋葉原", "渋谷", "新宿", "池袋", "六本木",
+    "表参道", "青山", "赤坂", "九段", "半蔵門"
+  ],
+  "neighborhoods": [
+    "渋谷区", "新宿区", "港区", "千代田区", "中央区", "台東区", "墨田区", "品川区", "目黒区", "世田谷区",
+    "北区", "荒川区", "板橋区", "練馬区", "足立区", "江東区", "城東区", "浪速区", "天王寺区", "北区"
+  ],
+  "cities": [
+    {"name": "東京", "state": "TK"},
+    {"name": "大阪", "state": "OS"},
+    {"name": "横浜", "state": "KJ"},
+    {"name": "名古屋", "state": "AI"},
+    {"name": "福岡", "state": "FK"},
+    {"name": "神戸", "state": "HG"},
+    {"name": "京都", "state": "KY"},
+    {"name": "札幌", "state": "HK"},
+    {"name": "広島", "state": "HS"},
+    {"name": "仙台", "state": "MI"},
+    {"name": "千葉", "state": "CH"},
+    {"name": "北九州", "state": "FK"},
+    {"name": "堺", "state": "OS"},
+    {"name": "浜松", "state": "SH"},
+    {"name": "新潟", "state": "NI"}
+  ],
+  "states": [
+    {"abbr": "TK", "name": "東京都"},
+    {"abbr": "OS", "name": "大阪府"},
+    {"abbr": "KJ", "name": "神奈川県"},
+    {"abbr": "AI", "name": "愛知県"},
+    {"abbr": "FK", "name": "福岡県"},
+    {"abbr": "HG", "name": "兵庫県"},
+    {"abbr": "KY", "name": "京都府"},
+    {"abbr": "HK", "name": "北海道"},
+    {"abbr": "HS", "name": "広島県"},
+    {"abbr": "MI", "name": "宮城県"},
+    {"abbr": "CH", "name": "千葉県"},
+    {"abbr": "SH", "name": "静岡県"},
+    {"abbr": "NI", "name": "新潟県"},
+    {"abbr": "SN", "name": "埼玉県"},
+    {"abbr": "KB", "name": "神奈川県"}
+  ]
+}

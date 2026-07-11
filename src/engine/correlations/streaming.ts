@@ -21,9 +21,27 @@ const STREAMING_GENRE_MAP_EN: Record<string, string[]> = {
   'Crunchyroll': ['Animation','Action','Adventure','Romance','Comedy','Fantasy'],
 };
 
+const STREAMING_GENRE_MAP_FR: Record<string, string[]> = {
+  'Netflix': ['Drame','Thriller','Science-fiction','Horreur','Comédie','Documentaire','Animation','Romance'],
+  'Amazon Prime Video': ['Drame','Action','Science-fiction','Comédie','Thriller','Horreur','Fantaisie'],
+  'Disney+': ['Animation','Science-fiction','Aventure','Fantaisie','Comédie','Drame','Film musical'],
+  'Canal+': ['Drame','Thriller','Science-fiction','Comédie','Documentaire','Romance'],
+  'Paramount+': ['Drame','Action','Comédie','Thriller','Science-fiction','Horreur'],
+  'Apple TV+': ['Drame','Science-fiction','Comédie','Thriller','Documentaire','Romance'],
+  'Salto': ['Drame','Comédie','Thriller','Documentaire','Romance'],
+  'OCS': ['Drame','Thriller','Science-fiction','Comédie','Horreur'],
+  'Crunchyroll': ['Animation','Action','Aventure','Romance','Comédie','Fantaisie'],
+  'Arte.tv': ['Documentaire','Drame','Thriller','Arts','Histoire'],
+  'France.tv': ['Drame','Comédie','Documentaire','Thriller','Romance'],
+  'Molotov TV': ['Drame','Comédie','Thriller','Action','Horreur','Documentaire'],
+};
+
 export function getStreamingGenreMap(locale: string): Record<string, string[]> {
   if (locale === 'pt') {
     return STREAMING_GENRE_MAP_PT;
+  }
+  if (locale === 'fr-FR') {
+    return STREAMING_GENRE_MAP_FR;
   }
   return STREAMING_GENRE_MAP_EN;
 }

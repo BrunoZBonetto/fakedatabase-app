@@ -1,0 +1,23 @@
+{
+  "_description": "German names dictionary",
+  "firstName": {
+    "masculine": [
+      "Hans", "Klaus", "Thomas", "Stefan", "Wolfgang", "Werner", "Jürgen",
+      "Andreas", "Martin", "Michael", "Christian", "Peter", "Frank", "Helmut",
+      "Dieter", "Lukas", "Felix", "Leon", "Paul", "Finn", "Noah", "Elias",
+      "Ben", "Luca", "Jonas", "Maximilian", "Henry", "Jakob", "Mateo", "Levi"
+    ],
+    "feminine": [
+      "Maria", "Anna", "Sabine", "Monika", "Helga", "Ingrid", "Ute",
+      "Claudia", "Andrea", "Susanne", "Petra", "Julia", "Sandra", "Nina",
+      "Katrin", "Sophie", "Marie", "Lena", "Lea", "Emilia", "Hannah", "Mia",
+      "Clara", "Emma", "Sarah", "Lina", "Johanna", "Laura", "Katharina", "Lisa"
+    ]
+  },
+  "lastName": [
+    "Müller", "Schmidt", "Schneider", "Fischer", "Weber", "Meyer", "Wagner",
+    "Becker", "Schulz", "Hoffmann", "Koch", "Richter", "Klein", "Wolf",
+    "Schröder", "Neumann", "Schwarz", "Zimmermann", "Braun", "Krüger",
+    "Hartmann", "Lange", "Werner", "Krause", "Lehmann"
+  ]
+}

@@ -51,16 +51,35 @@ const BASKETBALL_TEAM_STATE_PT: Record<string, string[]> = {
 
 const BASKETBALL_TEAM_STATE_EN = BASKETBALL_TEAM_STATE_PT;
 
+const FOOTBALL_TEAM_STATE_FR: Record<string, string[]> = {
+  'Paris Saint-Germain': ['IDF'], 'Olympique de Marseille': ['PAC'], 'Olympique Lyonnais': ['ARA'],
+  'AS Monaco': ['PAC'], 'LOSC Lille': ['HDF'], 'RC Lens': ['HDF'],
+  'Stade Rennais': ['BRE'], 'OGC Nice': ['PAC'], 'RC Strasbourg': ['GES'],
+  'FC Nantes': ['PDL'], 'Montpellier HSC': ['OCC'], 'Stade Brestois': ['BRE'],
+  'Toulouse FC': ['OCC'], 'RC Reims': ['GES'], 'Le Havre AC': ['NOR'],
+  'FC Lorient': ['BRE'], 'Clermont Foot': ['ARA'], 'FC Metz': ['GES'],
+  'AJ Auxerre': ['BFC'], 'AS Saint-Étienne': ['ARA'],
+};
+
+const BASKETBALL_TEAM_STATE_FR: Record<string, string[]> = {
+  'ASVEL Lyon-Villeurbanne': ['ARA'], 'Paris Basketball': ['IDF'], 'Monaco': ['PAC'],
+  'Boulogne-Levallois': ['IDF'], 'JDA Dijon': ['BFC'], 'Nanterre 92': ['IDF'],
+  'Strasbourg IG': ['GES'], 'Le Mans Sarthe': ['PDL'], 'Nancy Basket': ['GES'],
+  'Limoges CSP': ['NAQ'],
+};
+
 const FOOTBALL_TEAM_STATE: Record<string, Record<string, string[]>> = {
   'pt': FOOTBALL_TEAM_STATE_PT,
   'en': FOOTBALL_TEAM_STATE_EN,
   'en-GB': FOOTBALL_TEAM_STATE_GB,
+  'fr-FR': FOOTBALL_TEAM_STATE_FR,
 };
 
 const BASKETBALL_TEAM_STATE: Record<string, Record<string, string[]>> = {
   'pt': BASKETBALL_TEAM_STATE_PT,
   'en': BASKETBALL_TEAM_STATE_EN,
   'en-GB': BASKETBALL_TEAM_STATE_PT,
+  'fr-FR': BASKETBALL_TEAM_STATE_FR,
 };
 
 export function getFootballTeamStateMap(locale: string): Record<string, string[]> {

@@ -62,10 +62,24 @@ const CAR_BRAND_DATA_GB: Record<string, BrandInfo> = {
   MG: { models: ['MG3', 'MG4', 'ZS', 'HS', 'MG5'], vehicleTypes: ['Hatch', 'Sedan', 'SUV'], fuelTypes: ['Petrol', 'Electric'] },
 };
 
+const CAR_BRAND_DATA_FR: Record<string, BrandInfo> = {
+  Renault: { models: ['Clio', 'Captur', 'Mégane', 'Scénic', 'Austral', 'Arkana', 'Austral'], vehicleTypes: ['Berline', 'SUV'], fuelTypes: ['Essence', 'Diesel', 'Hybride', 'Électrique'] },
+  Peugeot: { models: ['208', '2008', '3008', '5008', '408', 'Partner', 'Rifter'], vehicleTypes: ['Citadine', 'SUV', 'Utilitaire'], fuelTypes: ['Essence', 'Diesel', 'Hybride', 'Électrique'] },
+  Citroën: { models: ['C3', 'C4', 'C5 Aircross', 'ë-C4', 'Berlingo', 'Ami'], vehicleTypes: ['Citadine', 'SUV', 'Utilitaire'], fuelTypes: ['Essence', 'Diesel', 'Électrique'] },
+  DS: { models: ['DS 3', 'DS 4', 'DS 7', 'DS 9'], vehicleTypes: ['Citadine', 'SUV', 'Berline'], fuelTypes: ['Essence', 'Diesel', 'Hybride', 'Électrique'] },
+  Alpine: { models: ['A110', 'A290'], vehicleTypes: ['Sportive', 'Citadine'], fuelTypes: ['Essence', 'Électrique'] },
+  BMW: { models: ['Série 1', 'Série 3', 'Série 5', 'X1', 'X3', 'X5'], vehicleTypes: ['Berline', 'SUV'], fuelTypes: ['Essence', 'Diesel', 'Hybride', 'Électrique'] },
+  'Mercedes-Benz': { models: ['Classe A', 'Classe C', 'Classe E', 'GLA', 'GLC', 'GLE'], vehicleTypes: ['Berline', 'SUV'], fuelTypes: ['Essence', 'Diesel', 'Hybride', 'Électrique'] },
+  Audi: { models: ['A1', 'A3', 'A4', 'Q2', 'Q3', 'Q5'], vehicleTypes: ['Berline', 'SUV'], fuelTypes: ['Essence', 'Diesel', 'Hybride', 'Électrique'] },
+  Volkswagen: { models: ['Golf', 'Polo', 'T-Roc', 'Tiguan', 'ID.3', 'ID.4'], vehicleTypes: ['Berline', 'SUV'], fuelTypes: ['Essence', 'Diesel', 'Électrique'] },
+  Toyota: { models: ['Yaris', 'Corolla', 'RAV4', 'C-HR', 'Aygo X'], vehicleTypes: ['Citadine', 'SUV'], fuelTypes: ['Essence', 'Hybride', 'Électrique'] },
+};
+
 const CAR_BRAND_DATA_MAP: Record<string, Record<string, BrandInfo>> = {
   pt: CAR_BRAND_DATA_PT,
   en: CAR_BRAND_DATA_EN,
   'en-GB': CAR_BRAND_DATA_GB,
+  'fr-FR': CAR_BRAND_DATA_FR,
 };
 
 export function getCarBrandData(locale: string): Record<string, BrandInfo> {

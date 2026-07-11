@@ -1,0 +1,60 @@
+{
+  "_description": "German address dictionary",
+  "streetPrefix": [
+    "Haupt", "Kirch", "Schul", "Garten", "Bahnhof", "Markt", "Linden",
+    "Wald", "Berg", "Wiesen", "Burg", "Schloss", "Kloster", "Brücken",
+    "Mühlen", "Bader", "Böttcher", "Töpfer", "Gerber", "Schmiede"
+  ],
+  "streetSuffix": [
+    "straße", "straße", "straße", "straße", "straße", "straße",
+    "weg", "weg", "weg", "weg", "gasse", "gasse",
+    "platz", "allee", "ring", "chaussee", "damm", "stieg", "markt"
+  ],
+  "streetNames": [
+    "Hauptstraße", "Kirchstraße", "Schulstraße", "Gartenstraße",
+    "Bahnhofstraße", "Marktplatz", "Lindenweg", "Waldstraße",
+    "Bergstraße", "Wiesenstraße", "Am Markt", "Am Brunnen",
+    "Zur Linde", "Am Bach", "Zum Hafen"
+  ],
+  "neighborhoods": [
+    "Altstadt", "Neustadt", "Südstadt", "Nordstadt", "Weststadt",
+    "Oststadt", "Vorstadt", "Innenstadt", "Außenstadt", "Industriegebiet",
+    "Wohngebiet", "Geschäftszentrum", "Hafenviertel", "Studentenviertel",
+    "Kunstviertel"
+  ],
+  "cities": [
+    {"name": "Berlin", "state": "BE"},
+    {"name": "Hamburg", "state": "HH"},
+    {"name": "München", "state": "BY"},
+    {"name": "Köln", "state": "NW"},
+    {"name": "Frankfurt", "state": "HE"},
+    {"name": "Stuttgart", "state": "BW"},
+    {"name": "Düsseldorf", "state": "NW"},
+    {"name": "Leipzig", "state": "SN"},
+    {"name": "Dortmund", "state": "NW"},
+    {"name": "Essen", "state": "NW"},
+    {"name": "Bremen", "state": "HB"},
+    {"name": "Dresden", "state": "SN"},
+    {"name": "Hannover", "state": "NI"},
+    {"name": "Nürnberg", "state": "BY"},
+    {"name": "Duisburg", "state": "NW"}
+  ],
+  "states": [
+    {"abbr": "BE", "name": "Berlin"},
+    {"abbr": "HH", "name": "Hamburg"},
+    {"abbr": "BY", "name": "Bayern"},
+    {"abbr": "NW", "name": "Nordrhein-Westfalen"},
+    {"abbr": "HE", "name": "Hessen"},
+    {"abbr": "BW", "name": "Baden-Württemberg"},
+    {"abbr": "SN", "name": "Sachsen"},
+    {"abbr": "NI", "name": "Niedersachsen"},
+    {"abbr": "SH", "name": "Schleswig-Holstein"},
+    {"abbr": "RP", "name": "Rheinland-Pfalz"},
+    {"abbr": "ST", "name": "Sachsen-Anhalt"},
+    {"abbr": "TH", "name": "Thüringen"},
+    {"abbr": "BB", "name": "Brandenburg"},
+    {"abbr": "MV", "name": "Mecklenburg-Vorpommern"},
+    {"abbr": "SL", "name": "Saarland"},
+    {"abbr": "HB", "name": "Bremen"}
+  ]
+}

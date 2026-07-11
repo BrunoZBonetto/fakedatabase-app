@@ -1,0 +1,34 @@
+{
+  "_description": "Irish company data dictionary",
+  "prefixes": [
+    "Group", "Solutions", "Enterprises", "Partners", "Services",
+    "Consulting", "Technologies", "Digital", "Innovation", "International",
+    "Tech", "Cloud", "Data", "Nova", "Global", "Nexus", "Apex", "Prime",
+    "Core", "Vertex", "Spark", "Forge"
+  ],
+  "suffixes": [
+    "Ireland", "Irish", "Dublin", "Cork", "Atlantic", "Celtic",
+    "Global", "Euro", "Tech", "Systems", "Ltd", "PLC", "Group",
+    "Partners", "Services", "Solutions", "Consulting", "Holdings",
+    "Ventures", "International", "Enterprises", "Associates"
+  ],
+  "sectors": [
+    "Technology", "Pharmaceuticals", "Financial Services", "Agri-food",
+    "MedTech", "Aerospace", "Education", "Healthcare", "Retail",
+    "Construction", "Energy", "Tourism", "Film", "Gaming", "Biotech",
+    "Insurance", "Telecommunications", "Real Estate", "Manufacturing",
+    "Legal"
+  ],
+  "positions": [
+    "Director", "Head of", "Manager", "Lead", "Engineer", "Analyst",
+    "Consultant", "Coordinator", "Specialist", "Associate", "Senior",
+    "Executive", "CEO", "Architect", "Designer", "Officer",
+    "Supervisor", "Administrator", "Technician", "Strategist"
+  ],
+  "areas": [
+    "Human Resources", "Marketing", "Finance", "Technology", "Research",
+    "Operations", "Logistics", "Sales", "Legal", "Communications",
+    "IT", "Engineering", "R&D", "Procurement", "Quality",
+    "Customer Service", "Compliance", "Strategy", "Sustainability", "Security"
+  ]
+}

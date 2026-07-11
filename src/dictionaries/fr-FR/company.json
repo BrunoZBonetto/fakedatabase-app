@@ -1,0 +1,32 @@
+{
+  "_description": "Dictionnaire d'entreprises françaises",
+  "prefixes": [
+    "Groupe", "Société", "Entreprise", "Cabinet", "Atelier",
+    "Agence", "Studio", "Bureau", "Établissement", "Manufacture"
+  ],
+  "suffixes": [
+    "Solutions", "Conseil", "Services", "Technologies", "Innovation",
+    "Digital", "Expertise", "Partenaires", "International", "France",
+    "Associés", "Industrie", "Commercial", "Distribution", "Développement"
+  ],
+  "sectors": [
+    "Industrie", "Technologie", "Santé", "Éducation", "Finance",
+    "Commerce", "Agriculture", "Énergie", "Transport", "Immobilier",
+    "Tourisme", "Agroalimentaire", "Aéronautique", "Automobile",
+    "Pharmaceutique", "Média", "Construction", "Assurance",
+    "Télécommunications", "Défense"
+  ],
+  "positions": [
+    "Directeur", "Directrice", "Responsable", "Chef de projet",
+    "Ingénieur", "Ingénieure", "Consultant", "Consultante",
+    "Analyste", "Manager", "Coordinateur", "Coordinateure",
+    "Spécialiste", "Technicien", "Technicienne", "PDG",
+    "DRH", "DAF", "CTO", "COO"
+  ],
+  "areas": [
+    "Ressources Humaines", "Marketing", "Finance", "Informatique",
+    "Recherche", "Production", "Logistique", "Commercial",
+    "Juridique", "Communication", "Quality", "Direction Générale",
+    "Achats", "Export", "After-Sales"
+  ]
+}

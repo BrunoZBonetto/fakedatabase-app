@@ -1,0 +1,28 @@
+{
+  "_description": "Dictionnaire de professions françaises",
+  "professions": [
+    "Médecin", "Infirmier", "Infirmière", "Avocat", "Avocate",
+    "Ingénieur", "Ingénieure", "Professeur", "Professeure",
+    "Architecte", "Pharmacien", "Pharmacienne", "Journaliste",
+    "Commercial", "Commerciale", "Développeur", "Développeuse",
+    "Designer", "Chef cuisinier", "Pilote", "Électricien",
+    "Électricienne", "Plombier", "Mécanicien", "Mécanicienne",
+    "Comptable", "Notaire", "Psychologue", "Dentiste",
+    "Vétérinaire", "Kinésithérapeute", "Sage-femme", "Chirurgien",
+    "Chirurgienne", "Cardiologue", "Ophtalmologue", "Dermatologue",
+    "Généraliste", "Fonctionnaire", "Agent immobilier",
+    "Créateur", "Créatrice", "Artisan", "Ouvrier", "Ouvrière",
+    "Enseignant", "Enseignante", "Cuisinier", "Cuisinière",
+    "Boulanger", "Boulangère", "Patissier", "Pâtissière",
+    "Serveur", "Serveuse", "Libraire", "Coiffeur", "Coiffeuse"
+  ],
+  "education": [
+    "Baccalauréat", "BTS", "DUT", "Licence", "Master", "Doctorat",
+    "Diplôme d'ingénieur", "Diplôme de médecine", "CAP", "BEP",
+    "Licence professionnelle", "DESS", "DEA", "Mastère"
+  ],
+  "seniority": [
+    "Stagiaire", "Junior", "Confirmé", "Senior", "Expert",
+    "Directeur", "Partner", "Associé", "Cadre"
+  ]
+}

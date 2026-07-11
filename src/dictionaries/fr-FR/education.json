@@ -1,0 +1,34 @@
+{
+  "_description": "Dictionnaire d'éducation française",
+  "universities": [
+    "Sorbonne", "Polytechnique", "HEC", "ESSEC", "CentraleSupélec",
+    "ENS", "Sciences Po", "Dauphine", "Panthéon-Sorbonne",
+    "Lyon 1", "Bordeaux", "Lille 1", "Grenoble Alpes", "Aix-Marseille",
+    "Paris-Saclay", "Sorbonne Université", "Université de Strasbourg",
+    "Université de Montpellier", "Université de Toulouse",
+    "École des Mines", "Mines Paris", "Ponts ParisTech",
+    "Arts et Métiers", "ISAE-Supaero", "Télécom Paris",
+    "HEC Montréal", "ESCP", "EDHEC", "EM Lyon", "Audencia"
+  ],
+  "courses": [
+    "Informatique", "Médecine", "Droit", "Sciences Po", "Économie",
+    "Gestion", "Mathématiques", "Physique", "Chimie", "Biologie",
+    "Lettres", "Histoire", "Philosophie", "Archéologie", "Sociologie",
+    "Psychologie", "Géographie", "Langues étrangères", "Arts plastiques",
+    "Musique", "Architecture", "Ingénierie", "Mécanique", "Électronique",
+    "Génie civil", "Biotechnologies", "Neurosciences", "Agronomie",
+    "Journalisme", "Communication"
+  ],
+  "degreeTypes": [
+    "Baccalauréat", "BTS", "DUT", "Licence", "Licence professionnelle",
+    "Master", "Doctorat", "Diplôme d'ingénieur", "DESS", "DEA",
+    "Mastère spécialisé", "Diplôme de l'ENS", "Diplôme HEC",
+    "Agrégation", "CAP", "BEP"
+  ],
+  "grades": [
+    "A", "B", "C", "D", "E", "F", "TB", "B", "AB", "P",
+    "Mention Bien", "Mention Très Bien", "Mention Assez Bien",
+    "Admis", "Ajourné", "18", "17", "16", "15", "14", "13",
+    "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"
+  ]
+}

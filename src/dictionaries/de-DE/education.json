@@ -1,0 +1,21 @@
+{
+  "_description": "German education dictionary",
+  "universities": [
+    "TU München", "LMU München", "FU Berlin", "HU Berlin", "RWTH Aachen",
+    "Uni Heidelberg", "Uni Hamburg", "Uni Köln", "TU Darmstadt", "Uni Leipzig",
+    "Uni Göttingen", "Uni Freiburg", "Uni Tübingen", "Uni Bonn"
+  ],
+  "courses": [
+    "Wissenschaften", "Literatur", "Recht", "Medizin", "Wirtschaft",
+    "Informatik", "Mathematik", "Physik", "Chemie", "Biologie",
+    "Geschichte", "Geografie", "Philosophie", "Kunst", "Musik"
+  ],
+  "degreeTypes": [
+    "Grundschule", "Gymnasium", "Realschule", "Hauptschule", "Gesamtschule",
+    "Fachhochschule", "Universität"
+  ],
+  "grades": [
+    "Abitur", "Bachelor", "Master", "Promotion", "Habilitation",
+    "Diplom", "Magister", "Staatsexamen"
+  ]
+}

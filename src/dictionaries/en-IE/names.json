@@ -1,0 +1,27 @@
+{
+  "_description": "Irish names dictionary",
+  "firstName": {
+    "masculine": [
+      "Seán", "Ciarán", "Pádraig", "Liam", "Oisín", "Eoin", "Niall", "Cathal",
+      "Ronan", "Conor", "Declan", "Fionn", "Eamon", "Brendan", "Donal",
+      "Patrick", "Michael", "John", "James", "David", "Daniel", "Adam",
+      "Noah", "Jack", "Thomas", "Oliver", "Rían", "Darragh", "Finn", "Cormac"
+    ],
+    "feminine": [
+      "Siobhán", "Aoife", "Niamh", "Sinéad", "Gráinne", "Orla", "Aisling",
+      "Ciara", "Méabh", "Saoirse", "Éadaoin", "Clodagh", "Síofra", "Sadbh",
+      "Mary", "Sarah", "Emma", "Emily", "Sophie", "Olivia", "Grace",
+      "Hannah", "Chloe", "Megan", "Aoibhinn", "Róisín", "Clíodhna",
+      "Dearbhla", "Kate", "Áine"
+    ]
+  },
+  "lastName": [
+    "Murphy", "Kelly", "O'Sullivan", "Walsh", "Smith", "O'Brien", "Ryan",
+    "Doyle", "McCarthy", "Gallagher", "Doherty", "Stewart", "Roberts",
+    "Clarke", "Byrne", "O'Connor", "O'Neill", "Brennan", "Flanagan",
+    "Quinn", "Lynch", "Fitzgerald", "McMahon", "McDermott", "Duffy",
+    "Wilson", "Campbell", "Murray", "Graham", "Henderson", "Johnston",
+    "Kenny", "Gibney", "Byrne", "Roche", "Nolan", "Carroll", "Dunne",
+    "Hughes", "Parker", "Reid", "Magee", "Crawford", "Black", "Morton"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "_description": "Dictionnaire financier français",
+  "banks": [
+    {"name": "BNP Paribas", "code": "10000"},
+    {"name": "Société Générale", "code": "10000"},
+    {"name": "Crédit Agricole", "code": "10000"},
+    {"name": "LCL", "code": "10000"},
+    {"name": "Crédit Mutuel", "code": "10000"},
+    {"name": "La Banque Postale", "code": "10000"},
+    {"name": "Caisse d'Épargne", "code": "10000"},
+    {"name": "BPCE", "code": "10000"},
+    {"name": "CIC", "code": "10000"},
+    {"name": "AXA Banque", "code": "10000"},
+    {"name": "HSBC France", "code": "10000"},
+    {"name": "Sberbank France", "code": "10000"}
+  ],
+  "currencies": [
+    {"code": "EUR", "symbol": "€", "name": "Euro"},
+    {"code": "CHF", "symbol": "CHF", "name": "Franc suisse"},
+    {"code": "GBP", "symbol": "£", "name": "Livre sterling"},
+    {"code": "USD", "symbol": "$", "name": "Dollar américain"}
+  ],
+  "paymentMethods": [
+    "Carte bancaire", "Virement", "Chèque", "Espèces",
+    "Prélèvement", "PayPal", "Apple Pay", "Google Pay",
+    "Lydia", "Paylib", "Carte de débit", "Carte de crédit",
+    "Monétique", "Paiement mobile"
+  ],
+  "creditCardFlags": [
+    "Visa Débit", "Visa Crédit", "Mastercard Débit",
+    "Mastercard Crédit", "American Express", "CB", "Maestro"
+  ],
+  "statusOptions": [
+    "En attente", "Approuvé", "Rejeté", "En cours",
+    "Complété", "Annulé", "Remboursé", "En litige"
+  ]
+}

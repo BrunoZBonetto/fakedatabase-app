@@ -1,0 +1,28 @@
+{
+  "_description": "Dictionnaire de caractéristiques personnelles françaises",
+  "ethnicities": [
+    "Caucasien", "Africain", "Maghrébin", "Asiatique", "Métis",
+    "Européen", "Caribéen", "Moyen-oriental", "Sud-asiatique",
+    "Autre"
+  ],
+  "nationalities": [
+    "Français", "Française", "Belge", "Suisse", "Canadien",
+    "Canadienne", "Africain", "Africaine", "Européen",
+    "Européenne", "Britannique", "Allemand", "Allemande",
+    "Espagnol", "Espagnole", "Italien", "Italienne",
+    "Portugais", "Portugaise", "Marocain", "Marocaine",
+    "Tunisien", "Tunisienne", "Algérien", "Algérienne"
+  ],
+  "naturalness": [
+    "Paris", "Lyon", "Marseille", "Toulouse", "Nice",
+    "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille",
+    "Rennes", "Reims", "Le Havre", "Toulon", "Grenoble",
+    "Dijon", "Angers", "Clermont-Ferrand", "Tours", "Limoges"
+  ],
+  "suffixes": [
+    "Jr.", "Sr.", "II", "III", "PhD", "Prof.", "Dr."
+  ],
+  "titles": [
+    "M.", "Mme", "Mlle", "Dr.", "Prof.", "Me", "Pr"
+  ]
+}

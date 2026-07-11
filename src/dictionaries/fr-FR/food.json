@@ -1,0 +1,28 @@
+{
+  "_description": "Dictionnaire gastronomique français",
+  "cuisineTypes": [
+    "Française", "Italienne", "Chinoise", "Indienne", "Thaïlandaise",
+    "Japonaise", "Mexicaine", "Espagnole", "Turque", "Grecque",
+    "Coréenne", "Vietnamienne", "Libanaise", "Marocaine",
+    "Éthiopienne", "Américaine", "Brésilienne", "Africaine",
+    "Asiatique", "Méditerranéenne"
+  ],
+  "dietaryRestrictions": [
+    "Végétarien", "Végan", "Sans gluten", "Sans lactose", "Sans noix",
+    "Cétogène", "Low-carb", "Paléo", "Halal", "Casher",
+    "Pescétarien", "Sans sucre"
+  ],
+  "meals": [
+    "Petit-déjeuner", "Déjeuner", "Goûter", "Dîner", "Collation",
+    "Brunch", "Apéritif", "Dessert"
+  ],
+  "restaurants": [
+    "Le Comptoir du Panthéon", "Chez Janou", "Le Bouillon Chartier",
+    "Bofinger", "Le Petit Cler", "La Robe et le Palais",
+    "L'Ami Jean", "Frenchie", "Chez L'Ami Jean", "Le Cinq",
+    "L'Ambroisie", "Le Grand Véfour", "Alain Ducasse", "Joël Robuchon",
+    "Le Fouquet's", "La Tour d'Argent", "Brasserie Lipp", "Le Procope",
+    "Le Relais de l'Entrecôte", "La Coupole", "Le Dôme",
+    "Les Deux Magots", "Café de Flore", "Angelina", "Ladurée"
+  ]
+}

@@ -2,6 +2,8 @@ const ZODIAC_SIGNS_PT = ['Aquário','Peixes','Áries','Touro','Gêmeos','Câncer
 
 const ZODIAC_SIGNS_EN = ['Aquarius','Pisces','Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn'];
 
+const ZODIAC_SIGNS_FR = ['Verseau','Poissons','Bélier','Taureau','Gémeaux','Cancer','Lion','Vierge','Balance','Scorpion','Sagittaire','Capricorne'];
+
 export const ZODIAC_BOUNDARIES = [
   { month: 0, day: 20 }, { month: 1, day: 19 }, { month: 2, day: 21 }, { month: 3, day: 20 },
   { month: 4, day: 21 }, { month: 5, day: 21 }, { month: 6, day: 23 }, { month: 7, day: 23 },
@@ -10,6 +12,7 @@ export const ZODIAC_BOUNDARIES = [
 
 export function getZodiacSigns(locale: string): string[] {
   if (locale === 'pt-BR') return ZODIAC_SIGNS_PT;
+  if (locale === 'fr-FR') return ZODIAC_SIGNS_FR;
   if (locale.startsWith('en-')) return ZODIAC_SIGNS_EN;
   return ZODIAC_SIGNS_EN;
 }

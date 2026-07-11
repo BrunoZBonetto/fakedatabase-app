@@ -34,18 +34,43 @@ const AGE_HOBBY_EN: Record<string, string[]> = {
   senior: ['Gardening', 'Fishing', 'Reading', 'Collecting', 'Chess', 'Cooking', 'Woodworking'],
 };
 
+const AGE_MARITAL_FR: Record<string, string[]> = {
+  young: ['Célibataire', 'Célibataire', 'Célibataire', 'En couple'],
+  mid: ['Marié', 'Marié', 'Divorcé', 'Célibataire', 'Pacsé'],
+  senior: ['Marié', 'Veuf', 'Divorcé', 'Marié'],
+};
+
+const AGE_EDUCATION_FR: Record<string, string[]> = {
+  young: ['Licence', 'Licence professionnelle', 'BTS'],
+  mid: ['Master', 'Diplôme d\'ingénieur', 'Mastère', 'Doctorat'],
+  senior: ['Master', 'Diplôme d\'ingénieur', 'Doctorat', 'Habilitation à diriger des recherches'],
+};
+
+const AGE_HOBBY_FR: Record<string, string[]> = {
+  young: ['Jeux vidéo', 'Photographie', 'Danse', 'Skate', 'Lecture', 'Yoga', 'Échecs'],
+  mid: ['Cuisine', 'Jardinage', 'Photographie', 'Pêche', 'Voyage', 'Lecture', 'Bricolage'],
+  senior: ['Jardinage', 'Pêche', 'Lecture', 'Collection', 'Échecs', 'Cuisine', 'Bricolage'],
+};
+
 function isPT(locale: string): boolean {
   return locale.startsWith('pt');
 }
 
+function isFR(locale: string): boolean {
+  return locale === 'fr-FR';
+}
+
 export function getAgeMaritalMap(locale: string): Record<string, string[]> {
+  if (isFR(locale)) return AGE_MARITAL_FR;
   return isPT(locale) ? AGE_MARITAL_PT : AGE_MARITAL_EN;
 }
 
 export function getAgeEducationMap(locale: string): Record<string, string[]> {
+  if (isFR(locale)) return AGE_EDUCATION_FR;
   return isPT(locale) ? AGE_EDUCATION_PT : AGE_EDUCATION_EN;
 }
 
 export function getAgeHobbyMap(locale: string): Record<string, string[]> {
+  if (isFR(locale)) return AGE_HOBBY_FR;
   return isPT(locale) ? AGE_HOBBY_PT : AGE_HOBBY_EN;
 }

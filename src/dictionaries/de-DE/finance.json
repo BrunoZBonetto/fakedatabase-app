@@ -1,0 +1,30 @@
+{
+  "_description": "German financial data dictionary",
+  "banks": [
+    {"name": "Deutsche Bank", "code": "10000"},
+    {"name": "Commerzbank", "code": "10000"},
+    {"name": "DZ Bank", "code": "10000"},
+    {"name": "KfW Bank", "code": "10000"},
+    {"name": "N26", "code": "10000"},
+    {"name": "Sparkasse", "code": "10000"},
+    {"name": "Volksbank", "code": "10000"},
+    {"name": "HypoVereinsbank", "code": "10000"},
+    {"name": "Postbank", "code": "10000"},
+    {"name": "ING", "code": "10000"}
+  ],
+  "currencies": [
+    {"code": "EUR", "name": "Euro", "symbol": "€"}
+  ],
+  "paymentMethods": [
+    "EC-Karte", "Kreditkarte", "Überweisung", "Lastschrift", "Barzahlung",
+    "PayPal", "Apple Pay", "Google Pay", "Sofortüberweisung", "Klarna"
+  ],
+  "creditCardFlags": [
+    "Visa Debit", "Visa Credit", "Mastercard Debit", "Mastercard Credit",
+    "American Express", "Girocard"
+  ],
+  "statusOptions": [
+    "Ausstehend", "Genehmigt", "Abgelehnt", "In Bearbeitung",
+    "Abgeschlossen", "Storniert"
+  ]
+}

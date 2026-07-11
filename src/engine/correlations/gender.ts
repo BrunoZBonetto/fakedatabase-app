@@ -8,8 +8,18 @@ const GENDER_TITLE_EN: Record<string, string[]> = {
   'Female': ['Ms.','Mrs.','Lady','Dame','Dr.','Prof.','Madam'],
 };
 
+const GENDER_TITLE_FR: Record<string, string[]> = {
+  'Homme': ['M.','Dr.','Prof.'],
+  'Femme': ['Mme','Mlle','Dr.','Pr.'],
+  'Masculino': ['M.','Dr.','Prof.'],
+  'Feminino': ['Mme','Mlle','Dr.','Pr.'],
+  'Male': ['M.','Dr.','Prof.'],
+  'Female': ['Mme','Mlle','Dr.','Pr.'],
+};
+
 export function getGenderTitleMap(locale: string): Record<string, string[]> {
   if (locale === 'pt-BR') return GENDER_TITLE_PT;
+  if (locale === 'fr-FR') return GENDER_TITLE_FR;
   if (locale.startsWith('en-')) return GENDER_TITLE_EN;
   return GENDER_TITLE_EN;
 }

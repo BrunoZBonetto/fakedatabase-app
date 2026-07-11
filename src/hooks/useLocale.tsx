@@ -2,10 +2,15 @@ import { createContext, useContext, useState, useCallback, useEffect, type React
 import ptBR from '../i18n/pt-BR';
 import enUS from '../i18n/en-US';
 import enGB from '../i18n/en-GB';
+import frFR from '../i18n/fr-FR';
+import deDE from '../i18n/de-DE';
+import enIE from '../i18n/en-IE';
+import hiIN from '../i18n/hi-IN';
+import jaJP from '../i18n/ja-JP';
 
 export type Locale = string;
 
-const labelsMap: Record<string, typeof ptBR> = { 'pt-BR': ptBR, 'en-US': enUS, 'en-GB': enGB };
+const labelsMap: Record<string, typeof ptBR> = { 'pt-BR': ptBR, 'en-US': enUS, 'en-GB': enGB, 'fr-FR': frFR, 'de-DE': deDE, 'en-IE': enIE, 'hi-IN': hiIN, 'ja-JP': jaJP };
 
 type Labels = typeof ptBR;
 

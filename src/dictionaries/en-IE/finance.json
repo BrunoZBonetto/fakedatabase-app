@@ -1,0 +1,29 @@
+{
+  "_description": "Irish financial data dictionary",
+  "banks": [
+    {"name": "Bank of Ireland", "code": "90000"},
+    {"name": "AIB", "code": "90000"},
+    {"name": "Ulster Bank", "code": "90000"},
+    {"name": "PTSB", "code": "90000"},
+    {"name": "EBS", "code": "90000"},
+    {"name": "Permanent TSB", "code": "90000"},
+    {"name": "KBC Ireland", "code": "90000"},
+    {"name": "N26 Ireland", "code": "90000"},
+    {"name": "Revolut Ireland", "code": "90000"},
+    {"name": "An Post Money", "code": "90000"}
+  ],
+  "currencies": [
+    {"code": "EUR", "symbol": "€", "name": "Euro"}
+  ],
+  "paymentMethods": [
+    "Debit Card", "Credit Card", "Bank Transfer", "Direct Debit", "Cash",
+    "PayPal", "Apple Pay", "Google Pay", "Revolut", "SumUp"
+  ],
+  "creditCardFlags": [
+    "Visa Debit", "Visa Credit", "Mastercard Debit", "Mastercard Credit",
+    "American Express", "Laser Card"
+  ],
+  "statusOptions": [
+    "Pending", "Approved", "Rejected", "In Progress", "Completed", "Cancelled"
+  ]
+}

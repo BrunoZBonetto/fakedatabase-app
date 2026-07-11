@@ -47,9 +47,36 @@ const CAT_BREED_NAMES_EN: Record<string, string[]> = {
   'British Shorthair': ['Oliver','Charlie','Bella','Luna','Max','Sophie','Leo','Daisy'],
 };
 
+const DOG_BREED_NAMES_FR: Record<string, string[]> = {
+  'Labrador Retriever': ['Rex','Max','Buddy','Luna','Bella','Rocky','Daisy','Charlie','Tucker','Sadie'],
+  'Golden Retriever': ['Luna','Max','Bella','Rex','Nala','Charlie','Duke','Daisy','Tucker','Simba'],
+  'Bouledogue français': ['Pierre','Louis','Hugo','Camille','Léa','Chocolat','Noisette','Rex','Biscuit','Truffe'],
+  'Caniche': ['Coco','Bella','Luna','Lucy','Daisy','Chloé','Max','Sophie'],
+  'Berger allemand': ['Max','Rex','Duke','Rex','Zeus','Thor','Bruno','Apollo','Titan'],
+  'Shih Tzu': ['Luna','Bella','Léa','Manon','Princesa','Lola','Mia','Chloé'],
+  'Beagle': ['Rex','Hugo','Louis','Oscar','Daisy','Lucie','Max','Biscuit'],
+  'Rottweiler': ['Max','Rex','Zeus','Bruno','Apollo','Thor','Titan','Rocky'],
+  'Husky': ['Loki','Thor','Zeus','Koda','Nala','Maya','Ghost','Duke'],
+  'Teckel': ['Max','Bella','Oscar','Truffe','Noisette','Chocolat','Luna','Rex'],
+  'Bâtard': ['Rex','Bella','Luna','Daisy','Charlie','Loulou','Tango','Simba','Chocolat','Milou'],
+};
+
+const CAT_BREED_NAMES_FR: Record<string, string[]> = {
+  'Persan': ['Luna','Nala','Bella','Simba','Chloé','Noisette','Minou','Mia'],
+  'Siamois': ['Luna','Oscar','Simba','Maya','Lola','Lucie','Nala','Rex'],
+  'Maine Coon': ['Simba','Thor','Louis','Luna','Nala','Milo','Oliver','Hugo'],
+  'Sphynx': ['Thor','Hugo','Simba','Luna','Yoda','Gizmo','Loki','Rex'],
+  'Bengal': ['Simba','Thor','Luna','Nala','Zoe','Loki','Apollo','Mia'],
+  'Ragdoll': ['Luna','Milo','Oscar','Bella','Nala','Noisette','Chloé','Oliver'],
+  'Européen': ['Félix','Minou','Truffe','Noisette','Chocolat','Simba','Luna','Rex'],
+};
+
 export function getDogBreedNames(locale: string): Record<string, string[]> {
   if (locale.startsWith('pt')) {
     return DOG_BREED_NAMES_PT;
+  }
+  if (locale === 'fr-FR') {
+    return DOG_BREED_NAMES_FR;
   }
   return DOG_BREED_NAMES_EN;
 }
@@ -57,6 +84,9 @@ export function getDogBreedNames(locale: string): Record<string, string[]> {
 export function getCatBreedNames(locale: string): Record<string, string[]> {
   if (locale.startsWith('pt')) {
     return CAT_BREED_NAMES_PT;
+  }
+  if (locale === 'fr-FR') {
+    return CAT_BREED_NAMES_FR;
   }
   return CAT_BREED_NAMES_EN;
 }

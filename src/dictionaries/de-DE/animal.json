@@ -1,0 +1,20 @@
+{
+  "_description": "German pet names dictionary",
+  "petNames": [
+    "Rex", "Bello", "Struppi", "Felix", "Tom", "Mimi", "Coco", "Patch",
+    "Bella", "Luna", "Max", "Rocky", "Buddy", "Lady", "Nelli", "Tiger",
+    "Schnuffel", "Klara", "Teddy", "Moritz"
+  ],
+  "pets": [
+    "Hund", "Katze", "Fisch", "Vogel", "Kaninchen", "Hamster",
+    "Schildkröte", "Frettchen", "Meerschweinchen", "Chinchilla"
+  ],
+  "wild": [
+    "Fuchs", "Rehwild", "Wildschwein", "Hase", "Dachs", "Igel", "Marder",
+    "Otter", "Eichhörnchen", "Biber", "Eule", "Bussard", "Falk", "Hirsch", "Wolf"
+  ],
+  "farm": [
+    "Kuh", "Schwein", "Schaf", "Ziege", "Huhn", "Ente", "Gans",
+    "Pferd", "Esel", "Truthahn"
+  ]
+}

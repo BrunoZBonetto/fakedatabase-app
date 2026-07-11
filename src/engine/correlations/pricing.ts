@@ -32,13 +32,28 @@ const CATEGORY_SHIPPING_GB: Record<string, string[]> = {
   'Peripherals': ['Royal Mail 1st Class','DPD','Hermes','Local Delivery'],
 };
 
+const CATEGORY_SHIPPING_FR: Record<string, string[]> = {
+  'Électronique': ['Colissimo','Chronopost','Mondial Relay','Relais Colis'],
+  'Informatique': ['Colissimo','Chronopost','Mondial Relay','Relais Colis'],
+  'Mobilier': ['Colissimo','Mondial Relay','Livraison à domicile'],
+  'Accessoires': ['Colissimo','Mondial Relay','Relais Colis','Livraison à domicile'],
+  'Périphériques': ['Colissimo','Mondial Relay','Relais Colis','Livraison à domicile'],
+};
+
+const CATEGORY_PRICE_FR: Record<string, [number, number]> = {
+  'Électronique': [500, 15000], 'Informatique': [200, 8000],
+  'Mobilier': [200, 5000], 'Accessoires': [20, 500], 'Périphériques': [50, 1500],
+};
+
 export function getCategoryPriceMap(locale: string): Record<string, [number, number]> {
   if (locale.startsWith('pt')) return CATEGORY_PRICE_PT;
+  if (locale === 'fr-FR') return CATEGORY_PRICE_FR;
   return CATEGORY_PRICE_EN;
 }
 
 export function getCategoryShippingMap(locale: string): Record<string, string[]> {
   if (locale.startsWith('pt')) return CATEGORY_SHIPPING_PT;
   if (locale === 'en-GB') return CATEGORY_SHIPPING_GB;
+  if (locale === 'fr-FR') return CATEGORY_SHIPPING_FR;
   return CATEGORY_SHIPPING_EN;
 }

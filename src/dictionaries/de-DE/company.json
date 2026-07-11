@@ -1,0 +1,25 @@
+{
+  "_description": "German company data dictionary",
+  "prefixes": [
+    "AG", "GmbH", "KG", "OHG", "e.V.", "GmbH & Co. KG", "Stiftung",
+    "Einzelunternehmen", "KGaA"
+  ],
+  "suffixes": [
+    "Solutions", "Technologies", "Consulting", "Services", "Industrie",
+    "Digital", "Innovation", "Systeme", "Werke", "Verlag"
+  ],
+  "sectors": [
+    "Industrie", "Technologie", "Gesundheit", "Bildung", "Finanzen",
+    "Handel", "Landwirtschaft", "Energie", "Transport", "Immobilien",
+    "Tourismus", "Automobil", "Luftfahrt", "Pharma", "Chemie"
+  ],
+  "positions": [
+    "Geschäftsführer", "Abteilungsleiter", "Projektleiter", "Ingenieur",
+    "Berater", "Analyst", "Manager", "Koordinator", "Spezialist",
+    "Techniker", "Direktor", "Vorstand"
+  ],
+  "areas": [
+    "Personalwesen", "Marketing", "Finanzen", "Informatik", "Forschung",
+    "Produktion", "Logistik", "Vertrieb", "Recht", "Kommunikation"
+  ]
+}

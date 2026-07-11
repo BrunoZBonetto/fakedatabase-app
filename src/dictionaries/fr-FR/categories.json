@@ -1,0 +1,259 @@
+{
+  "footballTeams": [
+    "Paris Saint-Germain", "Olympique de Marseille", "Olympique Lyonnais",
+    "AS Monaco", "LOSC Lille", "RC Lens", "Stade Rennais", "OGC Nice",
+    "RC Strasbourg", "FC Nantes", "Montpellier HSC", "Stade Brestois",
+    "Toulouse FC", "RC Reims", "Le Havre AC", "FC Lorient",
+    "Clermont Foot", "FC Metz", "AJ Auxerre", "AS Saint-Étienne"
+  ],
+  "basketballTeams": [
+    "ASVEL Lyon-Villeurbanne", "Paris Basketball", "Monaco",
+    "Boulogne-Levallois", "JDA Dijon", "Nanterre 92",
+    "Strasbourg IG", "Le Mans Sarthe", "Nancy Basket",
+    "Limoges CSP"
+  ],
+  "baseballTeams": [
+    "Équipe de France de baseball", "Huskies de Rouen",
+    "Hart de Montigny", "Lions de Savigny", "Barracudas de Montpellier",
+    "Spartiates de Paris", "Tomahawks de La Guerche",
+    "Huskies de Rouen 2", "Barracudas de Montpellier 2",
+    "Lions de Savigny 2"
+  ],
+  "foods": [
+    "Croissant", "Baguette", "Crêpe", "Soufflé", "Ratatouille",
+    "Bouillabaisse", "Cassoulet", "Coq au vin", "Boeuf bourguignon",
+    "Blanquette de veau", "Quiche Lorraine", "Tartare de bœuf",
+    "Foie gras", "Escargots", "Saucisson", "Fromage", "Quiche",
+    "Gratin dauphinois", "Pot-au-feu", "Navarin", "Choucroute",
+    "Paella", "Tartine", "Croque-monsieur", "Hachis parmentier",
+    "Confit de canard", "Magret de canard", "Saucisse de Toulouse",
+    "Raclette", "Fondue savoyarde", "Tartiflette", "Soupe à l'oignon"
+  ],
+  "drinks": [
+    "Café", "Espresso", "Cappuccino", "Thé", "Vin rouge", "Vin blanc",
+    "Champagne", "Bière", "Cidre", "Limonade", "Jus d'orange",
+    "Eau minérale", "Pastis", "Kir", "Cognac", "Armagnac",
+    "Calvados", "Crème de cassis", "Grand Marnier", "Chartreuse",
+    "Suze", "Pernod", "Ricard", "Cidre brut", "Vin chaud",
+    "Chocolat chaud", "Orgeat", "Kirsch"
+  ],
+  "fruits": [
+    "Pomme", "Banane", "Orange", "Fraise", "Raisin", "Framboise",
+    "Myrtille", "Poire", "Prune", "Cerise", "Kiwi", "Mangue",
+    "Citron", "Lime", "Cranberry", "Pamplemousse", "Figue",
+    "Grenade", "Litchi", "Fruit de la passion", "Goyave",
+    "Papaye", "Mandarine", "Abricot", "Noix de coco", "Mûre",
+    "Kaki", "Carambole", "Mûrier", "Melon", "Nectarine",
+    "Dattes", "Pastèque", "Pêche", "Avocat"
+  ],
+  "animals": [
+    "Chien", "Chat", "Hérisson", "Renard", "Blaireau", "Lapin",
+    "Lièvre", "Écureuil", "Cheval", "Vache", "Mouton", "Cochon",
+    "Chèvre", "Canard", "Oie", "Cygne", "Aigle", "Chouette",
+    "Rouge-gorge", "Puffin", "Dauphin", "Baleine", "Phoque",
+    "Loutre", "Manchot"
+  ],
+  "dogBreeds": [
+    "Labrador Retriever", "Bouledogue français", "Cocker Spaniel",
+    "Springer Spaniel", "Bull Terrier Staffordshire", "Bouledogue anglais",
+    "Border Collie", "Jack Russell Terrier", "Cavalier King Charles Spaniel",
+    "Whippet", "Lévrier", "West Highland Terrier", "Yorkshire Terrier",
+    "Carlin", "Beagle", "Golden Retriever", "Berger allemand",
+    "Caniche", "Shih Tzu", "Teckel"
+  ],
+  "catBreeds": [
+    "British Shorthair", "Ragdoll", "Maine Coon", "Persan", "Bengal",
+    "Siamois", "Abyssin", "Scottish Fold", "Bleu de Russie", "Birman",
+    "Forêt de Norvège", "Sphynx", "Himalayen", "Savannah",
+    "British Longhair"
+  ],
+  "movies": [
+    "Intouchables", "Amélie", "La Haine", "Les Choristes",
+    "Astérix & Obélix", "Bienvenue chez les Ch'tis", "Léon",
+    "Le Fabuleux Destin d'Amélie Poulain", "La Môme",
+    "Cyrano de Bergerac", "Les Misérables", "La Belle et la Bête",
+    "Le Nom de la Rose", "Indochine", "Taxi", "Les Visiteurs",
+    "Jean de Florette", "Manon des Sources", "Le Dîner de Cons",
+    "Ridicule", "Le Fabuleux Destin d'Amélie Poulain", "Avatar",
+    "Oppenheimer", "Le Parrain", "Inception", "Matrix",
+    "Titanic", "Forrest Gump", "Gladiator", "Interstellar"
+  ],
+  "series": [
+    "Lupin", "Emily in Paris", "Call My Agent", "Engrenages",
+    "Les Revenants", "Astrid et Raphaëlle", "Balthazar",
+    "Profilage", "Un Village Français", "Dix pour cent",
+    "Marseille", "Le Bureau des Légendes", "Plan Cœur",
+    "Family Business", "Blood Water", "Into the Night",
+    "La Mante", "Murders in", "Marseille", "Le Bureau des Légendes"
+  ],
+  "musicGenres": [
+    "Chanson française", "Yé-yé", "Variété", "Électro",
+    "Rap français", "R&B", "Jazz", "Classique", "Rock", "Pop",
+    "Réggae", "Hip-hop", "Musette", "Cowboy", "Folk", "Indie",
+    "Metal", "Punk", "Blues", "Soul"
+  ],
+  "instruments": [
+    "Guitare", "Piano", "Batterie", "Basse", "Violon", "Saxophone",
+    "Trompette", "Flûte", "Clarinette", "Violoncelle", "Harmonica",
+    "Ukulélé", "Mandoline", "Banjo", "Accordéon", "Trombone",
+    "Tuba", "Cor d'harmonie", "Hautbois", "Xylophone"
+  ],
+  "sports": [
+    "Football", "Rugby", "Tennis", "Cyclisme", "Handball",
+    "Basketball", "Natation", "Athlétisme", "Escrime", "Judo",
+    "Boxe", "Ski", "Golf", "Voile", "Aviron", "Tir à l'arc",
+    "Pentathlon", "Canoë-kayak", "Surf", "Skateboard",
+    "Crosse", "Badminton", "Escrime", "Tir", "Lutte"
+  ],
+  "hobbies": [
+    "Lecture", "Cuisine", "Jardinage", "Photographie", "Peinture",
+    "Randonnée", "Pêche", "Camping", "Voyage", "Course à pied",
+    "Yoga", "Cyclisme", "Bricolage", "Tricot", "Escalade",
+    "Méditation", "Chant", "Guitare", "Poterie", "Broderie",
+    "Origami", "Ornithologie", "Podcast", "Écriture créative",
+    "Puzzles", "Maquettes", "Astronomie", "Équitation",
+    "Plongée", "Kayak", "Randonnée neige", "Géocaching"
+  ],
+  "carBrands": [
+    "Renault", "Peugeot", "Citroën", "BMW", "Mercedes-Benz",
+    "Audi", "Volkswagen", "Toyota", "Honda", "Nissan", "Hyundai",
+    "Kia", "Fiat", "Mini", "Land Rover", "Jaguar", "Bentley",
+    "Rolls-Royce", "McLaren", "Aston Martin", "MG", "Volvo",
+    "Skoda", "DS", "Alpine"
+  ],
+  "carModels": [
+    "Renault Clio", "Peugeot 208", "Citroën C3", "Volkswagen Golf",
+    "BMW Série 3", "Mercedes-Benz Classe C", "Audi A4", "Toyota Yaris",
+    "Honda Civic", "Nissan Qashqai", "Hyundai Tucson", "Kia Sportage",
+    "Peugeot 208", "Renault Captur", "Mini Cooper",
+    "Land Rover Range Rover", "DS 7", "Peugeot 3008",
+    "Renault Austral", "Citroën C5 Aircross"
+  ],
+  "fuelTypes": [
+    "Essence", "Super", "Diesel", "Électrique", "Hybride",
+    "Hybride rechargeable", "GPL", "Biodiesel", "Hydrogène", "E85"
+  ],
+  "phoneBrands": [
+    "Apple", "Samsung", "Google", "OnePlus", "Nothing", "Xiaomi",
+    "Nokia", "Sony", "Motorola", "Honor", "OPPO", "Realme",
+    "Google Pixel", "TCL", "Huawei"
+  ],
+  "operatingSystems": [
+    "Windows", "macOS", "Linux", "Android", "iOS", "Ubuntu",
+    "ChromeOS", "Fedora", "Debian"
+  ],
+  "programmingLanguages": [
+    "JavaScript", "Python", "Java", "C#", "TypeScript", "Go",
+    "Rust", "C++", "Swift", "Kotlin", "PHP", "Ruby", "Scala",
+    "R", "Dart", "Elixir", "Haskell", "Lua"
+  ],
+  "databases": [
+    "MySQL", "PostgreSQL", "MongoDB", "SQLite", "Oracle",
+    "SQL Server", "Redis", "Cassandra", "MariaDB", "DynamoDB",
+    "CouchDB", "Neo4j", "InfluxDB", "Firebase"
+  ],
+  "browsers": [
+    "Chrome", "Firefox", "Safari", "Edge", "Opera", "Brave", "Vivaldi"
+  ],
+  "socialMedia": [
+    "Instagram", "Facebook", "TikTok", "X", "LinkedIn", "YouTube",
+    "Pinterest", "Snapchat", "WhatsApp", "Reddit", "Threads",
+    "Discord", "Tumblr", "BeReal", "Nextdoor"
+  ],
+  "streamingPlatforms": [
+    "Netflix", "Amazon Prime Video", "Disney+", "Salto",
+    "Molotov TV", "Paramount+", "Apple TV+", "Canal+",
+    "OCS", "MyCanal", "Spotify", "Apple Music", "YouTube Music",
+    "Deezer", "Arte.tv", "France.tv"
+  ],
+  "clothingTypes": [
+    "T-shirt", "Jean", "Robe", "Veste", "Manteau", "Blouse",
+    "Short", "Jupe", "Pull", "Costume", "Chemise", "Débardeur",
+    "Sweat", "Cardigan", "Legging", "Pantalon", "Blazer",
+    "Imperméable", "Poncho", "Jumpsuit", "Gilet", "Écharpe",
+    "Bonnet", "Casquette", "Bottes", "Escarpins", "Baskets"
+  ],
+  "clothingSizes": [
+    "XS", "S", "M", "L", "XL", "XXL", "34", "36", "38",
+    "40", "42", "44", "46", "48", "50"
+  ],
+  "colors": [
+    "Rouge", "Bleu", "Vert", "Jaune", "Noir", "Blanc", "Violet",
+    "Rose", "Orange", "Gris", "Marron", "Turquoise", "Or",
+    "Argent", "Beige", "Marine", "Sarcelle", "Bordeaux",
+    "Corail", "Lavande", "Mauve", "Cyan", "Magenta", "Indigo",
+    "Ivoire", "Anthracite", "Pêche", "Moutarde", "Olive",
+    "Chocolat", "Ambre", "Jade", "Saphir", "Émeraude",
+    "Rouille", "Champagne", "Ardoise"
+  ],
+  "hairColors": [
+    "Noir", "Brun", "Brun foncé", "Brun clair", "Châtain",
+    "Blond", "Roux", "Gris", "Blanc", "Platine"
+  ],
+  "eyeColors": [
+    "Marron", "Bleu", "Vert", "Noisette", "Gris", "Amande", "Noir"
+  ],
+  "religions": [
+    "Christianisme", "Catholicisme", "Protestantisme", "Judaïsme",
+    "Islam", "Hindouisme", "Bouddhisme", "Athée", "Agnostique",
+    "Sans religion", "Sikhisme", "Christianisme orthodoxe"
+  ],
+  "zodiacSigns": [
+    "Bélier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge",
+    "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau",
+    "Poissons"
+  ],
+  "maritalStatus": [
+    "Célibataire", "Marié", "Divorcé", "Veuf", "Séparé",
+    "Pacsé", "En concubinage"
+  ],
+  "bloodTypes": [
+    "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"
+  ],
+  "genders": [
+    "Homme", "Femme", "Non-binaire", "Préfère ne pas préciser"
+  ],
+  "vehicleTypes": [
+    "Berline", "Citadine", "Break", "SUV", "Coupé", "Cabriolet",
+    "Monospace", "Pick-up", "Cross-over", "Électrique",
+    "Utilitaire", "Sportive"
+  ],
+  "planets": [
+    "Mercure", "Vénus", "Terre", "Mars", "Jupiter", "Saturne",
+    "Uranus", "Neptune"
+  ],
+  "weekDays": [
+    "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi",
+    "Samedi", "Dimanche"
+  ],
+  "months": [
+    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+    "Juillet", "Août", "Septembre", "Octobre", "Novembre",
+    "Décembre"
+  ],
+  "seasons": [
+    "Printemps", "Été", "Automne", "Hiver"
+  ],
+  "orderStatus": [
+    "En attente", "En traitement", "Expédié", "Livré",
+    "Annulé", "Retourné", "En transit"
+  ],
+  "movieGenres": [
+    "Action", "Comédie", "Drame", "Horreur", "Romance",
+    "Science-fiction", "Animation", "Documentaire", "Thriller",
+    "Aventure", "Film musical", "Western"
+  ],
+  "bookGenres": [
+    "Fiction", "Romance", "Horreur", "Fantaisie", "Biographie",
+    "Développement personnel", "Thriller", "Poésie",
+    "Littérature jeunesse", "Essai", "Science-fiction",
+    "Polar", "Littérature classique", "BD"
+  ],
+  "schoolSubjects": [
+    "Mathématiques", "Français", "Histoire", "Sciences",
+    "Physique", "Chimie", "Biologie", "Géographie",
+    "Éducation physique", "Arts plastiques", "Musique",
+    "Langues vivantes", "Informatique", "Enseignement moral",
+    "Technologie"
+  ]
+}

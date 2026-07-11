@@ -1,0 +1,45 @@
+{
+  "_description": "German food dictionary",
+  "cuisineTypes": [
+    "Deutsch", "Italienisch", "Chinesisch", "Indisch", "Thailändisch",
+    "Japanisch", "Mexikanisch", "Französisch", "Griechisch", "Türkisch",
+    "Spanisch", "Koreanisch", "Vietnamesisch", "Karibisch", "Äthiopisch",
+    "Libanesisch", "Mediterran", "Amerikanisch", "Afrikanisch", "Indonesisch"
+  ],
+  "dietaryRestrictions": [
+    "Vegetarisch", "Vegan", "Glutenfrei", "Milchfrei", "Nussfrei",
+    "Keto", "Kohlenhydratarm", "Paleo", "Halal", "Koscher",
+    "Niedrig-FODMAP", "Pescetarisch"
+  ],
+  "meals": [
+    "Frühstück", "Brunch", "Mittagessen", "Kaffee und Kuchen",
+    "Abendessen", "Nachspeise", "Snack", "Dessert"
+  ],
+  "restaurants": [
+    "Zum Goldenen Hirsch", "Schweinske", "Gasthof zum Löwen", "Ratskeller",
+    "Wirtshaus am Markt", "Brauhaus", "Biergarten", "Curry 36",
+    "Mustafa's Gemüse Kebap", "Königsee Restaurant", "Schickeria",
+    "Café König", "Ristorante Da Vito", "Asia Wok", "Pizza Bella",
+    "Vapiano", "Hans im Glück", "Frittenwerk", "Lokal",
+    "Einstein Kaffee", "Bäckerei Schüren", "Nordsee"
+  ],
+  "dishes": [
+    "Bratwurst", "Sauerkraut", "Schnitzel", "Spätzle", "Käsespätzle",
+    "Eintopf", "Brezel", "Schwarzbrot", "Rouladen", "Zwiebelkuchen",
+    "Schweinshaxe", "Kartoffelsalat", "Leberkäse", "Currywurst", "Döner",
+    "Maultaschen", "Labskaus", "Grünkohl", "Bergkäse", "Weißwurst",
+    "Obatzda", "Semmelknödel", "Kaiserschmarrn", "Apfelstrudel"
+  ],
+  "drinks": [
+    "Bier", "Weißbier", "Riesling", "Spätburgunder", "Sekt", "Kaffee",
+    "Tee", "Apfelschorle", "Spezi", "Glühwein", "Eierlikör",
+    "Jägermeister", "Rothaus", "Astra", "Becks", "Krombacher",
+    "Bitburger", "Warsteiner", "Veltins"
+  ],
+  "desserts": [
+    "Schwarzwälder Kirschtorte", "Apfelstrudel", "Bienenstich",
+    "Dampfnudel", "Rote Grütze", "Kaiserschmarrn", "Pflaumenkuchen",
+    "Streuselkuchen", "Marzipan", "Lebkuchen", "Dominosteine",
+    "Aachener Printen", "Frankfurter Brentzen", "Schneeballen"
+  ]
+}

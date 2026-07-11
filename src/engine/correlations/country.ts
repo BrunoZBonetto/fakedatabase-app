@@ -49,10 +49,11 @@ export function getCountryCorrelation(locale: string): {
   timezone: Record<string, string[]>;
 } {
   const isEn = locale.startsWith('en');
+  const isFr = locale === 'fr-FR';
   return {
     currency: COUNTRY_CURRENCY,
-    nationality: isEn ? COUNTRY_NATIONALITY_EN : COUNTRY_NATIONALITY,
-    language: isEn ? COUNTRY_LANGUAGE_EN : COUNTRY_LANGUAGE,
+    nationality: isFr ? COUNTRY_NATIONALITY : isEn ? COUNTRY_NATIONALITY_EN : COUNTRY_NATIONALITY,
+    language: isFr ? COUNTRY_LANGUAGE : isEn ? COUNTRY_LANGUAGE_EN : COUNTRY_LANGUAGE,
     timezone: COUNTRY_TIMEZONE,
   };
 }

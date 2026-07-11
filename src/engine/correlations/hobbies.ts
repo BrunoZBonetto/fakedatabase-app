@@ -22,7 +22,19 @@ const HOBBY_EQUIPMENT_EN: Record<string, string[]> = {
   'Gardening': ['Gloves', 'Shovel', 'Rake', 'Pruners', 'Watering Can', 'Potting Soil', 'Wheelbarrow'],
 };
 
+const HOBBY_EQUIPMENT_FR: Record<string, string[]> = {
+  'Photographie': ['Appareil photo', 'Objectif', 'Trépied', 'Drone', 'Flash', 'Carte mémoire', 'Logiciel de retouche'],
+  'Randonnée': ['Chaussures de rando', 'Sac à dos', 'Gourde', 'Veste de pluie', 'Chapeau', 'Bâtons de marche', 'Trousse de secours'],
+  'Course à pied': ['Chaussures de course', 'Montre GPS', 'Short de course', 'Gourde', 'Écouteurs', 'Chaussettes techniques'],
+  'Yoga': ['Tapis', 'Vêtements de yoga', 'Bloc', 'Sangle', 'Bolster', 'Gourde', 'Serviette'],
+  'Camping': ['Tente', 'Sac de couchage', 'Lampe', 'Réchaud', 'Sac à dos', 'Corde', 'Allumettes'],
+  'Escalade': ['Chaussures d\'escalace', 'Casque', 'Corde', 'Mousqueton', 'Chaussures', 'Sac à dos', 'Magnésie'],
+  'Cyclisme': ['Casque', 'Short cycliste', 'Gants', 'Pompe', 'Éclairage', 'Gourde', 'Multi-outil'],
+  'Jardinage': ['Gants', 'Pelle', 'Râteau', 'Sécateur', 'Arrosoir', 'Terreau', 'Brouette'],
+};
+
 export function getHobbyEquipmentMap(locale: string): Record<string, string[]> {
   if (locale.startsWith('pt')) return HOBBY_EQUIPMENT_PT;
+  if (locale === 'fr-FR') return HOBBY_EQUIPMENT_FR;
   return HOBBY_EQUIPMENT_EN;
 }

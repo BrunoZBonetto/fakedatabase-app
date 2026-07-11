@@ -1,0 +1,41 @@
+{
+  "_description": "German entertainment dictionary",
+  "games": [
+    "Minecraft", "Fortnite", "FIFA", "EA FC 24", "Grand Theft Auto V",
+    "Call of Duty", "Red Dead Redemption 2", "The Sims 4", "Elden Ring",
+    "Baldur's Gate 3", "Hogwarts Legacy", "Assassin's Creed", "GTA Online",
+    "Rocket League", "Among Us", "Fall Guys", "Animal Crossing", "Halo",
+    "Civilization VI", "The Legend of Zelda", "God of War", "Gran Turismo",
+    "Forza Horizon", "Football Manager", "Total War", "Doom Eternal",
+    "Resident Evil", "Horizon Forbidden West", "Spider-Man", "Starfield",
+    "Palworld", "Counter-Strike 2", "Valorant", "League of Legends"
+  ],
+  "gameGenres": [
+    "Action", "Abenteuer", "RPG", "FPS", "Strategie", "Simulation",
+    "Sport", "Rennen", "Battle Royale", "MOBA", "Sandbox", "Horror",
+    "Puzzle", "Platformer", "Kampf", "Stealth", "Überleben", "MMORPG"
+  ],
+  "movies": [
+    "Das Leben der Anderen", "Good Bye Lenin", "Lola rennt", "Der Untergang",
+    "Das Boot", "Metropolis", "Nosferatu", "Wings of Desire",
+    "The Tin Drum", "Run Lola Run", "Downfall", "The Lives of Others",
+    "Head-On", "The Baader Meinhof Complex", "Inglourious Basterds"
+  ],
+  "series": [
+    "Dark", "Babylon Berlin", "Deutschland 83", "How to Sell Drugs Online",
+    "Biohackers", "Tribes of Europa", "The Signal", "Perfume",
+    "You Are Wanted", "Charité", "Ku'damm 56", "Der Alte", "Tatort",
+    "Stromberg", "Pastewka"
+  ],
+  "musicGenres": [
+    "Schlager", "Deutschrap", "Volksmusik", "Krautrock", "NDW", "Pop",
+    "Rock", "Elektronisch", "Klassik", "Jazz", "Metal", "Punk", "Indie",
+    "Hip-Hop", "Reggae", "Blues", "Folk", "Country", "Soul", "R&B"
+  ],
+  "sports": [
+    "Fußball", "Handball", "Tennis", "Eishockey", "Ski", "Leichtathletik",
+    "Schwimmen", "Boxen", "Fechten", "Rudern", "Bob", "Biathlon", "Rodeln",
+    "Bouldern", "Volleyball", "Basketball", "Badminton", "Tischtennis",
+    "Golf", "Reiten"
+  ]
+}

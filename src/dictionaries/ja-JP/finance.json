@@ -1,0 +1,25 @@
+{
+  "_description": "Japanese financial data dictionary",
+  "banks": [
+    {"name": "三菱UFJ銀行", "code": "90000"},
+    {"name": "三井住友銀行", "code": "90000"},
+    {"name": "みずほ銀行", "code": "90000"},
+    {"name": "りそな銀行", "code": "90000"},
+    {"name": "ゆうちょ銀行", "code": "90000"},
+    {"name": "楽天銀行", "code": "90000"},
+    {"name": "PayPay銀行", "code": "90000"},
+    {"name": "ソニー銀行", "code": "90000"},
+    {"name": "住信SBIネット銀行", "code": "90000"},
+    {"name": "GMOあおぞら銀行", "code": "90000"}
+  ],
+  "currencies": [
+    {"code": "JPY", "name": "Japanese Yen", "symbol": "¥"}
+  ],
+  "paymentMethods": [
+    "現金", "クレジットカード", "デビットカード", "電子マネー", "PayPay",
+    "Suica", "PASMO", "nanaco", "WAON", "d払い", "au PAY",
+    "QRコード決済", "銀行振込", "コンビニ決済"
+  ],
+  "creditCardFlags": ["Visa", "Mastercard", "JCB", "American Express", "Diners Club", "Discover"],
+  "statusOptions": ["保留中", "承認済み", "却下", "処理中", "完了", "キャンセル"]
+}

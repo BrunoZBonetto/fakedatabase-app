@@ -1,0 +1,18 @@
+{
+  "_description": "German health data dictionary",
+  "allergies": [
+    "Pollen", "Hausstaubmilben", "Tierhaare", "Erdnüsse", "Milch", "Eier",
+    "Weizen", "Meeresfrüchte", "Penicillin", "Latex", "Insektenstiche",
+    "Pilze", "Soja", "Haselnüsse", "Sesam"
+  ],
+  "diseases": [
+    "Bluthochdruck", "Diabetes", "Asthma", "Arthritis", "Allergie",
+    "Migräne", "Schlaflosigkeit", "Angststörung", "Depression",
+    "Cholesterin", "Säurereflux", "Ekzem", "Psoriasis"
+  ],
+  "medications": [
+    "Aspirin", "Ibuprofen", "Paracetamol", "Metformin", "Ramipril",
+    "Atorvastatin", "Omeprazol", "Cetirizin", "Amoxicillin", "Duloxetin",
+    "Metoprolol", "Levothyrox"
+  ]
+}

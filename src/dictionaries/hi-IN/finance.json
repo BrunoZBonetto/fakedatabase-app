@@ -1,0 +1,31 @@
+{
+  "_description": "Hindi (Indian) financial data dictionary",
+  "banks": [
+    {"name": "State Bank of India", "code": "90000"},
+    {"name": "HDFC Bank", "code": "90000"},
+    {"name": "ICICI Bank", "code": "90000"},
+    {"name": "Axis Bank", "code": "90000"},
+    {"name": "Kotak Mahindra Bank", "code": "90000"},
+    {"name": "Punjab National Bank", "code": "90000"},
+    {"name": "Bank of Baroda", "code": "90000"},
+    {"name": "Canara Bank", "code": "90000"},
+    {"name": "Union Bank", "code": "90000"},
+    {"name": "IDBI Bank", "code": "90000"}
+  ],
+  "currencies": [
+    {"code": "INR", "symbol": "₹", "name": "Indian Rupee"}
+  ],
+  "paymentMethods": [
+    "UPI", "NEFT", "RTGS", "IMPS", "Credit Card", "Debit Card",
+    "Net Banking", "Paytm", "PhonePe", "Google Pay", "BHIM",
+    "Cash", "Cheque", "Demand Draft"
+  ],
+  "creditCardFlags": [
+    "Visa Debit", "Visa Credit", "Mastercard Debit", "Mastercard Credit",
+    "American Express", "RuPay", "Diners Club", "Discover"
+  ],
+  "statusOptions": [
+    "लंबित", "स्वीकृत", "अस्वीकृत", "प्रगति में", "पूर्ण", "रद्द",
+    "भुगतान किया गया", "बकाया", "विवाद में", "वापस किया गया"
+  ]
+}

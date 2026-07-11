@@ -1,0 +1,20 @@
+{
+  "_description": "Irish personal characteristics dictionary",
+  "ethnicities": [
+    "White Irish", "White Irish Traveller", "Irish Romani", "Black or Black Irish",
+    "Asian or Asian Irish", "Other", "Not stated"
+  ],
+  "nationalities": [
+    "Irish", "British", "American", "French", "German", "Spanish", "Italian",
+    "Polish", "Lithuanian", "Australian", "Canadian", "Indian", "South African",
+    "Brazilian", "Chinese", "Nigerian", "Pakistani", "Bangladeshi"
+  ],
+  "naturalness": [
+    "Dublin", "Cork", "Galway", "Limerick", "Waterford", "Drogheda",
+    "Dundalk", "Sligo", "Kilkenny", "Wexford", "Tralee", "Athlone",
+    "Castlebar", "Letterkenny", "Ennis", "Navan", "Newbridge", "Bray",
+    "Wicklow", "Carlow"
+  ],
+  "suffixes": ["Jr.", "Sr.", "II", "III", "PhD", "MBE"],
+  "titles": ["Mr.", "Mrs.", "Ms.", "Miss", "Dr.", "Prof.", "Rev.", "Sir", "Dame"]
+}

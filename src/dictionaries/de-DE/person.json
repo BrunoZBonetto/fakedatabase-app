@@ -1,0 +1,19 @@
+{
+  "_description": "German personal characteristics dictionary",
+  "ethnicities": [
+    "Deutsch", "Deutsch-türkisch", "Deutsch-arabisch", "Deutsch-russisch",
+    "Europäisch", "Afrikanisch", "Asiatisch", "Lateinamerikanisch",
+    "Gemischte Herkunft", "Sonstige"
+  ],
+  "nationalities": [
+    "Deutscher", "Deutsche", "Österreicher", "Schweizer", "Franzose",
+    "Niederländer", "Europäer", "Amerikaner", "Brite", "Italiener"
+  ],
+  "naturalness": [
+    "Berlin", "Hamburg", "München", "Köln", "Frankfurt", "Stuttgart",
+    "Düsseldorf", "Leipzig", "Dortmund", "Essen", "Bremen", "Dresden",
+    "Hannover", "Nürnberg", "Duisburg"
+  ],
+  "suffixes": ["Jr.", "Sr.", "II", "III", "PhD"],
+  "titles": ["Herr", "Frau", "Dr.", "Prof.", "Dipl.-Ing.", "Mag.", "Dipl.-Kfm."]
+}
