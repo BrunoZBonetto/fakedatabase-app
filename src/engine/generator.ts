@@ -791,12 +791,12 @@ const COUNTRY_TIMEZONE: Record<string, string[]> = {
 };
 
 const GENDER_TITLE_PT: Record<string, string[]> = {
-  'Masculino': ['Sr.','Dr.','Prof.','Eng.','Arq.'],
-  'Feminino': ['Sra.','Srta.','Dra.','Profa.','Enga.','Arqa.'],
+  'Masculino': ['Sr.','Dr.','Prof.','Eng.','Arq.','Doutor','Professor','Engenheiro','Arquiteto','Senhor'],
+  'Feminino': ['Sra.','Srta.','Dra.','Profa.','Enga.','Arqa.','Doutora','Professora','Engenheira','Arquiteta','Senhorita'],
 };
 const GENDER_TITLE_EN: Record<string, string[]> = {
-  'Male': ['Mr.','Dr.','Prof.'],
-  'Female': ['Ms.','Mrs.','Dr.','Prof.'],
+  'Male': ['Mr.','Sir','Lord','Dr.','Prof.','Gentleman'],
+  'Female': ['Ms.','Mrs.','Lady','Dame','Dr.','Prof.','Madam'],
 };
 
 const CATEGORY_PRICE_PT: Record<string, [number, number]> = {
@@ -1211,13 +1211,29 @@ class FakeDataGenerator {
     // ===== CORRELATION ENGINE =====
     // Pre-populate ctx with coherent cross-field values before individual generators run.
 
-    // Gender → title (must run before Gender → first name so ctx._gender is known)
-    if (fields.includes('title')) {
-      const _gender = ctx._gender ?? randomPick(d.categories.genders);
-      ctx._gender = _gender;
-      const _titleMap = isEN ? GENDER_TITLE_EN : GENDER_TITLE_PT;
-      const _titles = _titleMap[_gender];
-      if (_titles) ctx._title = randomPick(_titles);
+    // Gender ↔ title (bidirectional)
+    if (fields.includes('title') || fields.includes('gender')) {
+      const hasFirstName = fields.includes('firstName') || fields.includes('fullName') || fields.includes('email') || fields.includes('nickname') || fields.includes('motherName');
+      const hasMaleName = fields.includes('firstNameMale');
+      const hasFemaleName = fields.includes('firstNameFemale');
+
+      // If name fields already set a specific gender, respect it
+      if (!ctx._gender) {
+        if (hasMaleName && !hasFemaleName) {
+          ctx._gender = isEN ? 'Male' : 'Masculino';
+        } else if (hasFemaleName && !hasMaleName) {
+          ctx._gender = isEN ? 'Female' : 'Feminino';
+        } else {
+          ctx._gender = randomPick(d.categories.genders);
+        }
+      }
+
+      // Pick title matching the resolved gender
+      if (fields.includes('title')) {
+        const _titleMap = isEN ? GENDER_TITLE_EN : GENDER_TITLE_PT;
+        const _titles = _titleMap[ctx._gender];
+        if (_titles) ctx._title = randomPick(_titles);
+      }
     }
 
     // Gender → first name
@@ -2065,7 +2081,7 @@ class FakeDataGenerator {
       orderStatus:       () => randomPick(d.categories.orderStatus),
       schoolSubject:     () => randomPick(d.categories.schoolSubjects),
       suffix:         () => randomPick(d.person.suffixes),
-      title:          () => ctx?._title ?? randomPick(d.person.titles),
+      title:          () => ctx?._title ?? randomPick(isEN ? GENDER_TITLE_EN['Male'].concat(GENDER_TITLE_EN['Female']) : GENDER_TITLE_PT['Masculino'].concat(GENDER_TITLE_PT['Feminino'])),
       motherName:     () => `${randomPick(d.names.firstName[nameFemaleKey])} ${randLN()}`,
       fatherName:     () => `${randomPick(d.names.firstName[nameMaleKey])} ${randLN()}`,
       ethnicity:      () => ctx?._ethnicity ?? randomPick(d.person.ethnicities),
