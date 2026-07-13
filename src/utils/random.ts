@@ -10,6 +10,38 @@ export const randomPick = <T>(arr: T[]): T =>
 export const randomBool = () =>
   Math.random() >= 0.5;
 
+// ─── Mulberry32 PRNG (seeded) ────────────────────────────────
+
+function mulberry32(seed: number) {
+  let t = seed | 0;
+  return () => {
+    t = (t + 0x6D2B79F5) | 0;
+    let x = Math.imul(t ^ (t >>> 15), 1 | t);
+    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
+    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+export interface SeededRandom {
+  random: () => number;
+  int: (min: number, max: number) => number;
+  pick: <T>(arr: T[]) => T;
+  bool: () => boolean;
+  date: (start?: Date, end?: Date) => Date;
+}
+
+export function createSeededRandom(seed: number): SeededRandom {
+  const rng = mulberry32(seed);
+  return {
+    random: rng,
+    int: (min: number, max: number) => Math.floor(rng() * (max - min + 1)) + min,
+    pick: <T>(arr: T[]): T => arr[Math.floor(rng() * arr.length)],
+    bool: () => rng() >= 0.5,
+    date: (start = new Date(1950, 0, 1), end = new Date()) =>
+      new Date(start.getTime() + rng() * (end.getTime() - start.getTime())),
+  };
+}
+
 /** Gera um CPF válido (formato: XXX.XXX.XXX-XX) */
 export const generateCPF = () => {
   const n = Array.from({ length: 9 }, () => randomInt(0, 9));

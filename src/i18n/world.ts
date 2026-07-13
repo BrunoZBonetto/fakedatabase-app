@@ -1,7 +1,7 @@
-const enGB = {
+const world = {
   app: {
-    title: '🗄️ Fake Database — UK Edition',
-    subtitle: 'Generate realistic fake data with British locale settings',
+    title: '🗄️ Fake Database — World',
+    subtitle: 'Generate realistic fake data from multiple regions worldwide — export to CSV, Excel, JSON, SQL, XML and YAML.',
   },
   dataGenerator: {
     records: 'Records:',
@@ -48,10 +48,10 @@ const enGB = {
       outros: { icon: '📦', label: 'Other' },
     },
     fields: {
-      id: 'ID', uuid: 'UUID', cpf: 'SSN', cnpj: 'EIN', rg: 'Driver License',
+      id: 'ID', uuid: 'UUID', cpf: 'SSN / CPF', cnpj: 'EIN / CNPJ', rg: 'ID Document',
       firstName: 'First Name', firstNameMale: 'First Name (Male)', firstNameFemale: 'First Name (Female)',
       lastName: 'Last Name', fullName: 'Full Name', nickname: 'Nickname',
-      suffix: 'Suffix (Jr., Sr.)', title: 'Title (Mr., Dr.)', motherName: 'Mother Name', fatherName: 'Father Name',
+      suffix: 'Suffix', title: 'Title', motherName: 'Mother Name', fatherName: 'Father Name',
       email: 'Email', phone: 'Cell Phone', phoneFixo: 'Home Phone', website: 'Website', linkedin: 'LinkedIn',
       socialMedia: 'Social Media', streamingPlatform: 'Streaming Platform', browser: 'Browser',
       ipAddress: 'IP Address', macAddress: 'MAC Address', userAgent: 'User Agent', hostname: 'Hostname',
@@ -60,12 +60,12 @@ const enGB = {
       continent: 'Continent', language: 'Language', timezone: 'Timezone', latitude: 'Latitude', longitude: 'Longitude',
       company: 'Company', sector: 'Sector', position: 'Position', area: 'Department',
       profession: 'Profession', education: 'Education', seniority: 'Seniority', salary: 'Salary',
-      bank: 'Bank', bankCode: 'Routing Number', currency: 'Currency', paymentMethod: 'Payment Method',
+      bank: 'Bank', bankCode: 'Bank Code', currency: 'Currency', paymentMethod: 'Payment Method',
       status: 'Status', amount: 'Amount', price: 'Price',
       orderStatus: 'Order Status', discount: 'Discount (%)', tax: 'Tax (%)',
       creditCardFlag: 'Card Network', creditCardNumber: 'Credit Card Number',
       invoiceNumber: 'Invoice Number', shippingMethod: 'Shipping Method', trackingCode: 'Tracking Code',
-      date: 'Date (US)', dateUS: 'Date (ISO)', dateTime: 'Date Time', birthDate: 'Birth Date',
+      date: 'Date', dateUS: 'Date (ISO)', dateTime: 'Date Time', birthDate: 'Birth Date',
       year: 'Year', weekDay: 'Week Day', month: 'Month', season: 'Season',
       time: 'Time', timestamp: 'Unix Timestamp', dueDate: 'Due Date', paymentDate: 'Payment Date',
       age: 'Age', quantity: 'Quantity', percentage: 'Percentage', rating: 'Rating',
@@ -80,7 +80,7 @@ const enGB = {
       licensePlate: 'License Plate', renavam: 'VIN', chassi: 'Chassis Number', carYear: 'Car Year',
       food: 'Food', drink: 'Drink', fruit: 'Fruit', cuisineType: 'Cuisine Type',
       dietaryRestriction: 'Dietary Restriction', meal: 'Meal', restaurant: 'Restaurant',
-      bloodType: 'Blood Type', height: 'Height (ft)', weight: 'Weight (lbs)',
+      bloodType: 'Blood Type', height: 'Height', weight: 'Weight',
       bloodPressure: 'Blood Pressure', heartRate: 'Heart Rate (bpm)',
       allergy: 'Allergy', disease: 'Medical Condition', medication: 'Medication',
       schoolSubject: 'School Subject', university: 'University', course: 'Degree Program', degreeType: 'Degree', grade: 'Grade',
@@ -109,7 +109,7 @@ const enGB = {
     page: 'Page {page} of {total}',
     copiedToast: 'Copied to clipboard!',
   },
-  headerSponsor: '❤️ Sponsor this project',
+  headerSponsor: '❤️ Become a sponsor',
   sponsorBanner: {
     freeText: '❤️ This tool is built with love and dedication.',
     buttonText: '💡 Help keep this tool free for everyone',
@@ -222,4 +222,4 @@ const enGB = {
   },
 };
 
-export default enGB;
+export default world;

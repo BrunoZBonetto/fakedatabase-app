@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import FakeDataGenerator from '../engine/generator';
-import address from '../dictionaries/address.json';
+import world from '../dictionaries/world.json';
 
 const generator = new FakeDataGenerator();
+const brCities = (world.countries as any).BR.cities as { name: string; state: string }[];
 
 describe('FakeDataGenerator', () => {
   it('generates the requested number of records', () => {
@@ -26,7 +27,7 @@ describe('FakeDataGenerator', () => {
   it('correlates city and state', () => {
     const result = generator.generate(['city', 'state'], 50) as Record<string, string>[];
     for (const row of result) {
-      const match = address.cities.find((c: any) => c.name === row.city);
+      const match = brCities.find((c) => c.name === row.city);
       expect(match).toBeDefined();
       expect(match!.state).toBe(row.state);
     }

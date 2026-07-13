@@ -104,9 +104,13 @@ body {
   padding: 0 8px;
   cursor: pointer;
   font-size: 0.85rem;
-  color: var(--text-primary);
+  color: var(--text);
   transition: all 0.2s;
   outline: none;
+}
+.locale-select option {
+  background: var(--bg-card);
+  color: var(--text);
 }
 .locale-select:hover,
 .locale-select:focus {
@@ -118,6 +122,12 @@ body {
   display: grid;
   grid-template-columns: 340px 1fr;
   gap: 24px;
+}
+.main-layout.relational-mode {
+  grid-template-columns: 1fr;
+}
+.main-layout.relational-mode .sidebar {
+  display: none;
 }
 @media (max-width: 900px) {
   .main-layout { grid-template-columns: 1fr; }
@@ -1070,5 +1080,347 @@ th {
   }
   .control-group input { width: 100%; }
   .range-group { min-width: 0; flex: 1 1 100px; }
+}
+
+/* ===== Relational Mode ===== */
+.mode-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+  max-width: 340px;
+}
+.mode-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.mode-btn.active {
+  background: var(--primary);
+  color: #fff;
+}
+.mode-btn:hover:not(.active) {
+  background: var(--bg-input);
+  color: var(--text);
+}
+.beta-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  line-height: 1;
+}
+.mode-btn.active .beta-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.relational-config {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  min-width: 0;
+}
+.relational-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.relational-entities {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.relational-entity-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+.entity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.entity-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--primary-bg);
+  color: var(--primary);
+}
+.entity-fields {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.entity-fields .field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 140px;
+}
+.entity-fields .field-row label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.entity-fields .field-row select,
+.entity-fields .field-row input {
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.btn-add-entity,
+.btn-add-relation {
+  width: 100%;
+  padding: 8px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+.btn-add-entity:hover,
+.btn-add-relation:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+
+.btn-icon-sm {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.btn-icon-sm:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.relational-relations {
+  margin-bottom: 16px;
+}
+.relations-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.relations-header h4 {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.btn-detect {
+  padding: 4px 10px;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-detect:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.relation-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 8px;
+}
+.relation-fields {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.relation-fields .field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+}
+.relation-fields .field-row label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.relation-fields .field-row select,
+.relation-fields .field-row input {
+  padding: 5px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.8rem;
+}
+.relation-arrow {
+  font-size: 1.2rem;
+  color: var(--primary);
+  font-weight: 700;
+  padding-bottom: 4px;
+}
+.relation-cardinality {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.no-relations {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 12px;
+  text-align: center;
+}
+.ambiguous-warning {
+  font-size: 0.8rem;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+
+.relational-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.relational-summary {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 16px;
+}
+.summary-line {
+  font-size: 0.85rem;
+  color: var(--text);
+  padding: 4px 0;
+}
+
+/* Relational Output */
+.relational-output {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  overflow: hidden;
+  min-width: 0;
+}
+.validation-banner {
+  margin-bottom: 12px;
+}
+.validation-error {
+  padding: 8px 12px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius);
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+.validation-warning {
+  padding: 8px 12px;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: var(--radius);
+  color: #fbbf24;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+.entity-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 16px;
+}
+.entity-tab {
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.entity-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+.entity-tab:hover:not(.active) {
+  color: var(--text);
+}
+.export-buttons {
+  display: flex;
+  gap: 6px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.btn-export {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-export:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn-export:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 

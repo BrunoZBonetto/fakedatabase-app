@@ -3,14 +3,12 @@ import ptBR from '../i18n/pt-BR';
 import enUS from '../i18n/en-US';
 import enGB from '../i18n/en-GB';
 import frFR from '../i18n/fr-FR';
-import deDE from '../i18n/de-DE';
 import enIE from '../i18n/en-IE';
-import hiIN from '../i18n/hi-IN';
-import jaJP from '../i18n/ja-JP';
+import world from '../i18n/world';
 
 export type Locale = string;
 
-const labelsMap: Record<string, typeof ptBR> = { 'pt-BR': ptBR, 'en-US': enUS, 'en-GB': enGB, 'fr-FR': frFR, 'de-DE': deDE, 'en-IE': enIE, 'hi-IN': hiIN, 'ja-JP': jaJP };
+const labelsMap: Record<string, typeof ptBR> = { 'pt-BR': ptBR, 'en-US': enUS, 'en-GB': enGB, 'fr-FR': frFR, 'en-IE': enIE, 'world': world };
 
 type Labels = typeof ptBR;
 
@@ -25,10 +23,8 @@ export const LOCALE_OPTIONS: LocaleOption[] = [
   { code: 'en-US', flag: '🇺🇸', label: 'English (US)' },
   { code: 'en-GB', flag: '🇬🇧', label: 'English (UK)' },
   { code: 'fr-FR', flag: '🇫🇷', label: 'Français (FR)' },
-  { code: 'de-DE', flag: '🇩🇪', label: 'Deutsch (DE)' },
   { code: 'en-IE', flag: '🇮🇪', label: 'English (IE)' },
-  { code: 'hi-IN', flag: '🇮🇳', label: 'हिन्दी (IN)' },
-  { code: 'ja-JP', flag: '🇯🇵', label: '日本語 (JP)' },
+  { code: 'world', flag: '🌍', label: 'World' },
 ];
 
 interface LocaleContextValue {
