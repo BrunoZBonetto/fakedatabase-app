@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useLocale } from '../hooks/useLocale';
+import { useAnalytics } from '../utils/analytics';
+import SponsorModal from './SponsorModal';
 import {
   toRelationalSQL,
   toRelationalJSON,
@@ -18,15 +20,22 @@ interface Props {
 export default function RelationalOutput({ entities, entityOrder, relations, validation }: Props) {
   const { t } = useLocale();
   const r = t.relational;
+  const analytics = useAnalytics();
   const [activeTab, setActiveTab] = useState(entityOrder[0] || '');
   const [page, setPage] = useState(0);
   const [exporting, setExporting] = useState(false);
+  const [showSponsorModal, setShowSponsorModal] = useState(false);
 
   const PAGE_SIZE = 50;
   const activeData = entities.get(activeTab) || [];
   const activeColumns = activeData.length > 0 ? Object.keys(activeData[0]) : [];
   const totalPages = Math.ceil(activeData.length / PAGE_SIZE);
   const pageData = activeData.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+
+  const withSponsorModal = (fn: () => void) => () => {
+    setShowSponsorModal(true);
+    fn();
+  };
 
   const downloadBlob = (data: ArrayBuffer | Blob, filename: string, mimeType: string) => {
     const blob = data instanceof Blob ? data : new Blob([data], { type: mimeType });
@@ -39,23 +48,27 @@ export default function RelationalOutput({ entities, entityOrder, relations, val
   };
 
   const handleExportSQL = () => {
+    analytics.trackDownload('sql');
     const sql = toRelationalSQL(entities, entityOrder, relations);
     const blob = new Blob([sql], { type: 'text/sql' });
     downloadBlob(blob, 'relational_data.sql', 'text/sql');
   };
 
   const handleExportJSON = () => {
+    analytics.trackDownload('json');
     const json = toRelationalJSON(entities, entityOrder);
     const blob = new Blob([json], { type: 'application/json' });
     downloadBlob(blob, 'relational_data.json', 'application/json');
   };
 
   const handleExportXLSX = () => {
+    analytics.trackDownload('xlsx');
     const buf = toRelationalXLSX(entities, entityOrder);
     downloadBlob(buf, 'relational_data.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
   };
 
   const handleExportZIP = async () => {
+    analytics.trackDownload('zip');
     setExporting(true);
     try {
       const blob = await toRelationalZIP(entities, entityOrder, relations);
@@ -66,6 +79,7 @@ export default function RelationalOutput({ entities, entityOrder, relations, val
   };
 
   const handleExportCSV = () => {
+    analytics.trackDownload('csv');
     for (const key of entityOrder) {
       const data = entities.get(key) || [];
       if (data.length === 0) continue;
@@ -102,20 +116,32 @@ export default function RelationalOutput({ entities, entityOrder, relations, val
         </div>
       )}
 
-      <div className="entity-tabs">
-        {entityOrder.map(key => {
-          const preset = t.templateSelector.presets[key];
-          const count = entities.get(key)?.length || 0;
-          return (
-            <button
-              key={key}
-              className={`entity-tab${activeTab === key ? ' active' : ''}`}
-              onClick={() => { setActiveTab(key); setPage(0); }}
-            >
-              {preset?.name || key} ({count})
-            </button>
-          );
-        })}
+      <div className="output-header">
+        <div className="entity-tabs">
+          {entityOrder.map(key => {
+            const preset = t.templateSelector.presets[key];
+            const count = entities.get(key)?.length || 0;
+            return (
+              <button
+                key={key}
+                className={`entity-tab${activeTab === key ? ' active' : ''}`}
+                onClick={() => { setActiveTab(key); setPage(0); }}
+              >
+                {preset?.name || key} ({count})
+              </button>
+            );
+          })}
+        </div>
+        <div className="output-actions">
+          <button className="btn-download" onClick={withSponsorModal(handleExportSQL)}>{r.output.exportSQL}</button>
+          <button className="btn-download" onClick={withSponsorModal(handleExportJSON)}>{r.output.exportJSON}</button>
+          <button className="btn-download" onClick={withSponsorModal(handleExportXLSX)}>{r.output.exportXLSX}</button>
+          <button className="btn-download" onClick={withSponsorModal(handleExportCSV)}>{r.output.exportCSV}</button>
+          <button className="btn-download" onClick={withSponsorModal(handleExportZIP)} disabled={exporting}>
+            {exporting ? '⏳...' : r.output.exportZIP}
+          </button>
+        </div>
+        {showSponsorModal && <SponsorModal onClose={() => setShowSponsorModal(false)} />}
       </div>
 
       <div className="output-table-wrapper">
@@ -150,16 +176,6 @@ export default function RelationalOutput({ entities, entityOrder, relations, val
           </button>
         </div>
       )}
-
-      <div className="export-buttons">
-        <button className="btn-export" onClick={handleExportSQL}>{r.output.exportSQL}</button>
-        <button className="btn-export" onClick={handleExportJSON}>{r.output.exportJSON}</button>
-        <button className="btn-export" onClick={handleExportXLSX}>{r.output.exportXLSX}</button>
-        <button className="btn-export" onClick={handleExportCSV}>{r.output.exportCSV}</button>
-        <button className="btn-export" onClick={handleExportZIP} disabled={exporting}>
-          {exporting ? '⏳...' : r.output.exportZIP}
-        </button>
-      </div>
     </div>
   );
 }

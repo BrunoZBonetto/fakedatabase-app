@@ -134,7 +134,7 @@ body {
 }
 
 .sidebar { display: flex; flex-direction: column; gap: 16px; }
-.content { display: flex; flex-direction: column; gap: 16px; }
+.content { display: flex; flex-direction: column; gap: 16px; min-width: 0; overflow: hidden; }
 
 /* ===== Controles ===== */
 .controls {
@@ -1455,52 +1455,40 @@ th {
   font-size: 0.85rem;
   margin-bottom: 4px;
 }
-.entity-tabs {
+.relational-output .entity-tabs {
   display: flex;
   gap: 0;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: 16px;
+  border-bottom: none;
+  margin-bottom: 0;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow-x: auto;
 }
-.entity-tab {
+.relational-output .entity-tab {
   padding: 8px 16px;
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
+  margin-bottom: 0;
   color: var(--text-muted);
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap;
 }
-.entity-tab.active {
+.relational-output .entity-tab.active {
   color: var(--primary);
   border-bottom-color: var(--primary);
 }
-.entity-tab:hover:not(.active) {
+.relational-output .entity-tab:hover:not(.active) {
   color: var(--text);
 }
-.export-buttons {
+.relational-output .output-actions {
   display: flex;
   gap: 6px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-}
-.btn-export {
-  background: var(--bg-input);
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 6px 12px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: all 0.2s;
-  white-space: nowrap;
   flex-shrink: 0;
-}
-.btn-export:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  flex-wrap: wrap;
 }
 .btn-export:disabled {
   opacity: 0.5;
