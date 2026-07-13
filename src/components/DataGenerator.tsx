@@ -195,19 +195,30 @@ export default function DataGenerator() {
         </div>
       </header>
 
-      <div className="mode-toggle">
-        <button
-          className={`mode-btn${mode === 'simple' ? ' active' : ''}`}
-          onClick={() => setMode('simple')}
-        >
-          {t.relational.simple}
-        </button>
-        <button
-          className={`mode-btn${mode === 'relational' ? ' active' : ''}`}
-          onClick={() => setMode('relational')}
-        >
-          {t.relational.relational} <span className="beta-badge">Beta</span>
-        </button>
+      <div className="mode-toggle-row">
+        <div className="mode-toggle">
+          <button
+            className={`mode-btn${mode === 'simple' ? ' active' : ''}`}
+            onClick={() => setMode('simple')}
+          >
+            {t.relational.simple}
+          </button>
+          <button
+            className={`mode-btn${mode === 'relational' ? ' active' : ''}`}
+            onClick={() => setMode('relational')}
+          >
+            {t.relational.relational} <span className="beta-badge">Beta</span>
+          </button>
+        </div>
+        {mode === 'relational' && (
+          <button
+            className="btn-generate-inline"
+            onClick={() => document.querySelector<HTMLButtonElement>('.relational-config .btn-generate')?.click()}
+            disabled={isGenerating}
+          >
+            {isGenerating ? t.relational.generating : t.relational.generate}
+          </button>
+        )}
       </div>
 
       <div className={`main-layout${mode === 'relational' ? ' relational-mode' : ''}`}>

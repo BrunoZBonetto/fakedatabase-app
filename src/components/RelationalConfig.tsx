@@ -31,6 +31,10 @@ export default function RelationalConfigPanel({ onGenerate, isGenerating }: Prop
   const [errorRate, setErrorRate] = useState(0);
   const [seed, setSeed] = useState<string>('');
   const [ambiguousWarning, setAmbiguousWarning] = useState<string | null>(null);
+  const [entitiesOpen, setEntitiesOpen] = useState(true);
+  const [relationsOpen, setRelationsOpen] = useState(true);
+  const [configOpen, setConfigOpen] = useState(false);
+  const [summaryOpen, setSummaryOpen] = useState(false);
 
   const addEntity = () => {
     if (entities.length >= MAX_ENTITIES) return;
@@ -150,233 +154,281 @@ export default function RelationalConfigPanel({ onGenerate, isGenerating }: Prop
     <div className="relational-config">
       <h3 className="relational-title">{r.title}</h3>
 
-      <div className="relational-entities">
-        {entities.map((entity, i) => (
-          <div key={i} className="relational-entity-card">
-            <div className="entity-header">
-              <span className="entity-badge">
-                {i === 0 ? r.parent : `${r.child} ${i}`}
-              </span>
-              {entities.length > 2 && (
-                <button
-                  className="btn-icon-sm"
-                  onClick={() => removeEntity(i)}
-                  title={r.removeEntity}
-                >
-                  ✕
-                </button>
-              )}
+      <div className="collapsible-section">
+        <button
+          className={`collapsible-header${entitiesOpen ? ' open' : ''}`}
+          onClick={() => setEntitiesOpen(!entitiesOpen)}
+          type="button"
+        >
+          <span>{r.entities || 'Geração Relacional'}</span>
+          <span className="collapsible-chevron">{entitiesOpen ? '▾' : '▸'}</span>
+        </button>
+        {entitiesOpen && (
+          <div className="collapsible-body">
+            <div className="relational-entities">
+              {entities.map((entity, i) => (
+                <div key={i} className="relational-entity-card">
+                  <div className="entity-header">
+                    <span className="entity-badge">
+                      {i === 0 ? r.parent : `${r.child} ${i}`}
+                    </span>
+                    {entities.length > 2 && (
+                      <button
+                        className="btn-icon-sm"
+                        onClick={() => removeEntity(i)}
+                        title={r.removeEntity}
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
+                  <div className="entity-fields">
+                    <div className="field-row">
+                      <label>{r.template}</label>
+                      <select
+                        value={entity.templateKey}
+                        onChange={(e) => updateEntity(i, 'templateKey', e.target.value)}
+                        disabled={isGenerating}
+                      >
+                        {TEMPLATE_KEYS.map(key => {
+                          const preset = PRESETS[key];
+                          const info = t.templateSelector.presets[key];
+                          return (
+                            <option key={key} value={key}>
+                              {info?.name || key} ({preset.fields.length} fields)
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                    <div className="field-row">
+                      <label>{r.records}</label>
+                      <input
+                        type="number"
+                        min="1"
+                        max={MAX_RECORDS}
+                        value={entity.recordCount}
+                        onChange={(e) => updateEntity(i, 'recordCount', e.target.value)}
+                        disabled={isGenerating}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="entity-fields">
-              <div className="field-row">
-                <label>{r.template}</label>
-                <select
-                  value={entity.templateKey}
-                  onChange={(e) => updateEntity(i, 'templateKey', e.target.value)}
-                  disabled={isGenerating}
-                >
-                  {TEMPLATE_KEYS.map(key => {
-                    const preset = PRESETS[key];
-                    const info = t.templateSelector.presets[key];
-                    return (
-                      <option key={key} value={key}>
-                        {info?.name || key} ({preset.fields.length} fields)
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-              <div className="field-row">
-                <label>{r.records}</label>
-                <input
-                  type="number"
-                  min="1"
-                  max={MAX_RECORDS}
-                  value={entity.recordCount}
-                  onChange={(e) => updateEntity(i, 'recordCount', e.target.value)}
-                  disabled={isGenerating}
-                />
-              </div>
-            </div>
+            {entities.length < MAX_ENTITIES && (
+              <button className="btn-add-entity" onClick={addEntity} disabled={isGenerating}>
+                {r.addEntity}
+              </button>
+            )}
           </div>
-        ))}
+        )}
       </div>
 
-      {entities.length < MAX_ENTITIES && (
-        <button className="btn-add-entity" onClick={addEntity} disabled={isGenerating}>
-          {r.addEntity}
+      <div className="collapsible-section">
+        <button
+          className={`collapsible-header${relationsOpen ? ' open' : ''}`}
+          onClick={() => setRelationsOpen(!relationsOpen)}
+          type="button"
+        >
+          <span>{r.relationship}</span>
+          <span className="collapsible-chevron">{relationsOpen ? '▾' : '▸'}</span>
         </button>
-      )}
-
-      <div className="relational-relations">
-        <div className="relations-header">
-          <h4>{r.relationship}</h4>
-          <button
-            className="btn-detect"
-            onClick={autoDetectRelations}
-            disabled={isGenerating || entities.length < 2}
-          >
-            {r.inferFK}
-          </button>
-        </div>
-
-        {relations.map((rel, i) => (
-          <div key={i} className="relation-card">
-            <div className="relation-fields">
-              <div className="field-row">
-                <label>{r.parentEntity}</label>
-                <select
-                  value={rel.parentKey}
-                  onChange={(e) => updateRelation(i, 'parentKey', e.target.value)}
-                  disabled={isGenerating}
-                >
-                  {entities.map(e => (
-                    <option key={e.templateKey} value={e.templateKey}>
-                      {t.templateSelector.presets[e.templateKey]?.name || e.templateKey}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="field-row">
-                <label>{r.parentField}</label>
-                <select
-                  value={rel.parentField}
-                  onChange={(e) => updateRelation(i, 'parentField', e.target.value)}
-                  disabled={isGenerating}
-                >
-                  {getParentFields(rel.parentKey).map(f => (
-                    <option key={f} value={f}>{f}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="relation-arrow">→</div>
-              <div className="field-row">
-                <label>{r.childEntity}</label>
-                <select
-                  value={rel.childKey}
-                  onChange={(e) => updateRelation(i, 'childKey', e.target.value)}
-                  disabled={isGenerating}
-                >
-                  {entities.map(e => (
-                    <option key={e.templateKey} value={e.templateKey}>
-                      {t.templateSelector.presets[e.templateKey]?.name || e.templateKey}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="field-row">
-                <label>{r.childField}</label>
-                <input
-                  type="text"
-                  value={rel.childField}
-                  onChange={(e) => updateRelation(i, 'childField', e.target.value)}
-                  placeholder="e.g. pessoa_id"
-                  disabled={isGenerating}
-                />
-              </div>
+        {relationsOpen && (
+          <div className="collapsible-body">
+            <div className="relations-toolbar">
               <button
-                className="btn-icon-sm"
-                onClick={() => removeRelation(i)}
-                title={r.removeEntity}
+                className="btn-detect"
+                onClick={autoDetectRelations}
+                disabled={isGenerating || entities.length < 2}
               >
-                ✕
+                {r.inferFK}
               </button>
             </div>
-            <div className="relation-cardinality">
-              {r.cardinality} {r.oneToMany}
+
+            {relations.map((rel, i) => (
+              <div key={i} className="relation-card">
+                <div className="relation-fields">
+                  <div className="field-row">
+                    <label>{r.parentEntity}</label>
+                    <select
+                      value={rel.parentKey}
+                      onChange={(e) => updateRelation(i, 'parentKey', e.target.value)}
+                      disabled={isGenerating}
+                    >
+                      {entities.map(e => (
+                        <option key={e.templateKey} value={e.templateKey}>
+                          {t.templateSelector.presets[e.templateKey]?.name || e.templateKey}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="field-row">
+                    <label>{r.parentField}</label>
+                    <select
+                      value={rel.parentField}
+                      onChange={(e) => updateRelation(i, 'parentField', e.target.value)}
+                      disabled={isGenerating}
+                    >
+                      {getParentFields(rel.parentKey).map(f => (
+                        <option key={f} value={f}>{f}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="relation-arrow">→</div>
+                  <div className="field-row">
+                    <label>{r.childEntity}</label>
+                    <select
+                      value={rel.childKey}
+                      onChange={(e) => updateRelation(i, 'childKey', e.target.value)}
+                      disabled={isGenerating}
+                    >
+                      {entities.map(e => (
+                        <option key={e.templateKey} value={e.templateKey}>
+                          {t.templateSelector.presets[e.templateKey]?.name || e.templateKey}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="field-row">
+                    <label>{r.childField}</label>
+                    <input
+                      type="text"
+                      value={rel.childField}
+                      onChange={(e) => updateRelation(i, 'childField', e.target.value)}
+                      placeholder="e.g. pessoa_id"
+                      disabled={isGenerating}
+                    />
+                  </div>
+                  <button
+                    className="btn-icon-sm"
+                    onClick={() => removeRelation(i)}
+                    title={r.removeEntity}
+                  >
+                    ✕
+                  </button>
+                </div>
+                <div className="relation-cardinality">
+                  {r.cardinality} {r.oneToMany}
+                </div>
+              </div>
+            ))}
+
+            {relations.length === 0 && (
+              <p className="no-relations">{r.validation.noRelations}</p>
+            )}
+
+            {ambiguousWarning && (
+              <p className="ambiguous-warning">{ambiguousWarning}</p>
+            )}
+
+            <button
+              className="btn-add-relation"
+              onClick={addManualRelation}
+              disabled={isGenerating || entities.length < 2}
+            >
+              + {r.relationship}
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div className="collapsible-section">
+        <button
+          className={`collapsible-header${configOpen ? ' open' : ''}`}
+          onClick={() => setConfigOpen(!configOpen)}
+          type="button"
+        >
+          <span>{r.additionalConfig || 'Configurações Adicionais'}</span>
+          <span className="collapsible-chevron">{configOpen ? '▾' : '▸'}</span>
+        </button>
+        {configOpen && (
+          <div className="collapsible-body">
+            <div className="relational-controls">
+              <div className="control-group range-group">
+                <label>{t.dataGenerator.nullRate.replace('{value}', String(nullRate))}</label>
+                <input
+                  type="range"
+                  min="0"
+                  max="50"
+                  value={nullRate}
+                  onChange={(e) => setNullRate(Number(e.target.value))}
+                  disabled={isGenerating}
+                  className="range-input"
+                />
+              </div>
+              <div className="control-group range-group">
+                <label>{t.dataGenerator.errorRate.replace('{value}', String(errorRate))}</label>
+                <input
+                  type="range"
+                  min="0"
+                  max="50"
+                  value={errorRate}
+                  onChange={(e) => setErrorRate(Number(e.target.value))}
+                  disabled={isGenerating}
+                  className="range-input"
+                />
+              </div>
+              <div className="control-group">
+                <label>Seed (opcional)</label>
+                <input
+                  type="number"
+                  placeholder="Ex: 12345"
+                  value={seed}
+                  onChange={(e) => setSeed(e.target.value)}
+                  disabled={isGenerating}
+                />
+              </div>
             </div>
           </div>
-        ))}
-
-        {relations.length === 0 && (
-          <p className="no-relations">{r.validation.noRelations}</p>
         )}
+      </div>
 
-        {ambiguousWarning && (
-          <p className="ambiguous-warning">{ambiguousWarning}</p>
-        )}
-
+      <div className="collapsible-section">
         <button
-          className="btn-add-relation"
-          onClick={addManualRelation}
-          disabled={isGenerating || entities.length < 2}
+          className={`collapsible-header${summaryOpen ? ' open' : ''}`}
+          onClick={() => setSummaryOpen(!summaryOpen)}
+          type="button"
         >
-          + {r.relationship}
+          <span>{r.summary}</span>
+          <span className="collapsible-chevron">{summaryOpen ? '▾' : '▸'}</span>
         </button>
-      </div>
-
-      <div className="relational-controls">
-        <div className="control-group range-group">
-          <label>{r.summary}</label>
-        </div>
-        <div className="control-group range-group">
-          <label>{t.dataGenerator.nullRate.replace('{value}', String(nullRate))}</label>
-          <input
-            type="range"
-            min="0"
-            max="50"
-            value={nullRate}
-            onChange={(e) => setNullRate(Number(e.target.value))}
-            disabled={isGenerating}
-            className="range-input"
-          />
-        </div>
-        <div className="control-group range-group">
-          <label>{t.dataGenerator.errorRate.replace('{value}', String(errorRate))}</label>
-          <input
-            type="range"
-            min="0"
-            max="50"
-            value={errorRate}
-            onChange={(e) => setErrorRate(Number(e.target.value))}
-            disabled={isGenerating}
-            className="range-input"
-          />
-        </div>
-        <div className="control-group">
-          <label>Seed (opcional)</label>
-          <input
-            type="number"
-            placeholder="Ex: 12345"
-            value={seed}
-            onChange={(e) => setSeed(e.target.value)}
-            disabled={isGenerating}
-          />
-        </div>
-      </div>
-
-      <div className="relational-summary">
-        {entities.map((entity, i) => {
-          const rel = relations.find(r => r.childKey === entity.templateKey);
-          const templateName = t.templateSelector.presets[entity.templateKey]?.name || entity.templateKey;
-          if (rel) {
-            return (
-              <div key={i} className="summary-line">
-                {r.entitySummaryFK
-                  .replace('{template}', templateName)
-                  .replace('{count}', String(entity.recordCount))
-                  .replace('{fk}', rel.childField)
-                  .replace('{parent}', rel.parentKey)
-                  .replace('{pk}', rel.parentField)}
-              </div>
-            );
-          }
-          const preset = PRESETS[entity.templateKey];
-          return (
-            <div key={i} className="summary-line">
-              {r.entitySummary
-                .replace('{template}', templateName)
-                .replace('{count}', String(entity.recordCount))
-                .replace('{pk}', preset?.primaryKey || 'id')}
-            </div>
-          );
-        })}
+        {summaryOpen && (
+          <div className="collapsible-body">
+            {entities.map((entity, i) => {
+              const rel = relations.find(r => r.childKey === entity.templateKey);
+              const templateName = t.templateSelector.presets[entity.templateKey]?.name || entity.templateKey;
+              if (rel) {
+                return (
+                  <div key={i} className="summary-line">
+                    {r.entitySummaryFK
+                      .replace('{template}', templateName)
+                      .replace('{count}', String(entity.recordCount))
+                      .replace('{fk}', rel.childField)
+                      .replace('{parent}', rel.parentKey)
+                      .replace('{pk}', rel.parentField)}
+                  </div>
+                );
+              }
+              const preset = PRESETS[entity.templateKey];
+              return (
+                <div key={i} className="summary-line">
+                  {r.entitySummary
+                    .replace('{template}', templateName)
+                    .replace('{count}', String(entity.recordCount))
+                    .replace('{pk}', preset?.primaryKey || 'id')}
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       <button
         className="btn-generate"
         onClick={handleGenerate}
         disabled={!canGenerate}
+        style={{ display: 'none' }}
       >
         {isGenerating ? r.generating : r.generate}
       </button>
